@@ -1,6 +1,6 @@
-# odoo-snippts README
+# odoo-snippets README
 
-
+ported from sublime-odoo-snippets
 
 -----------------------------------------------------------------------------------------------------------
 
