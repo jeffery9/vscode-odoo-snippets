@@ -2,19 +2,22 @@
 
 ported from sublime-odoo-snippets
 
------------------------------------------------------------------------------------------------------------
 
-## Working with Markdown
+## Build locally
 
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
+### install vcse tools
 
-* Split the editor (`Cmd+\` on OSX or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on OSX or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (OSX) to see a list of Markdown snippets
+run `npm install -g vcse ` to install vcse tools
 
-### For more information
+### build vscode pakcage 
 
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+goto odoo-snippets folder, then run `vcse package`, vcse should create a packaged extension.
+
+### install extension
+
+open the package from vs code, it shoudl been installed.
+
+
+
 
 **Enjoy!**
