@@ -1,7 +1,7 @@
 {
     "name": "odoo-snippets",
     "displayName": "odoo-snippets",
-    "description": "",
+    "description": "snippets for odoo addons using new api",
     "version": "0.0.1",
     "publisher": "jeffery",
     "engines": {
