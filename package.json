@@ -1,0 +1,22 @@
+{
+    "name": "odoo-snippts",
+    "displayName": "odoo-snippts",
+    "description": "",
+    "version": "0.0.1",
+    "publisher": "jeffery",
+    "engines": {
+        "vscode": "^1.0.0"
+    },
+    "categories": [
+        "Snippets"
+    ],
+    "contributes": {
+        "snippets": [{
+            "language": "python",
+            "path": "./snippets/python.json"
+        }, {
+            "language": "xml",
+            "path": "./snippets/xml.json"
+        }]
+    }
+}
