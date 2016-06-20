@@ -19,7 +19,7 @@
         "body": "\nclass ${1:ControllerName}(Controller):\n    \"\"\" ${2:The summary line for a class docstring should fit on one line.}\n\n        Routes:\n          /${3:some_url}: ${4:url description}\n    \"\"\"\n\n    @route('/${3}', type='${5:http}', auth='${6:none}')\n    def ${3/((^[A-Z])|([^a-zA-Z]))/(?2:\\l$2)(?3:\\_)/g}(self${7:, **kw}):\n\n        pass${0}\n",
         "description": "Controller"
     },
-    "odoo": {
+    "odoo1": {
         "prefix": "odoo",
         "body": "\n# -*- coding: utf-8 -*-\n###############################################################################\n#    License, author and contributors information in:                         #\n#    __openerp__.py file at the root folder of this module.                   #\n###############################################################################\n\nfrom openerp import models, fields, api\nfrom openerp.tools.translate import _\nfrom logging import getLogger\n\n\n_logger = getLogger(__name__)\n\n\n${0}\n",
         "description": "Odoo Python module file"
