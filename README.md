@@ -7,11 +7,11 @@ ported from sublime-odoo-snippets
 
 ### install vcse tools
 
-run `npm install -g vcse ` to install vcse tools
+run `npm install -g vsce ` to install vsce tools
 
 ### build vscode pakcage 
 
-goto odoo-snippets folder, then run `vcse package`, vcse should create a packaged extension.
+goto odoo-snippets folder, then run `vsce package`, vcse should create a packaged extension.
 
 ### install extension
 
