@@ -8,14 +8,14 @@ for the moment, still not published to vscode market.
 
 ## local installation
 
-## Installation manually
+## installation manually
 
-copy the folder into .vscode home dirctory, for windows this folder is  `%username/.vscode/extensons`, and for linux is `~/.vscode/extensions`
+copy the folder into `.vscode/extensions` directory, for windows this folder is  `%homepath%/.vscode/extensions`, and for linux is `~/.vscode/extensions`
 
-after copied the extension, vscode should found it.
+after copied the extension, vscode should found and load it.
 
 
-## Install using packaged extension
+## install using packaged extension
 
 ## download pre-build package
 
