@@ -2,7 +2,7 @@
     "name": "odoo-snippets",
     "displayName": "odoo-snippets",
     "description": "snippets for odoo addons using new api",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "publisher": "jeffery9",
     "engines": {
         "vscode": "^1.0.0"
@@ -18,5 +18,6 @@
             "language": "xml",
             "path": "./snippets/xml.json"
         }]
-    }
+    },
+    "icon": "images/odoo_logo.png"
 }
