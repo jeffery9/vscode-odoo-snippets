@@ -4,9 +4,13 @@ ported from sublime-odoo-snippets
 
 ## install from vscode market
 
-for the moment, still not published to vscode market.  
+~~for the moment, still not published to vscode market.~~
+
+just find this from market
 
 ## local installation
+
+download the source code from  https://github.com/jeffery9/vscode-odoo-snippets.git
 
 ## installation manually
 
