@@ -6,7 +6,7 @@
 	},
 	"controller": {
 		"prefix": "controller",
-		"body": "\nclass ${1:ControllerName}(Controller):\n    \"\"\" ${2:The summary line for a class docstring should fit on one line.}\n\n        Routes:\n          /${3:some_url}: ${4:url description}\n    \"\"\"\n\n    @route('/${3}', type='${5:http}', auth='${6:none}')\n    def ${3/((^[A-Z])|([^a-zA-Z]))/(?2:\\l$2)(?3:\\_)/g}(self${7:, **kw}):\n\n        pass${0}\n",
+		"body": "\nclass ${1:ControllerName}(Controller):\n    \"\"\" ${2:The summary line for a class docstring should fit on one line.}\n\n        Routes:\n          /${3:some_url}: ${4:url description}\n    \"\"\"\n\n    @route('/${3}', type='${5:http}', auth='${6:none}')\n    def ${3}(self${7:, **kw}):\n\n        pass${0}\n",
 		"description": "Controller"
 	},
 	"odoo1": {
@@ -16,77 +16,77 @@
 	},
 	"models.Model": {
 		"prefix": "models.Model",
-		"body": "\nclass ${1:ModelName}(models.Model):\n    \"\"\" ${2:The summary line for a class docstring should fit on one line.}\n\n    Fields:\n      name (Char): Human readable name which will identify each record.\n\n    \"\"\"\n\n    _name = '${3:${1/((^[A-Z])|([A-Z]))/(?2:\\l$2)(?3:\\.\\l$3)/g}}'\n    _description = u'${4:${1/((^[A-Z])|([A-Z]))/(?2:\\u$2)(?3:\\ \\l$3)/g}}'\n\n    _rec_name = 'name'\n    _order = 'name ASC'\n\n    name = fields.Char(\n        string='Name',\n        required=True,\n        readonly=False,\n        index=True,\n        default=None,\n        help=False,\n        size=50,\n        translate=True\n    )${0}\n",
+		"body": "\nclass ${1:ModelName}(models.Model):\n    \"\"\" ${2:The summary line for a class docstring should fit on one line.}\n\n    Fields:\n      name (Char): Human readable name which will identify each record.\n\n    \"\"\"\n\n    _name = '${3:${1}}'\n    _description = u'${4:${1}}'\n\n    _rec_name = 'name'\n    _order = 'name ASC'\n\n    name = fields.Char(\n        string='Name',\n        required=True,\n        readonly=False,\n        index=True,\n        default=None,\n        help=False,\n        size=50,\n        translate=True\n    )${0}\n",
 		"description": "Odoo generic model class"
 	},
 	"fields.Binary": {
 		"prefix": "fields.Binary",
-		"body": "\n${1:field_name} = fields.Binary(\n    string='${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ $4)/g}}',\n    required=${3:False},\n    readonly=${4:False},\n    index=${5:False},\n    default=${6:0},\n    help=${7:False}\n)${0}\n",
+		"body": "\n${1:field_name} = fields.Binary(\n    string='${2:${1}}',\n    required=${3:False},\n    readonly=${4:False},\n    index=${5:False},\n    default=${6:0},\n    help=${7:False}\n)${0}\n",
 		"description": "Common definition for field type Binary"
 	},
 	"fields.Boolean": {
 		"prefix": "fields.Boolean",
-		"body": "\n${1:field_name} = fields.Boolean(\n    string='${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ $4)/g}}',\n    required=${3:False},\n    readonly=${4:False},\n    index=${5:False},\n    default=${6:False},\n    help=${7:False}\n)${0}\n",
+		"body": "\n${1:field_name} = fields.Boolean(\n    string='${2:${1}}',\n    required=${3:False},\n    readonly=${4:False},\n    index=${5:False},\n    default=${6:False},\n    help=${7:False}\n)${0}\n",
 		"description": "Common definition for field type Boolean"
 	},
 	"fields.Char": {
 		"prefix": "fields.Char",
-		"body": "\n${1:field_name} = fields.Char(\n    string='${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ $4)/g}}',\n    required=${3:False},\n    readonly=${4:False},\n    index=${5:False},\n    default=${6:None},\n    help=${7:False},\n    size=${8:50},\n    translate=${9:True}\n)${0}\n",
+		"body": "\n${1:field_name} = fields.Char(\n    string='${2:${1}}',\n    required=${3:False},\n    readonly=${4:False},\n    index=${5:False},\n    default=${6:None},\n    help=${7:False},\n    size=${8:50},\n    translate=${9:True}\n)${0}\n",
 		"description": "Common definition for field type Char"
 	},
 	"fields.Date": {
 		"prefix": "fields.Date",
-		"body": "\n${1:field_name} = fields.Date(\n    string='${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ $4)/g}}',\n    required=${3:False},\n    readonly=${4:False},\n    index=${5:False},\n    default=${6:fields.Date.context_today()},\n    help=${7:False}\n)${0}\n",
+		"body": "\n${1:field_name} = fields.Date(\n    string='${2:${1}}',\n    required=${3:False},\n    readonly=${4:False},\n    index=${5:False},\n    default=${6:fields.Date.context_today()},\n    help=${7:False}\n)${0}\n",
 		"description": "Common definition for field type Date"
 	},
 	"fields.Datetime": {
 		"prefix": "fields.Datetime",
-		"body": "\n${1:field_name} = fields.Datetime(\n    string='${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ $4)/g}}',\n    required=${3:False},\n    readonly=${4:False},\n    index=${5:False},\n    default=${6:fields.datetime.now()},\n    help=${7:False}\n)${0}\n",
+		"body": "\n${1:field_name} = fields.Datetime(\n    string='${2:${1}}',\n    required=${3:False},\n    readonly=${4:False},\n    index=${5:False},\n    default=${6:fields.datetime.now()},\n    help=${7:False}\n)${0}\n",
 		"description": "Common definition for field type Datetime"
 	},
 	"fields.Float": {
 		"prefix": "fields.Float",
-		"body": "\n${1:field_name} = fields.Float(\n    string='${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ $4)/g}}',\n    required=${3:False},\n    readonly=${4:False},\n    index=${5:False},\n    default=${6:0.0},\n    digits=(${7:16}, ${8:2}),\n    help=${9:False}\n)${0}\n",
+		"body": "\n${1:field_name} = fields.Float(\n    string='${2:${1}}',\n    required=${3:False},\n    readonly=${4:False},\n    index=${5:False},\n    default=${6:0.0},\n    digits=(${7:16}, ${8:2}),\n    help=${9:False}\n)${0}\n",
 		"description": "Common definition for field type Float"
 	},
 	"fields.Html": {
 		"prefix": "fields.Html",
-		"body": "\n${1:field_name} = fields.Html(\n    string='${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ $4)/g}}',\n    required=${3:False},\n    readonly=${4:False},\n    index=${5:False},\n    default=${6:None},\n    help=${7:False}\n)${0}\n",
+		"body": "\n${1:field_name} = fields.Html(\n    string='${2:${1}}',\n    required=${3:False},\n    readonly=${4:False},\n    index=${5:False},\n    default=${6:None},\n    help=${7:False}\n)${0}\n",
 		"description": "Common definition for field type HTML"
 	},
 	"fields.Integer": {
 		"prefix": "fields.Integer",
-		"body": "\n${1:field_name} = fields.Integer(\n    string='${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ $4)/g}}',\n    required=${3:False},\n    readonly=${4:False},\n    index=${5:False},\n    default=${6:0},\n    help=${7:False}\n)${0}\n",
+		"body": "\n${1:field_name} = fields.Integer(\n    string='${2:${1}}',\n    required=${3:False},\n    readonly=${4:False},\n    index=${5:False},\n    default=${6:0},\n    help=${7:False}\n)${0}\n",
 		"description": "Common definition for field type Integer"
 	},
 	"fields.Many2many": {
 		"prefix": "fields.Many2many",
-		"body": "\n${1:field_name} = fields.Many2many(\n    string='${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ $4)/g}}',\n    required=${3:False},\n    readonly=${4:False},\n    index=${5:False},\n    default=${6:None},\n    help=${7:False},\n    comodel_name='${8:model.name}',\n    relation='${9:${8/\\./_/g}_this_model_rel}',\n    column1='${10:${8/\\./_/g}_id}',\n    column2='${11:this_model_id}',\n    domain=[${12}],\n    context=\\{${13}\\},\n    limit=${14:None}\n)${0}\n",
+		"body": "\n${1:field_name} = fields.Many2many(\n    string='${2:${1}}',\n    required=${3:False},\n    readonly=${4:False},\n    index=${5:False},\n    default=${6:None},\n    help=${7:False},\n    comodel_name='${8:model.name}',\n    relation='${9:${8}_this_model_rel}',\n    column1='${10:${8}_id}',\n    column2='${11:this_model_id}',\n    domain=[${12}],\n    context=\\{${13}\\},\n    limit=${14:None}\n)${0}\n",
 		"description": "Common definition for field type Many2many"
 	},
 	"fields.Many2one": {
 		"prefix": "fields.Many2one",
-		"body": "\n${1:field_name} = fields.Many2one(\n    string='${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ $4)/g}}',\n    required=${3:False},\n    readonly=${4:False},\n    index=${5:False},\n    default=${6:None},\n    help=${7:False},\n    comodel_name='${8:model.name}',\n    domain=[${9}],\n    context=\\{${10}\\},\n    ondelete='${11:cascade}',\n    auto_join=${12:False}\n)${0}\n",
+		"body": "\n${1:field_name} = fields.Many2one(\n    string='${2:${1}}',\n    required=${3:False},\n    readonly=${4:False},\n    index=${5:False},\n    default=${6:None},\n    help=${7:False},\n    comodel_name='${8:model.name}',\n    domain=[${9}],\n    context=\\{${10}\\},\n    ondelete='${11:cascade}',\n    auto_join=${12:False}\n)${0}\n",
 		"description": "Common definition for field type Many2one"
 	},
 	"fields.One2many": {
 		"prefix": "fields.One2many",
-		"body": "\n${1:field_name} = fields.One2many(\n    string='${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ $4)/g}}',\n    required=${3:False},\n    readonly=${4:False},\n    index=${5:False},\n    default=${6:None},\n    help=${7:False},\n    comodel_name='${8:model.name}',\n    inverse_name='${9:inverse_field}',\n    domain=[${10}],\n    context=\\{${11}\\},\n    auto_join=${12:False},\n    limit=${13:None}\n)${0}\n",
+		"body": "\n${1:field_name} = fields.One2many(\n    string='${2:${1}}',\n    required=${3:False},\n    readonly=${4:False},\n    index=${5:False},\n    default=${6:None},\n    help=${7:False},\n    comodel_name='${8:model.name}',\n    inverse_name='${9:inverse_field}',\n    domain=[${10}],\n    context=\\{${11}\\},\n    auto_join=${12:False},\n    limit=${13:None}\n)${0}\n",
 		"description": "Common definition for field type One2Many"
 	},
 	"fields.Reference": {
 		"prefix": "fields.Reference",
-		"body": "\n${1:field_name} = fields.Reference(\n    string='${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ $4)/g}}',\n    required=${3:False},\n    readonly=${4:False},\n    index=${5:False},\n    default=${6:0},\n    help=${7:False},\n    selection=[('${8:model.name}', '${9:String}'),('${10:model.name}', '${11:String}')]\n)${0}\n",
+		"body": "\n${1:field_name} = fields.Reference(\n    string='${2:${1}}',\n    required=${3:False},\n    readonly=${4:False},\n    index=${5:False},\n    default=${6:0},\n    help=${7:False},\n    selection=[('${8:model.name}', '${9:String}'),('${10:model.name}', '${11:String}')]\n)${0}\n",
 		"description": "Common definition for field type Reference"
 	},
 	"fields.Selection": {
 		"prefix": "fields.Selection",
-		"body": "\n${1:field_name} = fields.Selection(\n    string='${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ $4)/g}}',\n    required=${3:False},\n    readonly=${4:False},\n    index=${5:False},\n    default=${6:False},\n    help=${7:False},\n    selection=[('${8:valor1}', '${9:${8/(.)(.+)/\\u$1$2/g}}'), ('${10:valor2}', '${11:${10/(.)(.+)/\\u$1$2/g}}')]\n)${0}\n",
+		"body": "\n${1:field_name} = fields.Selection(\n    string='${2:${1}}',\n    required=${3:False},\n    readonly=${4:False},\n    index=${5:False},\n    default=${6:False},\n    help=${7:False},\n    selection=[('${8:valor1}', '${9:${8}}'), ('${10:valor2}', '${11:${10}}')]\n)${0}\n",
 		"description": "Common definition for field type Seleccion"
 	},
 	"fields.Text": {
 		"prefix": "fields.Text",
-		"body": "\n${1:field_name} = fields.Text(\n    string='${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ $4)/g}}',\n    required=${3:False},\n    readonly=${4:False},\n    index=${5:False},\n    default=${6:None},\n    help=${7:False},\n    translate=${8:True}\n)${0}\n",
+		"body": "\n${1:field_name} = fields.Text(\n    string='${2:${1}}',\n    required=${3:False},\n    readonly=${4:False},\n    index=${5:False},\n    default=${6:None},\n    help=${7:False},\n    translate=${8:True}\n)${0}\n",
 		"description": "Common definition for field type Text"
 	},
 	"compute": {
@@ -416,7 +416,7 @@
 	},
 	"TransactionCase": {
 		"prefix": "TransactionCase",
-		"body": "\nfrom openerp.tests.common import TransactionCase\n\n\nclass ${1:ModelName}(TransactionCase):\n    \"\"\" ${2:This class contains the unit tests for '${1/((^[A-Z])|([A-Z]))/(?2:\\l$2)(?3:\\.\\l$3)/g}'.}\n\n        Tests:\n          - ${3}: Checks if the ${3} works properly\n    \"\"\"\n\n    def setUp(self):\n        super(${1}, self).setUp()\n\n    def test_${3:item_name}(self):\n        \"\"\" Checks if the ${3} works properly \"\"\"\n\n        ${0:pass}\n",
+		"body": "\nfrom openerp.tests.common import TransactionCase\n\n\nclass ${1:ModelName}(TransactionCase):\n    \"\"\" ${2:This class contains the unit tests for '${1}'.}\n\n        Tests:\n          - ${3}: Checks if the ${3} works properly\n    \"\"\"\n\n    def setUp(self):\n        super(${1}, self).setUp()\n\n    def test_${3:item_name}(self):\n        \"\"\" Checks if the ${3} works properly \"\"\"\n\n        ${0:pass}\n",
 		"description": ""
 	},
 	"__init__": {
