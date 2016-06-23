@@ -125,77 +125,77 @@
 		"description": "Common Python library import lines"
 	},
 	"_compute": {
-		"prefix": "_compute",
+		"prefix": "def _compute",
 		"body": "\n@api.multi\n@api.depends('${1:depends}')\ndef _compute_${2:field}(self):\n    for record in self:\n        ${4:record.${2:field} = ${3:something}}\n${0}\n",
 		"description": "_compute method signature"
 	},
-	"def": {
-		"prefix": "def",
+	"copy": {
+		"prefix": "def copy",
 		"body": "\n@api.one\ndef copy(self, default=None):\n    \"\"\"\n        Create a new record in ${1:ModelName} model from existing one\n        @param default: dict which contains the values to be override during\n        copy of object\n\n        @return: returns a id of newly created record\n    \"\"\"\n\n    result = super(${1:ModelName}, self).copy(default)${0}\n\n    return result\n",
 		"description": "copy method signature"
 	},
-	"crud": {
-		"prefix": "crud",
+	"create": {
+		"prefix": "def create",
 		"body": "\n@api.model\ndef create(self, values):\n    \"\"\"\n        Create a new record for a model ${1:ModelName}\n        @param values: provides a data for new record\n\n        @return: returns a id of new record\n    \"\"\"\n\n    result = super(${1:Model_Name}, self).create(values)${0}\n\n    return result\n",
 		"description": "create method signature"
 	},
-	"def1": {
-		"prefix": "def",
+	"get_empty_list_help": {
+		"prefix": "def get_empty_list_help",
 		"body": "\n@api.model\ndef get_empty_list_help(self, help):\n    \"\"\" Generic method giving the help message displayed when having\n        no result to display in a list or kanban view.\n    \"\"\"\n\n    ${0:return help}\n",
 		"description": "get_empty_list_help method signature"
 	},
-	"def2": {
-		"prefix": "def",
+	"get_formview_id": {
+		"prefix": "def get_formview_id",
 		"body": "\n@api.one\n@api.returns('ir.ui.view')\ndef get_formview_id(self):\n    \"\"\" Return an view id to open the document with.\n\n        :param int id: id of the document to open\n    \"\"\"\n\n    ${0:return False}\n",
 		"description": "get_formview_id method signature"
 	},
-	"def3": {
-		"prefix": "def",
+	"init": {
+		"prefix": "def init",
 		"body": "\ndef init(self, cr):\n    \"\"\" Build database view which will be used as module origin\n\n        :param cr: database cursor\n    \"\"\"\n\n    self._sql_query = \"\"\"\n        SELECT\n            ROW_NUMBER() OVER() AS \"id\"\n    \"\"\"\n\n    drop_view_if_exists(cr, ${1:self._table})\n    cr.execute(\n        'create or replace view {} as ({})'.format(\n            ${1},\n            self._sql_query\n        )\n    )${0}\n",
 		"description": "init method signature"
 	},
 	"_onchange": {
-		"prefix": "_onchange",
+		"prefix": "def _onchange",
 		"body": "\n@api.one\n@api.onchange('${1:field}')\ndef _onchange_${1}(self):\n    ${3:self.${2:field} = self.${1}}\n${0}\n",
 		"description": "_onchange method signature, code"
 	},
 	"_onchange1": {
-		"prefix": "_onchange",
+		"prefix": "def _onchange domain",
 		"body": "\n@api.onchange('${1:field_name}')\ndef _onchange_${1}(self):\n    return {\n        'domain': {\n            '${2:field_name}': ${6:[('${3:field_name}', '${4:=}', ${5:self.${1}})]}\n        }\n    }${0}\n",
 		"description": "_onchange method signature, domain"
 	},
 	"_onchange2": {
-		"prefix": "_onchange",
+		"prefix": "def _onchange warning",
 		"body": "\n@api.onchange('${1:field}')\ndef _onchange_${1}(self):\n    return {\n        'warning': {\n            'title': '${2:Text of the title}',\n            'message': '${3:Text of the message}'\n        }\n    }${0}\n",
 		"description": "_onchange method signature, warning"
 	},
 	"_search": {
-		"prefix": "_search",
+		"prefix": "def _search",
 		"body": "\n@api.model\ndef _search_${1: field}(self, operator, value):\n    return [('${2:related}', operator, value)]${0}\n",
 		"description": "_search method signature"
 	},
-	"crud1": {
-		"prefix": "crud",
+	"unlink": {
+		"prefix": "def unlink",
 		"body": "\n@api.multi\ndef unlink(self):\n    \"\"\"\n        Delete all record(s) from recordset\n        return True on success, False otherwise\n\n        @return: True on success, False otherwise\n\n        #TODO: process before delete resource\n    \"\"\"\n\n    result = super(${1:ModelName}, self).unlink()${0}\n\n    return result\n",
 		"description": "unlink method signature"
 	},
-	"def4": {
-		"prefix": "def",
+	"view_header_get": {
+		"prefix": "def view_header_get",
 		"body": "\n@api.model\ndef view_header_get(self, view_id=None, view_type='form'):\n    \"\"\" Returns the window title which depends on the context \"\"\"\n\n    ${0:return False}\n",
 		"description": "view_header_get method signature"
 	},
-	"def5": {
-		"prefix": "def",
+	"view_init": {
+		"prefix": "def view_init",
 		"body": "\n@api.model\ndef view_init(self, fields_list):\n    \"\"\" Does specific things when a view on the object is opened \"\"\"\n\n    ${0:pass}\n",
 		"description": "view_init method signature"
 	},
-	"crud2": {
-		"prefix": "crud",
+	"write": {
+		"prefix": "def write",
 		"body": "\n@api.multi\ndef write(self, values):\n    \"\"\"\n        Update all record(s) in recordset, with new value comes as {values}\n        return True on success, False otherwise\n\n        @param values: dict of new values to be set\n\n        @return: True on success, False otherwise\n    \"\"\"\n\n    result = super(${1:Model_Name}, self).write(values)${0}\n\n    return result\n",
 		"description": "write method signature"
 	},
-	"crud3": {
-		"prefix": "crud",
+	"_browse": {
+		"prefix": "def _browse",
 		"body": "\n@classmethod\ndef _browse(cls, env, ids):\n    \"\"\" Returns a recordset for the ids provided as parameter in the current\n        environment.\n\n        Can take no ids, a single id or a sequence of ids.\n\n        :param cls: model class\n        :param env: environment\n        :param ids: none, a single id or a sequence of ids\n\n        :return: a recordset\n    \"\"\"\n\n    result = ${1:class_name}._browse(env, ids)\n    ${0}\n    return result\n",
 		"description": "_browse method signature"
 	},
@@ -410,7 +410,7 @@
 		"description": "fail"
 	},
 	"test": {
-		"prefix": "test",
+		"prefix": "def test",
 		"body": "\ndef test_${1:item_name}(self):\n    \"\"\" Checks if the ${1} works properly\n    \"\"\"\n\n    ${0:pass}\n",
 		"description": "Test case method"
 	},
