@@ -2,7 +2,7 @@
     "name": "odoo-snippets",
     "displayName": "odoo-snippets",
     "description": "snippets for odoo addons using new api",
-    "version": "0.0.2",
+    "version": "0.0.4",
     "publisher": "jeffery9",
     "engines": {
         "vscode": "^1.0.0"
@@ -11,12 +11,21 @@
         "Snippets"
     ],
     "contributes": {
+        "language":[
+            {
+                "id":"odoo acl",
+                "extensions": ["access.csv"],
+            }]
         "snippets": [{
             "language": "python",
             "path": "./snippets/python.json"
         }, {
             "language": "xml",
             "path": "./snippets/xml.json"
+        },
+        {
+            "language": "odoo acl",
+            "path": "./snippets/acl.json"
         }]
     },
     "icon": "images/odoo_logo.png"

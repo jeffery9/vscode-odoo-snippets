@@ -1,0 +1,12 @@
+{
+	"ir.model.access.csv": {
+		"prefix": "ir.model.access.csv",
+		"body": "\nid,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink\n",
+		"description": "ir.model.access.csv file",
+	},
+	"access": {
+		"prefix": "access",
+		"body": "\naccess_${1:model_name}_${2:group_name},${1}.${2},${3:module}.model_${1},group_${2},1,0,0,0\n",
+		"description": "ir.model.access record",
+	}
+}
