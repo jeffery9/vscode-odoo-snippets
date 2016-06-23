@@ -1,452 +1,452 @@
 {
-    "field": {
-        "prefix": "field",
-        "body": "\n<field\n    name=\"${1:name}\"${3:\n    string=\"${2:${1/((^.)|(_+))/(?2:\\u$2)(?3:\\ )/g}}\"}${5:\n    nolabel=\"${4:0}\"}${7:\n    required=\"${6:0}\"}${9:\n    readonly=\"${8:0}\"}${11:\n    invisible=\"${10:0}\"}${13:\n    widget=\"${12:char}\"}${15:\n    class=\"${14:oe_field_${1/([^a-zA-Z\\-\\_0-9]+)/\\_/g}}\"}${17:\n    placeholder=\"${16:${1/((^.)|(_+))/(?2:\\u$2)(?3:\\ )/g}}\"}${19:\n    help=\"${18:Enter new value for ${1/((^.)|(_+))/(?2:\\u$2)(?3:\\ )/g}}\"}${21:\n    mode=\"${20:tree}\"}${23:\n    filename=\"${22:${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}}\"}${25:\n    password=\"${24:0}\"}${27:\n    domain=\"${26:[]}\"}${29:\n    context=\"${28:\\{\\}}\"} />${0}\n",
-        "description": "Full field tag"
-    },
-    "field1": {
-        "prefix": "field",
-        "body": "\n<field name=\"${1:name}\" class=\"${2:oe_field_${1/([^a-zA-Z\\-\\_0-9]+)/\\_/g}}\"${4:\n    placeholder=\"${3:Enter new value for ${1/((^.)|(_+))/(?2:\\u$2)(?3:\\ )/g}}\"} />${0}\n",
-        "description": "Common field tag"
-    },
-    "fields.Boolean": {
-        "prefix": "fields.Boolean",
-        "body": "\n<field name=\"${1:name}\" eval=\"${2:True}\" />${0}\n",
-        "description": "Common XML tag for field type Boolean"
-    },
-    "fields.Char": {
-        "prefix": "fields.Char",
-        "body": "\n<field name=\"${1:name}\">${2:value}</field>${0}\n",
-        "description": "Common XML tag for field type Char"
-    },
-    "fields.Date": {
-        "prefix": "fields.Date",
-        "body": "\n<field name=\"${1:name}\" eval=\"${3:time.strftime('${2:%Y-%m-%d}')}\" />${0}\n",
-        "description": "Common XML tag for field type Date"
-    },
-    "fields.Datetime": {
-        "prefix": "fields.Datetime",
-        "body": "\n<field name=\"${1:name}\" eval=\"${3:time.strftime('${2:%Y-%m-%d %H:%M:%S}')}\" />${0}\n",
-        "description": "Common XML tag for field type Datetime"
-    },
-    "fields.Float": {
-        "prefix": "fields.Float",
-        "body": "\n<field name=\"${1:name}\" eval=\"${2:0.0}\" />${0}\n",
-        "description": "Common XML tag for field type Float"
-    },
-    "fields.Html": {
-        "prefix": "fields.Html",
-        "body": "\n<field name=\"${1:name}\"><![CDATA[\n    ${2:content}\n]]${-1}></field>${0}\n",
-        "description": "Common XML tag for field type Html"
-    },
-    "fields.Integer": {
-        "prefix": "fields.Integer",
-        "body": "\n<field name=\"${1:name}\" eval=\"${2:0}\" />${0}\n",
-        "description": "Common XML tag for field type Integer"
-    },
-    "fields.Many2many": {
-        "prefix": "fields.Many2many",
-        "body": "\n<field name=\"${1:name}\" eval=\"${3:[(4, ref('${2:ir.model}'))]}\" />${0}\n",
-        "description": "Common XML tag for field type Many2many"
-    },
-    "fields.Many2one": {
-        "prefix": "fields.Many2one",
-        "body": "\n<field name=\"${1:name}\" ref=\"${2:ir.model}\" />${0}\n",
-        "description": "Common XML tag for field type Many2one"
-    },
-    "fields.One2many": {
-        "prefix": "fields.One2many",
-        "body": "\n<field name=\"${1:name}\" eval=\"${3:[(4, ref('${2:ir.model}'))]}\" />${0}\n",
-        "description": "Common XML tag for field type One2many"
-    },
-    "fields.Selection": {
-        "prefix": "fields.Selection",
-        "body": "\n<field name=\"${1:name}\">${2:value}</field>${0}\n",
-        "description": "Common XML tag for field type Selection"
-    },
-    "fields.Text": {
-        "prefix": "fields.Text",
-        "body": "\n<field name=\"${1:name}\"><![CDATA[\n    ${2:content}\n]]${-1}></field>${0}\n",
-        "description": "Common XML tag for field type Text"
-    },
-    "button": {
-        "prefix": "button",
-        "body": "\n<button name=\"${1:function_name}\" string=\"${2:string}\" ${4:type=\"${3:object}\"} ${5:special=\"cancel\"} />\n",
-        "description": "Online button tag definition"
-    },
-    "button1": {
-        "prefix": "button",
-        "body": "\n<button name=\"${1:function_name}\"\n        string=\"${2:string}\"${4:\n        type=\"${3:object}\"}${5:\n        special=\"cancel\"}${7:\n        default_focus=\"${6:0}\"}${9:\n        icon=\"${8:gtk-apply}\"}${11:\n        confirm=\"${10:message}\"}${13:\n        help=\"${12:message}\"} />\n",
-        "description": "Common button tag definition"
-    },
-    "attrs": {
-        "prefix": "attrs",
-        "body": "\nattrs=\"{'${1:attribute_name}': [${5}('${2:field_name}', '${3:operator}', ${4:value})]${6}}\"${0}\n",
-        "description": ""
-    },
-    "form": {
-        "prefix": "form",
-        "body": "\n<form string=\"${1:Caption}\" create=\"${2:1}\" delete=\"${3:1}\" edit=\"${4:1}\">\n    <sheet>\n        <div class=\"oe_title\">\n            <label for=\"${5:name}\" class=\"oe_edit_only\" />\n            <h1><field name=\"${5}\" placeholder=\"${7:Describe the item...}\" /></h1>\n        </div>\n        ${0}\n    </sheet>\n</form>\n",
-        "description": "Common form tag to be added inside a ir.ui.view"
-    },
-    "graph": {
-        "prefix": "graph",
-        "body": "\n<graph string=\"${1:Graph title}\" type=\"${2:one # bar # pie # line # pivot}\">\n    <field type=\"row\" name=\"${3:row_field}\" />\n    <field type=\"col\" name=\"${4:col_field}\" interval=\"month\" />\n    <field type=\"measure\" name=\"${5:measure_field}\" />\n</graph>${0}\n",
-        "description": "Common graph tag to be added inside a ir.ui.view"
-    },
-    "filter": {
-        "prefix": "filter",
-        "body": "\n<filter string=\"${1:Name}\"\n    name=\"${2:${1/(([A-Za-z0-9])|( )|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)(?4:\\_)/g}}\"\n    domain=\"${3:[]}\"\n    context=\"${4:{}}\"\n    help=\"${5}\" />${0}\n",
-        "description": "Common filter tag to be added inside a search view"
-    },
-    "search": {
-        "prefix": "search",
-        "body": "\n<search string=\"${1:Name}\">\n    ${0}\n</search>\n",
-        "description": "Common search tag to be added inside a ir.ui.view"
-    },
-    "tree": {
-        "prefix": "tree",
-        "body": "\n<tree string=\"${1:Caption}\" create=\"${2:1}\" delete=\"${3:1}\" edit=\"${4:1}\"${6: editable=\"${5:top}\"}>\n    ${0}\n</tree>\n",
-        "description": "Common tree tag to be added inside a ir.ui.view"
-    },
-    "attribute": {
-        "prefix": "attribute",
-        "body": "\n<attribute name=\"${1:field_name}\">${2:value}</attribute>${0}\n",
-        "description": ""
-    },
-    "xpath": {
-        "prefix": "xpath",
-        "body": "\n<xpath expr=\"${1://field[@name='name']}\" position=\"${2:after}\">\n    ${0}\n</xpath>\n",
-        "description": "Common xpath tag to be added inside a ir.ui.view"
-    },
-    "ir.ui.view": {
-        "prefix": "ir.ui.view",
-        "body": "\n<record id=\"view_${2/[^a-z]+/\\_/g}_${3}\" model=\"ir.ui.view\">\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"model\">${2:model.name}</field>\n    <field name=\"type\">${3:tree}</field>\n    <field name=\"mode\">${4:primary}</field>\n    <field name=\"priority\" eval=\"${5:16}\" />\n    <field name=\"active\" eval=\"${6:True}\" />${8:\n    <field name=\"inherit_id\" ref=\"${7:xml_id}\" />}\n    <field name=\"arch\" type=\"xml\">\n        ${0}\n    </field>\n</record>\n",
-        "description": "Common ir.ui.view record definition"
-    },
-    "link": {
-        "prefix": "link",
-        "body": "\n<link rel=\"stylesheet\" href=\"/${1:module_name}/static/src/css/${2:styles}.css\" />${0}\n",
-        "description": "Link tag to inglude an stylesheet"
-    },
-    "script": {
-        "prefix": "script",
-        "body": "\n<script type=\"text/javascript\" src=\"/${1:module_name}/static/src/js/${2:scripts}.js\" />${0}\n",
-        "description": "Link tag to inglude an stylesheet"
-    },
-    "ir.filters": {
-        "prefix": "ir.filters",
-        "body": "\n<record id=\"${7:filter_${2/(\\.)/\\_/g}_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}}\" model=\"ir.filters\">\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"model_id\">${2:model_name_whithout_module}</field>\n    <field name=\"user_id\" eval=\"${3:False}\"/>\n    <field name=\"domain\">${4:[]}</field>\n    <field name=\"context\">${5:{}}</field>\n    <field name=\"is_default\" eval=\"${6:False}\" />\n    <!-- <field name=\"action_id\" ref=\"\" /> -->\n</record>${8}\n",
-        "description": "Common ir.filters record definition"
-    },
-    "ir.ui.menu": {
-        "prefix": "ir.ui.menu",
-        "body": "\n<record id=\"menu_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.ui.menu\" >\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"sequence\" eval=\"${2:10}\" />${4:\n    <field name=\"action\" ref=\"${3:action_name}\" />}${6:\n    <field name=\"parent_id\" ref=\"${5:base.menu_custom}\" />}\n</record>${0}\n",
-        "description": "Common ir.ui.menu record definition"
-    },
-    "notebook": {
-        "prefix": "notebook",
-        "body": "\n<notebook>\n    ${0}\n</notebook>\n",
-        "description": ""
-    },
-    "page": {
-        "prefix": "page",
-        "body": "\n<page string=\"${1:Title}\" class=\"${2:oe_page_${1/(([a-zA-Z])|([^A-Za-z]))/(?2:\\l$2)(?3:\\_)/g}}\" accesskey=\"${3:${1/(^.)(.*)/\\U\\1/g}}\">\n    ${0}\n</page>\n",
-        "description": ""
-    },
-    "relativedelta": {
-        "prefix": "relativedelta",
-        "body": "\n(DateTime.now() - relativedelta(${1:months=2})).strftime('${2:%Y-%m-%d}${3: }${4:%H:%M:%S}')${0}\n",
-        "description": "Fully formated time relative to now"
-    },
-    "strftime": {
-        "prefix": "strftime",
-        "body": "\nstrftime('${1:%Y-%m-%d}${2: }${3:%H:%M:%S}')${0}\n",
-        "description": "Fully formated strftime"
-    },
-    "assets": {
-        "prefix": "assets",
-        "body": "\n<record id=\"view_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_assets\" model=\"ir.ui.view\">\n    <field name=\"name\">${1:module} assets</field>\n    <field name=\"model\"></field>\n    <field name=\"type\">qweb</field>\n    <field name=\"mode\">extension</field>\n    <field name=\"priority\" eval=\"${2:16}\" />\n    <field name=\"active\" eval=\"${3:True}\" />\n    <field name=\"inherit_id\" ref=\"web.assets_backend\" />\n    <field name=\"arch\" type=\"xml\">\n        <xpath expr=\".\" position=\"inside\">${5:\n            <link rel=\"stylesheet\" href=\"/${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}/static/src/css/${4:styles}.css\" />}${7:\n            <script type=\"text/javascript\" src=\"/${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}/static/src/js/${6:scripts}.js\" />}${0}\n        </xpath>\n    </field>\n</record>\n",
-        "description": "Include module assets in backend views"
-    },
-    "fullview": {
-        "prefix": "fullview",
-        "body": "\n<!-- VIEWS: \"${1:Human readable name}\"\n\n    - Model·········: ${2:model}\n    - _rec_name·····: ${3:name}\n    - Domain········: ${4:[]}\n    - Context·······: ${5:\\{\\}}\n    - Parent menu ··: ${6:base.menu_custom}\n    - View priority·: ${7:16}    Sequence····: ${8:10}\n    - Action help···: ${9:Something about ${2/(.)/$1/g}}\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->\n\n<!-- Tree view for \"${2/(.)/\\1/g}\" -->\n<record id=\"view_${2/\\./\\_/g}_tree\" model=\"ir.ui.view\">\n    <field name=\"name\">view.${2/\\.+/\\./g}.tree</field>\n    <field name=\"model\">${2/\\.+/\\./g}</field>\n    <field name=\"type\">tree</field>\n    <field name=\"mode\">primary</field>\n    <field name=\"priority\" eval=\"${7/(.)/\\1/g}\" />\n    <field name=\"active\" eval=\"True\" />\n    <field name=\"arch\" type=\"xml\">\n        <tree string=\"${2/\\./\\_/g}_tree\" create=\"1\" delete=\"1\" edit=\"1\">\n            <field name=\"${3/(.)/\\1/g}\" />\n            ${0:<!-- ··· -->}\n        </tree>\n    </field>\n</record>\n\n<!-- Form view for \"${2/(.)/\\1/g}\" -->\n<record id=\"view_${2/\\./\\_/g}_form\" model=\"ir.ui.view\">\n    <field name=\"name\">view.${2/\\.+/\\./g}.form</field>\n    <field name=\"model\">${2/\\.+/\\./g}</field>\n    <field name=\"type\">form</field>\n    <field name=\"mode\">primary</field>\n    <field name=\"priority\" eval=\"${7/(.)/\\1/g}\" />\n    <field name=\"active\" eval=\"True\" />\n    <field name=\"arch\" type=\"xml\">\n        <form string=\"${2/\\./\\_/g}_form\" create=\"1\" delete=\"1\" edit=\"1\">\n            <sheet>\n                <div class=\"oe_title\">\n                    <label for=\"${3/(.)/\\1/g}\" class=\"oe_edit_only\" />\n                    <h1>\n                        <field name=\"${3/(.)/\\1/g}\" class=\"oe_field_${3/(.)/\\1/g}\"\n                            placeholder=\"${3/((^.)|(_+))/(?2:\\u$2)(?3:\\ )/g}\" />\n                    </h1>\n                </div>\n                <!-- ··· -->\n            </sheet>\n        </form>\n    </field>\n</record>\n\n<!-- Search view for \"${2/(.)/\\1/g}\" -->\n<record id=\"view_${2/\\./\\_/g}_search\" model=\"ir.ui.view\">\n    <field name=\"name\">view.${2/\\.+/\\./g}.search</field>\n    <field name=\"model\">${2/\\.+/\\./g}</field>\n    <field name=\"type\">search</field>\n    <field name=\"mode\">primary</field>\n    <field name=\"priority\" eval=\"${7/(.)/\\1/g}\" />\n    <field name=\"active\" eval=\"True\" />\n    <field name=\"arch\" type=\"xml\">\n        <search string=\"${2/\\./\\_/g}_search\">\n            <field name=\"${3/(.)/\\1/g}\" />\n            <!-- ··· -->\n        </search>\n    </field>\n</record>\n\n<!-- Main window action for model.name -->\n<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_act_window\" model=\"ir.actions.act_window\">\n    <field name=\"type\">ir.actions.act_window</field>\n    <field name=\"name\">${1/(.)/\\1/g}</field>\n    <field name=\"res_model\">${2/\\.+/\\./g}</field>\n    <field name=\"view_mode\">tree,form</field>\n    <field name=\"view_type\">form</field>\n    <field name=\"target\">current</field>\n    <field name=\"domain\">${4/(.)/\\1/g}</field>\n    <field name=\"context\">${5/(.)/\\1/g}</field>\n    <field name=\"search_view_id\" ref=\"view_${2/\\./\\_/g}_search\" />\n    <field name=\"help\" type=\"html\">\n        <p class=\"oe_view_nocontent_create\">\n            Click to add new ${1/(.)/\\1/g}\n        </p><p>\n            ${9/(.)/\\1/g}\n        </p>\n    </field>\n</record>\n\n<!-- Main menu for model.name -->\n<record id=\"menu_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.ui.menu\" >\n    <field name=\"name\">${1/(.)/\\1/g}</field>\n    <field name=\"sequence\" eval=\"${8/(.)/\\1/g}\" />\n    <field name=\"action\" ref=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_act_window\" />\n    <field name=\"parent_id\" ref=\"${6/(.)/\\1/g}\" />\n</record>\n",
-        "description": "Views: tree, form, search; act_window and menu"
-    },
-    "oe_chatter": {
-        "prefix": "oe_chatter",
-        "body": "\n<div class=\"oe_chatter\">\n    <field name=\"message_follower_ids\" widget=\"mail_followers\" />\n    <field name=\"message_ids\" widget=\"mail_thread\" />\n</div>${0}\n",
-        "description": "Common XML to add a tracking area inside a form view"
-    },
-    "ir.model.access": {
-        "prefix": "ir.model.access",
-        "body": "\n<record id=\"access_${1/^.*model_(.*)$/\\1/g}_${2/((^.*group_$)|(\\.))/(?2:group_)(?3:\\_)/g}\" model=\"ir.model.access\">\n    <field name=\"name\">${1/^.*model_(.*)$/\\1/g} ${2/((^.*group_$)|(\\.))/(?2:group_)(?3:\\_)/g}</field>\n    <field name=\"model_id\" ref=\"${1:ir.model}\"/>\n    <field name=\"group_id\" ref=\"${2:res.groups}\"/>\n    <field name=\"perm_read\" eval=\"${3:True}\" />\n    <field name=\"perm_create\" eval=\"${4:True}\" />\n    <field name=\"perm_write\" eval=\"${5:True}\" />\n    <field name=\"perm_unlink\" eval=\"${6:True}\" />\n    <field name=\"active\" eval=\"${7:True}\" />\n</record>${0}\n",
-        "description": "XML ir.model.access record"
-    },
-    "ir.rule": {
-        "prefix": "ir.rule",
-        "body": "\n<record id=\"${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_rule\" model=\"ir.rule\">\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"model_id\" ref=\"${3:model_xml_id}\"/>\n    <field name=\"global\" eval=\"${4:True}\" />\n    <field name=\"perm_read\" eval=\"${5:True}\" />\n    <field name=\"perm_create\" eval=\"${6:True}\" />\n    <field name=\"perm_write\" eval=\"${7:True}\" />\n    <field name=\"perm_unlink\" eval=\"${8:True}\" />\n    <field name=\"domain_force\">${9:['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]}</field>\n    <field name=\"active\" eval=\"${10:True}\" />\n</record>${0}\n",
-        "description": "XML ir.rule record"
-    },
-    "res.groups": {
-        "prefix": "res.groups",
-        "body": "\n<record id=\"group_${8:${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}}\" model=\"res.groups\">\n    <field name=\"name\">${1:Name}</field>\n    <field name=\"comment\">${2:Comment}</field>\n    <field name=\"category_id\" ref=\"${3:base.module_category_administration}\"/>\n    <field name=\"implied_ids\" eval=\"[(4, ref('${5:base.group_user}'))]\"/>\n    <field name=\"users\" eval=\"[(5, ref('${6:base.user_root}'))]\" />\n</record>${0}\n",
-        "description": "XML res.groups record"
-    },
-    "t-att": {
-        "prefix": "t-att",
-        "body": "\nt-att-${1:name}=\"${2:value}\"\n",
-        "description": "Qweb named attribute"
-    },
-    "t-att1": {
-        "prefix": "t-att",
-        "body": "\nt-att=\"${1:dict_of_pair}\"\n",
-        "description": "Qweb attribute"
-    },
-    "t-attf": {
-        "prefix": "t-attf",
-        "body": "\nt-attf-${1:name}=\"${2:format_string}\"\n",
-        "description": "Qweb format string attribute"
-    },
-    "t-call": {
-        "prefix": "t-call",
-        "body": "\n<t t-call=\"${1:template}\" />${0}\n",
-        "description": "Qweb inline call template"
-    },
-    "t-call1": {
-        "prefix": "t-call",
-        "body": "\n<t t-call=\"${1:template}\">\n    ${0}\n</t>\n",
-        "description": "Qweb call template"
-    },
-    "t-esc": {
-        "prefix": "t-esc",
-        "body": "\n<t t-esc=\"${1:value}\" />\n",
-        "description": "Qweb data output"
-    },
-    "t-extend": {
-        "prefix": "t-extend",
-        "body": "\n<t t-extend=\"${1:base.template}\">\n    <t t-jquery=\"${2:ul}\" t-operation=\"${3:append}\">\n        ${4:code}\n    </t>${0}\n</t>\n",
-        "description": "Qweb template inheritance"
-    },
-    "t-field": {
-        "prefix": "t-field",
-        "body": "\n<${1:span} t-field=\"${2:o}.${3:name}\" />${0}\n",
-        "description": "Qweb field access"
-    },
-    "t-foreach": {
-        "prefix": "t-foreach",
-        "body": "\n<t t-foreach=\"${1:set}\" t-as=\"${2:name}\">\n    ${0}\n</t>\n",
-        "description": "Qweb loop"
-    },
-    "t-if": {
-        "prefix": "t-if",
-        "body": "\n<${1:tag} t-if=\"${2:condition}\">${3:value}</${1}>${0}\n",
-        "description": "Qweb inline conditional"
-    },
-    "t-if1": {
-        "prefix": "t-if",
-        "body": "\n<t t-if=\"${1:codition}\">\n    ${0}\n</t>\n",
-        "description": "Qweb conditional"
-    },
-    "t-js": {
-        "prefix": "t-js",
-        "body": "\n<t t-js=\"${1:name}\">\n    ${0:console.log(\"Foo is\", ctx.foo);}\n</t>\n",
-        "description": "Qweb javascript"
-    },
-    "t-log": {
-        "prefix": "t-log",
-        "body": "\n<t t-log=\"${1:value}\"/>${0}\n",
-        "description": "Qweb logging"
-    },
-    "t-name": {
-        "prefix": "t-name",
-        "body": "\n<t t-name=\"${1:template-name}\">\n    ${0:<!-- template code -->}\n</t>\n",
-        "description": "Qweb top level named template"
-    },
-    "t-raw": {
-        "prefix": "t-raw",
-        "body": "\n<t t-raw=\"0\" />\n",
-        "description": "Qweb template from context"
-    },
-    "t-raw1": {
-        "prefix": "t-raw",
-        "body": "\n<t t-raw=\"translate_doc(${1:doc_id}, ${2:doc_model}, '${3:lang}', ${4:module.template'})\" />\n",
-        "description": "Qweb translate document"
-    },
-    "t-set": {
-        "prefix": "t-set",
-        "body": "\n<t t-set=\"${1:name}\" t-value=\"${2:value}\" />${0}\n",
-        "description": "Qweb inline variable"
-    },
-    "t-set1": {
-        "prefix": "t-set",
-        "body": "\n<t t-set=\"${1:name}\">\n    ${0}\n</t>\n",
-        "description": "Qweb variable"
-    },
-    "layout": {
-        "prefix": "layout",
-        "body": "\n<t t-call=\"report.external_layout\">\n    ${0}\n</t>\n",
-        "description": "Report external_layout"
-    },
-    "layout1": {
-        "prefix": "layout",
-        "body": "\n<t t-call=\"report.external_layout_footer\">\n    ${0}\n</t>\n",
-        "description": "Report external_layout_footer"
-    },
-    "layout2": {
-        "prefix": "layout",
-        "body": "\n<t t-call=\"report.external_layout_header\">\n    ${0}\n</t>\n",
-        "description": "Report external_layout_header"
-    },
-    "layout3": {
-        "prefix": "layout",
-        "body": "\n<t t-call=\"report.html_container\">\n    ${0}\n</t>\n",
-        "description": "Report html_container"
-    },
-    "layout4": {
-        "prefix": "layout",
-        "body": "\n<t t-call=\"report.internal_layout\">\n    ${0}\n</t>\n",
-        "description": "Report internal_layout"
-    },
-    "layout5": {
-        "prefix": "layout",
-        "body": "\n<t t-call=\"report.layout\">\n    ${0}\n</t>\n",
-        "description": "Report layout"
-    },
-    "layout6": {
-        "prefix": "layout",
-        "body": "\n<t t-call=\"report.minimal_layout\">\n    ${0}\n</t>\n",
-        "description": "Report minimal_layout"
-    },
-    "layout7": {
-        "prefix": "layout",
-        "body": "\n<t t-call=\"report.style\">\n    ${0}\n</t>\n",
-        "description": "Report style"
-    },
-    "t": {
-        "prefix": "t",
-        "body": "\n<t t-name=\"${1:module.model.name}\">\n    <t t-call=\"report.html_container\">\n        <t t-foreach=\"docs\" t-as=\"o\">\n            <t t-call=\"report.external_layout\">\n                <div class=\"page\">\n                    <h2>${2:Report title}</h2>\n                    ${0:<p>This object's name is <span t-field=\"o.name\"/></p>}\n                </div>\n            </t>\n        </t>\n    </t>\n</t>\n",
-        "description": ""
-    },
-    "report.paperformat": {
-        "prefix": "report.paperformat",
-        "body": "\n<record id=\"paperformat_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"report.paperformat\" >\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"format\">${2:A4}</field>\n    <field name=\"orientation\">${3:Portrait}</field>\n    <field name=\"default\" eval=\"${4:False}\" />\n    <field name=\"dpi\" eval=\"${5:90}\" />\n    <field name=\"margin_top\" eval=\"${6:40}\" />\n    <field name=\"margin_right\" eval=\"${7:7}\" />\n    <field name=\"margin_bottom\" eval=\"${8:20}\" />\n    <field name=\"margin_left\" eval=\"${9:7}\" />\n    <field name=\"header_line\" eval=\"${10:False}\" />\n    <field name=\"header_spacing\" eval=\"${11:35}\" />${13:\n    <field name=\"page_width\" eval=\"${12:210}\" />}${15:\n    <field name=\"page_height\" eval=\"${14:297}\" />}${17:\n    <field name=\"report_ids\" eval=\"[(4, ref('${16:ir.actions.report.xml}'))]\" />}${0}\n</record>\n",
-        "description": "Common record definition for report.paperformat"
-    },
-    "fullreport": {
-        "prefix": "fullreport",
-        "body": "\n<!-- REPORT: \"${1:Human readable name}\"\n\n    - Module: ${2:module}    Model: ${3:model}\n    - Language field used to translate it: ${4:lang}\n    - Report uses attachment: ${5:True}\n    - Report paperformat: ${6:report.paperformat_euro}\n    - View priority: ${7:16}    Active: ${8:True}\n    - Action help: ${9:Something about ${1/(.)/\\1/g}}\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->\n\n<!-- Report \"${1/(.)/\\1/g}\" document template -->\n<record id=\"view_${3/\\./\\_/g}_document_qweb\" model=\"ir.ui.view\">\n    <field name=\"name\">${1/(.)/\\1/g}</field>\n    <field name=\"model\">${3/(.)/\\1/g}</field>\n    <field name=\"type\">qweb</field>\n    <field name=\"mode\">primary</field>\n    <field name=\"priority\" eval=\"${7/(.)/\\1/g}\" />\n    <field name=\"active\" eval=\"${8/(.)/\\1/g}\" />\n    <field name=\"arch\" type=\"xml\">\n        <t t-name=\"${2/(.)/\\1/g}.view_${3/\\./\\_/g}_document_qweb\">\n            <t t-call=\"report.external_layout\">\n                <div class=\"page\">\n                    ${0:<h2>Report title</h2>\n                    <p>This object's name is <span t-field=\"o.name\"/></p>}\n                </div>\n            </t>\n        </t>\n    </field>\n</record>\n\n<!-- Report \"${1/(.)/\\1/g}\" translate_doc template -->\n<record id=\"view_${3/\\./\\_/g}_qweb\" model=\"ir.ui.view\">\n    <field name=\"name\">${1/(.)/\\1/g}</field>\n    <field name=\"model\">${3/(.)/\\1/g}</field>\n    <field name=\"type\">qweb</field>\n    <field name=\"mode\">primary</field>\n    <field name=\"priority\" eval=\"${7/(.)/\\1/g}\" />\n    <field name=\"active\" eval=\"${8/(.)/\\1/g}\" />\n    <field name=\"arch\" type=\"xml\">\n        <t t-name=\"${2/(.)/\\1/g}.view_${3/\\./\\_/g}_qweb\">\n            <t t-call=\"report.html_container\">\n                <t t-foreach=\"doc_ids\" t-as=\"doc_id\">\n                    <t t-raw=\"translate_doc(doc_id, doc_model, '${4/(.)/\\1/g}', '${2/(.)/\\1/g}.view_${3/\\./\\_/g}_document_qweb')\"/>\n                </t>\n            </t>\n        </t>\n    </field>\n</record>\n\n<!-- Report action to show: \"${1/(.)/\\1/g}\" -->\n<record id=\"action_report_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.actions.report.xml\">\n    <field name=\"name\">${1/(.)/\\1/g}</field>\n    <field name=\"model\">${3/(.)/\\1/g}</field>\n    <field name=\"report_type\">qweb-pdf</field>\n    <field name=\"report_name\">${2/(.)/\\1/g}.view_${3/\\./\\_/g}_qweb</field>\n    <field name=\"attachment_use\" eval=\"${5/(.)/\\1/g}\" />\n    <field name=\"attachment\">(object.name+'.pdf')</field>\n    <field name=\"paperformat_id\" ref=\"${6/(.)/\\1/g}\" />\n    <field name=\"help\">${9/(.)/\\1/g}</field>\n</record>\n\n<!-- Button to print the report: \"${1/(.)/\\1/g}\" -->\n<record id=\"${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_values\" model=\"ir.values\">\n    <field name=\"name\">${1/(.)/\\1/g}</field>\n    <field name=\"model_id\" ref=\"${2/(.)/\\1/g}.model_${3/\\./\\_/g}\" />\n    <field name=\"model\">${3/(.)/\\1/g}</field>\n    <field name=\"value\" eval=\"'ir.actions.report.xml,' +str(ref('action_report_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}'))\" />\n    <field name=\"key\">action</field>\n    <field name=\"key2\">client_print_multi</field>\n</record>\n",
-        "description": "Report: document and translation; action.report.xml and ir.values"
-    },
-    "ir.actions.act_window": {
-        "prefix": "ir.actions.act_window",
-        "body": "\n<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_act_window\" model=\"ir.actions.act_window\">\n    <field name=\"type\">ir.actions.act_window</field>\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"res_model\">${2:model.name}</field>\n    <field name=\"view_mode\">${3:tree,form}</field>\n    <field name=\"view_type\">${4:form}</field>\n    <field name=\"target\">${5:current}</field>${7:\n    <field name=\"domain\">[${6:}]</field>}${9:\n    <field name=\"context\">${8:\\{\\}}</field>}${11:\n    <field name=\"search_view_id\" ref=\"${10:ir.ui.view}\" />}\n</record>${0}\n",
-        "description": "Common record definition for ir.actions.act_window"
-    },
-    "ir.actions.act_window.view": {
-        "prefix": "ir.actions.act_window.view",
-        "body": "\n<record id=\"action_${1/[^a-zA-Z]+/\\_/g}_${2/[^a-zA-Z]+/\\_/g}\" model=\"ir.actions.act_window.view\">\n    <field name=\"act_window_id\" ref=\"${1:ir.actions.act_window}\" />\n    <field name=\"view_id\" ref=\"${2:ir.ui.view}\" />\n    <field name=\"view_mode\">${3:tree}</field>\n    <field name=\"sequence\" eval=\"${4:1}\" />\n    <field name=\"multi\" eval=\"${5:False}\" />\n</record>\n",
-        "description": "Common record definition for ir.actions.act_window.view"
-    },
-    "ir.actions.report.xml": {
-        "prefix": "ir.actions.report.xml",
-        "body": "\n<record id=\"action_report_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.actions.report.xml\">\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"model\">${2:model.name}</field>\n    <field name=\"report_type\">${3:qweb-pdf}</field>\n    <field name=\"report_name\">${4:out_filename}</field>\n    <field name=\"attachment_use\" eval=\"${5:True}\" />\n    <field name=\"attachment\">${6:(object.name+'.pdf')}</field>\n    <field name=\"paperformat_id\" ref=\"${7:report.paperformat_euro}\" />${9:\n    <field name=\"help\">${8:Something about ${1}}</field>}\n</record>${0}\n",
-        "description": "Common record definition for ir.actions.report.xml"
-    },
-    "ir.actions.server": {
-        "prefix": "ir.actions.server",
-        "body": "\n<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_server\" model=\"ir.actions.server\">\n    <field name=\"type\">ir.actions.server</field>\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"model_id\" ref=\"${2:ir.model}\" />\n    <field name=\"condition\" eval=\"${3:True}\" />\n    <field name=\"sequence\" eval=\"${4:5}\" />\n    <field name=\"context\" eval=\"${5:\\{\\}}\" />\n    <field name=\"action_id\" ref=\"${6:ir.actions.actions}\" />\n</record>${0}\n",
-        "description": "Common record definition for ir.actions.server, invoking a client action"
-    },
-    "ir.actions.server1": {
-        "prefix": "ir.actions.server",
-        "body": "\n<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_server\" model=\"ir.actions.server\">\n    <field name=\"type\">ir.actions.server</field>\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"model_id\" ref=\"${2:ir.model}\" />\n    <field name=\"condition\" eval=\"${3:True}\" />\n    <field name=\"sequence\" eval=\"${4:5}\" />\n    <field name=\"context\" eval=\"${5:\\{\\}}\" />\n    <field name=\"code\">${6:action = self.browse(cr, uid, 1, context=context)}</field>\n</record>${0}\n",
-        "description": "Common record definition for ir.actions.server, running Python code"
-    },
-    "ir.actions.server2": {
-        "prefix": "ir.actions.server",
-        "body": "\n<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_server\" model=\"ir.actions.server\">\n    <field name=\"type\">ir.actions.server</field>\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"model_id\" ref=\"${2:ir.model}\" />\n    <field name=\"condition\" eval=\"${3:True}\" />\n    <field name=\"sequence\" eval=\"${4:5}\" />\n    <field name=\"context\" eval=\"${5:\\{\\}}\" />\n    <field name=\"child_ids\" eval=\"[(6, ref('${6:ir.actions.server}'))]\" />\n</record>${0}\n",
-        "description": "Common record definition for ir.actions.server, executing multiple actions"
-    },
-    "ir.actions.server3": {
-        "prefix": "ir.actions.server",
-        "body": "\n<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_server\" model=\"ir.actions.server\">\n    <field name=\"type\">ir.actions.server</field>\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"model_id\" ref=\"${2:ir.model}\" />\n    <field name=\"condition\" eval=\"${3:True}\" />\n    <field name=\"sequence\" eval=\"${4:5}\" />\n    <field name=\"context\" eval=\"${5:\\{\\}}\" />\n    <field name=\"use_create\">${6:new}</field>${8:\n    <field name=\"crud_model_id\" ref=\"${7:ir.model}\" />}${10:\n    <field name=\"ref_object\">${9:reference}</field>}${12:\n    <field name=\"fields_lines\" eval=\"[(4, ref('${11:ir.server.object.lines}'))]\" />}${14:\n    <field name=\"link_new_record\" eval=\"${13:False}\" />}${16:\n    <field name=\"link_field_id\" ref=\"${15:ir.model.fields}\" />}\n</record>${0}\n",
-        "description": "Common record definition for ir.actions.server, creating objects"
-    },
-    "ir.actions.server4": {
-        "prefix": "ir.actions.server",
-        "body": "\n<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_server\" model=\"ir.actions.server\">\n    <field name=\"type\">ir.actions.server</field>\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"model_id\" ref=\"${2:ir.model}\" />\n    <field name=\"condition\" eval=\"${3:True}\" />\n    <field name=\"sequence\" eval=\"${4:5}\" />\n    <field name=\"context\" eval=\"${5:\\{\\}}\" />\n    <field name=\"use_write\">${6:current}</field>${8:\n    <field name=\"crud_model_id\" ref=\"${7:ir.model}\" />}${10:\n    <field name=\"ref_object\">${9:reference}</field>}${12:\n    <field name=\"fields_lines\" eval=\"[(4, ref('${11:ir.server.object.lines}'))]\" />}${14:\n    <field name=\"write_expression\">${13:char}</field>}\n</record>${0}\n",
-        "description": "Common record definition for ir.actions.server, updating objects"
-    },
-    "ir.actions.server5": {
-        "prefix": "ir.actions.server",
-        "body": "\n<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_server\" model=\"ir.actions.server\">\n    <field name=\"type\">ir.actions.server</field>\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"model_id\" ref=\"${2:ir.model}\" />\n    <field name=\"condition\" eval=\"${3:True}\" />\n    <field name=\"sequence\" eval=\"${4:5}\" />\n    <field name=\"context\" eval=\"${5:\\{\\}}\" />\n    <field name=\"wkf_transition_id\" ref=\"${6:workflow.transition}\" />\n    <field name=\"use_relational_model\">${7:base}</field>${9:\n    <field name=\"wkf_model_id\" ref=\"${8:ir.model}\" />}${11:\n    <field name=\"wkf_field_id\" ref=\"${10:ir.model.fields}\" />}\n</record>${0}\n",
-        "description": "Common record definition for ir.actions.server, triggering"
-    },
-    "ir.actions.todo": {
-        "prefix": "ir.actions.todo",
-        "body": "\n<record id=\"action_todo_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.actions.todo\">\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"type\">${2:manual}</field>\n    <field name=\"state\">${3:open}</field>\n    <field name=\"sequence\" eval=\"${4:10}\" />\n    <field name=\"action_id\" ref=\"${5:ir.actions.actions}\" />${7:\n    <field name=\"note\">${6:Something about ${1}}</field>}\n</record>${0}\n",
-        "description": ""
-    },
-    "ir.config_parameter": {
-        "prefix": "ir.config_parameter",
-        "body": "\n<record id=\"${1/[^A-Za-z]/\\_/g}\" model=\"ir.config_parameter\">\n    <field name=\"key\">${1:char}</field>\n    <field name=\"value\">${2:text}</field>${4:\n    <field name=\"group_ids\" eval=\"[(4, ref('${3:res.groups}'))]\" />}\n</record>${0}\n",
-        "description": "Common ir.config_parameter record definition"
-    },
-    "ir.model.data": {
-        "prefix": "ir.model.data",
-        "body": "\n<record id=\"${3/(\\.+)/_/g}_${1/(\\.+)/_/g}\" model=\"ir.model.data\">\n    <field name=\"name\">${1:resource_external_id}</field>\n    <field name=\"model\">${2:model.name}</field>\n    <field name=\"module\">${3:module_name}</field>\n    <field name=\"date_init\" eval=\"${4:time.strftime('%Y-%m-%d %H:%M:%S')}\" />\n    <field name=\"date_update\" eval=\"${5:time.strftime('%Y-%m-%d %H:%M:%S')}\" />\n    <field name=\"res_id\" eval=\"${6:1}\" />\n    <field name=\"noupdate\" eval=\"${7:True}\" />\n</record>${0}\n",
-        "description": "Common record definition for ir.model.data"
-    },
-    "ir.model": {
-        "prefix": "ir.model",
-        "body": "\n<record id=\"${1/(\\.+)/_/g}_${2/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.model\">\n    <field name=\"model\">${1:model_name}</field>\n    <field name=\"name\">${2:Human readable name}</field>\n    <field name=\"state\">${3:Base | Manual}</field>\n    <field name=\"info\">${4:Description}</field>\n</record>${0}\n",
-        "description": "Common record definition for ir.model"
-    },
-    "ir.module.category": {
-        "prefix": "ir.module.category",
-        "body": "\n<record id=\"module_category_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.module.category\">\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"sequence\" eval=\"${2:10}\" />\n    <field name=\"visible\" eval=\"${3:True}\" />\n    <field name=\"description\">${4:${1} category}</field>${6:\n    <field name=\"parent_id\" ref=\"${5:ir.module.category}\" />}\n</record>${0}\n",
-        "description": "XML ir.model.category record"
-    },
-    "ir.values": {
-        "prefix": "ir.values",
-        "body": "\n<record id=\"${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_values\" model=\"ir.values\">\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"model_id\" ref=\"${2:module.model_external_id}\" />\n    <field name=\"model\">${2/((^[^.]*.?model_)|([_]+))/(?2:)(?3:\\.)/g}</field>\n    <field name=\"value\" eval=\"${4:'ir.actions.act_window,' +str(ref('${3:action_external_id}'))}\" />\n    <field name=\"key\">${5:action}</field>\n    <field name=\"key2\">${6:tree_but_open}</field>${8:\n    <field name=\"action_id\" ref=\"${7:ir.actions.actions}\" />}${10:\n    <field name=\"res_id\" eval=\"${9:1}\" />}${12:\n    <field name=\"company_id\" ref=\"${11:res.company}\" />}${14:\n    <field name=\"user_id\" ref=\"${13:res.users}\" />}\n</record>${0}\n",
-        "description": "Common record definition for ir.values"
-    },
-    "base.action.rule": {
-        "prefix": "base.action.rule",
-        "body": "\n<record id=\"${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"base.action.rule\">\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"active\" eval=\"${2:True}\" />\n    <field name=\"sequence\" eval=\"${3:0}\" />\n    <field name=\"server_action_ids\" eval=\"[(4, ref('${4:ir.actions.server}'))]\" />\n    <field name=\"model_id\" ref=\"${5:ir.model}\" />\n    <field name=\"kind\">${6:on_create_or_write}</field>\n    <field name=\"trg_date_id\" ref=\"${7:ir.model.fields}\" />\n    <field name=\"trg_date_range\" eval=\"${8:0}\" />\n    <field name=\"trg_date_range_type\">${9:day}</field>${11:\n    <field name=\"trg_date_calendar_id\" ref=\"${10:resource.calendar}\" />}${13:\n    <field name=\"filter_id\" ref=\"${12:ir.filters}\" />}${15:\n    <field name=\"filter_pre_id\" ref=\"${14:ir.filters}\" />}${17:\n    <field name=\"act_user_id\" ref=\"${16:base.user_root}\" />}${19:\n    <field name=\"act_followers\" eval=\"[(4, ref('${18:res.partner}'))]\" />}\n</record>${0}\n",
-        "description": "Common record definition for base.action.rule"
-    },
-    "email.template": {
-        "prefix": "email.template",
-        "body": "\n<record id=\"email_template_${12:${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}}\" model=\"email.template\">\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"subject\">${2:$1}</field>\n    <field name=\"email_from\">${3:$\\{object.company_id.name\\} <$\\{(object.company_id.email or user.email)|safe\\}>}</field>\n    <field name=\"email_to\">${4:$\\{object.name|safe\\} <$\\{object.email|safe\\}>}</field>\n    <field name=\"email_cc\">${5}</field>\n    <field name=\"reply_to\">${6}</field>\n    <field name=\"user_signature\" eval=\"${7:False}\" />\n    <field name=\"lang\">${8:$\\{object.lang\\}}</field>\n    <field name=\"auto_delete\" eval=\"${9:True}\" />\n    <field name=\"model_id\" ref=\"${10:ir.model}\" />\n    <field name=\"attachment_ids\" eval=\"[(4, ref('${11:ir.attachment}'))]\" />\n    <field name=\"body_html\"><![CDATA[\n        ${12:<p>To whom it may concern:</p>}\n]]${-1}></field>\n</record>${0}\n",
-        "description": "Common record definition for email.template"
-    },
-    "id": {
-        "prefix": "id",
-        "body": "\nref('${1:record.external.id}')${0}\n",
-        "description": "Database ID from external ID conversion"
-    },
-    "odoo": {
-        "prefix": "odoo",
-        "body": "\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\n<openerp>\n    <data noupdate=\"${1:1}\">\n\n        ${0}\n\n    </data>\n</openerp>\n",
-        "description": "Common base XML structure to be used in Odoo module data files"
-    },
-    "product.product": {
-        "prefix": "product.product",
-        "body": "\n<record id=\"${18:${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_product_product}\" model=\"product.product\">\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"description\">${2:Description}</field>\n    <field name=\"description_purchase\">${3:${2:Description}}</field>\n    <field name=\"description_sale\">${4:${2:Description}}</field>\n    <field name=\"categ_id\" ref=\"${5:product.category}\"/>\n    <field name=\"standard_price\">${6:0.0}</field>\n    <field name=\"list_price\">${7:0.0}</field>\n    <field name=\"type\">${8:consu|service}</field>\n    <field name=\"uom_id\" ref=\"${9:product.uom}\"/>\n    <field name=\"uom_po_id\" ref=\"${10:product.uom}\"/>\n    <field name=\"taxes_id\" eval=\"[(4, ref('${11:account.tax}'))]\" />\n${13:    <field name=\"image\" type=\"base64\" file=\"${12:module_name/static/img/file_name.png}\"/>\n}${15:    <field name=\"default_code\">${14:PRODUCT-CODE}</field>\n}${17:    <field name=\"ean13\">${16:0000000000000}</field>\n}</record>${0}\n",
-        "description": "XML product.product record"
-    },
-    "product.template": {
-        "prefix": "product.template",
-        "body": "\n<record id=\"${18:${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_product_template}\" model=\"product.template\">\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"description\">${2:Description}</field>\n    <field name=\"description_purchase\">${3:${2:Description}}</field>\n    <field name=\"description_sale\">${4:${2:Description}}</field>\n    <field name=\"categ_id\" ref=\"${5:product.category}\"/>\n    <field name=\"standard_price\">${6:0.0}</field>\n    <field name=\"list_price\">${7:0.0}</field>\n    <field name=\"type\">${8:consu|service}</field>\n    <field name=\"uom_id\" ref=\"${9:product.uom}\"/>\n    <field name=\"uom_po_id\" ref=\"${10:product.uom}\"/>\n    <field name=\"taxes_id\" eval=\"[(4, ref('${11:account.tax}'))]\" />\n${13:    <field name=\"image\" type=\"base64\" file=\"${12:module_name/static/img/file_name.png}\"/>\n}${15:    <field name=\"default_code\">${14:PRODUCT-CODE}</field>\n}${17:    <field name=\"ean13\">${16:0000000000000}</field>\n}</record>${0}\n",
-        "description": "XML product.template record"
-    },
-    "record": {
-        "prefix": "record",
-        "body": "\n<record id=\"${2:${1/(\\.+)/\\_/g}}\" model=\"${1:model.name}\">\n    ${0}\n</record>\n",
-        "description": ""
-    }
+	"ir.actions.act_window": {
+		"prefix": "ir.actions.act_window",
+		"body": "\n<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_act_window\" model=\"ir.actions.act_window\">\n    <field name=\"type\">ir.actions.act_window</field>\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"res_model\">${2:model.name}</field>\n    <field name=\"view_mode\">${3:tree,form}</field>\n    <field name=\"view_type\">${4:form}</field>\n    <field name=\"target\">${5:current}</field>${7:\n    <field name=\"domain\">[${6:}]</field>}${9:\n    <field name=\"context\">${8:\\{\\}}</field>}${11:\n    <field name=\"search_view_id\" ref=\"${10:ir.ui.view}\" />}\n</record>${0}\n",
+		"description": "Common record definition for ir.actions.act_window"
+	},
+	"ir.actions.act_window.view": {
+		"prefix": "ir.actions.act_window.view",
+		"body": "\n<record id=\"action_${1/[^a-zA-Z]+/\\_/g}_${2/[^a-zA-Z]+/\\_/g}\" model=\"ir.actions.act_window.view\">\n    <field name=\"act_window_id\" ref=\"${1:ir.actions.act_window}\" />\n    <field name=\"view_id\" ref=\"${2:ir.ui.view}\" />\n    <field name=\"view_mode\">${3:tree}</field>\n    <field name=\"sequence\" eval=\"${4:1}\" />\n    <field name=\"multi\" eval=\"${5:False}\" />\n</record>\n",
+		"description": "Common record definition for ir.actions.act_window.view"
+	},
+	"ir.actions.report.xml": {
+		"prefix": "ir.actions.report.xml",
+		"body": "\n<record id=\"action_report_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.actions.report.xml\">\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"model\">${2:model.name}</field>\n    <field name=\"report_type\">${3:qweb-pdf}</field>\n    <field name=\"report_name\">${4:out_filename}</field>\n    <field name=\"attachment_use\" eval=\"${5:True}\" />\n    <field name=\"attachment\">${6:(object.name+'.pdf')}</field>\n    <field name=\"paperformat_id\" ref=\"${7:report.paperformat_euro}\" />${9:\n    <field name=\"help\">${8:Something about ${1}}</field>}\n</record>${0}\n",
+		"description": "Common record definition for ir.actions.report.xml"
+	},
+	"ir.actions.server": {
+		"prefix": "ir.actions.server",
+		"body": "\n<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_server\" model=\"ir.actions.server\">\n    <field name=\"type\">ir.actions.server</field>\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"model_id\" ref=\"${2:ir.model}\" />\n    <field name=\"condition\" eval=\"${3:True}\" />\n    <field name=\"sequence\" eval=\"${4:5}\" />\n    <field name=\"context\" eval=\"${5:\\{\\}}\" />\n    <field name=\"action_id\" ref=\"${6:ir.actions.actions}\" />\n</record>${0}\n",
+		"description": "Common record definition for ir.actions.server, invoking a client action"
+	},
+	"ir.actions.server1": {
+		"prefix": "ir.actions.server",
+		"body": "\n<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_server\" model=\"ir.actions.server\">\n    <field name=\"type\">ir.actions.server</field>\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"model_id\" ref=\"${2:ir.model}\" />\n    <field name=\"condition\" eval=\"${3:True}\" />\n    <field name=\"sequence\" eval=\"${4:5}\" />\n    <field name=\"context\" eval=\"${5:\\{\\}}\" />\n    <field name=\"code\">${6:action = self.browse(cr, uid, 1, context=context)}</field>\n</record>${0}\n",
+		"description": "Common record definition for ir.actions.server, running Python code"
+	},
+	"ir.actions.server2": {
+		"prefix": "ir.actions.server",
+		"body": "\n<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_server\" model=\"ir.actions.server\">\n    <field name=\"type\">ir.actions.server</field>\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"model_id\" ref=\"${2:ir.model}\" />\n    <field name=\"condition\" eval=\"${3:True}\" />\n    <field name=\"sequence\" eval=\"${4:5}\" />\n    <field name=\"context\" eval=\"${5:\\{\\}}\" />\n    <field name=\"child_ids\" eval=\"[(6, ref('${6:ir.actions.server}'))]\" />\n</record>${0}\n",
+		"description": "Common record definition for ir.actions.server, executing multiple actions"
+	},
+	"ir.actions.server3": {
+		"prefix": "ir.actions.server",
+		"body": "\n<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_server\" model=\"ir.actions.server\">\n    <field name=\"type\">ir.actions.server</field>\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"model_id\" ref=\"${2:ir.model}\" />\n    <field name=\"condition\" eval=\"${3:True}\" />\n    <field name=\"sequence\" eval=\"${4:5}\" />\n    <field name=\"context\" eval=\"${5:\\{\\}}\" />\n    <field name=\"use_create\">${6:new}</field>${8:\n    <field name=\"crud_model_id\" ref=\"${7:ir.model}\" />}${10:\n    <field name=\"ref_object\">${9:reference}</field>}${12:\n    <field name=\"fields_lines\" eval=\"[(4, ref('${11:ir.server.object.lines}'))]\" />}${14:\n    <field name=\"link_new_record\" eval=\"${13:False}\" />}${16:\n    <field name=\"link_field_id\" ref=\"${15:ir.model.fields}\" />}\n</record>${0}\n",
+		"description": "Common record definition for ir.actions.server, creating objects"
+	},
+	"ir.actions.server4": {
+		"prefix": "ir.actions.server",
+		"body": "\n<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_server\" model=\"ir.actions.server\">\n    <field name=\"type\">ir.actions.server</field>\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"model_id\" ref=\"${2:ir.model}\" />\n    <field name=\"condition\" eval=\"${3:True}\" />\n    <field name=\"sequence\" eval=\"${4:5}\" />\n    <field name=\"context\" eval=\"${5:\\{\\}}\" />\n    <field name=\"use_write\">${6:current}</field>${8:\n    <field name=\"crud_model_id\" ref=\"${7:ir.model}\" />}${10:\n    <field name=\"ref_object\">${9:reference}</field>}${12:\n    <field name=\"fields_lines\" eval=\"[(4, ref('${11:ir.server.object.lines}'))]\" />}${14:\n    <field name=\"write_expression\">${13:char}</field>}\n</record>${0}\n",
+		"description": "Common record definition for ir.actions.server, updating objects"
+	},
+	"ir.actions.server5": {
+		"prefix": "ir.actions.server",
+		"body": "\n<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_server\" model=\"ir.actions.server\">\n    <field name=\"type\">ir.actions.server</field>\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"model_id\" ref=\"${2:ir.model}\" />\n    <field name=\"condition\" eval=\"${3:True}\" />\n    <field name=\"sequence\" eval=\"${4:5}\" />\n    <field name=\"context\" eval=\"${5:\\{\\}}\" />\n    <field name=\"wkf_transition_id\" ref=\"${6:workflow.transition}\" />\n    <field name=\"use_relational_model\">${7:base}</field>${9:\n    <field name=\"wkf_model_id\" ref=\"${8:ir.model}\" />}${11:\n    <field name=\"wkf_field_id\" ref=\"${10:ir.model.fields}\" />}\n</record>${0}\n",
+		"description": "Common record definition for ir.actions.server, triggering"
+	},
+	"ir.actions.todo": {
+		"prefix": "ir.actions.todo",
+		"body": "\n<record id=\"action_todo_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.actions.todo\">\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"type\">${2:manual}</field>\n    <field name=\"state\">${3:open}</field>\n    <field name=\"sequence\" eval=\"${4:10}\" />\n    <field name=\"action_id\" ref=\"${5:ir.actions.actions}\" />${7:\n    <field name=\"note\">${6:Something about ${1}}</field>}\n</record>${0}\n",
+		"description": ""
+	},
+	"ir.config_parameter": {
+		"prefix": "ir.config_parameter",
+		"body": "\n<record id=\"${1/[^A-Za-z]/\\_/g}\" model=\"ir.config_parameter\">\n    <field name=\"key\">${1:char}</field>\n    <field name=\"value\">${2:text}</field>${4:\n    <field name=\"group_ids\" eval=\"[(4, ref('${3:res.groups}'))]\" />}\n</record>${0}\n",
+		"description": "Common ir.config_parameter record definition"
+	},
+	"ir.model.data": {
+		"prefix": "ir.model.data",
+		"body": "\n<record id=\"${3/(\\.+)/_/g}_${1/(\\.+)/_/g}\" model=\"ir.model.data\">\n    <field name=\"name\">${1:resource_external_id}</field>\n    <field name=\"model\">${2:model.name}</field>\n    <field name=\"module\">${3:module_name}</field>\n    <field name=\"date_init\" eval=\"${4:time.strftime('%Y-%m-%d %H:%M:%S')}\" />\n    <field name=\"date_update\" eval=\"${5:time.strftime('%Y-%m-%d %H:%M:%S')}\" />\n    <field name=\"res_id\" eval=\"${6:1}\" />\n    <field name=\"noupdate\" eval=\"${7:True}\" />\n</record>${0}\n",
+		"description": "Common record definition for ir.model.data"
+	},
+	"ir.model": {
+		"prefix": "ir.model",
+		"body": "\n<record id=\"${1/(\\.+)/_/g}_${2/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.model\">\n    <field name=\"model\">${1:model_name}</field>\n    <field name=\"name\">${2:Human readable name}</field>\n    <field name=\"state\">${3:Base | Manual}</field>\n    <field name=\"info\">${4:Description}</field>\n</record>${0}\n",
+		"description": "Common record definition for ir.model"
+	},
+	"ir.module.category": {
+		"prefix": "ir.module.category",
+		"body": "\n<record id=\"module_category_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.module.category\">\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"sequence\" eval=\"${2:10}\" />\n    <field name=\"visible\" eval=\"${3:True}\" />\n    <field name=\"description\">${4:${1} category}</field>${6:\n    <field name=\"parent_id\" ref=\"${5:ir.module.category}\" />}\n</record>${0}\n",
+		"description": "XML ir.model.category record"
+	},
+	"ir.values": {
+		"prefix": "ir.values",
+		"body": "\n<record id=\"${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_values\" model=\"ir.values\">\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"model_id\" ref=\"${2:module.model_external_id}\" />\n    <field name=\"model\">${2/((^[^.]*.?model_)|([_]+))/(?2:)(?3:\\.)/g}</field>\n    <field name=\"value\" eval=\"${4:'ir.actions.act_window,' +str(ref('${3:action_external_id}'))}\" />\n    <field name=\"key\">${5:action}</field>\n    <field name=\"key2\">${6:tree_but_open}</field>${8:\n    <field name=\"action_id\" ref=\"${7:ir.actions.actions}\" />}${10:\n    <field name=\"res_id\" eval=\"${9:1}\" />}${12:\n    <field name=\"company_id\" ref=\"${11:res.company}\" />}${14:\n    <field name=\"user_id\" ref=\"${13:res.users}\" />}\n</record>${0}\n",
+		"description": "Common record definition for ir.values"
+	},
+	"base.action.rule": {
+		"prefix": "base.action.rule",
+		"body": "\n<record id=\"${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"base.action.rule\">\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"active\" eval=\"${2:True}\" />\n    <field name=\"sequence\" eval=\"${3:0}\" />\n    <field name=\"server_action_ids\" eval=\"[(4, ref('${4:ir.actions.server}'))]\" />\n    <field name=\"model_id\" ref=\"${5:ir.model}\" />\n    <field name=\"kind\">${6:on_create_or_write}</field>\n    <field name=\"trg_date_id\" ref=\"${7:ir.model.fields}\" />\n    <field name=\"trg_date_range\" eval=\"${8:0}\" />\n    <field name=\"trg_date_range_type\">${9:day}</field>${11:\n    <field name=\"trg_date_calendar_id\" ref=\"${10:resource.calendar}\" />}${13:\n    <field name=\"filter_id\" ref=\"${12:ir.filters}\" />}${15:\n    <field name=\"filter_pre_id\" ref=\"${14:ir.filters}\" />}${17:\n    <field name=\"act_user_id\" ref=\"${16:base.user_root}\" />}${19:\n    <field name=\"act_followers\" eval=\"[(4, ref('${18:res.partner}'))]\" />}\n</record>${0}\n",
+		"description": "Common record definition for base.action.rule"
+	},
+	"email.template": {
+		"prefix": "email.template",
+		"body": "\n<record id=\"email_template_${12:${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}}\" model=\"email.template\">\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"subject\">${2:$1}</field>\n    <field name=\"email_from\">${3:$\\{object.company_id.name\\} <$\\{(object.company_id.email or user.email)|safe\\}>}</field>\n    <field name=\"email_to\">${4:$\\{object.name|safe\\} <$\\{object.email|safe\\}>}</field>\n    <field name=\"email_cc\">${5}</field>\n    <field name=\"reply_to\">${6}</field>\n    <field name=\"user_signature\" eval=\"${7:False}\" />\n    <field name=\"lang\">${8:$\\{object.lang\\}}</field>\n    <field name=\"auto_delete\" eval=\"${9:True}\" />\n    <field name=\"model_id\" ref=\"${10:ir.model}\" />\n    <field name=\"attachment_ids\" eval=\"[(4, ref('${11:ir.attachment}'))]\" />\n    <field name=\"body_html\"><![CDATA[\n        ${12:<p>To whom it may concern:</p>}\n]]${-1}></field>\n</record>${0}\n",
+		"description": "Common record definition for email.template"
+	},
+	"id": {
+		"prefix": "id",
+		"body": "\nref('${1:record.external.id}')${0}\n",
+		"description": "Database ID from external ID conversion"
+	},
+	"odoo": {
+		"prefix": "odoo",
+		"body": "\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\n<openerp>\n    <data noupdate=\"${1:1}\">\n\n        ${0}\n\n    </data>\n</openerp>\n",
+		"description": "Common base XML structure to be used in Odoo module data files"
+	},
+	"product.product": {
+		"prefix": "product.product",
+		"body": "\n<record id=\"${18:${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_product_product}\" model=\"product.product\">\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"description\">${2:Description}</field>\n    <field name=\"description_purchase\">${3:${2:Description}}</field>\n    <field name=\"description_sale\">${4:${2:Description}}</field>\n    <field name=\"categ_id\" ref=\"${5:product.category}\"/>\n    <field name=\"standard_price\">${6:0.0}</field>\n    <field name=\"list_price\">${7:0.0}</field>\n    <field name=\"type\">${8:consu|service}</field>\n    <field name=\"uom_id\" ref=\"${9:product.uom}\"/>\n    <field name=\"uom_po_id\" ref=\"${10:product.uom}\"/>\n    <field name=\"taxes_id\" eval=\"[(4, ref('${11:account.tax}'))]\" />\n${13:    <field name=\"image\" type=\"base64\" file=\"${12:module_name/static/img/file_name.png}\"/>\n}${15:    <field name=\"default_code\">${14:PRODUCT-CODE}</field>\n}${17:    <field name=\"ean13\">${16:0000000000000}</field>\n}</record>${0}\n",
+		"description": "XML product.product record"
+	},
+	"product.template": {
+		"prefix": "product.template",
+		"body": "\n<record id=\"${18:${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_product_template}\" model=\"product.template\">\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"description\">${2:Description}</field>\n    <field name=\"description_purchase\">${3:${2:Description}}</field>\n    <field name=\"description_sale\">${4:${2:Description}}</field>\n    <field name=\"categ_id\" ref=\"${5:product.category}\"/>\n    <field name=\"standard_price\">${6:0.0}</field>\n    <field name=\"list_price\">${7:0.0}</field>\n    <field name=\"type\">${8:consu|service}</field>\n    <field name=\"uom_id\" ref=\"${9:product.uom}\"/>\n    <field name=\"uom_po_id\" ref=\"${10:product.uom}\"/>\n    <field name=\"taxes_id\" eval=\"[(4, ref('${11:account.tax}'))]\" />\n${13:    <field name=\"image\" type=\"base64\" file=\"${12:module_name/static/img/file_name.png}\"/>\n}${15:    <field name=\"default_code\">${14:PRODUCT-CODE}</field>\n}${17:    <field name=\"ean13\">${16:0000000000000}</field>\n}</record>${0}\n",
+		"description": "XML product.template record"
+	},
+	"record": {
+		"prefix": "record",
+		"body": "\n<record id=\"${2:${1/(\\.+)/\\_/g}}\" model=\"${1:model.name}\">\n    ${0}\n</record>\n",
+		"description": ""
+	},
+	"t-att": {
+		"prefix": "t-att",
+		"body": "\nt-att-${1:name}=\"${2:value}\"\n",
+		"description": "Qweb named attribute"
+	},
+	"t-att1": {
+		"prefix": "t-att",
+		"body": "\nt-att=\"${1:dict_of_pair}\"\n",
+		"description": "Qweb attribute"
+	},
+	"t-attf": {
+		"prefix": "t-attf",
+		"body": "\nt-attf-${1:name}=\"${2:format_string}\"\n",
+		"description": "Qweb format string attribute"
+	},
+	"t-call": {
+		"prefix": "t-call",
+		"body": "\n<t t-call=\"${1:template}\" />${0}\n",
+		"description": "Qweb inline call template"
+	},
+	"t-call1": {
+		"prefix": "t-call",
+		"body": "\n<t t-call=\"${1:template}\">\n    ${0}\n</t>\n",
+		"description": "Qweb call template"
+	},
+	"t-esc": {
+		"prefix": "t-esc",
+		"body": "\n<t t-esc=\"${1:value}\" />\n",
+		"description": "Qweb data output"
+	},
+	"t-extend": {
+		"prefix": "t-extend",
+		"body": "\n<t t-extend=\"${1:base.template}\">\n    <t t-jquery=\"${2:ul}\" t-operation=\"${3:append}\">\n        ${4:code}\n    </t>${0}\n</t>\n",
+		"description": "Qweb template inheritance"
+	},
+	"t-field": {
+		"prefix": "t-field",
+		"body": "\n<${1:span} t-field=\"${2:o}.${3:name}\" />${0}\n",
+		"description": "Qweb field access"
+	},
+	"t-foreach": {
+		"prefix": "t-foreach",
+		"body": "\n<t t-foreach=\"${1:set}\" t-as=\"${2:name}\">\n    ${0}\n</t>\n",
+		"description": "Qweb loop"
+	},
+	"t-if": {
+		"prefix": "t-if",
+		"body": "\n<${1:tag} t-if=\"${2:condition}\">${3:value}</${1}>${0}\n",
+		"description": "Qweb inline conditional"
+	},
+	"t-if1": {
+		"prefix": "t-if",
+		"body": "\n<t t-if=\"${1:codition}\">\n    ${0}\n</t>\n",
+		"description": "Qweb conditional"
+	},
+	"t-js": {
+		"prefix": "t-js",
+		"body": "\n<t t-js=\"${1:name}\">\n    ${0:console.log(\"Foo is\", ctx.foo);}\n</t>\n",
+		"description": "Qweb javascript"
+	},
+	"t-log": {
+		"prefix": "t-log",
+		"body": "\n<t t-log=\"${1:value}\"/>${0}\n",
+		"description": "Qweb logging"
+	},
+	"t-name": {
+		"prefix": "t-name",
+		"body": "\n<t t-name=\"${1:template-name}\">\n    ${0:<!-- template code -->}\n</t>\n",
+		"description": "Qweb top level named template"
+	},
+	"t-raw": {
+		"prefix": "t-raw",
+		"body": "\n<t t-raw=\"0\" />\n",
+		"description": "Qweb template from context"
+	},
+	"t-raw1": {
+		"prefix": "t-raw",
+		"body": "\n<t t-raw=\"translate_doc(${1:doc_id}, ${2:doc_model}, '${3:lang}', ${4:module.template'})\" />\n",
+		"description": "Qweb translate document"
+	},
+	"t-set": {
+		"prefix": "t-set",
+		"body": "\n<t t-set=\"${1:name}\" t-value=\"${2:value}\" />${0}\n",
+		"description": "Qweb inline variable"
+	},
+	"t-set1": {
+		"prefix": "t-set",
+		"body": "\n<t t-set=\"${1:name}\">\n    ${0}\n</t>\n",
+		"description": "Qweb variable"
+	},
+	"layout": {
+		"prefix": "layout",
+		"body": "\n<t t-call=\"report.external_layout\">\n    ${0}\n</t>\n",
+		"description": "Report external_layout"
+	},
+	"layout1": {
+		"prefix": "layout",
+		"body": "\n<t t-call=\"report.external_layout_footer\">\n    ${0}\n</t>\n",
+		"description": "Report external_layout_footer"
+	},
+	"layout2": {
+		"prefix": "layout",
+		"body": "\n<t t-call=\"report.external_layout_header\">\n    ${0}\n</t>\n",
+		"description": "Report external_layout_header"
+	},
+	"layout3": {
+		"prefix": "layout",
+		"body": "\n<t t-call=\"report.html_container\">\n    ${0}\n</t>\n",
+		"description": "Report html_container"
+	},
+	"layout4": {
+		"prefix": "layout",
+		"body": "\n<t t-call=\"report.internal_layout\">\n    ${0}\n</t>\n",
+		"description": "Report internal_layout"
+	},
+	"layout5": {
+		"prefix": "layout",
+		"body": "\n<t t-call=\"report.layout\">\n    ${0}\n</t>\n",
+		"description": "Report layout"
+	},
+	"layout6": {
+		"prefix": "layout",
+		"body": "\n<t t-call=\"report.minimal_layout\">\n    ${0}\n</t>\n",
+		"description": "Report minimal_layout"
+	},
+	"layout7": {
+		"prefix": "layout",
+		"body": "\n<t t-call=\"report.style\">\n    ${0}\n</t>\n",
+		"description": "Report style"
+	},
+	"t": {
+		"prefix": "t",
+		"body": "\n<t t-name=\"${1:module.model.name}\">\n    <t t-call=\"report.html_container\">\n        <t t-foreach=\"docs\" t-as=\"o\">\n            <t t-call=\"report.external_layout\">\n                <div class=\"page\">\n                    <h2>${2:Report title}</h2>\n                    ${0:<p>This object's name is <span t-field=\"o.name\"/></p>}\n                </div>\n            </t>\n        </t>\n    </t>\n</t>\n",
+		"description": ""
+	},
+	"report.paperformat": {
+		"prefix": "report.paperformat",
+		"body": "\n<record id=\"paperformat_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"report.paperformat\" >\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"format\">${2:A4}</field>\n    <field name=\"orientation\">${3:Portrait}</field>\n    <field name=\"default\" eval=\"${4:False}\" />\n    <field name=\"dpi\" eval=\"${5:90}\" />\n    <field name=\"margin_top\" eval=\"${6:40}\" />\n    <field name=\"margin_right\" eval=\"${7:7}\" />\n    <field name=\"margin_bottom\" eval=\"${8:20}\" />\n    <field name=\"margin_left\" eval=\"${9:7}\" />\n    <field name=\"header_line\" eval=\"${10:False}\" />\n    <field name=\"header_spacing\" eval=\"${11:35}\" />${13:\n    <field name=\"page_width\" eval=\"${12:210}\" />}${15:\n    <field name=\"page_height\" eval=\"${14:297}\" />}${17:\n    <field name=\"report_ids\" eval=\"[(4, ref('${16:ir.actions.report.xml}'))]\" />}${0}\n</record>\n",
+		"description": "Common record definition for report.paperformat"
+	},
+	"fullreport": {
+		"prefix": "fullreport",
+		"body": "\n<!-- REPORT: \"${1:Human readable name}\"\n\n    - Module: ${2:module}    Model: ${3:model}\n    - Language field used to translate it: ${4:lang}\n    - Report uses attachment: ${5:True}\n    - Report paperformat: ${6:report.paperformat_euro}\n    - View priority: ${7:16}    Active: ${8:True}\n    - Action help: ${9:Something about ${1/(.)/\\1/g}}\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->\n\n<!-- Report \"${1/(.)/\\1/g}\" document template -->\n<record id=\"view_${3/\\./\\_/g}_document_qweb\" model=\"ir.ui.view\">\n    <field name=\"name\">${1/(.)/\\1/g}</field>\n    <field name=\"model\">${3/(.)/\\1/g}</field>\n    <field name=\"type\">qweb</field>\n    <field name=\"mode\">primary</field>\n    <field name=\"priority\" eval=\"${7/(.)/\\1/g}\" />\n    <field name=\"active\" eval=\"${8/(.)/\\1/g}\" />\n    <field name=\"arch\" type=\"xml\">\n        <t t-name=\"${2/(.)/\\1/g}.view_${3/\\./\\_/g}_document_qweb\">\n            <t t-call=\"report.external_layout\">\n                <div class=\"page\">\n                    ${0:<h2>Report title</h2>\n                    <p>This object's name is <span t-field=\"o.name\"/></p>}\n                </div>\n            </t>\n        </t>\n    </field>\n</record>\n\n<!-- Report \"${1/(.)/\\1/g}\" translate_doc template -->\n<record id=\"view_${3/\\./\\_/g}_qweb\" model=\"ir.ui.view\">\n    <field name=\"name\">${1/(.)/\\1/g}</field>\n    <field name=\"model\">${3/(.)/\\1/g}</field>\n    <field name=\"type\">qweb</field>\n    <field name=\"mode\">primary</field>\n    <field name=\"priority\" eval=\"${7/(.)/\\1/g}\" />\n    <field name=\"active\" eval=\"${8/(.)/\\1/g}\" />\n    <field name=\"arch\" type=\"xml\">\n        <t t-name=\"${2/(.)/\\1/g}.view_${3/\\./\\_/g}_qweb\">\n            <t t-call=\"report.html_container\">\n                <t t-foreach=\"doc_ids\" t-as=\"doc_id\">\n                    <t t-raw=\"translate_doc(doc_id, doc_model, '${4/(.)/\\1/g}', '${2/(.)/\\1/g}.view_${3/\\./\\_/g}_document_qweb')\"/>\n                </t>\n            </t>\n        </t>\n    </field>\n</record>\n\n<!-- Report action to show: \"${1/(.)/\\1/g}\" -->\n<record id=\"action_report_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.actions.report.xml\">\n    <field name=\"name\">${1/(.)/\\1/g}</field>\n    <field name=\"model\">${3/(.)/\\1/g}</field>\n    <field name=\"report_type\">qweb-pdf</field>\n    <field name=\"report_name\">${2/(.)/\\1/g}.view_${3/\\./\\_/g}_qweb</field>\n    <field name=\"attachment_use\" eval=\"${5/(.)/\\1/g}\" />\n    <field name=\"attachment\">(object.name+'.pdf')</field>\n    <field name=\"paperformat_id\" ref=\"${6/(.)/\\1/g}\" />\n    <field name=\"help\">${9/(.)/\\1/g}</field>\n</record>\n\n<!-- Button to print the report: \"${1/(.)/\\1/g}\" -->\n<record id=\"${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_values\" model=\"ir.values\">\n    <field name=\"name\">${1/(.)/\\1/g}</field>\n    <field name=\"model_id\" ref=\"${2/(.)/\\1/g}.model_${3/\\./\\_/g}\" />\n    <field name=\"model\">${3/(.)/\\1/g}</field>\n    <field name=\"value\" eval=\"'ir.actions.report.xml,' +str(ref('action_report_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}'))\" />\n    <field name=\"key\">action</field>\n    <field name=\"key2\">client_print_multi</field>\n</record>\n",
+		"description": "Report: document and translation; action.report.xml and ir.values"
+	},
+	"ir.model.access": {
+		"prefix": "ir.model.access",
+		"body": "\n<record id=\"access_${1/^.*model_(.*)$/\\1/g}_${2/((^.*group_$)|(\\.))/(?2:group_)(?3:\\_)/g}\" model=\"ir.model.access\">\n    <field name=\"name\">${1/^.*model_(.*)$/\\1/g} ${2/((^.*group_$)|(\\.))/(?2:group_)(?3:\\_)/g}</field>\n    <field name=\"model_id\" ref=\"${1:ir.model}\"/>\n    <field name=\"group_id\" ref=\"${2:res.groups}\"/>\n    <field name=\"perm_read\" eval=\"${3:True}\" />\n    <field name=\"perm_create\" eval=\"${4:True}\" />\n    <field name=\"perm_write\" eval=\"${5:True}\" />\n    <field name=\"perm_unlink\" eval=\"${6:True}\" />\n    <field name=\"active\" eval=\"${7:True}\" />\n</record>${0}\n",
+		"description": "XML ir.model.access record"
+	},
+	"ir.rule": {
+		"prefix": "ir.rule",
+		"body": "\n<record id=\"${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_rule\" model=\"ir.rule\">\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"model_id\" ref=\"${3:model_xml_id}\"/>\n    <field name=\"global\" eval=\"${4:True}\" />\n    <field name=\"perm_read\" eval=\"${5:True}\" />\n    <field name=\"perm_create\" eval=\"${6:True}\" />\n    <field name=\"perm_write\" eval=\"${7:True}\" />\n    <field name=\"perm_unlink\" eval=\"${8:True}\" />\n    <field name=\"domain_force\">${9:['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]}</field>\n    <field name=\"active\" eval=\"${10:True}\" />\n</record>${0}\n",
+		"description": "XML ir.rule record"
+	},
+	"res.groups": {
+		"prefix": "res.groups",
+		"body": "\n<record id=\"group_${8:${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}}\" model=\"res.groups\">\n    <field name=\"name\">${1:Name}</field>\n    <field name=\"comment\">${2:Comment}</field>\n    <field name=\"category_id\" ref=\"${3:base.module_category_administration}\"/>\n    <field name=\"implied_ids\" eval=\"[(4, ref('${5:base.group_user}'))]\"/>\n    <field name=\"users\" eval=\"[(5, ref('${6:base.user_root}'))]\" />\n</record>${0}\n",
+		"description": "XML res.groups record"
+	},
+	"field": {
+		"prefix": "field",
+		"body": "\n<field\n    name=\"${1:name}\"${3:\n    string=\"${2:${1/((^.)|(_+))/(?2:\\u$2)(?3:\\ )/g}}\"}${5:\n    nolabel=\"${4:0}\"}${7:\n    required=\"${6:0}\"}${9:\n    readonly=\"${8:0}\"}${11:\n    invisible=\"${10:0}\"}${13:\n    widget=\"${12:char}\"}${15:\n    class=\"${14:oe_field_${1/([^a-zA-Z\\-\\_0-9]+)/\\_/g}}\"}${17:\n    placeholder=\"${16:${1/((^.)|(_+))/(?2:\\u$2)(?3:\\ )/g}}\"}${19:\n    help=\"${18:Enter new value for ${1/((^.)|(_+))/(?2:\\u$2)(?3:\\ )/g}}\"}${21:\n    mode=\"${20:tree}\"}${23:\n    filename=\"${22:${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}}\"}${25:\n    password=\"${24:0}\"}${27:\n    domain=\"${26:[]}\"}${29:\n    context=\"${28:\\{\\}}\"} />${0}\n",
+		"description": "Full field tag"
+	},
+	"field1": {
+		"prefix": "field",
+		"body": "\n<field name=\"${1:name}\" class=\"${2:oe_field_${1/([^a-zA-Z\\-\\_0-9]+)/\\_/g}}\"${4:\n    placeholder=\"${3:Enter new value for ${1/((^.)|(_+))/(?2:\\u$2)(?3:\\ )/g}}\"} />${0}\n",
+		"description": "Common field tag"
+	},
+	"fields.Boolean": {
+		"prefix": "fields.Boolean",
+		"body": "\n<field name=\"${1:name}\" eval=\"${2:True}\" />${0}\n",
+		"description": "Common XML tag for field type Boolean"
+	},
+	"fields.Char": {
+		"prefix": "fields.Char",
+		"body": "\n<field name=\"${1:name}\">${2:value}</field>${0}\n",
+		"description": "Common XML tag for field type Char"
+	},
+	"fields.Date": {
+		"prefix": "fields.Date",
+		"body": "\n<field name=\"${1:name}\" eval=\"${3:time.strftime('${2:%Y-%m-%d}')}\" />${0}\n",
+		"description": "Common XML tag for field type Date"
+	},
+	"fields.Datetime": {
+		"prefix": "fields.Datetime",
+		"body": "\n<field name=\"${1:name}\" eval=\"${3:time.strftime('${2:%Y-%m-%d %H:%M:%S}')}\" />${0}\n",
+		"description": "Common XML tag for field type Datetime"
+	},
+	"fields.Float": {
+		"prefix": "fields.Float",
+		"body": "\n<field name=\"${1:name}\" eval=\"${2:0.0}\" />${0}\n",
+		"description": "Common XML tag for field type Float"
+	},
+	"fields.Html": {
+		"prefix": "fields.Html",
+		"body": "\n<field name=\"${1:name}\"><![CDATA[\n    ${2:content}\n]]${-1}></field>${0}\n",
+		"description": "Common XML tag for field type Html"
+	},
+	"fields.Integer": {
+		"prefix": "fields.Integer",
+		"body": "\n<field name=\"${1:name}\" eval=\"${2:0}\" />${0}\n",
+		"description": "Common XML tag for field type Integer"
+	},
+	"fields.Many2many": {
+		"prefix": "fields.Many2many",
+		"body": "\n<field name=\"${1:name}\" eval=\"${3:[(4, ref('${2:ir.model}'))]}\" />${0}\n",
+		"description": "Common XML tag for field type Many2many"
+	},
+	"fields.Many2one": {
+		"prefix": "fields.Many2one",
+		"body": "\n<field name=\"${1:name}\" ref=\"${2:ir.model}\" />${0}\n",
+		"description": "Common XML tag for field type Many2one"
+	},
+	"fields.One2many": {
+		"prefix": "fields.One2many",
+		"body": "\n<field name=\"${1:name}\" eval=\"${3:[(4, ref('${2:ir.model}'))]}\" />${0}\n",
+		"description": "Common XML tag for field type One2many"
+	},
+	"fields.Selection": {
+		"prefix": "fields.Selection",
+		"body": "\n<field name=\"${1:name}\">${2:value}</field>${0}\n",
+		"description": "Common XML tag for field type Selection"
+	},
+	"fields.Text": {
+		"prefix": "fields.Text",
+		"body": "\n<field name=\"${1:name}\"><![CDATA[\n    ${2:content}\n]]${-1}></field>${0}\n",
+		"description": "Common XML tag for field type Text"
+	},
+	"button": {
+		"prefix": "button",
+		"body": "\n<button name=\"${1:function_name}\" string=\"${2:string}\" ${4:type=\"${3:object}\"} ${5:special=\"cancel\"} />\n",
+		"description": "Online button tag definition"
+	},
+	"button1": {
+		"prefix": "button",
+		"body": "\n<button name=\"${1:function_name}\"\n        string=\"${2:string}\"${4:\n        type=\"${3:object}\"}${5:\n        special=\"cancel\"}${7:\n        default_focus=\"${6:0}\"}${9:\n        icon=\"${8:gtk-apply}\"}${11:\n        confirm=\"${10:message}\"}${13:\n        help=\"${12:message}\"} />\n",
+		"description": "Common button tag definition"
+	},
+	"attrs": {
+		"prefix": "attrs",
+		"body": "\nattrs=\"{'${1:attribute_name}': [${5}('${2:field_name}', '${3:operator}', ${4:value})]${6}}\"${0}\n",
+		"description": ""
+	},
+	"form": {
+		"prefix": "form",
+		"body": "\n<form string=\"${1:Caption}\" create=\"${2:1}\" delete=\"${3:1}\" edit=\"${4:1}\">\n    <sheet>\n        <div class=\"oe_title\">\n            <label for=\"${5:name}\" class=\"oe_edit_only\" />\n            <h1><field name=\"${5}\" placeholder=\"${7:Describe the item...}\" /></h1>\n        </div>\n        ${0}\n    </sheet>\n</form>\n",
+		"description": "Common form tag to be added inside a ir.ui.view"
+	},
+	"graph": {
+		"prefix": "graph",
+		"body": "\n<graph string=\"${1:Graph title}\" type=\"${2:one # bar # pie # line # pivot}\">\n    <field type=\"row\" name=\"${3:row_field}\" />\n    <field type=\"col\" name=\"${4:col_field}\" interval=\"month\" />\n    <field type=\"measure\" name=\"${5:measure_field}\" />\n</graph>${0}\n",
+		"description": "Common graph tag to be added inside a ir.ui.view"
+	},
+	"filter": {
+		"prefix": "filter",
+		"body": "\n<filter string=\"${1:Name}\"\n    name=\"${2:${1/(([A-Za-z0-9])|( )|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)(?4:\\_)/g}}\"\n    domain=\"${3:[]}\"\n    context=\"${4:{}}\"\n    help=\"${5}\" />${0}\n",
+		"description": "Common filter tag to be added inside a search view"
+	},
+	"search": {
+		"prefix": "search",
+		"body": "\n<search string=\"${1:Name}\">\n    ${0}\n</search>\n",
+		"description": "Common search tag to be added inside a ir.ui.view"
+	},
+	"tree": {
+		"prefix": "tree",
+		"body": "\n<tree string=\"${1:Caption}\" create=\"${2:1}\" delete=\"${3:1}\" edit=\"${4:1}\"${6: editable=\"${5:top}\"}>\n    ${0}\n</tree>\n",
+		"description": "Common tree tag to be added inside a ir.ui.view"
+	},
+	"attribute": {
+		"prefix": "attribute",
+		"body": "\n<attribute name=\"${1:field_name}\">${2:value}</attribute>${0}\n",
+		"description": ""
+	},
+	"xpath": {
+		"prefix": "xpath",
+		"body": "\n<xpath expr=\"${1://field[@name='name']}\" position=\"${2:after}\">\n    ${0}\n</xpath>\n",
+		"description": "Common xpath tag to be added inside a ir.ui.view"
+	},
+	"ir.ui.view": {
+		"prefix": "ir.ui.view",
+		"body": "\n<record id=\"view_${2/[^a-z]+/\\_/g}_${3}\" model=\"ir.ui.view\">\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"model\">${2:model.name}</field>\n    <field name=\"type\">${3:tree}</field>\n    <field name=\"mode\">${4:primary}</field>\n    <field name=\"priority\" eval=\"${5:16}\" />\n    <field name=\"active\" eval=\"${6:True}\" />${8:\n    <field name=\"inherit_id\" ref=\"${7:xml_id}\" />}\n    <field name=\"arch\" type=\"xml\">\n        ${0}\n    </field>\n</record>\n",
+		"description": "Common ir.ui.view record definition"
+	},
+	"link": {
+		"prefix": "link",
+		"body": "\n<link rel=\"stylesheet\" href=\"/${1:module_name}/static/src/css/${2:styles}.css\" />${0}\n",
+		"description": "Link tag to inglude an stylesheet"
+	},
+	"script": {
+		"prefix": "script",
+		"body": "\n<script type=\"text/javascript\" src=\"/${1:module_name}/static/src/js/${2:scripts}.js\" />${0}\n",
+		"description": "Link tag to inglude an stylesheet"
+	},
+	"ir.filters": {
+		"prefix": "ir.filters",
+		"body": "\n<record id=\"${7:filter_${2/(\\.)/\\_/g}_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}}\" model=\"ir.filters\">\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"model_id\">${2:model_name_whithout_module}</field>\n    <field name=\"user_id\" eval=\"${3:False}\"/>\n    <field name=\"domain\">${4:[]}</field>\n    <field name=\"context\">${5:{}}</field>\n    <field name=\"is_default\" eval=\"${6:False}\" />\n    <!-- <field name=\"action_id\" ref=\"\" /> -->\n</record>${8}\n",
+		"description": "Common ir.filters record definition"
+	},
+	"ir.ui.menu": {
+		"prefix": "ir.ui.menu",
+		"body": "\n<record id=\"menu_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.ui.menu\" >\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"sequence\" eval=\"${2:10}\" />${4:\n    <field name=\"action\" ref=\"${3:action_name}\" />}${6:\n    <field name=\"parent_id\" ref=\"${5:base.menu_custom}\" />}\n</record>${0}\n",
+		"description": "Common ir.ui.menu record definition"
+	},
+	"notebook": {
+		"prefix": "notebook",
+		"body": "\n<notebook>\n    ${0}\n</notebook>\n",
+		"description": ""
+	},
+	"page": {
+		"prefix": "page",
+		"body": "\n<page string=\"${1:Title}\" class=\"${2:oe_page_${1/(([a-zA-Z])|([^A-Za-z]))/(?2:\\l$2)(?3:\\_)/g}}\" accesskey=\"${3:${1/(^.)(.*)/\\U\\1/g}}\">\n    ${0}\n</page>\n",
+		"description": ""
+	},
+	"relativedelta": {
+		"prefix": "relativedelta",
+		"body": "\n(DateTime.now() - relativedelta(${1:months=2})).strftime('${2:%Y-%m-%d}${3: }${4:%H:%M:%S}')${0}\n",
+		"description": "Fully formated time relative to now"
+	},
+	"strftime": {
+		"prefix": "strftime",
+		"body": "\nstrftime('${1:%Y-%m-%d}${2: }${3:%H:%M:%S}')${0}\n",
+		"description": "Fully formated strftime"
+	},
+	"assets": {
+		"prefix": "assets",
+		"body": "\n<record id=\"view_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_assets\" model=\"ir.ui.view\">\n    <field name=\"name\">${1:module} assets</field>\n    <field name=\"model\"></field>\n    <field name=\"type\">qweb</field>\n    <field name=\"mode\">extension</field>\n    <field name=\"priority\" eval=\"${2:16}\" />\n    <field name=\"active\" eval=\"${3:True}\" />\n    <field name=\"inherit_id\" ref=\"web.assets_backend\" />\n    <field name=\"arch\" type=\"xml\">\n        <xpath expr=\".\" position=\"inside\">${5:\n            <link rel=\"stylesheet\" href=\"/${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}/static/src/css/${4:styles}.css\" />}${7:\n            <script type=\"text/javascript\" src=\"/${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}/static/src/js/${6:scripts}.js\" />}${0}\n        </xpath>\n    </field>\n</record>\n",
+		"description": "Include module assets in backend views"
+	},
+	"fullview": {
+		"prefix": "fullview",
+		"body": "\n<!-- VIEWS: \"${1:Human readable name}\"\n\n    - Model·········: ${2:model}\n    - _rec_name·····: ${3:name}\n    - Domain········: ${4:[]}\n    - Context·······: ${5:\\{\\}}\n    - Parent menu ··: ${6:base.menu_custom}\n    - View priority·: ${7:16}    Sequence····: ${8:10}\n    - Action help···: ${9:Something about ${2/(.)/$1/g}}\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->\n\n<!-- Tree view for \"${2/(.)/\\1/g}\" -->\n<record id=\"view_${2/\\./\\_/g}_tree\" model=\"ir.ui.view\">\n    <field name=\"name\">view.${2/\\.+/\\./g}.tree</field>\n    <field name=\"model\">${2/\\.+/\\./g}</field>\n    <field name=\"type\">tree</field>\n    <field name=\"mode\">primary</field>\n    <field name=\"priority\" eval=\"${7/(.)/\\1/g}\" />\n    <field name=\"active\" eval=\"True\" />\n    <field name=\"arch\" type=\"xml\">\n        <tree string=\"${2/\\./\\_/g}_tree\" create=\"1\" delete=\"1\" edit=\"1\">\n            <field name=\"${3/(.)/\\1/g}\" />\n            ${0:<!-- ··· -->}\n        </tree>\n    </field>\n</record>\n\n<!-- Form view for \"${2/(.)/\\1/g}\" -->\n<record id=\"view_${2/\\./\\_/g}_form\" model=\"ir.ui.view\">\n    <field name=\"name\">view.${2/\\.+/\\./g}.form</field>\n    <field name=\"model\">${2/\\.+/\\./g}</field>\n    <field name=\"type\">form</field>\n    <field name=\"mode\">primary</field>\n    <field name=\"priority\" eval=\"${7/(.)/\\1/g}\" />\n    <field name=\"active\" eval=\"True\" />\n    <field name=\"arch\" type=\"xml\">\n        <form string=\"${2/\\./\\_/g}_form\" create=\"1\" delete=\"1\" edit=\"1\">\n            <sheet>\n                <div class=\"oe_title\">\n                    <label for=\"${3/(.)/\\1/g}\" class=\"oe_edit_only\" />\n                    <h1>\n                        <field name=\"${3/(.)/\\1/g}\" class=\"oe_field_${3/(.)/\\1/g}\"\n                            placeholder=\"${3/((^.)|(_+))/(?2:\\u$2)(?3:\\ )/g}\" />\n                    </h1>\n                </div>\n                <!-- ··· -->\n            </sheet>\n        </form>\n    </field>\n</record>\n\n<!-- Search view for \"${2/(.)/\\1/g}\" -->\n<record id=\"view_${2/\\./\\_/g}_search\" model=\"ir.ui.view\">\n    <field name=\"name\">view.${2/\\.+/\\./g}.search</field>\n    <field name=\"model\">${2/\\.+/\\./g}</field>\n    <field name=\"type\">search</field>\n    <field name=\"mode\">primary</field>\n    <field name=\"priority\" eval=\"${7/(.)/\\1/g}\" />\n    <field name=\"active\" eval=\"True\" />\n    <field name=\"arch\" type=\"xml\">\n        <search string=\"${2/\\./\\_/g}_search\">\n            <field name=\"${3/(.)/\\1/g}\" />\n            <!-- ··· -->\n        </search>\n    </field>\n</record>\n\n<!-- Main window action for model.name -->\n<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_act_window\" model=\"ir.actions.act_window\">\n    <field name=\"type\">ir.actions.act_window</field>\n    <field name=\"name\">${1/(.)/\\1/g}</field>\n    <field name=\"res_model\">${2/\\.+/\\./g}</field>\n    <field name=\"view_mode\">tree,form</field>\n    <field name=\"view_type\">form</field>\n    <field name=\"target\">current</field>\n    <field name=\"domain\">${4/(.)/\\1/g}</field>\n    <field name=\"context\">${5/(.)/\\1/g}</field>\n    <field name=\"search_view_id\" ref=\"view_${2/\\./\\_/g}_search\" />\n    <field name=\"help\" type=\"html\">\n        <p class=\"oe_view_nocontent_create\">\n            Click to add new ${1/(.)/\\1/g}\n        </p><p>\n            ${9/(.)/\\1/g}\n        </p>\n    </field>\n</record>\n\n<!-- Main menu for model.name -->\n<record id=\"menu_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.ui.menu\" >\n    <field name=\"name\">${1/(.)/\\1/g}</field>\n    <field name=\"sequence\" eval=\"${8/(.)/\\1/g}\" />\n    <field name=\"action\" ref=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_act_window\" />\n    <field name=\"parent_id\" ref=\"${6/(.)/\\1/g}\" />\n</record>\n",
+		"description": "Views: tree, form, search; act_window and menu"
+	},
+	"oe_chatter": {
+		"prefix": "oe_chatter",
+		"body": "\n<div class=\"oe_chatter\">\n    <field name=\"message_follower_ids\" widget=\"mail_followers\" />\n    <field name=\"message_ids\" widget=\"mail_thread\" />\n</div>${0}\n",
+		"description": "Common XML to add a tracking area inside a form view"
+	}
 }
