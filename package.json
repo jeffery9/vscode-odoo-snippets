@@ -1,8 +1,8 @@
 {
     "name": "odoo-snippets",
-    "displayName": "odoo-snippets",
-    "description": "snippets for odoo addons using new api",
-    "version": "0.1.1",
+    "displayName": "Odoo Snippets",
+    "description": "Code Snippets for Odoo using new api, support Python, XML.",
+    "version": "0.1.2",
     "publisher": "jeffery9",
     "engines": {
         "vscode": "^1.0.0"
