@@ -1,29 +1,5 @@
 {
-    "TransactionCase": {
-        "body": [
-            "",
-            "from openerp.tests.common import TransactionCase",
-            "",
-            "",
-            "class ${1:ModelName}(TransactionCase):",
-            "    \"\"\" ${2:This class contains the unit tests for '${1}'.}",
-            "",
-            "        Tests:",
-            "          - ${3}: Checks if the ${3} works properly",
-            "    \"\"\"",
-            "",
-            "    def setUp(self):",
-            "        super(${1}, self).setUp()",
-            "",
-            "    def test_${3:item_name}(self):",
-            "        \"\"\" Checks if the ${3} works properly \"\"\"",
-            "",
-            "        ${0:pass}",
-            ""
-        ],
-        "description": "Test Case: transaction",
-        "prefix": "transactioncase"
-    },
+  
     "__init__": {
         "body": [
             "",
@@ -189,6 +165,171 @@
         "description": "Odoo manifest file common structure, Odoo 10 and later",
         "prefix": "__manifest__"
     },
+
+    "importopenerp": {
+        "body": [
+            "",
+            "from openerp import models, fields, api",
+            "from openerp.tools.translate import _${0}",
+            ""
+        ],
+        "description": "Common openerp import lines",
+        "prefix": "import openerp"
+    },
+    "importodoo": {
+        "body": [
+            "",
+            "from odoo import models, fields, api",
+            "from odoo.tools.translate import _${0}",
+            ""
+        ],
+        "description": "Common odoo import lines",
+        "prefix": "import odoo"
+    },
+
+    "odooModelFile1": {
+        "body": [
+            "",
+            "# -*- coding: utf-8 -*-",
+            "###############################################################################",
+            "#    License, author and contributors information in:                         #",
+            "#    __openerp__.py file at the root folder of this module.                   #",
+            "###############################################################################",
+            "",
+            "from openerp import models, fields, api",
+            "from openerp.tools.translate import _",
+            "from logging import getLogger",
+            "",
+            "",
+            "_logger = getLogger(__name__)",
+            "",
+            "",
+            "${0}",
+            ""
+        ],
+        "description": "Odoo Python module file",
+        "prefix": "model"
+    },
+    "odooModelFile2": {
+        "body": [
+            "",
+            "# -*- coding: utf-8 -*-",
+            "###############################################################################",
+            "#    License, author and contributors information in:                         #",
+            "#    __openerp__.py file at the root folder of this module.                   #",
+            "###############################################################################",
+            "",
+            "from odoo import models, fields, api",
+            "from odoo.tools.translate import _",
+            "from logging import getLogger",
+            "",
+            "",
+            "_logger = getLogger(__name__)",
+            "",
+            "",
+            "${0}",
+            ""
+        ],
+        "description": "Odoo Python module file, Odoo 10 and later",
+        "prefix": "model"
+    },
+    "classModel": {
+        "body": [
+            "",
+            "class ${1:ModelName}(models.Model):",
+            "    \"\"\" ${2:The summary line for a class docstring should fit on one line.}",
+            "",
+            "    Fields:",
+            "      name (Char): Human readable name which will identify each record.",
+            "",
+            "    \"\"\"",
+            "",
+            "    _name = '${3:${1}}'",
+            "    _description = u'${4:${1}}'",
+            "",
+            "    _rec_name = 'name'",
+            "    _order = 'name ASC'",
+            "",
+            "    name = fields.Char(",
+            "        string='Name',",
+            "        required=True,",
+            "        readonly=False,",
+            "        index=True,",
+            "        default=None,",
+            "        help=False,",
+            "        size=50,",
+            "        translate=True",
+            "    )${0}",
+            ""
+        ],
+        "description": "Odoo Model class",
+        "prefix": "model"
+    },
+    "odooController1": {
+        "body": [
+            "",
+            "# -*- coding: utf-8 -*-",
+            "###############################################################################",
+            "#    License, author and contributors information in:                         #",
+            "#    __openerp__.py file at the root folder of this module.                   #",
+            "###############################################################################",
+            "",
+            "from openerp.http import route, request, Controller",
+            "from openerp.tools.translate import _",
+            "from logging import getLogger",
+            "",
+            "",
+            "_logger = getLogger(__name__)",
+            "",
+            "",
+            "${0}",
+            ""
+        ],
+        "description": "Odoo Python controller file",
+        "prefix": "controller"
+    },
+    "odooController2": {
+        "body": [
+            "",
+            "# -*- coding: utf-8 -*-",
+            "###############################################################################",
+            "#    License, author and contributors information in:                         #",
+            "#    __openerp__.py file at the root folder of this module.                   #",
+            "###############################################################################",
+            "",
+            "from odoo.http import route, request, Controller",
+            "from odoo.tools.translate import _",
+            "from logging import getLogger",
+            "",
+            "",
+            "_logger = getLogger(__name__)",
+            "",
+            "",
+            "${0}",
+            ""
+        ],
+        "description": "Odoo Python controller file, Odoo 10 and later.",
+        "prefix": "controller"
+    },
+    "controller": {
+        "body": [
+            "",
+            "class ${1:ControllerName}(Controller):",
+            "    \"\"\" ${2:The summary line for a class docstring should fit on one line.}",
+            "",
+            "        Routes:",
+            "          /${3:some_url}: ${4:url description}",
+            "    \"\"\"",
+            "",
+            "    @route('/${3}', type='${5:http}', auth='${6:none}')",
+            "    def ${3}(self${7:, **kw}):",
+            "",
+            "        pass${0}",
+            ""
+        ],
+        "description": "Web Controller",
+        "prefix": "controller"
+    },
     "_auto": {
         "body": [
             "",
@@ -198,6 +339,450 @@
         "description": "_auto attribute",
         "prefix": "_auto"
     },
+    "_inherit": {
+        "body": [
+            "",
+            "_inherit = ['${1:ir.model}'${2}]${0}",
+            ""
+        ],
+        "description": "Model attribute _inherit with a module list",
+        "prefix": "_inherit"
+    },
+    "_inherits": {
+        "body": [
+            "",
+            "_inherits = {'${1:model_name}': '${2:related_id}'${3}}${0}",
+            ""
+        ],
+        "description": "Model attribute _inherits and single parent field",
+        "prefix": "_inherits"
+    },
+    "_sql_constraints": {
+        "body": [
+            "",
+            "_sql_constraints = [",
+            "    (",
+            "        '${1:name}',",
+            "        '${2:constraint}',",
+            "        _(u'${3:message}')",
+            "    )${4}",
+            "]${0}",
+            ""
+        ],
+        "description": "Module SQL contraints",
+        "prefix": "_sql_constraints"
+    },
+
+
+    "fields.Binary": {
+        "body": [
+            "",
+            "${1:field_name} = fields.Binary(",
+            "    string='${2:${1}}',",
+            "    required=${3:False},",
+            "    readonly=${4:False},",
+            "    index=${5:False},",
+            "    default=${6:0},",
+            "    help=${7:False}",
+            ")${0}",
+            ""
+        ],
+        "description": "Common definition for field type Binary",
+        "prefix": "fields.Binary"
+    },
+    "fields.Boolean": {
+        "body": [
+            "",
+            "${1:field_name} = fields.Boolean(",
+            "    string='${2:${1}}',",
+            "    required=${3:False},",
+            "    readonly=${4:False},",
+            "    index=${5:False},",
+            "    default=${6:False},",
+            "    help=${7:False}",
+            ")${0}",
+            ""
+        ],
+        "description": "Common definition for field type Boolean",
+        "prefix": "fields.Boolean"
+    },
+    "fields.Char": {
+        "body": [
+            "",
+            "${1:field_name} = fields.Char(",
+            "    string='${2:${1}}',",
+            "    required=${3:False},",
+            "    readonly=${4:False},",
+            "    index=${5:False},",
+            "    default=${6:None},",
+            "    help=${7:False},",
+            "    size=${8:50},",
+            "    translate=${9:True}",
+            ")${0}",
+            ""
+        ],
+        "description": "Common definition for field type Char",
+        "prefix": "fields.Char"
+    },
+    "fields.Date": {
+        "body": [
+            "",
+            "${1:field_name} = fields.Date(",
+            "    string='${2:${1}}',",
+            "    required=${3:False},",
+            "    readonly=${4:False},",
+            "    index=${5:False},",
+            "    default=${6:fields.Date.context_today()},",
+            "    help=${7:False}",
+            ")${0}",
+            ""
+        ],
+        "description": "Common definition for field type Date",
+        "prefix": "fields.Date"
+    },
+    "fields.Datetime": {
+        "body": [
+            "",
+            "${1:field_name} = fields.Datetime(",
+            "    string='${2:${1}}',",
+            "    required=${3:False},",
+            "    readonly=${4:False},",
+            "    index=${5:False},",
+            "    default=${6:fields.datetime.now()},",
+            "    help=${7:False}",
+            ")${0}",
+            ""
+        ],
+        "description": "Common definition for field type Datetime",
+        "prefix": "fields.Datetime"
+    },
+    "fields.Float": {
+        "body": [
+            "",
+            "${1:field_name} = fields.Float(",
+            "    string='${2:${1}}',",
+            "    required=${3:False},",
+            "    readonly=${4:False},",
+            "    index=${5:False},",
+            "    default=${6:0.0},",
+            "    digits=(${7:16}, ${8:2}),",
+            "    help=${9:False}",
+            ")${0}",
+            ""
+        ],
+        "description": "Common definition for field type Float",
+        "prefix": "fields.Float"
+    },
+    "fields.Html": {
+        "body": [
+            "",
+            "${1:field_name} = fields.Html(",
+            "    string='${2:${1}}',",
+            "    required=${3:False},",
+            "    readonly=${4:False},",
+            "    index=${5:False},",
+            "    default=${6:None},",
+            "    help=${7:False}",
+            ")${0}",
+            ""
+        ],
+        "description": "Common definition for field type HTML",
+        "prefix": "fields.Html"
+    },
+    "fields.Integer": {
+        "body": [
+            "",
+            "${1:field_name} = fields.Integer(",
+            "    string='${2:${1}}',",
+            "    required=${3:False},",
+            "    readonly=${4:False},",
+            "    index=${5:False},",
+            "    default=${6:0},",
+            "    help=${7:False}",
+            ")${0}",
+            ""
+        ],
+        "description": "Common definition for field type Integer",
+        "prefix": "fields.Integer"
+    },
+    "fields.Many2many": {
+        "body": [
+            "",
+            "${1:field_name} = fields.Many2many(",
+            "    string='${2:${1}}',",
+            "    required=${3:False},",
+            "    readonly=${4:False},",
+            "    index=${5:False},",
+            "    default=${6:None},",
+            "    help=${7:False},",
+            "    comodel_name='${8:model.name}',",
+            "    relation='${9:${8}_this_model_rel}',",
+            "    column1='${10:${8}_id}',",
+            "    column2='${11:this_model_id}',",
+            "    domain=[${12}],",
+            "    context=\\{${13}\\},",
+            "    limit=${14:None}",
+            ")${0}",
+            ""
+        ],
+        "description": "Common definition for field type Many2many",
+        "prefix": "fields.Many2many"
+    },
+    "fields.Many2one": {
+        "body": [
+            "",
+            "${1:field_name} = fields.Many2one(",
+            "    string='${2:${1}}',",
+            "    required=${3:False},",
+            "    readonly=${4:False},",
+            "    index=${5:False},",
+            "    default=${6:None},",
+            "    help=${7:False},",
+            "    comodel_name='${8:model.name}',",
+            "    domain=[${9}],",
+            "    context=\\{${10}\\},",
+            "    ondelete='${11:cascade}',",
+            "    auto_join=${12:False}",
+            ")${0}",
+            ""
+        ],
+        "description": "Common definition for field type Many2one",
+        "prefix": "fields.Many2one"
+    },
+    "fields.One2many": {
+        "body": [
+            "",
+            "${1:field_name} = fields.One2many(",
+            "    string='${2:${1}}',",
+            "    required=${3:False},",
+            "    readonly=${4:False},",
+            "    index=${5:False},",
+            "    default=${6:None},",
+            "    help=${7:False},",
+            "    comodel_name='${8:model.name}',",
+            "    inverse_name='${9:inverse_field}',",
+            "    domain=[${10}],",
+            "    context=\\{${11}\\},",
+            "    auto_join=${12:False},",
+            "    limit=${13:None}",
+            ")${0}",
+            ""
+        ],
+        "description": "Common definition for field type One2Many",
+        "prefix": "fields.One2many"
+    },
+    "fields.Reference": {
+        "body": [
+            "",
+            "${1:field_name} = fields.Reference(",
+            "    string='${2:${1}}',",
+            "    required=${3:False},",
+            "    readonly=${4:False},",
+            "    index=${5:False},",
+            "    default=${6:0},",
+            "    help=${7:False},",
+            "    selection=[('${8:model.name}', '${9:String}'),('${10:model.name}', '${11:String}')]",
+            ")${0}",
+            ""
+        ],
+        "description": "Common definition for field type Reference",
+        "prefix": "fields.Reference"
+    },
+    "fields.Selection": {
+        "body": [
+            "",
+            "${1:field_name} = fields.Selection(",
+            "    string='${2:${1}}',",
+            "    required=${3:False},",
+            "    readonly=${4:False},",
+            "    index=${5:False},",
+            "    default=${6:False},",
+            "    help=${7:False},",
+            "    selection=[('${8:valor1}', '${9:${8}}'), ('${10:valor2}', '${11:${10}}')]",
+            ")${0}",
+            ""
+        ],
+        "description": "Common definition for field type Seleccion",
+        "prefix": "fields.Selection"
+    },
+    "fields.Text": {
+        "body": [
+            "",
+            "${1:field_name} = fields.Text(",
+            "    string='${2:${1}}',",
+            "    required=${3:False},",
+            "    readonly=${4:False},",
+            "    index=${5:False},",
+            "    default=${6:None},",
+            "    help=${7:False},",
+            "    translate=${8:True}",
+            ")${0}",
+            ""
+        ],
+        "description": "Common definition for field type Text",
+        "prefix": "fields.Text"
+    },
+
+
+    "create": {
+        "body": [
+            "",
+            "@api.model",
+            "def create(self, values):",
+            "    \"\"\"",
+            "        Create a new record for a model ${1:ModelName}",
+            "        @param values: provides a data for new record",
+            "",
+            "        @return: returns a id of new record",
+            "    \"\"\"",
+            "",
+            "    result = super(${1:Model_Name}, self).create(values)${0}",
+            "",
+            "    return result",
+            ""
+        ],
+        "description": "create method signature",
+        "prefix": "create"
+    },
+    "write": {
+        "body": [
+            "",
+            "@api.multi",
+            "def write(self, values):",
+            "    \"\"\"",
+            "        Update all record(s) in recordset, with new value comes as {values}",
+            "        return True on success, False otherwise",
+            "",
+            "        @param values: dict of new values to be set",
+            "",
+            "        @return: True on success, False otherwise",
+            "    \"\"\"",
+            "",
+            "    result = super(${1:Model_Name}, self).write(values)${0}",
+            "",
+            "    return result",
+            ""
+        ],
+        "description": "write method signature",
+        "prefix": "write"
+    }, 
+    "unlink": {
+        "body": [
+            "",
+            "@api.multi",
+            "def unlink(self):",
+            "    \"\"\"",
+            "        Delete all record(s) from recordset",
+            "        return True on success, False otherwise",
+            "",
+            "        @return: True on success, False otherwise",
+            "",
+            "        #TODO: process before delete resource",
+            "    \"\"\"",
+            "",
+            "    result = super(${1:ModelName}, self).unlink()${0}",
+            "",
+            "    return result",
+            ""
+        ],
+        "description": "unlink method signature",
+        "prefix": "unlink"
+    },
+    "copy": {
+        "body": [
+            "",
+            "@api.one",
+            "def copy(self, default=None):",
+            "    \"\"\"",
+            "        Create a new record in ${1:ModelName} model from existing one",
+            "        @param default: dict which contains the values to be override during",
+            "        copy of object",
+            "",
+            "        @return: returns a id of newly created record",
+            "    \"\"\"",
+            "",
+            "    result = super(${1:ModelName}, self).copy(default)${0}",
+            "",
+            "    return result",
+            ""
+        ],
+        "description": "copy method signature",
+        "prefix": "copy"
+    },
+    "default": {
+        "body": [
+            "",
+            "default=lambda self: self._default_${1:field}()${0}",
+            ""
+        ],
+        "description": "Field attribute: search, lambda function",
+        "prefix": "default"
+    },
+    "compute": {
+        "body": [
+            "",
+            "compute=lambda self: self._compute_${1:field}()${0}",
+            ""
+        ],
+        "description": "Field attribute: compute, lambda function",
+        "prefix": "compute"
+    },
+    "inverse": {
+        "body": [
+            "",
+            "inverse=lambda self: self._inverse_${1:field}()${0}",
+            ""
+        ],
+        "description": "Field attribute: inverse, lambda function",
+        "prefix": "inverse"
+    },
+
+
+    "search": {
+        "body": [
+            "",
+            "${1:model_obj}.search(${2:args}${5:, offset=${4:0}}${7:, limit=${6:None}}${10:, order=${9:None}}${12:, context=${11:None}}${14:, count=${13:False}})",
+            ""
+        ],
+        "description": "search full args",
+        "prefix": "search"
+    },
+    "searchRecord": {
+        "body": [
+            "",
+            "${1:model}_domain = [${2:('id', '=', 1)}]",
+            "${1}_obj = self.env['${3:model.name}']",
+            "${1}_set = ${1}_obj.search(${1}_domain)",
+            "${0}",
+            ""
+        ],
+        "description": "model search record",
+        "prefix": "search record"
+    },
+    "browserecord": {
+        "body": [
+            "",
+            "${1:model}_obj = self.env['${2:model.name}']",
+            "${1}_set = ${1}_obj.browse(${3:1})",
+            "${0}",
+            ""
+        ],
+        "description": "model browse record",
+        "prefix": "browse record"
+    },
+
+
+    "default_model": {
+        "body": [
+            "",
+            "default_model='${1:model.name}'${0}",
+            ""
+        ],
+        "description": "default_model attribute",
+        "prefix": "default_model"
+    },
+
+
     "_browse": {
         "body": [
             "",
@@ -237,24 +822,8 @@
         "description": "_compute method signature",
         "prefix": "_compute"
     },
-    "_inherit": {
-        "body": [
-            "",
-            "_inherit = ['${1:ir.model}'${2}]${0}",
-            ""
-        ],
-        "description": "Model attribute _inherit with a module list",
-        "prefix": "_inherit"
-    },
-    "_inherits": {
-        "body": [
-            "",
-            "_inherits = {'${1:model_name}': '${2:related_id}'${3}}${0}",
-            ""
-        ],
-        "description": "Model attribute _inherits and single parent field",
-        "prefix": "_inherits"
-    },
+
+
     "_log": {
         "body": [
             "",
@@ -330,20 +899,171 @@
         "description": "_search method signature",
         "prefix": "_search"
     },
-    "_sql_constraints": {
+
+    "get_empty_list_help": {
         "body": [
             "",
-            "_sql_constraints = [",
-            "    (",
-            "        '${1:name}',",
-            "        '${2:constraint}',",
-            "        _(u'${3:message}')",
-            "    )${4}",
-            "]${0}",
+            "@api.model",
+            "def get_empty_list_help(self, help):",
+            "    \"\"\" Generic method giving the help message displayed when having",
+            "        no result to display in a list or kanban view.",
+            "    \"\"\"",
+            "",
+            "    ${0:return help}",
             ""
         ],
-        "description": "Module SQL contraints",
-        "prefix": "_sql_constraints"
+        "description": "get_empty_list_help method signature",
+        "prefix": "get_empty_list_help"
+    },
+    "get_formview_id": {
+        "body": [
+            "",
+            "@api.one",
+            "@api.returns('ir.ui.view')",
+            "def get_formview_id(self):",
+            "    \"\"\" Return an view id to open the document with.",
+            "",
+            "        :param int id: id of the document to open",
+            "    \"\"\"",
+            "",
+            "    ${0:return False}",
+            ""
+        ],
+        "description": "get_formview_id method signature",
+        "prefix": "get_formview_id"
+    },
+
+    "init": {
+        "body": [
+            "",
+            "def init(self, cr):",
+            "    \"\"\" Build database view which will be used as module origin",
+            "",
+            "        :param cr: database cursor",
+            "    \"\"\"",
+            "",
+            "    self._sql_query = \"\"\"",
+            "        SELECT",
+            "            ROW_NUMBER() OVER() AS \"id\"",
+            "    \"\"\"",
+            "",
+            "    drop_view_if_exists(cr, ${1:self._table})",
+            "    cr.execute(",
+            "        'create or replace view {} as ({})'.format(",
+            "            ${1},",
+            "            self._sql_query",
+            "        )",
+            "    )${0}",
+            ""
+        ],
+        "description": "init method signature for Odoo report",
+        "prefix": "init"
+    },
+
+    
+    "super": {
+        "body": [
+            "",
+            "super(${1:Extension}, self).${2:handler}(${3})",
+            ""
+        ],
+        "description": "Call Python parent class",
+        "prefix": "super"
+    },
+
+    "track_visibility": {
+        "body": [
+            "",
+            "track_visibility='${1:onchange}'${0}",
+            ""
+        ],
+        "description": "Field attribute: track_visibility",
+        "prefix": "track_visibility"
+    },
+    "view_header_get": {
+        "body": [
+            "",
+            "@api.model",
+            "def view_header_get(self, view_id=None, view_type='form'):",
+            "    \"\"\" Returns the window title which depends on the context \"\"\"",
+            "",
+            "    ${0:return False}",
+            ""
+        ],
+        "description": "view_header_get method signature",
+        "prefix": "view_header_get"
+    },
+    "view_init": {
+        "body": [
+            "",
+            "@api.model",
+            "def view_init(self, fields_list):",
+            "    \"\"\" Does specific things when a view on the object is opened \"\"\"",
+            "",
+            "    ${0:pass}",
+            ""
+        ],
+        "description": "view_init method signature",
+        "prefix": "view_init"
+    },
+   
+    "relativedelta": {
+        "body": [
+            "",
+            "(DateTime.now() - relativedelta(${1:months=2})).strftime('${2:%Y-%m-%d}${3: }${4:%H:%M:%S}')${0}",
+            ""
+        ],
+        "description": "Fully formated time relative to now",
+        "prefix": "relativedelta"
+    },
+    "strftime": {
+        "body": [
+            "",
+            "strftime('${1:%Y-%m-%d}${2: }${3:%H:%M:%S}')${0}",
+            ""
+        ],
+        "description": "Fully formated strftime",
+        "prefix": "strftime"
+    },
+
+
+    "TransactionCase": {
+        "body": [
+            "",
+            "from openerp.tests.common import TransactionCase",
+            "",
+            "",
+            "class ${1:ModelName}(TransactionCase):",
+            "    \"\"\" ${2:This class contains the unit tests for '${1}'.}",
+            "",
+            "        Tests:",
+            "          - ${3}: Checks if the ${3} works properly",
+            "    \"\"\"",
+            "",
+            "    def setUp(self):",
+            "        super(${1}, self).setUp()",
+            "",
+            "    def test_${3:item_name}(self):",
+            "        \"\"\" Checks if the ${3} works properly \"\"\"",
+            "",
+            "        ${0:pass}",
+            ""
+        ],
+        "description": "Test Case: transaction",
+        "prefix": "transactioncase"
+    },
+    "test": {
+        "body": [
+            "",
+            "def test_${1:item_name}(self):",
+            "    \"\"\" Checks if the ${1} works properly",
+            "    \"\"\"",
+            "",
+            "    ${0:pass}",
+            ""
+        ],
+        "description": "Test case method",
+        "prefix": "test"
     },
     "addTypeEqualityFunc": {
         "body": [
@@ -642,93 +1362,6 @@
         "description": "assertTupleEqual",
         "prefix": "assertTupleEqual"
     },
-    "compute": {
-        "body": [
-            "",
-            "compute=lambda self: self._compute_${1:field}()${0}",
-            ""
-        ],
-        "description": "Field attribute: compute, lambda function",
-        "prefix": "compute"
-    },
-    "controller": {
-        "body": [
-            "",
-            "class ${1:ControllerName}(Controller):",
-            "    \"\"\" ${2:The summary line for a class docstring should fit on one line.}",
-            "",
-            "        Routes:",
-            "          /${3:some_url}: ${4:url description}",
-            "    \"\"\"",
-            "",
-            "    @route('/${3}', type='${5:http}', auth='${6:none}')",
-            "    def ${3}(self${7:, **kw}):",
-            "",
-            "        pass${0}",
-            ""
-        ],
-        "description": "Web Controller",
-        "prefix": "controller"
-    },
-    "copy": {
-        "body": [
-            "",
-            "@api.one",
-            "def copy(self, default=None):",
-            "    \"\"\"",
-            "        Create a new record in ${1:ModelName} model from existing one",
-            "        @param default: dict which contains the values to be override during",
-            "        copy of object",
-            "",
-            "        @return: returns a id of newly created record",
-            "    \"\"\"",
-            "",
-            "    result = super(${1:ModelName}, self).copy(default)${0}",
-            "",
-            "    return result",
-            ""
-        ],
-        "description": "copy method signature",
-        "prefix": "copy"
-    },
-    "create": {
-        "body": [
-            "",
-            "@api.model",
-            "def create(self, values):",
-            "    \"\"\"",
-            "        Create a new record for a model ${1:ModelName}",
-            "        @param values: provides a data for new record",
-            "",
-            "        @return: returns a id of new record",
-            "    \"\"\"",
-            "",
-            "    result = super(${1:Model_Name}, self).create(values)${0}",
-            "",
-            "    return result",
-            ""
-        ],
-        "description": "create method signature",
-        "prefix": "create"
-    },
-    "default": {
-        "body": [
-            "",
-            "default=lambda self: self._default_${1:field}()${0}",
-            ""
-        ],
-        "description": "Field attribute: search, lambda function",
-        "prefix": "default"
-    },
-    "default_model": {
-        "body": [
-            "",
-            "default_model='${1:model.name}'${0}",
-            ""
-        ],
-        "description": "default_model attribute",
-        "prefix": "default_model"
-    },
     "fail": {
         "body": [
             "",
@@ -737,615 +1370,5 @@
         ],
         "description": "fail",
         "prefix": "fail"
-    },
-    "fields.Binary": {
-        "body": [
-            "",
-            "${1:field_name} = fields.Binary(",
-            "    string='${2:${1}}',",
-            "    required=${3:False},",
-            "    readonly=${4:False},",
-            "    index=${5:False},",
-            "    default=${6:0},",
-            "    help=${7:False}",
-            ")${0}",
-            ""
-        ],
-        "description": "Common definition for field type Binary",
-        "prefix": "fields.Binary"
-    },
-    "fields.Boolean": {
-        "body": [
-            "",
-            "${1:field_name} = fields.Boolean(",
-            "    string='${2:${1}}',",
-            "    required=${3:False},",
-            "    readonly=${4:False},",
-            "    index=${5:False},",
-            "    default=${6:False},",
-            "    help=${7:False}",
-            ")${0}",
-            ""
-        ],
-        "description": "Common definition for field type Boolean",
-        "prefix": "fields.Boolean"
-    },
-    "fields.Char": {
-        "body": [
-            "",
-            "${1:field_name} = fields.Char(",
-            "    string='${2:${1}}',",
-            "    required=${3:False},",
-            "    readonly=${4:False},",
-            "    index=${5:False},",
-            "    default=${6:None},",
-            "    help=${7:False},",
-            "    size=${8:50},",
-            "    translate=${9:True}",
-            ")${0}",
-            ""
-        ],
-        "description": "Common definition for field type Char",
-        "prefix": "fields.Char"
-    },
-    "fields.Date": {
-        "body": [
-            "",
-            "${1:field_name} = fields.Date(",
-            "    string='${2:${1}}',",
-            "    required=${3:False},",
-            "    readonly=${4:False},",
-            "    index=${5:False},",
-            "    default=${6:fields.Date.context_today()},",
-            "    help=${7:False}",
-            ")${0}",
-            ""
-        ],
-        "description": "Common definition for field type Date",
-        "prefix": "fields.Date"
-    },
-    "fields.Datetime": {
-        "body": [
-            "",
-            "${1:field_name} = fields.Datetime(",
-            "    string='${2:${1}}',",
-            "    required=${3:False},",
-            "    readonly=${4:False},",
-            "    index=${5:False},",
-            "    default=${6:fields.datetime.now()},",
-            "    help=${7:False}",
-            ")${0}",
-            ""
-        ],
-        "description": "Common definition for field type Datetime",
-        "prefix": "fields.Datetime"
-    },
-    "fields.Float": {
-        "body": [
-            "",
-            "${1:field_name} = fields.Float(",
-            "    string='${2:${1}}',",
-            "    required=${3:False},",
-            "    readonly=${4:False},",
-            "    index=${5:False},",
-            "    default=${6:0.0},",
-            "    digits=(${7:16}, ${8:2}),",
-            "    help=${9:False}",
-            ")${0}",
-            ""
-        ],
-        "description": "Common definition for field type Float",
-        "prefix": "fields.Float"
-    },
-    "fields.Html": {
-        "body": [
-            "",
-            "${1:field_name} = fields.Html(",
-            "    string='${2:${1}}',",
-            "    required=${3:False},",
-            "    readonly=${4:False},",
-            "    index=${5:False},",
-            "    default=${6:None},",
-            "    help=${7:False}",
-            ")${0}",
-            ""
-        ],
-        "description": "Common definition for field type HTML",
-        "prefix": "fields.Html"
-    },
-    "fields.Integer": {
-        "body": [
-            "",
-            "${1:field_name} = fields.Integer(",
-            "    string='${2:${1}}',",
-            "    required=${3:False},",
-            "    readonly=${4:False},",
-            "    index=${5:False},",
-            "    default=${6:0},",
-            "    help=${7:False}",
-            ")${0}",
-            ""
-        ],
-        "description": "Common definition for field type Integer",
-        "prefix": "fields.Integer"
-    },
-    "fields.Many2many": {
-        "body": [
-            "",
-            "${1:field_name} = fields.Many2many(",
-            "    string='${2:${1}}',",
-            "    required=${3:False},",
-            "    readonly=${4:False},",
-            "    index=${5:False},",
-            "    default=${6:None},",
-            "    help=${7:False},",
-            "    comodel_name='${8:model.name}',",
-            "    relation='${9:${8}_this_model_rel}',",
-            "    column1='${10:${8}_id}',",
-            "    column2='${11:this_model_id}',",
-            "    domain=[${12}],",
-            "    context=\\{${13}\\},",
-            "    limit=${14:None}",
-            ")${0}",
-            ""
-        ],
-        "description": "Common definition for field type Many2many",
-        "prefix": "fields.Many2many"
-    },
-    "fields.Many2one": {
-        "body": [
-            "",
-            "${1:field_name} = fields.Many2one(",
-            "    string='${2:${1}}',",
-            "    required=${3:False},",
-            "    readonly=${4:False},",
-            "    index=${5:False},",
-            "    default=${6:None},",
-            "    help=${7:False},",
-            "    comodel_name='${8:model.name}',",
-            "    domain=[${9}],",
-            "    context=\\{${10}\\},",
-            "    ondelete='${11:cascade}',",
-            "    auto_join=${12:False}",
-            ")${0}",
-            ""
-        ],
-        "description": "Common definition for field type Many2one",
-        "prefix": "fields.Many2one"
-    },
-    "fields.One2many": {
-        "body": [
-            "",
-            "${1:field_name} = fields.One2many(",
-            "    string='${2:${1}}',",
-            "    required=${3:False},",
-            "    readonly=${4:False},",
-            "    index=${5:False},",
-            "    default=${6:None},",
-            "    help=${7:False},",
-            "    comodel_name='${8:model.name}',",
-            "    inverse_name='${9:inverse_field}',",
-            "    domain=[${10}],",
-            "    context=\\{${11}\\},",
-            "    auto_join=${12:False},",
-            "    limit=${13:None}",
-            ")${0}",
-            ""
-        ],
-        "description": "Common definition for field type One2Many",
-        "prefix": "fields.One2many"
-    },
-    "fields.Reference": {
-        "body": [
-            "",
-            "${1:field_name} = fields.Reference(",
-            "    string='${2:${1}}',",
-            "    required=${3:False},",
-            "    readonly=${4:False},",
-            "    index=${5:False},",
-            "    default=${6:0},",
-            "    help=${7:False},",
-            "    selection=[('${8:model.name}', '${9:String}'),('${10:model.name}', '${11:String}')]",
-            ")${0}",
-            ""
-        ],
-        "description": "Common definition for field type Reference",
-        "prefix": "fields.Reference"
-    },
-    "fields.Selection": {
-        "body": [
-            "",
-            "${1:field_name} = fields.Selection(",
-            "    string='${2:${1}}',",
-            "    required=${3:False},",
-            "    readonly=${4:False},",
-            "    index=${5:False},",
-            "    default=${6:False},",
-            "    help=${7:False},",
-            "    selection=[('${8:valor1}', '${9:${8}}'), ('${10:valor2}', '${11:${10}}')]",
-            ")${0}",
-            ""
-        ],
-        "description": "Common definition for field type Seleccion",
-        "prefix": "fields.Selection"
-    },
-    "fields.Text": {
-        "body": [
-            "",
-            "${1:field_name} = fields.Text(",
-            "    string='${2:${1}}',",
-            "    required=${3:False},",
-            "    readonly=${4:False},",
-            "    index=${5:False},",
-            "    default=${6:None},",
-            "    help=${7:False},",
-            "    translate=${8:True}",
-            ")${0}",
-            ""
-        ],
-        "description": "Common definition for field type Text",
-        "prefix": "fields.Text"
-    },
-    "search": {
-        "body": [
-            "",
-            "${1:model_obj}.search(${2:args}${5:, offset=${4:0}}${7:, limit=${6:None}}${10:, order=${9:None}}${12:, context=${11:None}}${14:, count=${13:False}})",
-            ""
-        ],
-        "description": "search full args",
-        "prefix": "search"
-    },
-    "get_empty_list_help": {
-        "body": [
-            "",
-            "@api.model",
-            "def get_empty_list_help(self, help):",
-            "    \"\"\" Generic method giving the help message displayed when having",
-            "        no result to display in a list or kanban view.",
-            "    \"\"\"",
-            "",
-            "    ${0:return help}",
-            ""
-        ],
-        "description": "get_empty_list_help method signature",
-        "prefix": "get_empty_list_help"
-    },
-    "get_formview_id": {
-        "body": [
-            "",
-            "@api.one",
-            "@api.returns('ir.ui.view')",
-            "def get_formview_id(self):",
-            "    \"\"\" Return an view id to open the document with.",
-            "",
-            "        :param int id: id of the document to open",
-            "    \"\"\"",
-            "",
-            "    ${0:return False}",
-            ""
-        ],
-        "description": "get_formview_id method signature",
-        "prefix": "get_formview_id"
-    },
-    "importopenerp": {
-        "body": [
-            "",
-            "from openerp import models, fields, api",
-            "from openerp.tools.translate import _${0}",
-            ""
-        ],
-        "description": "Common openerp import lines",
-        "prefix": "import openerp"
-    },
-    "importodoo": {
-        "body": [
-            "",
-            "from odoo import models, fields, api",
-            "from odoo.tools.translate import _${0}",
-            ""
-        ],
-        "description": "Common odoo import lines",
-        "prefix": "import odoo"
-    },
-    "init": {
-        "body": [
-            "",
-            "def init(self, cr):",
-            "    \"\"\" Build database view which will be used as module origin",
-            "",
-            "        :param cr: database cursor",
-            "    \"\"\"",
-            "",
-            "    self._sql_query = \"\"\"",
-            "        SELECT",
-            "            ROW_NUMBER() OVER() AS \"id\"",
-            "    \"\"\"",
-            "",
-            "    drop_view_if_exists(cr, ${1:self._table})",
-            "    cr.execute(",
-            "        'create or replace view {} as ({})'.format(",
-            "            ${1},",
-            "            self._sql_query",
-            "        )",
-            "    )${0}",
-            ""
-        ],
-        "description": "init method signature for Odoo report",
-        "prefix": "init"
-    },
-    "inverse": {
-        "body": [
-            "",
-            "inverse=lambda self: self._inverse_${1:field}()${0}",
-            ""
-        ],
-        "description": "Field attribute: inverse, lambda function",
-        "prefix": "inverse"
-    },
-    "browserecord": {
-        "body": [
-            "",
-            "${1:model}_obj = self.env['${2:model.name}']",
-            "${1}_set = ${1}_obj.browse(${3:1})",
-            "${0}",
-            ""
-        ],
-        "description": "model browse record",
-        "prefix": "browse record"
-    },
-    "classModel": {
-        "body": [
-            "",
-            "class ${1:ModelName}(models.Model):",
-            "    \"\"\" ${2:The summary line for a class docstring should fit on one line.}",
-            "",
-            "    Fields:",
-            "      name (Char): Human readable name which will identify each record.",
-            "",
-            "    \"\"\"",
-            "",
-            "    _name = '${3:${1}}'",
-            "    _description = u'${4:${1}}'",
-            "",
-            "    _rec_name = 'name'",
-            "    _order = 'name ASC'",
-            "",
-            "    name = fields.Char(",
-            "        string='Name',",
-            "        required=True,",
-            "        readonly=False,",
-            "        index=True,",
-            "        default=None,",
-            "        help=False,",
-            "        size=50,",
-            "        translate=True",
-            "    )${0}",
-            ""
-        ],
-        "description": "Odoo Model class",
-        "prefix": "model"
-    },
-    "searchRecord": {
-        "body": [
-            "",
-            "${1:model}_domain = [${2:('id', '=', 1)}]",
-            "${1}_obj = self.env['${3:model.name}']",
-            "${1}_set = ${1}_obj.search(${1}_domain)",
-            "${0}",
-            ""
-        ],
-        "description": "model search record",
-        "prefix": "search record"
-    },
-    "openerpController": {
-        "body": [
-            "",
-            "# -*- coding: utf-8 -*-",
-            "###############################################################################",
-            "#    License, author and contributors information in:                         #",
-            "#    __openerp__.py file at the root folder of this module.                   #",
-            "###############################################################################",
-            "",
-            "from openerp.http import route, request, Controller",
-            "from openerp.tools.translate import _",
-            "from logging import getLogger",
-            "",
-            "",
-            "_logger = getLogger(__name__)",
-            "",
-            "",
-            "${0}",
-            ""
-        ],
-        "description": "Odoo Python controller file",
-        "prefix": "controller"
-    },
-    "odooController": {
-        "body": [
-            "",
-            "# -*- coding: utf-8 -*-",
-            "###############################################################################",
-            "#    License, author and contributors information in:                         #",
-            "#    __openerp__.py file at the root folder of this module.                   #",
-            "###############################################################################",
-            "",
-            "from odoo.http import route, request, Controller",
-            "from odoo.tools.translate import _",
-            "from logging import getLogger",
-            "",
-            "",
-            "_logger = getLogger(__name__)",
-            "",
-            "",
-            "${0}",
-            ""
-        ],
-        "description": "Odoo Python controller file, Odoo 10 and later.",
-        "prefix": "controller"
-    },
-    "odooModelFile1": {
-        "body": [
-            "",
-            "# -*- coding: utf-8 -*-",
-            "###############################################################################",
-            "#    License, author and contributors information in:                         #",
-            "#    __openerp__.py file at the root folder of this module.                   #",
-            "###############################################################################",
-            "",
-            "from openerp import models, fields, api",
-            "from openerp.tools.translate import _",
-            "from logging import getLogger",
-            "",
-            "",
-            "_logger = getLogger(__name__)",
-            "",
-            "",
-            "${0}",
-            ""
-        ],
-        "description": "Odoo Python module file",
-        "prefix": "model"
-    },
-    "odooModelFile2": {
-        "body": [
-            "",
-            "# -*- coding: utf-8 -*-",
-            "###############################################################################",
-            "#    License, author and contributors information in:                         #",
-            "#    __openerp__.py file at the root folder of this module.                   #",
-            "###############################################################################",
-            "",
-            "from odoo import models, fields, api",
-            "from odoo.tools.translate import _",
-            "from logging import getLogger",
-            "",
-            "",
-            "_logger = getLogger(__name__)",
-            "",
-            "",
-            "${0}",
-            ""
-        ],
-        "description": "Odoo Python module file, Odoo 10 and later",
-        "prefix": "model"
-    },
-    "super": {
-        "body": [
-            "",
-            "super(${1:Extension}, self).${2:handler}(${3})",
-            ""
-        ],
-        "description": "Call Python parent class",
-        "prefix": "super"
-    },
-    "test": {
-        "body": [
-            "",
-            "def test_${1:item_name}(self):",
-            "    \"\"\" Checks if the ${1} works properly",
-            "    \"\"\"",
-            "",
-            "    ${0:pass}",
-            ""
-        ],
-        "description": "Test case method",
-        "prefix": "test"
-    },
-    "track_visibility": {
-        "body": [
-            "",
-            "track_visibility='${1:onchange}'${0}",
-            ""
-        ],
-        "description": "Field attribute: track_visibility",
-        "prefix": "track_visibility"
-    },
-    "unlink": {
-        "body": [
-            "",
-            "@api.multi",
-            "def unlink(self):",
-            "    \"\"\"",
-            "        Delete all record(s) from recordset",
-            "        return True on success, False otherwise",
-            "",
-            "        @return: True on success, False otherwise",
-            "",
-            "        #TODO: process before delete resource",
-            "    \"\"\"",
-            "",
-            "    result = super(${1:ModelName}, self).unlink()${0}",
-            "",
-            "    return result",
-            ""
-        ],
-        "description": "unlink method signature",
-        "prefix": "unlink"
-    },
-    "view_header_get": {
-        "body": [
-            "",
-            "@api.model",
-            "def view_header_get(self, view_id=None, view_type='form'):",
-            "    \"\"\" Returns the window title which depends on the context \"\"\"",
-            "",
-            "    ${0:return False}",
-            ""
-        ],
-        "description": "view_header_get method signature",
-        "prefix": "view_header_get"
-    },
-    "view_init": {
-        "body": [
-            "",
-            "@api.model",
-            "def view_init(self, fields_list):",
-            "    \"\"\" Does specific things when a view on the object is opened \"\"\"",
-            "",
-            "    ${0:pass}",
-            ""
-        ],
-        "description": "view_init method signature",
-        "prefix": "view_init"
-    },
-    "write": {
-        "body": [
-            "",
-            "@api.multi",
-            "def write(self, values):",
-            "    \"\"\"",
-            "        Update all record(s) in recordset, with new value comes as {values}",
-            "        return True on success, False otherwise",
-            "",
-            "        @param values: dict of new values to be set",
-            "",
-            "        @return: True on success, False otherwise",
-            "    \"\"\"",
-            "",
-            "    result = super(${1:Model_Name}, self).write(values)${0}",
-            "",
-            "    return result",
-            ""
-        ],
-        "description": "write method signature",
-        "prefix": "write"
-    },    
-    "relativedelta": {
-        "body": [
-            "",
-            "(DateTime.now() - relativedelta(${1:months=2})).strftime('${2:%Y-%m-%d}${3: }${4:%H:%M:%S}')${0}",
-            ""
-        ],
-        "description": "Fully formated time relative to now",
-        "prefix": "relativedelta"
-    },
-    "strftime": {
-        "body": [
-            "",
-            "strftime('${1:%Y-%m-%d}${2: }${3:%H:%M:%S}')${0}",
-            ""
-        ],
-        "description": "Fully formated strftime",
-        "prefix": "strftime"
     }
 }
