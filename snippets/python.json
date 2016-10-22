@@ -21,8 +21,8 @@
             "        ${0:pass}",
             ""
         ],
-        "description": "",
-        "prefix": "TransactionCase"
+        "description": "Test Case: transaction",
+        "prefix": "transactioncase"
     },
     "__init__": {
         "body": [
@@ -36,7 +36,7 @@
             "from . import ${1:models}${0}",
             ""
         ],
-        "description": "",
+        "description": "module __init__",
         "prefix": "__init__"
     },
     "__openerp__": {
@@ -114,13 +114,88 @@
         "description": "Odoo manifest file common structure",
         "prefix": "__openerp__"
     },
+    "__manifest__": {
+        "body": [
+            "",
+            "# -*- coding: utf-8 -*-",
+            "###############################################################################",
+            "#",
+            "#    Odoo, Open Source Management Solution",
+            "#",
+            "#    Copyright (c) All rights reserved:",
+            "#        (c) 2015  $TM_FULLNAME",
+            "#",
+            "#    This program is free software: you can redistribute it and/or modify",
+            "#    it under the terms of the GNU Affero General Public License as",
+            "#    published by the Free Software Foundation, either version 3 of the",
+            "#    License, or (at your option) any later version.",
+            "#",
+            "#    This program is distributed in the hope that it will be useful,",
+            "#    but WITHOUT ANY WARRANTY; without even the implied warranty of",
+            "#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the",
+            "#    GNU Affero General Public License for more details.",
+            "#",
+            "#    You should have received a copy of the GNU Affero General Public License",
+            "#    along with this program.  If not, see http://www.gnu.org/licenses",
+            "#",
+            "###############################################################################",
+            "{",
+            "    'name': '${1:Human readable name}',",
+            "    'summary': '${2:${1}} Module Project',",
+            "    'version': '1.0',",
+            "",
+            "    'description': \"\"\"",
+            "${3:${1}} Module Project.",
+            "==============================================",
+            "",
+            "${4}",
+            "    \"\"\",",
+            "",
+            "    'author': '${5:$TM_FULLNAME}',",
+            "    'maintainer': '${5}',",
+            "    'contributors': ['${6:${5} <${5}@gmail.com>}'],",
+            "",
+            "    'website': 'http://www.gitlab.com/${7:${5}}',",
+            "",
+            "    'license': 'AGPL-3',",
+            "    'category': 'Uncategorized',",
+            "",
+            "    'depends': [",
+            "        'base'",
+            "    ],",
+            "    'external_dependencies': {",
+            "        'python': [",
+            "        ],",
+            "    },",
+            "    'data': [",
+            "    ],",
+            "    'demo': [",
+            "    ],",
+            "    'js': [",
+            "    ],",
+            "    'css': [",
+            "    ],",
+            "    'qweb': [",
+            "    ],",
+            "    'images': [",
+            "    ],",
+            "    'test': [",
+            "    ],",
+            "",
+            "    'installable': True",
+            "}${0}",
+            ""
+        ],
+        "description": "Odoo manifest file common structure, Odoo 10 and later",
+        "prefix": "__manifest__"
+    },
     "_auto": {
         "body": [
             "",
             "_auto = ${1:False}${0}",
             ""
         ],
-        "description": "Adds the _auto attribute",
+        "description": "_auto attribute",
         "prefix": "_auto"
     },
     "_browse": {
@@ -146,7 +221,7 @@
             ""
         ],
         "description": "_browse method signature",
-        "prefix": "def _browse"
+        "prefix": "_browse"
     },
     "_compute": {
         "body": [
@@ -160,7 +235,7 @@
             ""
         ],
         "description": "_compute method signature",
-        "prefix": "def _compute"
+        "prefix": "_compute"
     },
     "_inherit": {
         "body": [
@@ -200,7 +275,7 @@
         "description": "Common _log method",
         "prefix": "_log"
     },
-    "_onchange": {
+    "_onchange0": {
         "body": [
             "",
             "@api.one",
@@ -211,7 +286,7 @@
             ""
         ],
         "description": "_onchange method signature, code",
-        "prefix": "def _onchange"
+        "prefix": "_onchange"
     },
     "_onchange1": {
         "body": [
@@ -226,7 +301,7 @@
             ""
         ],
         "description": "_onchange method signature, domain",
-        "prefix": "def _onchange domain"
+        "prefix": "_onchange domain"
     },
     "_onchange2": {
         "body": [
@@ -242,7 +317,7 @@
             ""
         ],
         "description": "_onchange method signature, warning",
-        "prefix": "def _onchange warning"
+        "prefix": "_onchange warning"
     },
     "_search": {
         "body": [
@@ -253,7 +328,7 @@
             ""
         ],
         "description": "_search method signature",
-        "prefix": "def _search"
+        "prefix": "_search"
     },
     "_sql_constraints": {
         "body": [
@@ -592,7 +667,7 @@
             "        pass${0}",
             ""
         ],
-        "description": "Controller",
+        "description": "Web Controller",
         "prefix": "controller"
     },
     "copy": {
@@ -614,7 +689,7 @@
             ""
         ],
         "description": "copy method signature",
-        "prefix": "def copy"
+        "prefix": "copy"
     },
     "create": {
         "body": [
@@ -634,7 +709,7 @@
             ""
         ],
         "description": "create method signature",
-        "prefix": "def create"
+        "prefix": "create"
     },
     "default": {
         "body": [
@@ -911,14 +986,14 @@
         "description": "Common definition for field type Text",
         "prefix": "fields.Text"
     },
-    "fullsearch": {
+    "search": {
         "body": [
             "",
             "${1:model_obj}.search(${2:args}${5:, offset=${4:0}}${7:, limit=${6:None}}${10:, order=${9:None}}${12:, context=${11:None}}${14:, count=${13:False}})",
             ""
         ],
-        "description": "",
-        "prefix": "fullsearch"
+        "description": "search full args",
+        "prefix": "search"
     },
     "get_empty_list_help": {
         "body": [
@@ -933,7 +1008,7 @@
             ""
         ],
         "description": "get_empty_list_help method signature",
-        "prefix": "def get_empty_list_help"
+        "prefix": "get_empty_list_help"
     },
     "get_formview_id": {
         "body": [
@@ -950,17 +1025,27 @@
             ""
         ],
         "description": "get_formview_id method signature",
-        "prefix": "def get_formview_id"
+        "prefix": "get_formview_id"
     },
-    "import": {
+    "importopenerp": {
         "body": [
             "",
             "from openerp import models, fields, api",
             "from openerp.tools.translate import _${0}",
             ""
         ],
-        "description": "Common Python library import lines",
-        "prefix": "import"
+        "description": "Common openerp import lines",
+        "prefix": "import openerp"
+    },
+    "importodoo": {
+        "body": [
+            "",
+            "from odoo import models, fields, api",
+            "from odoo.tools.translate import _${0}",
+            ""
+        ],
+        "description": "Common odoo import lines",
+        "prefix": "import odoo"
     },
     "init": {
         "body": [
@@ -985,8 +1070,8 @@
             "    )${0}",
             ""
         ],
-        "description": "init method signature",
-        "prefix": "def init"
+        "description": "init method signature for Odoo report",
+        "prefix": "init"
     },
     "inverse": {
         "body": [
@@ -997,7 +1082,7 @@
         "description": "Field attribute: inverse, lambda function",
         "prefix": "inverse"
     },
-    "modelbrowse": {
+    "browserecord": {
         "body": [
             "",
             "${1:model}_obj = self.env['${2:model.name}']",
@@ -1005,10 +1090,10 @@
             "${0}",
             ""
         ],
-        "description": "",
-        "prefix": "modelbrowse"
+        "description": "model browse record",
+        "prefix": "browse record"
     },
-    "models.Model": {
+    "classModel": {
         "body": [
             "",
             "class ${1:ModelName}(models.Model):",
@@ -1037,10 +1122,10 @@
             "    )${0}",
             ""
         ],
-        "description": "Odoo generic model class",
-        "prefix": "models.Model"
+        "description": "Odoo Model class",
+        "prefix": "model"
     },
-    "modelsearch": {
+    "searchRecord": {
         "body": [
             "",
             "${1:model}_domain = [${2:('id', '=', 1)}]",
@@ -1049,10 +1134,10 @@
             "${0}",
             ""
         ],
-        "description": "",
-        "prefix": "modelsearch"
+        "description": "model search record",
+        "prefix": "search record"
     },
-    "openerp": {
+    "openerpController": {
         "body": [
             "",
             "# -*- coding: utf-8 -*-",
@@ -1073,9 +1158,9 @@
             ""
         ],
         "description": "Odoo Python controller file",
-        "prefix": "openerp_controller"
+        "prefix": "controller"
     },
-    "odoo": {
+    "odooController": {
         "body": [
             "",
             "# -*- coding: utf-8 -*-",
@@ -1095,10 +1180,10 @@
             "${0}",
             ""
         ],
-        "description": "Odoo Python controller file",
-        "prefix": "odoo_controller"
+        "description": "Odoo Python controller file, Odoo 10 and later.",
+        "prefix": "controller"
     },
-    "openerp1": {
+    "odooModelFile1": {
         "body": [
             "",
             "# -*- coding: utf-8 -*-",
@@ -1119,9 +1204,9 @@
             ""
         ],
         "description": "Odoo Python module file",
-        "prefix": "openerp_module"
+        "prefix": "model"
     },
-    "odoo1": {
+    "odooModelFile2": {
         "body": [
             "",
             "# -*- coding: utf-8 -*-",
@@ -1141,8 +1226,8 @@
             "${0}",
             ""
         ],
-        "description": "Odoo Python module file",
-        "prefix": "odoo_module"
+        "description": "Odoo Python module file, Odoo 10 and later",
+        "prefix": "model"
     },
     "super": {
         "body": [
@@ -1164,7 +1249,7 @@
             ""
         ],
         "description": "Test case method",
-        "prefix": "def test"
+        "prefix": "test"
     },
     "track_visibility": {
         "body": [
@@ -1195,7 +1280,7 @@
             ""
         ],
         "description": "unlink method signature",
-        "prefix": "def unlink"
+        "prefix": "unlink"
     },
     "view_header_get": {
         "body": [
@@ -1208,7 +1293,7 @@
             ""
         ],
         "description": "view_header_get method signature",
-        "prefix": "def view_header_get"
+        "prefix": "view_header_get"
     },
     "view_init": {
         "body": [
@@ -1221,7 +1306,7 @@
             ""
         ],
         "description": "view_init method signature",
-        "prefix": "def view_init"
+        "prefix": "view_init"
     },
     "write": {
         "body": [
@@ -1243,6 +1328,24 @@
             ""
         ],
         "description": "write method signature",
-        "prefix": "def write"
+        "prefix": "write"
+    },    
+    "relativedelta": {
+        "body": [
+            "",
+            "(DateTime.now() - relativedelta(${1:months=2})).strftime('${2:%Y-%m-%d}${3: }${4:%H:%M:%S}')${0}",
+            ""
+        ],
+        "description": "Fully formated time relative to now",
+        "prefix": "relativedelta"
+    },
+    "strftime": {
+        "body": [
+            "",
+            "strftime('${1:%Y-%m-%d}${2: }${3:%H:%M:%S}')${0}",
+            ""
+        ],
+        "description": "Fully formated strftime",
+        "prefix": "strftime"
     }
 }

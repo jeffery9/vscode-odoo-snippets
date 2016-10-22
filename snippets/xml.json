@@ -1047,15 +1047,7 @@
         "description": "",
         "prefix": "record"
     },
-    "relativedelta": {
-        "body": [
-            "",
-            "(DateTime.now() - relativedelta(${1:months=2})).strftime('${2:%Y-%m-%d}${3: }${4:%H:%M:%S}')${0}",
-            ""
-        ],
-        "description": "Fully formated time relative to now",
-        "prefix": "relativedelta"
-    },
+
     "report.paperformat": {
         "body": [
             "",
@@ -1115,15 +1107,7 @@
         "description": "Common search tag to be added inside a ir.ui.view",
         "prefix": "search"
     },
-    "strftime": {
-        "body": [
-            "",
-            "strftime('${1:%Y-%m-%d}${2: }${3:%H:%M:%S}')${0}",
-            ""
-        ],
-        "description": "Fully formated strftime",
-        "prefix": "strftime"
-    },
+
     "t": {
         "body": [
             "",
