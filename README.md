@@ -1,6 +1,8 @@
 # odoo-snippets README
 
-ported from sublime-odoo-snippets
+ported from [sublime-odoo-snippets](https://github.com/jeffery9/sublime-odoo-snippets)
+
+use [convert-snippets-to-vscode](https://www.npmjs.com/package/convert-snippets-to-vscode) convert sublime-snippet to json file, eg data.json, and then run  `python convert.py`, this commamnd shoudl create snippets for vscode.
 
 ## install from vscode market
 
