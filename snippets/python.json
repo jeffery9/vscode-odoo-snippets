@@ -1,54 +1,4 @@
 {
-    "Model": {
-        "body": [
-            "",
-            "class ${1:ModelName}(models.TransientModel):",
-            "    \"\"\" ${2:The summary line for a class docstring should fit on one line.}",
-            "",
-            "    \"\"\"",
-            "",
-            "    _name = '${3:${1/((^[A-Z])|([A-Z]))/(?2:\\l$2)(?3:\\.\\l$3)/g}}'",
-            "    _description = u'${4:${1/((^[A-Z])|([A-Z]))/(?2:\\u$2)(?3:\\ \\l$3)/g}}'",
-            "    _inherit = '${4:ModelName}'",
-            "",
-            "    ${0}",
-            ""
-        ],
-        "description": "Odoo transient model class",
-        "prefix": "Model"
-    },
-    "Model1": {
-        "body": [
-            "",
-            "class ${1:ModelName}(models.Model):",
-            "    \"\"\" ${2:The summary line for a class docstring should fit on one line.}",
-            "",
-            "    Fields:",
-            "      name (Char): Human readable name which will identify each record.",
-            "",
-            "    \"\"\"",
-            "",
-            "    _name = '${3:${1/((^[A-Z])|([A-Z]))/(?2:\\l$2)(?3:\\.\\l$3)/g}}'",
-            "    _description = u'${4:${1/((^[A-Z])|([A-Z]))/(?2:\\u$2)(?3:\\ \\l$3)/g}}'",
-            "",
-            "    _rec_name = 'name'",
-            "    _order = 'name ASC'",
-            "",
-            "    name = fields.Char(",
-            "        string=u'Name',",
-            "        required=True,",
-            "        readonly=False,",
-            "        index=True,",
-            "        default=None,",
-            "        help=False,",
-            "        size=50,",
-            "        translate=True",
-            "    )${0}",
-            ""
-        ],
-        "description": "Odoo generic model class",
-        "prefix": "Model"
-    },
     "TransactionCase": {
         "body": [
             "",
@@ -74,227 +24,6 @@
         "description": "",
         "prefix": "TransactionCase"
     },
-    "__init__": {
-        "body": [
-            "",
-            "# -*- coding: utf-8 -*-",
-            "###############################################################################",
-            "#    License, author and contributors information in:                         #",
-            "#    __openerp__.py file at the root folder of this module.                   #",
-            "###############################################################################",
-            "",
-            "from . import ${1:models}${0}",
-            ""
-        ],
-        "description": "",
-        "prefix": "__init__"
-    },
-    "__manifest__": {
-        "body": [
-            "",
-            "# -*- coding: utf-8 -*-",
-            "###############################################################################",
-            "#",
-            "#    Odoo, Open Source Management Solution",
-            "#",
-            "#    Copyright (c) All rights reserved:",
-            "#        (c) 2015  $TM_FULLNAME",
-            "#",
-            "#    This program is free software: you can redistribute it and/or modify",
-            "#    it under the terms of the GNU Affero General Public License as",
-            "#    published by the Free Software Foundation, either version 3 of the",
-            "#    License, or (at your option) any later version.",
-            "#",
-            "#    This program is distributed in the hope that it will be useful,",
-            "#    but WITHOUT ANY WARRANTY; without even the implied warranty of",
-            "#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the",
-            "#    GNU Affero General Public License for more details.",
-            "#",
-            "#    You should have received a copy of the GNU Affero General Public License",
-            "#    along with this program.  If not, see http://www.gnu.org/licenses",
-            "#",
-            "###############################################################################",
-            "{",
-            "    'name': '${1:Human readable name}',",
-            "    'summary': '${2:${1}} Module Project',",
-            "    'version': '1.0',",
-            "",
-            "    'description': \"\"\"",
-            "${3:${1}} Module Project.",
-            "==============================================",
-            "",
-            "${4}",
-            "    \"\"\",",
-            "",
-            "    'author': '${5:$TM_FULLNAME}',",
-            "    'maintainer': '${5}',",
-            "    'contributors': ['${6:${5} <${5}@gmail.com>}'],",
-            "",
-            "    'website': 'http://www.gitlab.com/${7:${5}}',",
-            "",
-            "    'license': 'AGPL-3',",
-            "    'category': 'Uncategorized',",
-            "",
-            "    'depends': [",
-            "        'base'",
-            "    ],",
-            "    'external_dependencies': {",
-            "        'python': [",
-            "        ],",
-            "    },",
-            "    'data': [",
-            "    ],",
-            "    'demo': [",
-            "    ],",
-            "    'js': [",
-            "    ],",
-            "    'css': [",
-            "    ],",
-            "    'qweb': [",
-            "    ],",
-            "    'images': [",
-            "    ],",
-            "    'test': [",
-            "    ],",
-            "",
-            "    'installable': True",
-            "}${0}",
-            ""
-        ],
-        "description": "Odoo manifest file common structure",
-        "prefix": "__manifest__"
-    },
-    "__openerp__": {
-        "body": [
-            "",
-            "# -*- coding: utf-8 -*-",
-            "###############################################################################",
-            "#",
-            "#    Odoo, Open Source Management Solution",
-            "#",
-            "#    Copyright (c) All rights reserved:",
-            "#        (c) 2015  $TM_FULLNAME",
-            "#",
-            "#    This program is free software: you can redistribute it and/or modify",
-            "#    it under the terms of the GNU Affero General Public License as",
-            "#    published by the Free Software Foundation, either version 3 of the",
-            "#    License, or (at your option) any later version.",
-            "#",
-            "#    This program is distributed in the hope that it will be useful,",
-            "#    but WITHOUT ANY WARRANTY; without even the implied warranty of",
-            "#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the",
-            "#    GNU Affero General Public License for more details.",
-            "#",
-            "#    You should have received a copy of the GNU Affero General Public License",
-            "#    along with this program.  If not, see http://www.gnu.org/licenses",
-            "#",
-            "###############################################################################",
-            "{",
-            "    'name': '${1:Human readable name}',",
-            "    'summary': '${2:${1}} Module Project',",
-            "    'version': '1.0',",
-            "",
-            "    'description': \"\"\"",
-            "${3:${1}} Module Project.",
-            "==============================================",
-            "",
-            "${4}",
-            "    \"\"\",",
-            "",
-            "    'author': '${5:$TM_FULLNAME}',",
-            "    'maintainer': '${5}',",
-            "    'contributors': ['${6:${5} <${5}@gmail.com>}'],",
-            "",
-            "    'website': 'http://www.gitlab.com/${7:${5}}',",
-            "",
-            "    'license': 'AGPL-3',",
-            "    'category': 'Uncategorized',",
-            "",
-            "    'depends': [",
-            "        'base'",
-            "    ],",
-            "    'external_dependencies': {",
-            "        'python': [",
-            "        ],",
-            "    },",
-            "    'data': [",
-            "    ],",
-            "    'demo': [",
-            "    ],",
-            "    'js': [",
-            "    ],",
-            "    'css': [",
-            "    ],",
-            "    'qweb': [",
-            "    ],",
-            "    'images': [",
-            "    ],",
-            "    'test': [",
-            "    ],",
-            "",
-            "    'installable': True",
-            "}${0}",
-            ""
-        ],
-        "description": "Odoo manifest file common structure",
-        "prefix": "__openerp__"
-    },
-    "_auto": {
-        "body": [
-            "",
-            "_auto = ${1:False}${0}",
-            ""
-        ],
-        "description": "Adds the _auto attribute",
-        "prefix": "_auto"
-    },
-    "_inherit": {
-        "body": [
-            "",
-            "_inherit = ['${1:ir.model}'${2}]${0}",
-            ""
-        ],
-        "description": "Model attribute _inherit with a module list",
-        "prefix": "_inherit"
-    },
-    "_inherits": {
-        "body": [
-            "",
-            "_inherits = {'${1:model_name}': '${2:related_id}'${3}}${0}",
-            ""
-        ],
-        "description": "Model attribute _inherits and single parent field",
-        "prefix": "_inherits"
-    },
-    "_parent_store": {
-        "body": [
-            "",
-            "_parent_store = ${1:True}",
-            "${0}",
-            "",
-            "parent_left = fields.Integer('Left Parent', index=1)",
-            "parent_right = fields.Integer('Right Parent', index=1)",
-            "",
-            ""
-        ],
-        "description": "Adds the _parent_store attribute and parent_left and parent_right",
-        "prefix": "_parent_store"
-    },
-    "_sql_constraints": {
-        "body": [
-            "",
-            "_sql_constraints = [",
-            "    (",
-            "        '${1:name}',",
-            "        '${2:constraint}',",
-            "        _(u'${3:message}')",
-            "    )${4}",
-            "]${0}",
-            ""
-        ],
-        "description": "Model SQL contraints",
-        "prefix": "_sql_constraints"
-    },
     "addTypeEqualityFunc": {
         "body": [
             "",
@@ -304,17 +33,14 @@
         "description": "addTypeEqualityFunc",
         "prefix": "addTypeEqualityFunc"
     },
-    "api_constraints": {
+    "api/depends": {
         "body": [
             "",
-            "@api.one",
-            "@api.constrains('${1}')",
-            "def _check_${1}(self):",
-            "    ${0}",
+            "@api.depends('${1:field}')",
             ""
         ],
-        "description": "Model Python contraints",
-        "prefix": "api_constraints"
+        "description": "decorator depends",
+        "prefix": "api/depends"
     },
     "assertAlmostEqual": {
         "body": [
@@ -604,16 +330,123 @@
         "description": "assertTupleEqual",
         "prefix": "assertTupleEqual"
     },
+    "attr/_auto": {
+        "body": [
+            "",
+            "_auto = ${1:False}${0}",
+            ""
+        ],
+        "description": "Adds the _auto attribute",
+        "prefix": "attr/_auto"
+    },
+    "attr/_inherit": {
+        "body": [
+            "",
+            "_inherit = ['${1:ir.model}'${2}]${0}",
+            ""
+        ],
+        "description": "Model attribute _inherit with a module list",
+        "prefix": "attr/_inherit"
+    },
+    "attr/_inherits": {
+        "body": [
+            "",
+            "_inherits = {'${1:model_name}': '${2:related_id}'}${0}",
+            ""
+        ],
+        "description": "Model attribute _inherits and single parent field",
+        "prefix": "attr/_inherits"
+    },
+    "auto_join": {
+        "body": [
+            "",
+            "auto_join=${1:False}${0}",
+            ""
+        ],
+        "description": "Field attribute: auto_join",
+        "prefix": "auto_join"
+    },
+    "comodel_name": {
+        "body": [
+            "",
+            "comodel_name='${1:model_name}'${0}",
+            ""
+        ],
+        "description": "Field attribute: comodel_name",
+        "prefix": "comodel_name"
+    },
+    "company_dependent": {
+        "body": [
+            "",
+            "company_dependent=${1:True}${0}",
+            ""
+        ],
+        "description": "Field attribute: company_dependent",
+        "prefix": "company_dependent"
+    },
     "compute": {
         "body": [
             "",
-            "compute='_compute_${1:field}'${0}",
+            "    compute='_compute_${1:field}' )",
+            "",
+            "@api.depends('${2:depends}')",
+            "def _compute_${1:field}(self):",
+            "    for record in self:",
+            "        ${4:record.${1:field} = ${3:something}}",
+            "",
+            "${0}",
             ""
         ],
-        "description": "Field attribute: compute, lambda function",
+        "description": "Field attribute: compute",
         "prefix": "compute"
     },
-    "controller": {
+    "compute_sudo": {
+        "body": [
+            "",
+            "compute_sudo=${1:True}${0}",
+            "",
+            ""
+        ],
+        "description": "Field attribute: compute_sudo",
+        "prefix": "compute_sudo"
+    },
+    "constraints": {
+        "body": [
+            "",
+            "@api.constrains('${1}')",
+            "def _check_${1}(self):",
+            "    for record in self:",
+            "        ${0}",
+            ""
+        ],
+        "description": "Model Python contraints",
+        "prefix": "constraints"
+    },
+    "constraints1": {
+        "body": [
+            "",
+            "_sql_constraints = [",
+            "    (",
+            "        '${1:name}',",
+            "        '${2:constraint}',",
+            "        _(u'${3:message}')",
+            "    )${4}",
+            "]${0}",
+            ""
+        ],
+        "description": "Model SQL contraints",
+        "prefix": "constraints"
+    },
+    "context": {
+        "body": [
+            "",
+            "context=\\{${13}\\}${0}",
+            ""
+        ],
+        "description": "Field attribute: context",
+        "prefix": "context"
+    },
+    "controller/controller": {
         "body": [
             "",
             "class ${1:ControllerName}(Controller):",
@@ -629,49 +462,116 @@
             "        pass${0}",
             ""
         ],
-        "description": "Controller",
-        "prefix": "controller"
+        "description": "Odoo web controller class",
+        "prefix": "controller/controller"
     },
-    "def _browse": {
+    "controller/route": {
         "body": [
             "",
-            "@classmethod",
-            "def _browse(cls, env, ids):",
-            "    \"\"\" Returns a recordset for the ids provided as parameter in the current",
-            "        environment.",
+            "\"\"\" ",
+            "    Routes:",
+            "      /${1:some_url}: ${2:url description}",
+            "\"\"\"",
             "",
-            "        Can take no ids, a single id or a sequence of ids.",
+            "@route('/${1}', type='${3:http}', auth='${4:none}')",
+            "def ${1/((^[A-Z])|([^a-zA-Z]))/(?2:\\l$2)(?3:\\_)/g}(self${5:, **kw}):",
             "",
-            "        :param cls: model class",
-            "        :param env: environment",
-            "        :param ids: none, a single id or a sequence of ids",
-            "",
-            "        :return: a recordset",
-            "    \"\"\"",
-            "",
-            "    result = ${1:class_name}._browse(env, ids)",
-            "    ${0}",
-            "    return result",
+            "    pass${0}",
             ""
         ],
-        "description": "_browse method signature",
-        "prefix": "def _browse"
+        "description": "Odoo web controller route",
+        "prefix": "controller/route"
     },
-    "def _compute": {
+    "copy": {
         "body": [
             "",
-            "@api.multi",
-            "@api.depends('${1:depends}')",
-            "def _compute_${2:field}(self):",
-            "    for record in self:",
-            "        ${4:record.${2:field} = ${3:something}}",
+            "copy=${1:False}${0}",
+            ""
+        ],
+        "description": "Field attribute: copy",
+        "prefix": "copy"
+    },
+    "copyright": {
+        "body": [
+            "",
+            "# -*- coding: utf-8 -*-",
+            "###############################################################################",
+            "#",
+            "#    jeffery CHEN fan<jeffery9@gmail.com>",
+            "#",
+            "#    Copyright (c) All rights reserved:",
+            "#        (c) 2017  $TM_FULLNAME",
+            "#",
+            "#    This program is free software: you can redistribute it and/or modify",
+            "#    it under the terms of the GNU Affero General Public License as",
+            "#    published by the Free Software Foundation, either version 3 of the",
+            "#    License, or (at your option) any later version.",
+            "#",
+            "#    This program is distributed in the hope that it will be useful,",
+            "#    but WITHOUT ANY WARRANTY; without even the implied warranty of",
+            "#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the",
+            "#    GNU Affero General Public License for more details.",
+            "#",
+            "#    You should have received a copy of the GNU Affero General Public License",
+            "#    along with this program.  If not, see http://www.gnu.org/licenses",
+            "#    ",
+            "#    Odoo and OpenERP is trademark of Odoo S.A.",
+            "#",
+            "###############################################################################",
             "${0}",
             ""
         ],
-        "description": "_compute method signature",
-        "prefix": "def _compute"
+        "description": "Copyright statement Full",
+        "prefix": "copyright"
     },
-    "def _log": {
+    "copyright1": {
+        "body": [
+            "",
+            "# -*- coding: utf-8 -*-",
+            "###############################################################################",
+            "#    License, author and contributors information in:                         #",
+            "#    __manifest__.py file at the root folder of this module.                   #",
+            "###############################################################################",
+            "${0}",
+            ""
+        ],
+        "description": "Copyright statement Simple",
+        "prefix": "copyright"
+    },
+    "copyright2": {
+        "body": [
+            "",
+            "# -*- coding: utf-8 -*-",
+            "###############################################################################",
+            "#",
+            "#    jeffery CHEN fan<jeffery9@gmail.com>",
+            "#",
+            "#    Copyright (c) All rights reserved:",
+            "#        (c) 2017  $TM_FULLNAME",
+            "#",
+            "#    This program is free software: you can redistribute it and/or modify",
+            "#    it under the terms of the GNU Affero General Public License as",
+            "#    published by the Free Software Foundation, either version 3 of the",
+            "#    License, or (at your option) any later version.",
+            "#",
+            "#    This program is distributed in the hope that it will be useful,",
+            "#    but WITHOUT ANY WARRANTY; without even the implied warranty of",
+            "#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the",
+            "#    GNU Affero General Public License for more details.",
+            "#",
+            "#    You should have received a copy of the GNU Affero General Public License",
+            "#    along with this program.  If not, see http://www.gnu.org/licenses",
+            "#    ",
+            "#    Odoo and OpenERP is trademark of Odoo S.A.",
+            "#",
+            "###############################################################################",
+            "${0}",
+            ""
+        ],
+        "description": "Copyright statement Full",
+        "prefix": "copyright"
+    },
+    "def/log": {
         "body": [
             "",
             "def _log(self, level, msg_format, *args, **kwargs):",
@@ -688,237 +588,13 @@
             "    log(msg)",
             ""
         ],
-        "description": "Common _log method",
-        "prefix": "def _log"
-    },
-    "def _search": {
-        "body": [
-            "",
-            "@api.model",
-            "def _search_${1: field}(self, operator, value):",
-            "    return [('${2:related}', operator, value)]${0}",
-            ""
-        ],
-        "description": "_search method signature",
-        "prefix": "def _search"
-    },
-    "def copy": {
-        "body": [
-            "",
-            "@api.one",
-            "def copy(self, default=None):",
-            "    \"\"\"",
-            "        Create a new record in ${1:ModelName} model from existing one",
-            "        @param default: dict which contains the values to be override during",
-            "        copy of object",
-            "",
-            "        @return: returns a id of newly created record",
-            "    \"\"\"",
-            "",
-            "    result = super(${1:ModelName}, self).copy(default)${0}",
-            "",
-            "    return result",
-            ""
-        ],
-        "description": "copy method signature",
-        "prefix": "def copy"
-    },
-    "def create": {
-        "body": [
-            "",
-            "@api.model",
-            "def create(self, values):",
-            "    \"\"\"",
-            "        Create a new record for a model ${1:ModelName}",
-            "        @param values: provides a data for new record",
-            "",
-            "        @return: returns a id of new record",
-            "    \"\"\"",
-            "",
-            "    result = super(${1:Model_Name}, self).create(values)${0}",
-            "",
-            "    return result",
-            ""
-        ],
-        "description": "create method signature",
-        "prefix": "def create"
-    },
-    "def get_empty_list_help": {
-        "body": [
-            "",
-            "@api.model",
-            "def get_empty_list_help(self, help):",
-            "    \"\"\" Generic method giving the help message displayed when having",
-            "        no result to display in a list or kanban view.",
-            "    \"\"\"",
-            "",
-            "    ${0:return help}",
-            ""
-        ],
-        "description": "get_empty_list_help method signature",
-        "prefix": "def get_empty_list_help"
-    },
-    "def get_formview_id": {
-        "body": [
-            "",
-            "@api.one",
-            "@api.returns('ir.ui.view')",
-            "def get_formview_id(self):",
-            "    \"\"\" Return an view id to open the document with.",
-            "",
-            "        :param int id: id of the document to open",
-            "    \"\"\"",
-            "",
-            "    ${0:return False}",
-            ""
-        ],
-        "description": "get_formview_id method signature",
-        "prefix": "def get_formview_id"
-    },
-    "def init": {
-        "body": [
-            "",
-            "def init(self, cr):",
-            "    \"\"\" Build database view which will be used as module origin",
-            "",
-            "        :param cr: database cursor",
-            "    \"\"\"",
-            "",
-            "    self._sql_query = \"\"\"",
-            "        SELECT",
-            "            ROW_NUMBER() OVER() AS \"id\"",
-            "    \"\"\"",
-            "",
-            "    drop_view_if_exists(cr, ${1:self._table})",
-            "    cr.execute(",
-            "        'create or replace view {} as ({})'.format(",
-            "            ${1},",
-            "            self._sql_query",
-            "        )",
-            "    )${0}",
-            ""
-        ],
-        "description": "init method signature",
-        "prefix": "def init"
-    },
-    "def onchange": {
-        "body": [
-            "",
-            "@api.one",
-            "@api.onchange('${1:field}')",
-            "def _onchange_${1}(self):",
-            "    ${3:self.${2:field} = self.${1}}",
-            "${0}",
-            ""
-        ],
-        "description": "_onchange method signature, code",
-        "prefix": "def onchange"
-    },
-    "def onchange1": {
-        "body": [
-            "",
-            "@api.onchange('${1:field_name}')",
-            "def _onchange_${1}(self):",
-            "    return {",
-            "        'domain': {",
-            "            '${2:field_name}': ${6:[('${3:field_name}', '${4:=}', ${5:self.${1}})]}",
-            "        }",
-            "    }${0}",
-            ""
-        ],
-        "description": "_onchange method signature, domain",
-        "prefix": "def onchange"
-    },
-    "def onchange2": {
-        "body": [
-            "",
-            "@api.onchange('${1:field}')",
-            "def _onchange_${1}(self):",
-            "    return {",
-            "        'warning': {",
-            "            'title': '${2:Text of the title}',",
-            "            'message': '${3:Text of the message}'",
-            "        }",
-            "    }${0}",
-            ""
-        ],
-        "description": "_onchange method signature, warning",
-        "prefix": "def onchange"
-    },
-    "def unlink": {
-        "body": [
-            "",
-            "@api.multi",
-            "def unlink(self):",
-            "    \"\"\"",
-            "        Delete all record(s) from recordset",
-            "        return True on success, False otherwise",
-            "",
-            "        @return: True on success, False otherwise",
-            "",
-            "        #TODO: process before delete resource",
-            "    \"\"\"",
-            "",
-            "    result = super(${1:ModelName}, self).unlink()${0}",
-            "",
-            "    return result",
-            ""
-        ],
-        "description": "unlink method signature",
-        "prefix": "def unlink"
-    },
-    "def view_header_get": {
-        "body": [
-            "",
-            "@api.model",
-            "def view_header_get(self, view_id=None, view_type='form'):",
-            "    \"\"\" Returns the window title which depends on the context \"\"\"",
-            "",
-            "    ${0:return False}",
-            ""
-        ],
-        "description": "view_header_get method signature",
-        "prefix": "def view_header_get"
-    },
-    "def view_init": {
-        "body": [
-            "",
-            "@api.model",
-            "def view_init(self, fields_list):",
-            "    \"\"\" Does specific things when a view on the object is opened \"\"\"",
-            "",
-            "    ${0:pass}",
-            ""
-        ],
-        "description": "view_init method signature",
-        "prefix": "def view_init"
-    },
-    "def write": {
-        "body": [
-            "",
-            "@api.multi",
-            "def write(self, values):",
-            "    \"\"\"",
-            "        Update all record(s) in recordset, with new value comes as {values}",
-            "        return True on success, False otherwise",
-            "",
-            "        @param values: dict of new values to be set",
-            "",
-            "        @return: True on success, False otherwise",
-            "    \"\"\"",
-            "",
-            "    result = super(${1:Model_Name}, self).write(values)${0}",
-            "",
-            "    return result",
-            ""
-        ],
-        "description": "write method signature",
-        "prefix": "def write"
+        "description": "Common logging log method",
+        "prefix": "def/log"
     },
     "default": {
         "body": [
             "",
-            "default=lambda self: self._default_${1:field}()${0}",
+            "default='_default_${1:field}'${0}",
             ""
         ],
         "description": "Field attribute: search, lambda function",
@@ -927,7 +603,7 @@
     "default company": {
         "body": [
             "",
-            "default=lambda self: self.env['res.company']._company_default_get(${1:'res.users'})${0}",
+            "default=lambda self: self.env.user.company_id${0}",
             ""
         ],
         "description": "Field attribute: default company",
@@ -951,14 +627,41 @@
         "description": "Field attribute: default_model ",
         "prefix": "default_model"
     },
-    "dom": {
+    "digits": {
         "body": [
             "",
-            "${1:[}${2:'${3:&}',}('${4:field_name (in self)}','${5:=}', ${6:\"Please use: 'value' or self.dot.notation\"}),${1/^\\[/\\]/g}",
+            "digits=(${1:16}, ${2:2})",
             ""
         ],
-        "description": "Common domain definition",
-        "prefix": "dom"
+        "description": "Field attribute: digits",
+        "prefix": "digits"
+    },
+    "digits/get_precision": {
+        "body": [
+            "",
+            "digits=dp.get_precision('Product Price')",
+            ""
+        ],
+        "description": "Field attribute: digits",
+        "prefix": "digits/get_precision"
+    },
+    "domain": {
+        "body": [
+            "",
+            "domain=[('${1}','${2}',${3})]${0}",
+            ""
+        ],
+        "description": "Field attribute: domain",
+        "prefix": "domain"
+    },
+    "domain1": {
+        "body": [
+            "",
+            "domain=lambda self: self._get_${1:field}_domain}()",
+            ""
+        ],
+        "description": "Field attribute: domain lambda",
+        "prefix": "domain"
     },
     "fail": {
         "body": [
@@ -969,371 +672,1359 @@
         "description": "fail",
         "prefix": "fail"
     },
+    "feature/company_plant": {
+        "body": [
+            "",
+            "factory_id = fields.Many2one(",
+            "    string=u'\u5de5\u5382',",
+            "    comodel_name='res.company',",
+            "    required=True,",
+            "    default=lambda self: self.env.user.company_id,",
+            "    domain=lambda self: [('is_factory','=',True), ('id','in',self.env.user.company_ids.ids)],",
+            ")",
+            "",
+            "company_id = fields.Many2one(",
+            "    string=u'Company',",
+            "    comodel_name='res.company',",
+            "    ondelete='set null',",
+            "    related='factory_id.parent_id',",
+            ")",
+            "",
+            ""
+        ],
+        "description": "Adds the company/plant support",
+        "prefix": "feature/company_plant"
+    },
+    "feature/mail_thread": {
+        "body": [
+            "",
+            "_inherit = ['mail.thread', 'mail.activity.mixin'${0}]",
+            "",
+            ""
+        ],
+        "description": "Adds Mail Thread support",
+        "prefix": "feature/mail_thread"
+    },
+    "feature/multi_company": {
+        "body": [
+            "",
+            "company_ids = fields.Many2many(",
+            "    comodel_name='res.company', ",
+            "    string=\"Companies\"        ",
+            ")",
+            "",
+            "company_id = fields.Many2one(",
+            "    comodel_name='res.company', ",
+            "    compute=\"_compute_company_id\", ",
+            "    store=True,",
+            ")",
+            "",
+            "@api.multi",
+            "@api.depends('company_ids')",
+            "def _compute_company_id(self):",
+            "    for record in self:",
+            "        record.company_id = record.company_ids[:1]",
+            "",
+            ""
+        ],
+        "description": "Adds the multi company support",
+        "prefix": "feature/multi_company"
+    },
+    "feature/needaction": {
+        "body": [
+            "",
+            "'ir.needaction_mixin'${0}",
+            ""
+        ],
+        "description": "Adds NeedAction support",
+        "prefix": "feature/needaction"
+    },
+    "feature/parent_child": {
+        "body": [
+            "",
+            "_parent_store = ${1:True}",
+            "${0}",
+            "",
+            "parent_left = fields.Integer('Left Parent', index=1)",
+            "parent_right = fields.Integer('Right Parent', index=1)",
+            "",
+            ""
+        ],
+        "description": "Adds the _parent_store attribute and parent_left and parent_right",
+        "prefix": "feature/parent_child"
+    },
+    "feature/state": {
+        "body": [
+            "",
+            "state = fields.Selection(",
+            "    string=u'State',",
+            "    selection=[('draft', 'Draft'), ('confirmed', 'Confirmed'),  ('close', 'Close'),  ('cancel', 'Cancel')],",
+            "    default='draft',",
+            "    readonly=True,",
+            ")",
+            "",
+            "@api.multi",
+            "def action_confirm(self):",
+            "    self.write({'state': 'confirmed'})",
+            "",
+            "@api.multi",
+            "def action_draft(self):",
+            "    self.write({'state': 'draft'})",
+            "",
+            "@api.multi",
+            "def action_cancel(self):",
+            "    self.write({'state': 'cancel'})",
+            "",
+            "@api.multi",
+            "def action_close(self):",
+            "    self.write({'state': 'close'})",
+            "",
+            "${0}",
+            ""
+        ],
+        "description": "Adds state support",
+        "prefix": "feature/state"
+    },
+    "feature/utm": {
+        "body": [
+            "",
+            "'utm.mixin'${0}",
+            ""
+        ],
+        "description": "Adds utm support",
+        "prefix": "feature/utm"
+    },
+    "field.company_id": {
+        "body": [
+            "",
+            "company_id = fields.Many2one(",
+            "    string=u'Company', ",
+            "    comodel_name='res.company', ",
+            "    required=True, ",
+            "    default=lambda self: self.env.user.company_id",
+            ")",
+            ""
+        ],
+        "description": "",
+        "prefix": "field.company_id"
+    },
+    "fields.Attachment": {
+        "body": [
+            "",
+            "${1:attachment} = fields.Binary(string=u'${3:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}', attachment=True)",
+            ""
+        ],
+        "description": "",
+        "prefix": "fields.Attachment"
+    },
     "fields.Binary": {
         "body": [
             "",
             "${1:field_name} = fields.Binary(",
-            "    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ $4)/g}}',",
-            "    required=${3:False},",
-            "    readonly=${4:False},",
-            "    index=${5:False},",
-            "    default=${6:0},",
-            "    help=${7:False}",
+            "    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',",
             ")${0}",
             ""
         ],
-        "description": "Common definition for field type Binary",
+        "description": "",
         "prefix": "fields.Binary"
     },
     "fields.Boolean": {
         "body": [
             "",
             "${1:field_name} = fields.Boolean(",
-            "    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ $4)/g}}',",
-            "    required=${3:False},",
-            "    readonly=${4:False},",
-            "    index=${5:False},",
-            "    default=${6:False},",
-            "    help=${7:False}",
+            "    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',",
             ")${0}",
             ""
         ],
-        "description": "Common definition for field type Boolean",
+        "description": "",
         "prefix": "fields.Boolean"
     },
     "fields.Char": {
         "body": [
             "",
             "${1:field_name} = fields.Char(",
-            "    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ $4)/g}}',",
-            "    required=${3:False},",
-            "    readonly=${4:False},",
-            "    index=${5:False},",
-            "    default=${6:None},",
-            "    help=${7:False},",
-            "    size=${8:50},",
-            "    translate=${9:True}",
+            "    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',",
             ")${0}",
             ""
         ],
-        "description": "Common definition for field type Char",
+        "description": "",
         "prefix": "fields.Char"
     },
     "fields.Date": {
         "body": [
             "",
             "${1:field_name} = fields.Date(",
-            "    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ $4)/g}}',",
-            "    required=${3:False},",
-            "    readonly=${4:False},",
-            "    index=${5:False},",
+            "    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',",
             "    default=${6:fields.Date.context_today},",
-            "    help=${7:False}",
             ")${0}",
             ""
         ],
-        "description": "Common definition for field type Date",
+        "description": "",
         "prefix": "fields.Date"
     },
     "fields.Datetime": {
         "body": [
             "",
             "${1:field_name} = fields.Datetime(",
-            "    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ $4)/g}}',",
-            "    required=${3:False},",
-            "    readonly=${4:False},",
-            "    index=${5:False},",
+            "    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',",
             "    default=${6:fields.Datetime.now},",
-            "    help=${7:False}",
             ")${0}",
             ""
         ],
-        "description": "Common definition for field type Datetime",
+        "description": "",
         "prefix": "fields.Datetime"
     },
     "fields.Float": {
         "body": [
             "",
             "${1:field_name} = fields.Float(",
-            "    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ $4)/g}}',",
-            "    required=${3:False},",
-            "    readonly=${4:False},",
-            "    index=${5:False},",
-            "    default=${6:0.0},",
-            "    digits=(${7:16}, ${8:2}),",
-            "    help=${9:False}",
+            "    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',",
             ")${0}",
             ""
         ],
-        "description": "Common definition for field type Float",
+        "description": "",
         "prefix": "fields.Float"
     },
     "fields.Html": {
         "body": [
             "",
             "${1:field_name} = fields.Html(",
-            "    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ $4)/g}}',",
-            "    required=${3:False},",
-            "    readonly=${4:False},",
-            "    index=${5:False},",
-            "    default=${6:None},",
-            "    help=${7:False}",
+            "    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',",
             ")${0}",
             ""
         ],
-        "description": "Common definition for field type HTML",
+        "description": "",
         "prefix": "fields.Html"
     },
     "fields.Integer": {
         "body": [
             "",
             "${1:field_name} = fields.Integer(",
-            "    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ $4)/g}}',",
-            "    required=${3:False},",
-            "    readonly=${4:False},",
-            "    index=${5:False},",
-            "    default=${6:0},",
-            "    help=${7:False}",
+            "    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',",
             ")${0}",
             ""
         ],
-        "description": "Common definition for field type Integer",
+        "description": "",
         "prefix": "fields.Integer"
     },
     "fields.Many2many": {
         "body": [
             "",
-            "${1:field_name} = fields.Many2many(",
-            "    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ $4)/g}}',",
-            "    required=${3:False},",
-            "    readonly=${4:False},",
-            "    index=${5:False},",
-            "    default=${6:None},",
-            "    help=${7:False},",
+            "${1:field_name}_ids = fields.Many2many(",
+            "    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',",
             "    comodel_name='${8:model.name}',",
-            "    relation='${9:${8/\\./_/g}_this_model_rel}',",
-            "    column1='${10:${8/\\./_/g}_id}',",
-            "    column2='${11:this_model_id}',",
-            "    domain=[${12}],",
-            "    context=\\{${13}\\},",
-            "    limit=${14:None}",
+            "    relation='${10:${8/\\./_/g}_${9:this_model}_rel}',",
+            "    column1='${11:${8/\\./_/g}_id}',",
+            "    column2='${12:${9}_id}',",
             ")${0}",
             ""
         ],
-        "description": "Common definition for field type Many2many",
+        "description": "",
         "prefix": "fields.Many2many"
     },
     "fields.Many2one": {
         "body": [
             "",
-            "${1:field_name} = fields.Many2one(",
-            "    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ $4)/g}}',",
-            "    required=${3:False},",
-            "    readonly=${4:False},",
-            "    index=${5:False},",
-            "    default=${6:None},",
-            "    help=${7:False},",
+            "${1:field_name}_id = fields.Many2one(",
+            "    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',",
             "    comodel_name='${8:model.name}',",
-            "    domain=[${9}],",
-            "    context=\\{${10}\\},",
             "    ondelete='${11:set null}',",
-            "    auto_join=${12:False}",
             ")${0}",
             ""
         ],
-        "description": "Common definition for field type Many2one",
+        "description": "",
         "prefix": "fields.Many2one"
     },
     "fields.One2many": {
         "body": [
             "",
-            "${1:field_name} = fields.One2many(",
-            "    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ $4)/g}}',",
-            "    required=${3:False},",
-            "    readonly=${4:False},",
-            "    index=${5:False},",
-            "    default=${6:None},",
-            "    help=${7:False},",
+            "${1:field_name}_ids = fields.One2many(",
+            "    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',",
             "    comodel_name='${8:model.name}',",
             "    inverse_name='${9:inverse_field}',",
-            "    domain=[${10}],",
-            "    context=\\{${11}\\},",
-            "    auto_join=${12:False},",
-            "    limit=${13:None}",
             ")${0}",
             ""
         ],
-        "description": "Common definition for field type One2Many",
+        "description": "",
         "prefix": "fields.One2many"
     },
     "fields.Reference": {
         "body": [
             "",
-            "${1:field_name} = fields.Reference(",
-            "    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ $4)/g}}',",
-            "    required=${3:False},",
-            "    readonly=${4:False},",
-            "    index=${5:False},",
-            "    default=${6:0},",
-            "    help=${7:False},",
+            "${1:field_name}_ref = fields.Reference(",
+            "    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',",
             "    selection=[('${8:model.name}', '${9:String}'),('${10:model.name}', '${11:String}')]",
             ")${0}",
             ""
         ],
-        "description": "Common definition for field type Reference",
+        "description": "",
         "prefix": "fields.Reference"
     },
     "fields.Selection": {
         "body": [
             "",
             "${1:field_name} = fields.Selection(",
-            "    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ $4)/g}}',",
-            "    required=${3:False},",
-            "    readonly=${4:False},",
-            "    index=${5:False},",
-            "    default=${6:False},",
-            "    help=${7:False},",
+            "    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',",
             "    selection=[('${8:valor1}', '${9:${8/(.)(.+)/\\u$1$2/g}}'), ('${10:valor2}', '${11:${10/(.)(.+)/\\u$1$2/g}}')]",
             ")${0}",
             ""
         ],
-        "description": "Common definition for field type Seleccion",
+        "description": "",
         "prefix": "fields.Selection"
     },
     "fields.Text": {
         "body": [
             "",
             "${1:field_name} = fields.Text(",
-            "    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ $4)/g}}',",
-            "    required=${3:False},",
-            "    readonly=${4:False},",
-            "    index=${5:False},",
-            "    default=${6:None},",
-            "    help=${7:False},",
-            "    translate=${8:True}",
+            "    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',",
             ")${0}",
             ""
         ],
-        "description": "Common definition for field type Text",
+        "description": "",
         "prefix": "fields.Text"
     },
-    "file controller": {
+    "file/__init__": {
         "body": [
             "",
             "# -*- coding: utf-8 -*-",
             "###############################################################################",
             "#    License, author and contributors information in:                         #",
             "#    __manifest__.py file at the root folder of this module.                   #",
+            "###############################################################################",
+            "",
+            "from . import ${1:models}${0}",
+            ""
+        ],
+        "description": "__init__ file",
+        "prefix": "file/__init__"
+    },
+    "file/__manifest__": {
+        "body": [
+            "",
+            "# -*- coding: utf-8 -*-",
+            "###############################################################################",
+            "#",
+            "#    jeffery CHEN fan<jeffery9@gmail.com>",
+            "#",
+            "#    Copyright (c) All rights reserved:",
+            "#        (c) 2017  $TM_FULLNAME",
+            "#",
+            "#    This program is free software: you can redistribute it and/or modify",
+            "#    it under the terms of the GNU Affero General Public License as",
+            "#    published by the Free Software Foundation, either version 3 of the",
+            "#    License, or (at your option) any later version.",
+            "#",
+            "#    This program is distributed in the hope that it will be useful,",
+            "#    but WITHOUT ANY WARRANTY; without even the implied warranty of",
+            "#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the",
+            "#    GNU Affero General Public License for more details.",
+            "#",
+            "#    You should have received a copy of the GNU Affero General Public License",
+            "#    along with this program.  If not, see http://www.gnu.org/licenses",
+            "#    ",
+            "#    Odoo and OpenERP is trademark of Odoo S.A.",
+            "#",
+            "###############################################################################",
+            "{",
+            "    'name': '${1:Human readable name}',",
+            "    'summary': '${2:${1}} Module Project',",
+            "    'version': '1.0',",
+            "",
+            "    'description': \"\"\"",
+            "${3:${1}} Module Project.",
+            "==============================================",
+            "",
+            "${4}",
+            "    \"\"\",",
+            "",
+            "    'author': '${5:$TM_FULLNAME}',",
+            "    'maintainer': '${5}',",
+            "    'contributors': ['${6:${5} <${5}@gmail.com>}'],",
+            "",
+            "    'website': 'http://www.gitlab.com/${7:${5}}',",
+            "",
+            "    'license': 'AGPL-3',",
+            "    'category': 'Uncategorized',",
+            "",
+            "    'depends': [",
+            "        'base'",
+            "    ],",
+            "    'external_dependencies': {",
+            "        'python': [",
+            "        ],",
+            "    },",
+            "    'data': [",
+            "    ],",
+            "    'demo': [",
+            "    ],",
+            "    'js': [",
+            "    ],",
+            "    'css': [",
+            "    ],",
+            "    'qweb': [",
+            "    ],",
+            "    'images': [",
+            "    ],",
+            "    'test': [",
+            "    ],",
+            "",
+            "    'installable': True",
+            "}${0}",
+            ""
+        ],
+        "description": "Odoo manifest file common structure",
+        "prefix": "file/__manifest__"
+    },
+    "file/__manifest__1": {
+        "body": [
+            "",
+            "# -*- coding: utf-8 -*-",
+            "###############################################################################",
+            "#",
+            "#    jeffery CHEN fan<jeffery9@gmail.com>",
+            "#",
+            "#    Copyright (c) All rights reserved:",
+            "#        (c) 2017  $TM_FULLNAME",
+            "#",
+            "#    This program is free software: you can redistribute it and/or modify",
+            "#    it under the terms of the GNU Affero General Public License as",
+            "#    published by the Free Software Foundation, either version 3 of the",
+            "#    License, or (at your option) any later version.",
+            "#",
+            "#    This program is distributed in the hope that it will be useful,",
+            "#    but WITHOUT ANY WARRANTY; without even the implied warranty of",
+            "#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the",
+            "#    GNU Affero General Public License for more details.",
+            "#",
+            "#    You should have received a copy of the GNU Affero General Public License",
+            "#    along with this program.  If not, see http://www.gnu.org/licenses",
+            "#    ",
+            "#    Odoo and OpenERP is trademark of Odoo S.A.",
+            "#",
+            "###############################################################################",
+            "{",
+            "    'name': '${1:Human readable name}',",
+            "    'summary': '${2:${1}} Module Project',",
+            "    'version': '1.0',",
+            "",
+            "    'description': \"\"\"",
+            "${3:${1}} Module Project.",
+            "==============================================",
+            "",
+            "${4}",
+            "    \"\"\",",
+            "",
+            "    'author': '${5:$TM_FULLNAME}',",
+            "    'maintainer': '${5}',",
+            "    'contributors': ['${6:${5} <${5}@gmail.com>}'],",
+            "",
+            "    'website': 'http://www.gitlab.com/${7:${5}}',",
+            "",
+            "    'license': 'AGPL-3',",
+            "    'category': 'Uncategorized',",
+            "",
+            "    'depends': [",
+            "        'base'",
+            "    ],",
+            "    'external_dependencies': {",
+            "        'python': [",
+            "        ],",
+            "    },",
+            "    'data': [",
+            "    ],",
+            "    'demo': [",
+            "    ],",
+            "    'js': [",
+            "    ],",
+            "    'css': [",
+            "    ],",
+            "    'qweb': [",
+            "    ],",
+            "    'images': [",
+            "    ],",
+            "    'test': [",
+            "    ],",
+            "",
+            "    'installable': True",
+            "}${0}",
+            ""
+        ],
+        "description": "Odoo manifest file common structure",
+        "prefix": "file/__manifest__"
+    },
+    "file/__openerp__": {
+        "body": [
+            "",
+            "# -*- coding: utf-8 -*-",
+            "###############################################################################",
+            "#",
+            "#    Odoo, Open Source Management Solution",
+            "#",
+            "#    Copyright (c) All rights reserved:",
+            "#        (c) 2017  $TM_FULLNAME",
+            "#",
+            "#    This program is free software: you can redistribute it and/or modify",
+            "#    it under the terms of the GNU Affero General Public License as",
+            "#    published by the Free Software Foundation, either version 3 of the",
+            "#    License, or (at your option) any later version.",
+            "#",
+            "#    This program is distributed in the hope that it will be useful,",
+            "#    but WITHOUT ANY WARRANTY; without even the implied warranty of",
+            "#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the",
+            "#    GNU Affero General Public License for more details.",
+            "#",
+            "#    You should have received a copy of the GNU Affero General Public License",
+            "#    along with this program.  If not, see http://www.gnu.org/licenses",
+            "#    ",
+            "#    Odoo and OpenERP is trademark of Odoo S.A.",
+            "#",
+            "###############################################################################",
+            "{",
+            "    'name': '${1:Human readable name}',",
+            "    'summary': '${2:${1}} Module Project',",
+            "    'version': '1.0',",
+            "",
+            "    'description': \"\"\"",
+            "${3:${1}} Module Project.",
+            "==============================================",
+            "",
+            "${4}",
+            "    \"\"\",",
+            "",
+            "    'author': '${5:$TM_FULLNAME}',",
+            "    'maintainer': '${5}',",
+            "    'contributors': ['${6:${5} <${5}@gmail.com>}'],",
+            "",
+            "    'website': 'http://www.gitlab.com/${7:${5}}',",
+            "",
+            "    'license': 'AGPL-3',",
+            "    'category': 'Uncategorized',",
+            "",
+            "    'depends': [",
+            "        'base'",
+            "    ],",
+            "    'external_dependencies': {",
+            "        'python': [",
+            "        ],",
+            "    },",
+            "    'data': [",
+            "    ],",
+            "    'demo': [",
+            "    ],",
+            "    'js': [",
+            "    ],",
+            "    'css': [",
+            "    ],",
+            "    'qweb': [",
+            "    ],",
+            "    'images': [",
+            "    ],",
+            "    'test': [",
+            "    ],",
+            "",
+            "    'installable': True",
+            "}${0}",
+            ""
+        ],
+        "description": "Odoo manifest file common structure",
+        "prefix": "file/__openerp__"
+    },
+    "file/coding": {
+        "body": [
+            "",
+            "# -*- coding: utf-8 -*-",
+            "${0}",
+            ""
+        ],
+        "description": "utf-8 coding",
+        "prefix": "file/coding"
+    },
+    "file/controller": {
+        "body": [
+            "",
+            "# -*- coding: utf-8 -*-",
+            "###############################################################################",
+            "#    License, author and contributors information in:                         #",
+            "#    __manifest__.py file at the root folder of this module.                  #",
             "###############################################################################",
             "",
             "from odoo.http import route, request, Controller, _",
-            "",
+            "from odoo.exceptions import UserError, ValidationError",
             "${0}",
             ""
         ],
-        "description": "Odoo Python web controller file",
-        "prefix": "file controller"
+        "description": "Odoo web controller file",
+        "prefix": "file/controller"
     },
-    "file model": {
+    "file/model": {
         "body": [
             "",
             "# -*- coding: utf-8 -*-",
             "###############################################################################",
             "#    License, author and contributors information in:                         #",
-            "#    __manifest__.py file at the root folder of this module.                   #",
+            "#    __manifest__.py file at the root folder of this module.                  #",
             "###############################################################################",
             "",
             "from odoo import models, fields, api, _",
-            "",
+            "from odoo.exceptions import UserError, ValidationError",
             "${0}",
             ""
         ],
-        "description": "Odoo Python module file",
-        "prefix": "file model"
+        "description": "Odoo model file",
+        "prefix": "file/model"
     },
-    "import": {
+    "help": {
         "body": [
             "",
-            "from odoo import models, fields, api",
+            "help='${1:Technical Field }'${0}",
+            ""
+        ],
+        "description": "Field attribute: help",
+        "prefix": "help"
+    },
+    "import/datetime": {
+        "body": [
+            "",
+            "from datetime import date, datetime",
+            "from dateutil.relativedelta import relativedelta",
+            "from odoo.tools import DEFAULT_SERVER_DATE_FORMAT as DATE_FORMAT",
+            "from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT as DATETIME_FORMAT",
+            "${0}",
+            ""
+        ],
+        "description": "import date and time tools",
+        "prefix": "import/datetime"
+    },
+    "import/dp": {
+        "body": [
+            "",
+            "import odoo.addons.decimal_precision as dp",
+            "${0}",
+            ""
+        ],
+        "description": "",
+        "prefix": "import/dp"
+    },
+    "import/exceptions": {
+        "body": [
+            "",
+            "from odoo.exceptions import UserError, ValidationError",
+            "${0}",
+            ""
+        ],
+        "description": "",
+        "prefix": "import/exceptions"
+    },
+    "import/logging": {
+        "body": [
+            "",
+            "import logging",
+            "_logger = logging.getLogger(__name__)",
+            "${0}",
+            ""
+        ],
+        "description": "logging instance",
+        "prefix": "import/logging"
+    },
+    "import/translate": {
+        "body": [
+            "",
             "from odoo.tools.translate import _${0}",
             ""
         ],
-        "description": "Common Python library import lines",
-        "prefix": "import"
+        "description": "import odoo translate",
+        "prefix": "import/translate"
+    },
+    "index": {
+        "body": [
+            "",
+            "index=${1:True}${0}",
+            ""
+        ],
+        "description": "Field attribute: index",
+        "prefix": "index"
     },
     "inverse": {
         "body": [
             "",
-            "inverse=lambda self: self._inverse_${1:field}()${0}",
+            "inverse='_inverse_${1:field}'${0}",
             ""
         ],
         "description": "Field attribute: inverse, lambda function",
         "prefix": "inverse"
     },
-    "logging": {
+    "limit": {
         "body": [
             "",
-            "import logging",
-            "_logger = logging.getLogger(__name__)",
+            "limit=${1:80}${0}",
+            ""
+        ],
+        "description": "Field attribute: limit",
+        "prefix": "limit"
+    },
+    "method/_browse": {
+        "body": [
+            "",
+            "@classmethod",
+            "def _browse(cls, env, ids):",
+            "    \"\"\" Returns a recordset for the ids provided as parameter in the current",
+            "        environment.",
+            "",
+            "        Can take no ids, a single id or a sequence of ids.",
+            "",
+            "        :param cls: model class",
+            "        :param env: environment",
+            "        :param ids: none, a single id or a sequence of ids",
+            "",
+            "        :return: a recordset",
+            "    \"\"\"",
+            "",
+            "    result = ${1:class_name}._browse(env, ids)",
+            "    ${0}",
+            "    return result",
+            ""
+        ],
+        "description": "_browse method signature",
+        "prefix": "method/_browse"
+    },
+    "method/_onchange": {
+        "body": [
+            "",
+            "@api.onchange('${1:field}')",
+            "def _onchange_${1}(self):",
+            "    ${3:self.${2:field} = self.${1}}",
+            "${0}",
+            ""
+        ],
+        "description": "_onchange method signature, code",
+        "prefix": "method/_onchange"
+    },
+    "method/_onchange1": {
+        "body": [
+            "",
+            "@api.onchange('${1:field_name}')",
+            "def _onchange_${1}(self):",
+            "    return {",
+            "        'domain': {",
+            "            '${2:field_name}': ${6:[('${3:field_name}', '${4:=}', ${5:self.${1}})]}",
+            "        }",
+            "    }${0}",
+            ""
+        ],
+        "description": "_onchange method signature, domain",
+        "prefix": "method/_onchange"
+    },
+    "method/_onchange2": {
+        "body": [
+            "",
+            "@api.onchange('${1:field}')",
+            "def _onchange_${1}(self):",
+            "    return {",
+            "        'warning': {",
+            "            'title': '${2:Text of the title}',",
+            "            'message': '${3:Text of the message}'",
+            "        }",
+            "    }${0}",
+            ""
+        ],
+        "description": "_onchange method signature, warning",
+        "prefix": "method/_onchange"
+    },
+    "method/_search": {
+        "body": [
+            "",
+            "def _search_${1: field}(self, operator, value):",
+            "    return [('${2:related}', operator, value)]${0}",
+            ""
+        ],
+        "description": "_search method signature",
+        "prefix": "method/_search"
+    },
+    "method/action_confirm": {
+        "body": [
+            "",
+            "@api.multi",
+            "def action_confirm(self):",
+            "    for record in self:",
+            "        record.write( { '${1:field}': '${2:value}'})",
+            "    return True",
+            "${0}",
+            ""
+        ],
+        "description": "action_confirm method signature",
+        "prefix": "method/action_confirm"
+    },
+    "method/compute": {
+        "body": [
+            "",
+            "@api.depends('${2:depends}')",
+            "def _compute_${1:field}(self):",
+            "    for record in self:",
+            "        ${4:record.${1:field} = ${3:something}}",
+            "${0}",
+            ""
+        ],
+        "description": "_compute method signature",
+        "prefix": "method/compute"
+    },
+    "method/copy": {
+        "body": [
+            "",
+            "@api.multi",
+            "def copy(self, default=None):",
+            "    \"\"\"",
+            "        Create a new record in ${1:ModelName} model from existing one",
+            "        @param default: dict which contains the values to be override during",
+            "        copy of object",
+            "",
+            "        @return: returns a id of newly created record",
+            "    \"\"\"",
+            "",
+            "    result = super(${1:ModelName}, self).copy(default)",
+            "    ${0}",
+            "",
+            "    return result",
+            ""
+        ],
+        "description": "copy method signature",
+        "prefix": "method/copy"
+    },
+    "method/create": {
+        "body": [
+            "",
+            "@api.model",
+            "def create(self, values):",
+            "    \"\"\"",
+            "        Create a new record for a model ${1:ModelName}",
+            "        @param values: provides a data for new record",
+            "",
+            "        @return: returns a id of new record",
+            "    \"\"\"",
+            "",
+            "    result = super(${1:Model_Name}, self).create(values)${0}",
+            "",
+            "    return result",
+            ""
+        ],
+        "description": "create method signature",
+        "prefix": "method/create"
+    },
+    "method/default_get": {
+        "body": [
+            "",
+            "@api.model",
+            "def default_get(self, fields):",
+            "    res = super(${1:ModelClass}, self).default_get(fields)",
+            "    ${0}",
+            "",
+            "    return res",
+            "    ",
+            ""
+        ],
+        "description": "default_get method signature",
+        "prefix": "method/default_get"
+    },
+    "method/fields_get": {
+        "body": [
+            "",
+            "@api.model",
+            "def fields_get(self, allfields=None, attributes=None):",
+            "    fields_to_hide = []",
+            "    for fname, field in self._fields.items():",
+            "        if fname.startswith('${2:prefix}'):",
+            "            fields_to_hide.append(fname)",
+            "",
+            "    res = super(${1:Model}, self).fields_get(allfields, attributes)",
+            "",
+            "    for field in fields_to_hide:",
+            "",
+            "        res[field]['searchable'] = False",
+            "        res[field]['sortable'] = False",
+            "",
+            "    return res",
+            "${0}",
+            ""
+        ],
+        "description": "fields_get remove fields from search and groubby",
+        "prefix": "method/fields_get"
+    },
+    "method/get_empty_list_help": {
+        "body": [
+            "",
+            "@api.model",
+            "def get_empty_list_help(self, help):",
+            "    \"\"\" Generic method giving the help message displayed when having",
+            "        no result to display in a list or kanban view.",
+            "    \"\"\"",
+            "",
+            "    ${0:return help}",
+            ""
+        ],
+        "description": "get_empty_list_help method signature",
+        "prefix": "method/get_empty_list_help"
+    },
+    "method/get_formview_id": {
+        "body": [
+            "",
+            "@api.one",
+            "@api.returns('ir.ui.view')",
+            "def get_formview_id(self):",
+            "    \"\"\" Return an view id to open the document with.",
+            "",
+            "        :param int id: id of the document to open",
+            "    \"\"\"",
+            "",
+            "    ${0:return False}",
+            ""
+        ],
+        "description": "get_formview_id method signature",
+        "prefix": "method/get_formview_id"
+    },
+    "method/init": {
+        "body": [
+            "",
+            "def init(self):",
+            "    \"\"\" Build database view which will be used as module origin",
+            "",
+            "    \"\"\"",
+            "    self._sql_query = \"\"\"",
+            "        SELECT",
+            "            ROW_NUMBER() OVER() AS \"id\"",
+            "    \"\"\"",
+            "",
+            "    tools.drop_view_if_exists(self._cr, ${1:self._table})",
+            "    self._cr.execute(",
+            "        'create or replace view {} as ({})'.format(",
+            "            ${1},",
+            "            self._sql_query",
+            "        )",
+            "    )${0}",
+            ""
+        ],
+        "description": "init method signature",
+        "prefix": "method/init"
+    },
+    "method/name_get": {
+        "body": [
+            "",
+            "@api.multi",
+            "@api.depends('name', '${1:ref}')",
+            "def name_get(self):",
+            "    result = []",
+            "    for record in self:",
+            "        if record.${1:ref}:",
+            "            name = '[' + record.${1:ref} + '] ' + record.name",
+            "        else:",
+            "            name = record.name",
+            "        result.append((record.id, name))",
+            "    return result",
+            "${0}",
+            ""
+        ],
+        "description": "name_get method signature",
+        "prefix": "method/name_get"
+    },
+    "method/name_search": {
+        "body": [
+            "",
+            "@api.model",
+            "def name_search(self, name, args=None, operator='ilike', limit=100):",
+            "    args = args or []",
+            "    domain = []",
+            "    if name:",
+            "        domain = [",
+            "            '|', ('${1:field_name}', '=ilike', name), ('${2:field_name}', operator, name)",
+            "        ]",
+            "        if operator in expression.NEGATIVE_TERM_OPERATORS:",
+            "            domain = ['&', '!'] + domain[1:]",
+            "    records = self.search(domain + args, limit=limit)",
+            "    return records.name_get()",
             "",
             "${0}",
             ""
         ],
-        "description": "logging instance",
-        "prefix": "logging"
+        "description": "name_search method signature",
+        "prefix": "method/name_search"
     },
-    "model.browse": {
+    "method/toggle_active": {
         "body": [
             "",
-            "${1:model}_obj = self.env['${2:model.name}']",
-            "${1}_set = ${1}_obj.browse(${3:1})",
+            "@api.multi",
+            "def toggle_active(self):",
+            "    return {'warning': {",
+            "                    'title': _(\"Warning\"),",
+            "                    'message': _(u\"\u4e0d\u5141\u8bb8\u5bf9\u6b64\u6a21\u578b\u7684\u8bb0\u5f55\u8fdb\u884c\u201c\u5f52\u6863\u201d\u64cd\u4f5c\uff01\") ,",
+            "    }}",
             "${0}",
             ""
         ],
-        "description": "shortcut for model browse() ",
-        "prefix": "model.browse"
+        "description": "toggle_active method signature",
+        "prefix": "method/toggle_active"
     },
-    "model.search": {
+    "method/unlink": {
         "body": [
             "",
-            "${1:model}_domain = [${2:('id', '=', 1)}]",
-            "${1}_obj = self.env['${3:model.name}']",
-            "${1}_set = ${1}_obj.search(${1}_domain)",
-            "${0}",
+            "@api.multi",
+            "def unlink(self):",
+            "    \"\"\"",
+            "        Delete all record(s) from recordset",
+            "        return True on success, False otherwise",
+            "",
+            "        @return: True on success, False otherwise",
+            "",
+            "        #TODO: process before delete resource",
+            "    \"\"\"",
+            "",
+            "    result = super(${1:ModelName}, self).unlink()${0}",
+            "",
+            "    return result",
             ""
         ],
-        "description": "shortcut for model search() ",
-        "prefix": "model.search"
+        "description": "unlink method signature",
+        "prefix": "method/unlink"
     },
-    "model.search_read": {
+    "method/unlink_restrict": {
         "body": [
             "",
-            "${1:model}_domain = [${2:('id', '=', 1)}]",
-            "${1}_obj = self.env['${3:model.name}']",
-            "${1}_set = ${1}_obj.search_read(${1}_domain, [${4:id}, ${5:name}])",
-            "${0}",
+            "@api.multi",
+            "def unlink(self):",
+            "    for record in self:",
+            "        if record.state not in ('draft'):",
+            "            raise UserError(",
+            "                u'\u4e0d\u53ef\u4ee5\u5220\u9664\u975e\u8349\u7a3f\u72b6\u6001\u7684\u5355\u636e!'",
+            "            )",
+            "    return super(ModelClass, self).unlink()",
             ""
         ],
-        "description": "shortcut for model search_read() ",
-        "prefix": "model.search_read"
+        "description": "restrict unlink",
+        "prefix": "method/unlink_restrict"
     },
-    "search": {
+    "method/view_header_get": {
         "body": [
             "",
-            "${1:model_obj}.search(${2:args}${5:, offset=${4:0}}${7:, limit=${6:None}}${10:, order=${9:None}}${12:, context=${11:None}}${14:, count=${13:False}})",
+            "@api.model",
+            "def view_header_get(self, view_id=None, view_type='form'):",
+            "    \"\"\" Returns the window title which depends on the context \"\"\"",
+            "",
+            "    ${0:return False}",
             ""
         ],
-        "description": "",
-        "prefix": "search"
+        "description": "view_header_get method signature",
+        "prefix": "method/view_header_get"
+    },
+    "method/view_init": {
+        "body": [
+            "",
+            "@api.model",
+            "def view_init(self, fields_list):",
+            "    \"\"\" Does specific things when a view on the object is opened \"\"\"",
+            "",
+            "    ${0:pass}",
+            ""
+        ],
+        "description": "view_init method signature",
+        "prefix": "method/view_init"
+    },
+    "method/write": {
+        "body": [
+            "",
+            "@api.multi",
+            "def write(self, values):",
+            "    \"\"\"",
+            "        Update all record(s) in recordset, with new value comes as {values}",
+            "        return True on success, False otherwise",
+            "",
+            "        @param values: dict of new values to be set",
+            "",
+            "        @return: True on success, False otherwise",
+            "    \"\"\"",
+            "",
+            "    result = super(${1:Model_Name}, self).write(values)${0}",
+            "",
+            "    return result",
+            ""
+        ],
+        "description": "write method signature",
+        "prefix": "method/write"
+    },
+    "model/abstract": {
+        "body": [
+            "",
+            "class ${1:ModelName}(models.AbstractModel):",
+            "    _name = '${3:${1/((^[A-Z])|([A-Z]))/(?2:\\l$2)(?3:\\.\\l$3)/g}}'",
+            "",
+            "    ${0}",
+            ""
+        ],
+        "description": "Odoo abstract model class",
+        "prefix": "model/abstract"
+    },
+    "model/inherit": {
+        "body": [
+            "",
+            "class ${1:ModelName}(models.Model):",
+            "    _inherit = '${3:${1/((^[A-Z])|([A-Z]))/(?2:\\l$2)(?3:\\.\\l$3)/g}}'",
+            "",
+            "    ${0}",
+            ""
+        ],
+        "description": "Odoo inherit model class",
+        "prefix": "model/inherit"
+    },
+    "model/model": {
+        "body": [
+            "",
+            "class ${1:ModelName}(models.Model):",
+            "    _name = '${3:${1/((^[A-Z])|([A-Z]))/(?2:\\l$2)(?3:\\.\\l$3)/g}}'",
+            "    _description = u'${4:${1/((^[A-Z])|([A-Z]))/(?2:\\u$2)(?3:\\ \\u$3)/g}}'",
+            "",
+            "    _rec_name = 'name'",
+            "    _order = 'name ASC'",
+            "",
+            "    name = fields.Char(",
+            "        string=u'Name',",
+            "        required=True,",
+            "        default=lambda self: _('New'),",
+            "        copy=False",
+            "    )",
+            "",
+            "    ${0}",
+            ""
+        ],
+        "description": "Odoo generic model class",
+        "prefix": "model/model"
+    },
+    "model/transient": {
+        "body": [
+            "",
+            "class ${1:ModelName}(models.TransientModel):",
+            "    _name = '${3:${1/((^[A-Z])|([A-Z]))/(?2:\\l$2)(?3:\\.\\l$3)/g}}'",
+            "    _description = u'${4:${1/((^[A-Z])|([A-Z]))/(?2:\\u$2)(?3:\\ \\u$3)/g}}'",
+            "",
+            "    ${0}",
+            ""
+        ],
+        "description": "Odoo transient model class",
+        "prefix": "model/transient"
+    },
+    "ondelete": {
+        "body": [
+            "",
+            "ondelete='${1:set null}'${0}",
+            ""
+        ],
+        "description": "Field attribute: ondelete",
+        "prefix": "ondelete"
+    },
+    "readonly": {
+        "body": [
+            "",
+            "readonly=True${0} ",
+            ""
+        ],
+        "description": "Field attribute: readonly",
+        "prefix": "readonly"
+    },
+    "readonly/states": {
+        "body": [
+            "",
+            "readonly=True, states={'draft': [('readonly', False)]}${0} ",
+            ""
+        ],
+        "description": "Field attribute: readonly states",
+        "prefix": "readonly/states"
+    },
+    "related": {
+        "body": [
+            "",
+            "related='${1:field_name}',",
+            "readonly=True,",
+            "store=True${0}",
+            ""
+        ],
+        "description": "Field attribute: related",
+        "prefix": "related"
+    },
+    "related_sudo": {
+        "body": [
+            "",
+            "related_sudo=${1:False}${0}",
+            ""
+        ],
+        "description": "Field attribute: related_sudo",
+        "prefix": "related_sudo"
+    },
+    "required": {
+        "body": [
+            "",
+            "required=${1:True}${0}",
+            ""
+        ],
+        "description": "Field attribute: required",
+        "prefix": "required"
+    },
+    "return/act_window": {
+        "body": [
+            "",
+            "return {",
+            "    'name': _('${1: Human Readable String}'),",
+            "    'type': 'ir.actions.act_window',",
+            "    'view_type': 'form',",
+            "    'view_mode': 'tree,form',",
+            "    'res_model': '${2:model}',",
+            "    'domain': [('id', 'in', ${3:ids})],",
+            "}${0}",
+            ""
+        ],
+        "description": "pop window",
+        "prefix": "return/act_window"
+    },
+    "return/act_window_close": {
+        "body": [
+            "",
+            "return {'type': 'ir.actions.act_window_close'${0}",
+            ""
+        ],
+        "description": "close window",
+        "prefix": "return/act_window_close"
     },
     "selection_add": {
         "body": [
             "",
-            "selection_add=[('${1:draft}', ${1}) ${0}]",
+            "selection_add=[('${1:draft}', ${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g})${0}]",
             ""
         ],
         "description": "Field attribute: selection_add ",
         "prefix": "selection_add"
+    },
+    "selection_element": {
+        "body": [
+            "",
+            "('${1:draft}', ${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g})${0}",
+            ""
+        ],
+        "description": "Field attribute: selection add new element ",
+        "prefix": "selection_element"
+    },
+    "sequence/line_number": {
+        "body": [
+            "",
+            "line_number = fields.Integer(string=u'\u884c\u53f7', default=10)",
+            "",
+            "@api.model",
+            "def default_get(self, fields):",
+            "    default_values = super(${1:ModelClass}, self).default_get(fields)",
+            "",
+            "    line_ids = self.env.context.get('${2:line_ids}', False)",
+            "    if line_ids:",
+            "        lines = self.env['${3:model}'].resolve_2many_commands(",
+            "            '${2:line_ids}', line_ids",
+            "        )",
+            "        lines.sort(key=lambda x:x.get('line_number'))",
+            "",
+            "        if lines:",
+            "            sequence = lines[-1]['line_number'] + 10",
+            "        else:",
+            "            sequence = 10",
+            "",
+            "        default_values.update({'line_number': sequence})",
+            "",
+            "    return default_values",
+            "",
+            ""
+        ],
+        "description": "Line Number Add 10 automaticlly",
+        "prefix": "sequence/line_number"
+    },
+    "sequence/next_by_code": {
+        "body": [
+            "",
+            "if values.get('name', _('New')) == _('New'):",
+            "    if 'company_id' in values:",
+            "        values['name'] = self.env['ir.sequence'].with_context(",
+            "            force_company=values['company_id']",
+            "        ).next_by_code('${1:model}') or _('New')",
+            "    else:",
+            "        values['name'] = self.env['ir.sequence'].next_by_code(",
+            "            '${1:model}'",
+            "        ) or _('New')",
+            "",
+            ""
+        ],
+        "description": "next_by_code, used in create()",
+        "prefix": "sequence/next_by_code"
+    },
+    "size": {
+        "body": [
+            "",
+            "size=${1:32}${0}",
+            ""
+        ],
+        "description": "Field attribute: size",
+        "prefix": "size"
+    },
+    "states": {
+        "body": [
+            "",
+            "states={'${1:state}': [${0}]}",
+            ""
+        ],
+        "description": "Field attribute: states",
+        "prefix": "states"
+    },
+    "states/invisible": {
+        "body": [
+            "",
+            "(invisible, True)${0}",
+            ""
+        ],
+        "description": "Field attribute: states state invisible",
+        "prefix": "states/invisible"
+    },
+    "states/readonly": {
+        "body": [
+            "",
+            "(readonly, True)${0}",
+            ""
+        ],
+        "description": "Field attribute: states state readonly",
+        "prefix": "states/readonly"
+    },
+    "states/required": {
+        "body": [
+            "",
+            "(required, True)${0}",
+            ""
+        ],
+        "description": "Field attribute: states state required",
+        "prefix": "states/required"
+    },
+    "states/state": {
+        "body": [
+            "",
+            "${1:state}': [${0}]",
+            ""
+        ],
+        "description": "Field attribute: states state",
+        "prefix": "states/state"
+    },
+    "store": {
+        "body": [
+            "",
+            "store=${1:True}${0}",
+            ""
+        ],
+        "description": "Field attribute: store",
+        "prefix": "store"
+    },
+    "string": {
+        "body": [
+            "",
+            "string='${1}'${0}",
+            ""
+        ],
+        "description": "Field attribute: string",
+        "prefix": "string"
     },
     "super": {
         "body": [
@@ -1365,5 +2056,77 @@
         ],
         "description": "Field attribute: track_visibility",
         "prefix": "track_visibility"
+    },
+    "translate": {
+        "body": [
+            "",
+            "translate=${1:False}${0}",
+            ""
+        ],
+        "description": "Field attribute: translate",
+        "prefix": "translate"
+    },
+    "x2m/create": {
+        "body": [
+            "",
+            "(0, False, ${1:{values}})",
+            ""
+        ],
+        "description": "x2m create",
+        "prefix": "x2m/create"
+    },
+    "x2m/delete": {
+        "body": [
+            "",
+            "(2, ${1:id}, False)",
+            ""
+        ],
+        "description": "x2m delete, don't use in create()",
+        "prefix": "x2m/delete"
+    },
+    "x2m/link": {
+        "body": [
+            "",
+            "(4, ${1:id}, False)",
+            ""
+        ],
+        "description": "x2m link, don't use in One2many",
+        "prefix": "x2m/link"
+    },
+    "x2m/replace": {
+        "body": [
+            "",
+            "(6, False, ${1:ids)",
+            ""
+        ],
+        "description": "x2m replace, don't use in create() and One2many",
+        "prefix": "x2m/replace"
+    },
+    "x2m/unlink": {
+        "body": [
+            "",
+            "(3, ${1:id}, False)",
+            ""
+        ],
+        "description": "x2m unlink, don't use in create()",
+        "prefix": "x2m/unlink"
+    },
+    "x2m/unlink_all": {
+        "body": [
+            "",
+            "(5, False, False)",
+            ""
+        ],
+        "description": "x2m unlink all, don't use in create()",
+        "prefix": "x2m/unlink_all"
+    },
+    "x2m/update": {
+        "body": [
+            "",
+            "(1, ${1:id}, ${2:{values}})",
+            ""
+        ],
+        "description": "x2m update, don't use in create()",
+        "prefix": "x2m/update"
     }
 }

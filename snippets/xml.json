@@ -1,4 +1,78 @@
 {
+    "action_binding": {
+        "body": [
+            "",
+            "<field name=\"binding_model_id\" ref=\"${1:module.model_model_name}\" />",
+            ""
+        ],
+        "description": "Fully formated time relative to now",
+        "prefix": "action_binding"
+    },
+    "arch/form": {
+        "body": [
+            "\r",
+            "<form string=\"${1:Caption}\" create=\"${2:true}\" delete=\"${3:true}\" edit=\"${4:true}\">\r",
+            "    <sheet>\r",
+            "        <div class=\"oe_title\">\r",
+            "            <label for=\"${5:name}\" class=\"oe_edit_only\" />\r",
+            "            <h1><field name=\"${5}\" placeholder=\"${7:Describe the item...}\" /></h1>\r",
+            "        </div>\r",
+            "        ${0}\r",
+            "    </sheet>\r",
+            "</form>\r",
+            ""
+        ],
+        "description": "Common form tag to be added inside a ir.ui.view",
+        "prefix": "arch/form"
+    },
+    "arch/graph": {
+        "body": [
+            "",
+            "<graph string=\"${1:Graph title}\" type=\"${2:one # bar # pie # line # pivot}\">",
+            "    <field type=\"row\" name=\"${3:row_field}\" />",
+            "    <field type=\"col\" name=\"${4:col_field}\" interval=\"month\" />",
+            "    <field type=\"measure\" name=\"${5:measure_field}\" />",
+            "</graph>${0}",
+            ""
+        ],
+        "description": "Common graph tag to be added inside a ir.ui.view",
+        "prefix": "arch/graph"
+    },
+    "arch/pivot": {
+        "body": [
+            "",
+            "<pivot string=\"${1:Graph title}\" type=\"${2:one # bar # pie # line # pivot}\">",
+            "    <field type=\"row\" name=\"${3:row_field}\" />",
+            "    <field type=\"col\" name=\"${4:col_field}\" interval=\"month\" />",
+            "    <field type=\"measure\" name=\"${5:measure_field}\" />",
+            "</pivot>${0}",
+            ""
+        ],
+        "description": "Common graph tag to be added inside a ir.ui.view",
+        "prefix": "arch/pivot"
+    },
+    "arch/search": {
+        "body": [
+            "",
+            "<search string=\"${1:Name}\">",
+            "    ${0}",
+            "</search>",
+            ""
+        ],
+        "description": "Common search tag to be added inside a ir.ui.view",
+        "prefix": "arch/search"
+    },
+    "arch/tree": {
+        "body": [
+            "",
+            "<tree string=\"${1:Caption}\" create=\"${2:true}\" delete=\"${3:true}\" edit=\"${4:true}\"${6: editable=\"${5:bottom}\"}>",
+            "    ${0}",
+            "</tree>",
+            ""
+        ],
+        "description": "Common tree tag to be added inside a ir.ui.view",
+        "prefix": "arch/tree"
+    },
     "attribute": {
         "body": [
             "",
@@ -11,55 +85,58 @@
     "attrs": {
         "body": [
             "",
-            "attrs=\"{'readonly': [('state','not in',('draft'))]}\"",
+            "attrs=\"{ ${0} }\"",
             ""
         ],
         "description": "field attr attrs",
         "prefix": "attrs"
     },
-    "attrs1": {
+    "attrs/invisible": {
         "body": [
             "",
-            "attrs=\"{'${1:attribute_name}': [${5}('${2:field_name}', '${3:operator}', ${4:value})]${6}}\"${0}",
+            "'column_invisible': [('state','not in',('draft'))] ${0}",
             ""
         ],
-        "description": "",
-        "prefix": "attrs"
+        "description": "field attr attrs column_invisible",
+        "prefix": "attrs/invisible"
     },
-    "base.action.rule": {
+    "attrs/invisible1": {
         "body": [
             "",
-            "<record id=\"${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"base.action.rule\">",
-            "    <field name=\"name\">${1:Human readable name}</field>",
-            "    <field name=\"active\" eval=\"${2:True}\" />",
-            "    <field name=\"sequence\" eval=\"${3:0}\" />",
-            "    <field name=\"server_action_ids\" eval=\"[(4, ref('${4:ir.actions.server}'))]\" />",
-            "    <field name=\"model_id\" ref=\"${5:ir.model}\" />",
-            "    <field name=\"kind\">${6:on_create_or_write}</field>",
-            "    <field name=\"trg_date_id\" ref=\"${7:ir.model.fields}\" />",
-            "    <field name=\"trg_date_range\" eval=\"${8:0}\" />",
-            "    <field name=\"trg_date_range_type\">${9:day}</field>${11:",
-            "    <field name=\"trg_date_calendar_id\" ref=\"${10:resource.calendar}\" />}${13:",
-            "    <field name=\"filter_id\" ref=\"${12:ir.filters}\" />}${15:",
-            "    <field name=\"filter_pre_id\" ref=\"${14:ir.filters}\" />}${17:",
-            "    <field name=\"act_user_id\" ref=\"${16:base.user_root}\" />}${19:",
-            "    <field name=\"act_followers\" eval=\"[(4, ref('${18:res.partner}'))]\" />}",
-            "</record>${0}",
+            "'invisible': [('state','not in',('draft'))] ${0}",
             ""
         ],
-        "description": "Common record definition for base.action.rule",
-        "prefix": "base.action.rule"
+        "description": "field attr attrs invisible",
+        "prefix": "attrs/invisible"
     },
-    "button": {
+    "attrs/readonly": {
         "body": [
             "",
-            "<button name=\"${1:function_name}\" string=\"${2:string}\" ${4:type=\"${3:object}\"} ${5:special=\"cancel\"} />",
+            "'readonly': [('state','not in',('draft'))] ${0}",
             ""
         ],
-        "description": "Inline button tag definition",
-        "prefix": "button"
+        "description": "field attr attrs readonly",
+        "prefix": "attrs/readonly"
     },
-    "button1": {
+    "attrs/required": {
+        "body": [
+            "",
+            "'required': [('state','not in',('draft'))] ${0}",
+            ""
+        ],
+        "description": "field attr attrs required",
+        "prefix": "attrs/required"
+    },
+    "button/cancel": {
+        "body": [
+            "",
+            "<button string=\"Cancel\" special=\"cancel\" class=\"oe_link\"/>",
+            ""
+        ],
+        "description": "Cancel button tag definition",
+        "prefix": "button/cancel"
+    },
+    "button/full": {
         "body": [
             "",
             "<button name=\"${1:function_name}\"",
@@ -73,13 +150,37 @@
             ""
         ],
         "description": "Common button tag definition",
-        "prefix": "button"
+        "prefix": "button/full"
+    },
+    "button/inline": {
+        "body": [
+            "",
+            "<button name=\"${1:function_name}\" string=\"${2:string}\" ${4:type=\"${3:object}\"} class=\"oe_highlight\"/>",
+            ""
+        ],
+        "description": "Inline button tag definition",
+        "prefix": "button/inline"
+    },
+    "button/smart": {
+        "body": [
+            "",
+            "<div class=\"oe_button_box\" name=\"button_box\">",
+            "    <button class=\"oe_stat_button\" name=\"${1:action_name}\" type=\"object\" icon=\"fa-${4:search}\">",
+            "        <field string=\"${2:string}\" name=\"${3:count_name}\" widget=\"statinfo\" />",
+            "    </button>",
+            "${0}",
+            "</div>",
+            ""
+        ],
+        "description": "smart button definition",
+        "prefix": "button/smart"
     },
     "chatter": {
         "body": [
             "",
             "<div class=\"oe_chatter\">",
             "    <field name=\"message_follower_ids\" widget=\"mail_followers\" />",
+            "    <field name=\"activity_ids\" widget=\"mail_activity\"/>",
             "    <field name=\"message_ids\" widget=\"mail_thread\" />",
             "</div>${0}",
             ""
@@ -87,40 +188,155 @@
         "description": "Common XML to add a tracking area inside a form view",
         "prefix": "chatter"
     },
-    "domain": {
+    "class/oe_edit_only": {
         "body": [
             "",
-            "domain=\"[('${1:name}', '=', '${1}')]\"",
+            "class=\"oe_edit_only\"${0}",
+            ""
+        ],
+        "description": "field attr class oe_edit_only",
+        "prefix": "class/oe_edit_only"
+    },
+    "class/oe_inline": {
+        "body": [
+            "",
+            "class=\"oe_inline\"${0}",
+            ""
+        ],
+        "description": "field attr class oe_inline",
+        "prefix": "class/oe_inline"
+    },
+    "class/oe_left": {
+        "body": [
+            "",
+            "class=\"oe_left\"${0}",
+            ""
+        ],
+        "description": "field attr class oe_left",
+        "prefix": "class/oe_left"
+    },
+    "class/oe_no_avatar": {
+        "body": [
+            "",
+            "class=\"oe_no_avatar\"${0}",
+            ""
+        ],
+        "description": "field attr class oe_no_avatar",
+        "prefix": "class/oe_no_avatar"
+    },
+    "class/oe_no_button": {
+        "body": [
+            "",
+            "class=\"oe_no_button\"${0}",
+            ""
+        ],
+        "description": "field attr class oe_no_button",
+        "prefix": "class/oe_no_button"
+    },
+    "class/oe_read_only": {
+        "body": [
+            "",
+            "class=\"oe_read_only\"${0}",
+            ""
+        ],
+        "description": "field attr class oe_read_only",
+        "prefix": "class/oe_read_only"
+    },
+    "class/oe_right": {
+        "body": [
+            "",
+            "class=\"oe_right\"${0}",
+            ""
+        ],
+        "description": "field attr class oe_right",
+        "prefix": "class/oe_right"
+    },
+    "context1": {
+        "body": [
+            "",
+            "context=\"{'${1:key}': ${2:value}, ${0}}\"",
+            ""
+        ],
+        "description": "tag attr context",
+        "prefix": "context"
+    },
+    "create": {
+        "body": [
+            "",
+            "create=\"${1:false}\"${0}",
+            ""
+        ],
+        "description": "tag attr create",
+        "prefix": "create"
+    },
+    "decoration": {
+        "body": [
+            "",
+            "decoration-${1:info}=\"${2:field} == ${3:value}\"${0}",
+            ""
+        ],
+        "description": "field attr decoration",
+        "prefix": "decoration"
+    },
+    "default_order": {
+        "body": [
+            "",
+            "default_order=\"${1:field},${0}\"",
+            ""
+        ],
+        "description": "field attr default_order",
+        "prefix": "default_order"
+    },
+    "delete": {
+        "body": [
+            "",
+            "delete=\"${1:false}\"${0}",
+            ""
+        ],
+        "description": "tag attr delete",
+        "prefix": "delete"
+    },
+    "domain2": {
+        "body": [
+            "",
+            "domain=\"[('${1:name}', '=', ${1})]\"",
             ""
         ],
         "description": "field attr domain",
         "prefix": "domain"
     },
-    "email.template": {
+    "duplicate": {
         "body": [
             "",
-            "<record id=\"email_template_${12:${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}}\" model=\"email.template\">",
-            "    <field name=\"name\">${1:Human readable name}</field>",
-            "    <field name=\"subject\">${2:$1}</field>",
-            "    <field name=\"email_from\">${3:$\\{object.company_id.name\\} <$\\{(object.company_id.email or user.email)|safe\\}>}</field>",
-            "    <field name=\"email_to\">${4:$\\{object.name|safe\\} <$\\{object.email|safe\\}>}</field>",
-            "    <field name=\"email_cc\">${5}</field>",
-            "    <field name=\"reply_to\">${6}</field>",
-            "    <field name=\"user_signature\" eval=\"${7:False}\" />",
-            "    <field name=\"lang\">${8:$\\{object.lang\\}}</field>",
-            "    <field name=\"auto_delete\" eval=\"${9:True}\" />",
-            "    <field name=\"model_id\" ref=\"${10:ir.model}\" />",
-            "    <field name=\"attachment_ids\" eval=\"[(4, ref('${11:ir.attachment}'))]\" />",
-            "    <field name=\"body_html\"><![CDATA[",
-            "        ${12:<p>To whom it may concern:</p>}",
-            "]]${-1}></field>",
-            "</record>${0}",
+            "duplicate=\"${1:false}\"${0}",
             ""
         ],
-        "description": "Common record definition for email.template",
-        "prefix": "email.template"
+        "description": "tag attr duplicate",
+        "prefix": "duplicate"
     },
-    "field": {
+    "edit": {
+        "body": [
+            "",
+            "edit=\"${1:false}\"${0}",
+            ""
+        ],
+        "description": "tag attr edit",
+        "prefix": "edit"
+    },
+    "field/compound": {
+        "body": [
+            "",
+            "<label for=\"${1:product_qty}\"/>",
+            "<div class=\"o_row\">",
+            "    <field name=\"${1:product_qty}\"/>",
+            "    <field name=\"${2:product_uom_id}\"/>",
+            "</div> ${0}",
+            ""
+        ],
+        "description": "Compound field",
+        "prefix": "field/compound"
+    },
+    "field/full": {
         "body": [
             "",
             "<field",
@@ -142,17 +358,26 @@
             ""
         ],
         "description": "Full field tag",
-        "prefix": "field"
+        "prefix": "field/full"
     },
-    "field1": {
+    "field/inline": {
         "body": [
             "",
-            "<field name=\"${1:name}\" class=\"${2:oe_field_${1/([^a-zA-Z\\-\\_0-9]+)/\\_/g}}\"${4:",
+            "<field name=\"${1:name}\" class=\"${2:oe_inline}\"${4:",
             "    placeholder=\"${3:Enter new value for ${1/((^.)|(_+))/(?2:\\u$2)(?3:\\ )/g}}\"} />${0}",
             ""
         ],
-        "description": "Common field tag",
-        "prefix": "field"
+        "description": "Inline field tag",
+        "prefix": "field/inline"
+    },
+    "field/simple": {
+        "body": [
+            "",
+            "<field name=\"${1:name}\" />${0}",
+            ""
+        ],
+        "description": "Simple field tag",
+        "prefix": "field/simple"
     },
     "fields.Boolean1": {
         "body": [
@@ -266,11 +491,10 @@
         "description": "Common XML tag for field type Text",
         "prefix": "fields.Text"
     },
-    "file xml": {
+    "file/xml": {
         "body": [
             "",
             "<?xml version=\"1.0\" encoding=\"UTF-8\"?>",
-            "",
             "<odoo>",
             "    <data noupdate=\"${1:0}\">",
             "",
@@ -281,39 +505,946 @@
             ""
         ],
         "description": "Common base XML structure to be used in Odoo module data files",
-        "prefix": "file xml"
+        "prefix": "file/xml"
     },
-    "filter": {
+    "filter/archive": {
         "body": [
             "",
-            "<filter string=\"${1:Name}\"",
-            "    name=\"${2:${1/(([A-Za-z0-9])|( )|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)(?4:\\_)/g}}\"",
-            "    domain=\"${3:[]}\"",
-            "    context=\"${4:{}}\"",
-            "    help=\"${5}\" />${0}",
+            "<filter string=\"\u5f52\u6863\" name=\"inactive\" domain=\"[('active','=',False)]\"/>",
+            "${0}",
             ""
         ],
-        "description": "Common filter tag to be added inside a search view",
-        "prefix": "filter"
+        "description": "Filter archived",
+        "prefix": "filter/archive"
     },
-    "form": {
+    "filter/latest_by_day": {
         "body": [
             "",
-            "<form string=\"${1:Caption}\" create=\"${2:1}\" delete=\"${3:1}\" edit=\"${4:1}\">",
-            "    <sheet>",
-            "        <div class=\"oe_title\">",
-            "            <label for=\"${5:name}\" class=\"oe_edit_only\" />",
-            "            <h1><field name=\"${5}\" placeholder=\"${7:Describe the item...}\" /></h1>",
-            "        </div>",
+            "<filter string=\"\u672c\u65e5\u5355\u636e\" name=\"create_date\" domain=\"[('create_date','&gt;=',context_today().strftime('%Y-%m-%d')),('create_date','&lt;',(context_today()+datetime.timedelta(days=1)).strftime('%Y-%m-%d'))]\"/>",
+            "<filter string=\"\u672c\u5468\u5355\u636e\" name=\"create_date\" domain=\"[('create_date','&gt;=',(context_today() - datetime.timedelta(days=context_today().weekday())).strftime('%Y-%m-%d'))]\"/>",
+            "<filter string=\"\u672c\u6708\u5355\u636e\" name=\"create_date\" domain=\"[('create_date','&gt;=',datetime.date(context_today().year,context_today().month,1).strftime('%Y-%m-%d'))]\"/>",
+            ""
+        ],
+        "description": "Filter list latest order by days",
+        "prefix": "filter/latest_by_day"
+    },
+    "filter_domain": {
+        "body": [
+            "",
+            "filter_domain=\"[('${1:name}', '=', ${1})]\"",
+            ""
+        ],
+        "description": "field attr filter_domain",
+        "prefix": "filter_domain"
+    },
+    "function": {
+        "body": [
+            "",
+            "<function eval=\"[(${3:field}, '=', ${4:value})]\" model=\"${1:model.name}\"  name=\"${2:mothod}\">",
+            "    <function eval=\"[(${3:field}, '=', ${4:value})]\" model=\"${1:model.name}\"  name=\"search\">",
+            "    <value eval=\"{'${3:field}': ${4:value}}\"/>",
+            "</function>",
+            ""
+        ],
+        "description": "",
+        "prefix": "function"
+    },
+    "group": {
+        "body": [
+            "",
+            "<group>",
             "        ${0}",
-            "    </sheet>",
-            "</form>",
+            "    ",
+            "",
+            "</group>",
+            "",
             ""
         ],
-        "description": "Common form tag to be added inside a ir.ui.view",
-        "prefix": "form"
+        "description": "",
+        "prefix": "group"
     },
-    "fullreport": {
+    "groups": {
+        "body": [
+            "",
+            "groups=\"${1:module}.group_${2:groupNmae}\"${0}",
+            ""
+        ],
+        "description": "field attr groups",
+        "prefix": "groups"
+    },
+    "groups/multi_company": {
+        "body": [
+            "",
+            " groups=\"base.group_multi_company\"${0}",
+            ""
+        ],
+        "description": "",
+        "prefix": "groups/multi_company"
+    },
+    "groups/no_one": {
+        "body": [
+            "",
+            " groups=\"base.group_no_one\"${0}",
+            ""
+        ],
+        "description": "",
+        "prefix": "groups/no_one"
+    },
+    "groups/system": {
+        "body": [
+            "",
+            " groups=\"base.group_system\"${0}",
+            ""
+        ],
+        "description": "",
+        "prefix": "groups/system"
+    },
+    "invisible": {
+        "body": [
+            "",
+            "invisible=\"${1:1}\"${0}",
+            ""
+        ],
+        "description": "field attr invisible",
+        "prefix": "invisible"
+    },
+    "label": {
+        "body": [
+            "",
+            "<label for='${1:field_name}'>${2:Label}</label>",
+            ""
+        ],
+        "description": "Field Label",
+        "prefix": "label"
+    },
+    "link": {
+        "body": [
+            "",
+            "<link rel=\"stylesheet\" href=\"/${1:module_name}/static/src/css/${2:styles}.css\" />${0}",
+            ""
+        ],
+        "description": "Link tag to inglude an stylesheet",
+        "prefix": "link"
+    },
+    "notebook": {
+        "body": [
+            "",
+            "<notebook>",
+            "    ${0}",
+            "</notebook>",
+            ""
+        ],
+        "description": "",
+        "prefix": "notebook"
+    },
+    "options/always_reload": {
+        "body": [
+            "",
+            "options=\"{'always_reload': True}\"${0}",
+            ""
+        ],
+        "description": "field attr options always_reload",
+        "prefix": "options/always_reload"
+    },
+    "options/no_create": {
+        "body": [
+            "",
+            "options=\"{'no_create': True}\"${0}",
+            ""
+        ],
+        "description": "field attr options no_create",
+        "prefix": "options/no_create"
+    },
+    "options/no_create_edit": {
+        "body": [
+            "",
+            "options=\"{'no_create_edit': True}\"${0}",
+            ""
+        ],
+        "description": "field attr options no_create_edit",
+        "prefix": "options/no_create_edit"
+    },
+    "options/no_open": {
+        "body": [
+            "",
+            "options=\"{ 'no_open': True}\"${0}",
+            ""
+        ],
+        "description": "field attr options no_open",
+        "prefix": "options/no_open"
+    },
+    "options/no_quick_create": {
+        "body": [
+            "",
+            "options=\"{'no_create': True, 'no_open': True, 'no_create_edit': True}\"${0}",
+            ""
+        ],
+        "description": "field attr options no_create/no_open/no_create_edit",
+        "prefix": "options/no_quick_create"
+    },
+    "options/reload_whole_on_button": {
+        "body": [
+            "",
+            "options=\"{'reload_whole_on_button': true}\"${0}",
+            ""
+        ],
+        "description": "field attr options reload_whole_on_button",
+        "prefix": "options/reload_whole_on_button"
+    },
+    "page": {
+        "body": [
+            "",
+            "<page string=\"${1:Title}\" >",
+            "    ${0}",
+            "</page>",
+            ""
+        ],
+        "description": "",
+        "prefix": "page"
+    },
+    "position/after": {
+        "body": [
+            "",
+            "position=\"${1:after}\"${0}",
+            ""
+        ],
+        "description": "xpath position/after",
+        "prefix": "position/after"
+    },
+    "position/attributes": {
+        "body": [
+            "",
+            "position=\"${1:attributes}\"${0}",
+            ""
+        ],
+        "description": "xpath position/attributes",
+        "prefix": "position/attributes"
+    },
+    "position/before": {
+        "body": [
+            "",
+            "position=\"${1:before}\"${0}",
+            ""
+        ],
+        "description": "xpath position/before",
+        "prefix": "position/before"
+    },
+    "position/inside": {
+        "body": [
+            "",
+            "position=\"${1:inside}\"${0}",
+            ""
+        ],
+        "description": "xpath position/inside",
+        "prefix": "position/inside"
+    },
+    "qweb_t-att": {
+        "body": [
+            "",
+            "t-att-${1:name}=\"${2:value}\"",
+            ""
+        ],
+        "description": "Qweb named attribute",
+        "prefix": "qweb_t-att"
+    },
+    "qweb_t-att1": {
+        "body": [
+            "",
+            "t-att=\"${1:dict_of_pair}\"",
+            ""
+        ],
+        "description": "Qweb attribute",
+        "prefix": "qweb_t-att"
+    },
+    "qweb_t-attf": {
+        "body": [
+            "",
+            "t-attf-${1:name}=\"${2:format_string}\"",
+            ""
+        ],
+        "description": "Qweb format string attribute",
+        "prefix": "qweb_t-attf"
+    },
+    "qweb_t-call": {
+        "body": [
+            "",
+            "<t t-call=\"${1:template}\" />${0}",
+            ""
+        ],
+        "description": "Qweb inline call template",
+        "prefix": "qweb_t-call"
+    },
+    "qweb_t-call1": {
+        "body": [
+            "",
+            "<t t-call=\"${1:template}\">",
+            "    ${0}",
+            "</t>",
+            ""
+        ],
+        "description": "Qweb call template",
+        "prefix": "qweb_t-call"
+    },
+    "qweb_t-esc": {
+        "body": [
+            "",
+            "<t t-esc=\"${1:value}\" />",
+            ""
+        ],
+        "description": "Qweb data output",
+        "prefix": "qweb_t-esc"
+    },
+    "qweb_t-extend": {
+        "body": [
+            "",
+            "<t t-extend=\"${1:base.template}\">",
+            "    <t t-jquery=\"${2:ul}\" t-operation=\"${3:append}\">",
+            "        ${4:code}",
+            "    </t>${0}",
+            "</t>",
+            ""
+        ],
+        "description": "Qweb template inheritance",
+        "prefix": "qweb_t-extend"
+    },
+    "qweb_t-field": {
+        "body": [
+            "",
+            "<${1:span} t-field=\"${2:o}.${3:name}\" />${0}",
+            ""
+        ],
+        "description": "Qweb field access",
+        "prefix": "qweb_t-field"
+    },
+    "qweb_t-foreach": {
+        "body": [
+            "",
+            "<t t-foreach=\"${1:set}\" t-as=\"${2:name}\">",
+            "    ${0}",
+            "</t>",
+            ""
+        ],
+        "description": "Qweb loop",
+        "prefix": "qweb_t-foreach"
+    },
+    "qweb_t-if": {
+        "body": [
+            "",
+            "<${1:tag} t-if=\"${2:condition}\">${3:value}</${1}>${0}",
+            ""
+        ],
+        "description": "Qweb inline conditional",
+        "prefix": "qweb_t-if"
+    },
+    "qweb_t-if1": {
+        "body": [
+            "",
+            "<t t-if=\"${1:codition}\">",
+            "    ${0}",
+            "</t>",
+            ""
+        ],
+        "description": "Qweb conditional",
+        "prefix": "qweb_t-if"
+    },
+    "qweb_t-js": {
+        "body": [
+            "",
+            "<t t-js=\"${1:name}\">",
+            "    ${0:console.log(\"Foo is\", ctx.foo);}",
+            "</t>",
+            ""
+        ],
+        "description": "Qweb javascript",
+        "prefix": "qweb_t-js"
+    },
+    "qweb_t-log": {
+        "body": [
+            "",
+            "<t t-log=\"${1:value}\"/>${0}",
+            ""
+        ],
+        "description": "Qweb logging",
+        "prefix": "qweb_t-log"
+    },
+    "qweb_t-name": {
+        "body": [
+            "",
+            "<t t-name=\"${1:template-name}\">",
+            "    ${0:<!-- template code -->}",
+            "</t>",
+            ""
+        ],
+        "description": "Qweb top level named template",
+        "prefix": "qweb_t-name"
+    },
+    "qweb_t-raw": {
+        "body": [
+            "",
+            "<t t-raw=\"0\" />",
+            ""
+        ],
+        "description": "Qweb template from context",
+        "prefix": "qweb_t-raw"
+    },
+    "qweb_t-set": {
+        "body": [
+            "",
+            "<t t-set=\"${1:name}\" t-value=\"${2:value}\" />${0}",
+            ""
+        ],
+        "description": "Qweb inline variable",
+        "prefix": "qweb_t-set"
+    },
+    "qweb_t-set1": {
+        "body": [
+            "",
+            "<t t-set=\"${1:name}\">",
+            "    ${0}",
+            "</t>",
+            ""
+        ],
+        "description": "Qweb variable",
+        "prefix": "qweb_t-set"
+    },
+    "readonly1": {
+        "body": [
+            "",
+            "readonly=\"${1:1}\"${0}",
+            ""
+        ],
+        "description": "field attr readonly",
+        "prefix": "readonly"
+    },
+    "record": {
+        "body": [
+            "",
+            "<record id=\"${2:${1/(\\.+)/\\_/g}}\" model=\"${1:model.name}\">",
+            "    ${0}",
+            "</record>",
+            ""
+        ],
+        "description": "",
+        "prefix": "record"
+    },
+    "record/assets": {
+        "body": [
+            "",
+            "<record id=\"view_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_assets\" model=\"ir.ui.view\">",
+            "    <field name=\"name\">${1:module} assets</field>",
+            "    <field name=\"model\"></field>",
+            "    <field name=\"type\">qweb</field>",
+            "    <field name=\"mode\">extension</field>",
+            "    <field name=\"priority\" eval=\"${2:16}\" />",
+            "    <field name=\"active\" eval=\"${3:True}\" />",
+            "    <field name=\"inherit_id\" ref=\"web.assets_backend\" />",
+            "    <field name=\"arch\" type=\"xml\">",
+            "        <xpath expr=\".\" position=\"inside\">${5:",
+            "            <link rel=\"stylesheet\" href=\"/${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}/static/src/css/${4:styles}.css\" />}${7:",
+            "            <script type=\"text/javascript\" src=\"/${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}/static/src/js/${6:scripts}.js\" />}${0}",
+            "        </xpath>",
+            "    </field>",
+            "</record>",
+            ""
+        ],
+        "description": "Include module assets in backend views",
+        "prefix": "record/assets"
+    },
+    "record/base.action.rule": {
+        "body": [
+            "",
+            "<record id=\"${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"base.action.rule\">",
+            "    <field name=\"name\">${1:Human readable name}</field>",
+            "    <field name=\"active\" eval=\"${2:True}\" />",
+            "    <field name=\"sequence\" eval=\"${3:0}\" />",
+            "    <field name=\"server_action_ids\" eval=\"[(4, ref('${4:ir.actions.server}'))]\" />",
+            "    <field name=\"model_id\" ref=\"${5:ir.model}\" />",
+            "    <field name=\"kind\">${6:on_create_or_write}</field>",
+            "    <field name=\"trg_date_id\" ref=\"${7:ir.model.fields}\" />",
+            "    <field name=\"trg_date_range\" eval=\"${8:0}\" />",
+            "    <field name=\"trg_date_range_type\">${9:day}</field>${11:",
+            "    <field name=\"trg_date_calendar_id\" ref=\"${10:resource.calendar}\" />}${13:",
+            "    <field name=\"filter_id\" ref=\"${12:ir.filters}\" />}${15:",
+            "    <field name=\"filter_pre_id\" ref=\"${14:ir.filters}\" />}${17:",
+            "    <field name=\"act_user_id\" ref=\"${16:base.user_root}\" />}${19:",
+            "    <field name=\"act_followers\" eval=\"[(4, ref('${18:res.partner}'))]\" />}",
+            "</record>${0}",
+            ""
+        ],
+        "description": "Common record definition for base.action.rule",
+        "prefix": "record/base.action.rule"
+    },
+    "record/email.template": {
+        "body": [
+            "",
+            "<record id=\"email_template_${12:${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}}\" model=\"email.template\">",
+            "    <field name=\"name\">${1:Human readable name}</field>",
+            "    <field name=\"subject\">${2:$1}</field>",
+            "    <field name=\"email_from\">${3:$\\{object.company_id.name\\} <$\\{(object.company_id.email or user.email)|safe\\}>}</field>",
+            "    <field name=\"email_to\">${4:$\\{object.name|safe\\} <$\\{object.email|safe\\}>}</field>",
+            "    <field name=\"email_cc\">${5}</field>",
+            "    <field name=\"reply_to\">${6}</field>",
+            "    <field name=\"user_signature\" eval=\"${7:False}\" />",
+            "    <field name=\"lang\">${8:$\\{object.lang\\}}</field>",
+            "    <field name=\"auto_delete\" eval=\"${9:True}\" />",
+            "    <field name=\"model_id\" ref=\"${10:ir.model}\" />",
+            "    <field name=\"attachment_ids\" eval=\"[(4, ref('${11:ir.attachment}'))]\" />",
+            "    <field name=\"body_html\"><![CDATA[",
+            "        ${12:<p>To whom it may concern:</p>}",
+            "]]${-1}></field>",
+            "</record>${0}",
+            ""
+        ],
+        "description": "Common record definition for email.template",
+        "prefix": "record/email.template"
+    },
+    "record/filter": {
+        "body": [
+            "",
+            "<!-- filter \"${1:Human readable name}\" for Model \"${2/(.)/\\1/g}\" -->",
+            "<record id=\"filter_${2/(\\.)/\\_/g}_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.filters\">",
+            "    <field name=\"name\">${1:Human readable name}</field>",
+            "    <field name=\"model_id\">${2:model_name_whithout_module}</field>",
+            "    <field name=\"user_id\" eval=\"${3:False}\"/>",
+            "    <field name=\"domain\">${4:[]}</field>",
+            "    <field name=\"context\">${5:{}}</field>",
+            "    <field name=\"is_default\" eval=\"${6:False}\" />",
+            "    <!-- <field name=\"action_id\" ref=\"\" /> -->",
+            "</record>${0}",
+            ""
+        ],
+        "description": "Common ir.filters record definition",
+        "prefix": "record/filter"
+    },
+    "record/ir.actions.act_window": {
+        "body": [
+            "",
+            "<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_act_window\" model=\"ir.actions.act_window\">",
+            "    <field name=\"type\">ir.actions.act_window</field>",
+            "    <field name=\"name\">${1:Human readable name}</field>",
+            "    <field name=\"res_model\">${2:model.name}</field>",
+            "    <field name=\"view_mode\">${3:tree,form}</field>",
+            "    <field name=\"view_type\">${4:form}</field>",
+            "    <field name=\"target\">${5:current}</field>${7:",
+            "    <field name=\"domain\">[${6:}]</field>}${9:",
+            "    <field name=\"context\">${8:\\{\\}}</field>}${11:",
+            "    <field name=\"search_view_id\" ref=\"${10:ir.ui.view}\" />}",
+            "</record>${0}",
+            ""
+        ],
+        "description": "Common record definition for ir.actions.act_window",
+        "prefix": "record/ir.actions.act_window"
+    },
+    "record/ir.actions.act_window.view": {
+        "body": [
+            "",
+            "<record id=\"action_${1/[^a-zA-Z]+/\\_/g}_${2/[^a-zA-Z]+/\\_/g}\" model=\"ir.actions.act_window.view\">",
+            "    <field name=\"act_window_id\" ref=\"${1:ir.actions.act_window}\" />",
+            "    <field name=\"view_id\" ref=\"${2:ir.ui.view}\" />",
+            "    <field name=\"view_mode\">${3:tree}</field>",
+            "    <field name=\"sequence\" eval=\"${4:1}\" />",
+            "    <field name=\"multi\" eval=\"${5:False}\" />",
+            "</record>",
+            ""
+        ],
+        "description": "Common record definition for ir.actions.act_window.view",
+        "prefix": "record/ir.actions.act_window.view"
+    },
+    "record/ir.actions.report.xml": {
+        "body": [
+            "",
+            "<record id=\"action_report_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.actions.report.xml\">",
+            "    <field name=\"name\">${1:Human readable name}</field>",
+            "    <field name=\"model\">${2:model.name}</field>",
+            "    <field name=\"report_type\">${3:qweb-pdf}</field>",
+            "    <field name=\"report_name\">${4:out_filename}</field>",
+            "    <field name=\"attachment_use\" eval=\"${5:True}\" />",
+            "    <field name=\"attachment\">${6:(object.name+'.pdf')}</field>",
+            "    <field name=\"paperformat_id\" ref=\"${7:report.paperformat_euro}\" />${9:",
+            "    <field name=\"help\">${8:Something about ${1}}</field>}",
+            "</record>${0}",
+            ""
+        ],
+        "description": "Common record definition for ir.actions.report.xml",
+        "prefix": "record/ir.actions.report.xml"
+    },
+    "record/ir.actions.server": {
+        "body": [
+            "",
+            "<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_server\" model=\"ir.actions.server\">",
+            "    <field name=\"type\">ir.actions.server</field>",
+            "    <field name=\"name\">${1:Human readable name}</field>",
+            "    <field name=\"model_id\" ref=\"${2:ir.model}\" />",
+            "    <field name=\"condition\" eval=\"${3:True}\" />",
+            "    <field name=\"sequence\" eval=\"${4:5}\" />",
+            "    <field name=\"context\" eval=\"${5:\\{\\}}\" />",
+            "    <field name=\"action_id\" ref=\"${6:ir.actions.actions}\" />",
+            "</record>${0}",
+            ""
+        ],
+        "description": "Common record definition for ir.actions.server, invoking a client action",
+        "prefix": "record/ir.actions.server"
+    },
+    "record/ir.actions.server1": {
+        "body": [
+            "",
+            "<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_server\" model=\"ir.actions.server\">",
+            "    <field name=\"type\">ir.actions.server</field>",
+            "    <field name=\"name\">${1:Human readable name}</field>",
+            "    <field name=\"model_id\" ref=\"${2:ir.model}\" />",
+            "    <field name=\"condition\" eval=\"${3:True}\" />",
+            "    <field name=\"sequence\" eval=\"${4:5}\" />",
+            "    <field name=\"context\" eval=\"${5:\\{\\}}\" />",
+            "    <field name=\"code\">${6:action = self.browse(cr, uid, 1, context=context)}</field>",
+            "</record>${0}",
+            ""
+        ],
+        "description": "Common record definition for ir.actions.server, running Python code",
+        "prefix": "record/ir.actions.server"
+    },
+    "record/ir.actions.server2": {
+        "body": [
+            "",
+            "<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_server\" model=\"ir.actions.server\">",
+            "    <field name=\"type\">ir.actions.server</field>",
+            "    <field name=\"name\">${1:Human readable name}</field>",
+            "    <field name=\"model_id\" ref=\"${2:ir.model}\" />",
+            "    <field name=\"condition\" eval=\"${3:True}\" />",
+            "    <field name=\"sequence\" eval=\"${4:5}\" />",
+            "    <field name=\"context\" eval=\"${5:\\{\\}}\" />",
+            "    <field name=\"child_ids\" eval=\"[(6, ref('${6:ir.actions.server}'))]\" />",
+            "</record>${0}",
+            ""
+        ],
+        "description": "Common record definition for ir.actions.server, executing multiple actions",
+        "prefix": "record/ir.actions.server"
+    },
+    "record/ir.actions.server3": {
+        "body": [
+            "",
+            "<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_server\" model=\"ir.actions.server\">",
+            "    <field name=\"type\">ir.actions.server</field>",
+            "    <field name=\"name\">${1:Human readable name}</field>",
+            "    <field name=\"model_id\" ref=\"${2:ir.model}\" />",
+            "    <field name=\"condition\" eval=\"${3:True}\" />",
+            "    <field name=\"sequence\" eval=\"${4:5}\" />",
+            "    <field name=\"context\" eval=\"${5:\\{\\}}\" />",
+            "    <field name=\"use_create\">${6:new}</field>${8:",
+            "    <field name=\"crud_model_id\" ref=\"${7:ir.model}\" />}${10:",
+            "    <field name=\"ref_object\">${9:reference}</field>}${12:",
+            "    <field name=\"fields_lines\" eval=\"[(4, ref('${11:ir.server.object.lines}'))]\" />}${14:",
+            "    <field name=\"link_new_record\" eval=\"${13:False}\" />}${16:",
+            "    <field name=\"link_field_id\" ref=\"${15:ir.model.fields}\" />}",
+            "</record>${0}",
+            ""
+        ],
+        "description": "Common record definition for ir.actions.server, creating objects",
+        "prefix": "record/ir.actions.server"
+    },
+    "record/ir.actions.server4": {
+        "body": [
+            "",
+            "<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_server\" model=\"ir.actions.server\">",
+            "    <field name=\"type\">ir.actions.server</field>",
+            "    <field name=\"name\">${1:Human readable name}</field>",
+            "    <field name=\"model_id\" ref=\"${2:ir.model}\" />",
+            "    <field name=\"condition\" eval=\"${3:True}\" />",
+            "    <field name=\"sequence\" eval=\"${4:5}\" />",
+            "    <field name=\"context\" eval=\"${5:\\{\\}}\" />",
+            "    <field name=\"use_write\">${6:current}</field>${8:",
+            "    <field name=\"crud_model_id\" ref=\"${7:ir.model}\" />}${10:",
+            "    <field name=\"ref_object\">${9:reference}</field>}${12:",
+            "    <field name=\"fields_lines\" eval=\"[(4, ref('${11:ir.server.object.lines}'))]\" />}${14:",
+            "    <field name=\"write_expression\">${13:char}</field>}",
+            "</record>${0}",
+            ""
+        ],
+        "description": "Common record definition for ir.actions.server, updating objects",
+        "prefix": "record/ir.actions.server"
+    },
+    "record/ir.actions.server5": {
+        "body": [
+            "",
+            "<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_server\" model=\"ir.actions.server\">",
+            "    <field name=\"type\">ir.actions.server</field>",
+            "    <field name=\"name\">${1:Human readable name}</field>",
+            "    <field name=\"model_id\" ref=\"${2:ir.model}\" />",
+            "    <field name=\"condition\" eval=\"${3:True}\" />",
+            "    <field name=\"sequence\" eval=\"${4:5}\" />",
+            "    <field name=\"context\" eval=\"${5:\\{\\}}\" />",
+            "    <field name=\"wkf_transition_id\" ref=\"${6:workflow.transition}\" />",
+            "    <field name=\"use_relational_model\">${7:base}</field>${9:",
+            "    <field name=\"wkf_model_id\" ref=\"${8:ir.model}\" />}${11:",
+            "    <field name=\"wkf_field_id\" ref=\"${10:ir.model.fields}\" />}",
+            "</record>${0}",
+            ""
+        ],
+        "description": "Common record definition for ir.actions.server, triggering",
+        "prefix": "record/ir.actions.server"
+    },
+    "record/ir.actions.todo": {
+        "body": [
+            "",
+            "<record id=\"action_todo_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.actions.todo\">",
+            "    <field name=\"name\">${1:Human readable name}</field>",
+            "    <field name=\"type\">${2:manual}</field>",
+            "    <field name=\"state\">${3:open}</field>",
+            "    <field name=\"sequence\" eval=\"${4:10}\" />",
+            "    <field name=\"action_id\" ref=\"${5:ir.actions.actions}\" />${7:",
+            "    <field name=\"note\">${6:Something about ${1}}</field>}",
+            "</record>${0}",
+            ""
+        ],
+        "description": "",
+        "prefix": "record/ir.actions.todo"
+    },
+    "record/ir.config_parameter": {
+        "body": [
+            "",
+            "<record id=\"${1/[^A-Za-z]/\\_/g}\" model=\"ir.config_parameter\">",
+            "    <field name=\"key\">${1:char}</field>",
+            "    <field name=\"value\">${2:text}</field>${4:",
+            "    <field name=\"group_ids\" eval=\"[(4, ref('${3:res.groups}'))]\" />}",
+            "</record>${0}",
+            ""
+        ],
+        "description": "Common ir.config_parameter record definition",
+        "prefix": "record/ir.config_parameter"
+    },
+    "record/ir.model": {
+        "body": [
+            "",
+            "<record id=\"${1/(\\.+)/_/g}_${2/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.model\">",
+            "    <field name=\"model\">${1:model_name}</field>",
+            "    <field name=\"name\">${2:Human readable name}</field>",
+            "    <field name=\"state\">${3:Base | Manual}</field>",
+            "    <field name=\"info\">${4:Description}</field>",
+            "</record>${0}",
+            ""
+        ],
+        "description": "Common record definition for ir.model",
+        "prefix": "record/ir.model"
+    },
+    "record/ir.model.access": {
+        "body": [
+            "",
+            "<record id=\"access_${1/^.*model_(.*)$/\\1/g}_${2/((^.*group_$)|(\\.))/(?2:group_)(?3:\\_)/g}\" model=\"ir.model.access\">",
+            "    <field name=\"name\">${1/^.*model_(.*)$/\\1/g} ${2/((^.*group_$)|(\\.))/(?2:group_)(?3:\\_)/g}</field>",
+            "    <field name=\"model_id\" ref=\"${1:ir.model}\"/>",
+            "    <field name=\"group_id\" ref=\"${2:res.groups}\"/>",
+            "    <field name=\"perm_read\" eval=\"${3:True}\" />",
+            "    <field name=\"perm_create\" eval=\"${4:True}\" />",
+            "    <field name=\"perm_write\" eval=\"${5:True}\" />",
+            "    <field name=\"perm_unlink\" eval=\"${6:True}\" />",
+            "    <field name=\"active\" eval=\"${7:True}\" />",
+            "</record>${0}",
+            ""
+        ],
+        "description": "XML ir.model.access record",
+        "prefix": "record/ir.model.access"
+    },
+    "record/ir.model.data": {
+        "body": [
+            "",
+            "<record id=\"${3/(\\.+)/_/g}_${1/(\\.+)/_/g}\" model=\"ir.model.data\">",
+            "    <field name=\"name\">${1:resource_external_id}</field>",
+            "    <field name=\"model\">${2:model.name}</field>",
+            "    <field name=\"module\">${3:module_name}</field>",
+            "    <field name=\"date_init\" eval=\"${4:time.strftime('%Y-%m-%d %H:%M:%S')}\" />",
+            "    <field name=\"date_update\" eval=\"${5:time.strftime('%Y-%m-%d %H:%M:%S')}\" />",
+            "    <field name=\"res_id\" eval=\"${6:1}\" />",
+            "    <field name=\"noupdate\" eval=\"${7:True}\" />",
+            "</record>${0}",
+            ""
+        ],
+        "description": "Common record definition for ir.model.data",
+        "prefix": "record/ir.model.data"
+    },
+    "record/ir.module.category": {
+        "body": [
+            "",
+            "<record id=\"module_category_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.module.category\">",
+            "    <field name=\"name\">${1:Human readable name}</field>",
+            "    <field name=\"sequence\" eval=\"${2:10}\" />",
+            "    <field name=\"visible\" eval=\"${3:True}\" />",
+            "    <field name=\"description\">${4:${1} category}</field>${6:",
+            "    <field name=\"parent_id\" ref=\"${5:ir.module.category}\" />}",
+            "</record>${0}",
+            ""
+        ],
+        "description": "XML ir.model.category record",
+        "prefix": "record/ir.module.category"
+    },
+    "record/ir.rule": {
+        "body": [
+            "",
+            "<record id=\"${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_rule\" model=\"ir.rule\">",
+            "    <field name=\"name\">${1:Human readable name}</field>",
+            "    <field name=\"model_id\" ref=\"${3:model_xml_id}\"/>",
+            "    <field name=\"global\" eval=\"${4:True}\" />",
+            "    <field name=\"perm_read\" eval=\"${5:True}\" />",
+            "    <field name=\"perm_create\" eval=\"${6:True}\" />",
+            "    <field name=\"perm_write\" eval=\"${7:True}\" />",
+            "    <field name=\"perm_unlink\" eval=\"${8:True}\" />",
+            "    <field name=\"domain_force\">${9:['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]}</field>",
+            "    <field name=\"active\" eval=\"${10:True}\" />",
+            "</record>${0}",
+            ""
+        ],
+        "description": "XML ir.rule record",
+        "prefix": "record/ir.rule"
+    },
+    "record/ir.values": {
+        "body": [
+            "",
+            "<record id=\"${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_values\" model=\"ir.values\">",
+            "    <field name=\"name\">${1:Human readable name}</field>",
+            "    <field name=\"model_id\" ref=\"${2:module.model_external_id}\" />",
+            "    <field name=\"model\">${2/((^[^.]*.?model_)|([_]+))/(?2:)(?3:\\.)/g}</field>",
+            "    <field name=\"value\" eval=\"${4:'ir.actions.act_window,' +str(ref('${3:action_external_id}'))}\" />",
+            "    <field name=\"key\">${5:action}</field>",
+            "    <field name=\"key2\">${6:tree_but_open}</field>${8:",
+            "    <field name=\"action_id\" ref=\"${7:ir.actions.actions}\" />}${10:",
+            "    <field name=\"res_id\" eval=\"${9:1}\" />}${12:",
+            "    <field name=\"company_id\" ref=\"${11:res.company}\" />}${14:",
+            "    <field name=\"user_id\" ref=\"${13:res.users}\" />}",
+            "</record>${0}",
+            ""
+        ],
+        "description": "Common record definition for ir.values",
+        "prefix": "record/ir.values"
+    },
+    "record/menu": {
+        "body": [
+            "",
+            "<record id=\"menu_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.ui.menu\" >",
+            "    <field name=\"name\">${1:Human readable name}</field>",
+            "    <field name=\"sequence\" eval=\"${2:10}\" />${4:",
+            "    <field name=\"action\" ref=\"${3:action_name}\" />}${6:",
+            "    <field name=\"parent_id\" ref=\"${5:base.menu_custom}\" />}",
+            "</record>${0}",
+            ""
+        ],
+        "description": "Common ir.ui.menu record definition",
+        "prefix": "record/menu"
+    },
+    "record/product.product": {
+        "body": [
+            "",
+            "<record id=\"${18:${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_product_product}\" model=\"product.product\">",
+            "    <field name=\"name\">${1:Human readable name}</field>",
+            "    <field name=\"description\">${2:Description}</field>",
+            "    <field name=\"description_purchase\">${3:${2:Description}}</field>",
+            "    <field name=\"description_sale\">${4:${2:Description}}</field>",
+            "    <field name=\"categ_id\" ref=\"${5:product.category}\"/>",
+            "    <field name=\"standard_price\">${6:0.0}</field>",
+            "    <field name=\"list_price\">${7:0.0}</field>",
+            "    <field name=\"type\">${8:consu|service}</field>",
+            "    <field name=\"uom_id\" ref=\"${9:product.uom}\"/>",
+            "    <field name=\"uom_po_id\" ref=\"${10:product.uom}\"/>",
+            "    <field name=\"taxes_id\" eval=\"[(4, ref('${11:account.tax}'))]\" />",
+            "${13:    <field name=\"image\" type=\"base64\" file=\"${12:module_name/static/img/file_name.png}\"/>",
+            "}${15:    <field name=\"default_code\">${14:PRODUCT-CODE}</field>",
+            "}${17:    <field name=\"ean13\">${16:0000000000000}</field>",
+            "}</record>${0}",
+            ""
+        ],
+        "description": "XML product.product record",
+        "prefix": "record/product.product"
+    },
+    "record/product.template": {
+        "body": [
+            "",
+            "<record id=\"${18:${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_product_template}\" model=\"product.template\">",
+            "    <field name=\"name\">${1:Human readable name}</field>",
+            "    <field name=\"description\">${2:Description}</field>",
+            "    <field name=\"description_purchase\">${3:${2:Description}}</field>",
+            "    <field name=\"description_sale\">${4:${2:Description}}</field>",
+            "    <field name=\"categ_id\" ref=\"${5:product.category}\"/>",
+            "    <field name=\"standard_price\">${6:0.0}</field>",
+            "    <field name=\"list_price\">${7:0.0}</field>",
+            "    <field name=\"type\">${8:consu|service}</field>",
+            "    <field name=\"uom_id\" ref=\"${9:product.uom}\"/>",
+            "    <field name=\"uom_po_id\" ref=\"${10:product.uom}\"/>",
+            "    <field name=\"taxes_id\" eval=\"[(4, ref('${11:account.tax}'))]\" />",
+            "${13:    <field name=\"image\" type=\"base64\" file=\"${12:module_name/static/img/file_name.png}\"/>",
+            "}${15:    <field name=\"default_code\">${14:PRODUCT-CODE}</field>",
+            "}${17:    <field name=\"ean13\">${16:0000000000000}</field>",
+            "}</record>${0}",
+            ""
+        ],
+        "description": "XML product.template record",
+        "prefix": "record/product.template"
+    },
+    "record/res.groups": {
+        "body": [
+            "",
+            "<record id=\"group_${8:${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}}\" model=\"res.groups\">",
+            "    <field name=\"name\">${1:Name}</field>",
+            "    <field name=\"comment\">${2:Comment}</field>",
+            "    <field name=\"category_id\" ref=\"${3:base.module_category_administration}\"/>",
+            "    <field name=\"implied_ids\" eval=\"[(4, ref('${5:base.group_user}'))]\"/>",
+            "    <field name=\"users\" eval=\"[(5, ref('${6:base.user_root}'))]\" />",
+            "</record>${0}",
+            ""
+        ],
+        "description": "XML res.groups record",
+        "prefix": "record/res.groups"
+    },
+    "record/view": {
+        "body": [
+            "",
+            "<record id=\"view_${2/[^a-z]+/\\_/g}_${3}\" model=\"ir.ui.view\">",
+            "    <field name=\"name\">${1:Human readable name}</field>",
+            "    <field name=\"model\">${2:model.name}</field>",
+            "    <field name=\"type\">${3:tree}</field>",
+            "    <field name=\"mode\">${4:primary}</field>",
+            "    <field name=\"priority\" eval=\"${5:16}\" />",
+            "    <field name=\"active\" eval=\"${6:True}\" />${8:",
+            "    <field name=\"inherit_id\" ref=\"${7:xml_id}\" />}",
+            "    <field name=\"arch\" type=\"xml\">",
+            "        ${0}",
+            "    </field>",
+            "</record>",
+            ""
+        ],
+        "description": "Common ir.ui.view record definition",
+        "prefix": "record/view"
+    },
+    "ref": {
+        "body": [
+            "",
+            "ref=\"${1:module.external_id}\"${0}",
+            ""
+        ],
+        "description": "field attr ref",
+        "prefix": "ref"
+    },
+    "report.paperformat": {
+        "body": [
+            "",
+            "<record id=\"paperformat_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"report.paperformat\" >",
+            "    <field name=\"name\">${1:Human readable name}</field>",
+            "    <field name=\"format\">${2:A4}</field>",
+            "    <field name=\"orientation\">${3:Portrait}</field>",
+            "    <field name=\"default\" eval=\"${4:False}\" />",
+            "    <field name=\"dpi\" eval=\"${5:90}\" />",
+            "    <field name=\"margin_top\" eval=\"${6:40}\" />",
+            "    <field name=\"margin_right\" eval=\"${7:7}\" />",
+            "    <field name=\"margin_bottom\" eval=\"${8:20}\" />",
+            "    <field name=\"margin_left\" eval=\"${9:7}\" />",
+            "    <field name=\"header_line\" eval=\"${10:False}\" />",
+            "    <field name=\"header_spacing\" eval=\"${11:35}\" />${13:",
+            "    <field name=\"page_width\" eval=\"${12:210}\" />}${15:",
+            "    <field name=\"page_height\" eval=\"${14:297}\" />}${17:",
+            "    <field name=\"report_ids\" eval=\"[(4, ref('${16:ir.actions.report.xml}'))]\" />}${0}",
+            "</record>",
+            ""
+        ],
+        "description": "Common record definition for report.paperformat",
+        "prefix": "report.paperformat"
+    },
+    "report_fullreport": {
         "body": [
             "",
             "<!-- REPORT: \"${1:Human readable name}\"",
@@ -389,382 +1520,9 @@
             ""
         ],
         "description": "Report: document and translation; action.report.xml and ir.values",
-        "prefix": "fullreport"
+        "prefix": "report_fullreport"
     },
-    "function": {
-        "body": [
-            "",
-            "<function eval=\"[(${3:field}, '=', ${4:value})]\" model=\"${1:model.name}\"  name=\"${2:mothod}\">",
-            "    <function eval=\"[(${3:field}, '=', ${4:value})]\" model=\"${1:model.name}\"  name=\"search\">",
-            "    <value eval=\"{'${3:field}': ${4:value}}\"/>",
-            "</function>",
-            ""
-        ],
-        "description": "",
-        "prefix": "function"
-    },
-    "graph": {
-        "body": [
-            "",
-            "<graph string=\"${1:Graph title}\" type=\"${2:one # bar # pie # line # pivot}\">",
-            "    <field type=\"row\" name=\"${3:row_field}\" />",
-            "    <field type=\"col\" name=\"${4:col_field}\" interval=\"month\" />",
-            "    <field type=\"measure\" name=\"${5:measure_field}\" />",
-            "</graph>${0}",
-            ""
-        ],
-        "description": "Common graph tag to be added inside a ir.ui.view",
-        "prefix": "graph"
-    },
-    "group": {
-        "body": [
-            "",
-            "<group>",
-            "        ${0}",
-            "    ",
-            "",
-            "</group>",
-            "",
-            ""
-        ],
-        "description": "",
-        "prefix": "group"
-    },
-    "groups": {
-        "body": [
-            "",
-            "groups=\"${1:module}.group_${2:groupNmae}\"",
-            ""
-        ],
-        "description": "field attr groups",
-        "prefix": "groups"
-    },
-    "id": {
-        "body": [
-            "",
-            "ref('${1:record.external.id}')${0}",
-            ""
-        ],
-        "description": "Database ID from external ID conversion",
-        "prefix": "id"
-    },
-    "invisible": {
-        "body": [
-            "",
-            "invisible=\"${1:true}\"",
-            ""
-        ],
-        "description": "field attr invisible",
-        "prefix": "invisible"
-    },
-    "ir.actions.act_window": {
-        "body": [
-            "",
-            "<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_act_window\" model=\"ir.actions.act_window\">",
-            "    <field name=\"type\">ir.actions.act_window</field>",
-            "    <field name=\"name\">${1:Human readable name}</field>",
-            "    <field name=\"res_model\">${2:model.name}</field>",
-            "    <field name=\"view_mode\">${3:tree,form}</field>",
-            "    <field name=\"view_type\">${4:form}</field>",
-            "    <field name=\"target\">${5:current}</field>${7:",
-            "    <field name=\"domain\">[${6:}]</field>}${9:",
-            "    <field name=\"context\">${8:\\{\\}}</field>}${11:",
-            "    <field name=\"search_view_id\" ref=\"${10:ir.ui.view}\" />}",
-            "</record>${0}",
-            ""
-        ],
-        "description": "Common record definition for ir.actions.act_window",
-        "prefix": "ir.actions.act_window"
-    },
-    "ir.actions.act_window.view": {
-        "body": [
-            "",
-            "<record id=\"action_${1/[^a-zA-Z]+/\\_/g}_${2/[^a-zA-Z]+/\\_/g}\" model=\"ir.actions.act_window.view\">",
-            "    <field name=\"act_window_id\" ref=\"${1:ir.actions.act_window}\" />",
-            "    <field name=\"view_id\" ref=\"${2:ir.ui.view}\" />",
-            "    <field name=\"view_mode\">${3:tree}</field>",
-            "    <field name=\"sequence\" eval=\"${4:1}\" />",
-            "    <field name=\"multi\" eval=\"${5:False}\" />",
-            "</record>",
-            ""
-        ],
-        "description": "Common record definition for ir.actions.act_window.view",
-        "prefix": "ir.actions.act_window.view"
-    },
-    "ir.actions.report.xml": {
-        "body": [
-            "",
-            "<record id=\"action_report_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.actions.report.xml\">",
-            "    <field name=\"name\">${1:Human readable name}</field>",
-            "    <field name=\"model\">${2:model.name}</field>",
-            "    <field name=\"report_type\">${3:qweb-pdf}</field>",
-            "    <field name=\"report_name\">${4:out_filename}</field>",
-            "    <field name=\"attachment_use\" eval=\"${5:True}\" />",
-            "    <field name=\"attachment\">${6:(object.name+'.pdf')}</field>",
-            "    <field name=\"paperformat_id\" ref=\"${7:report.paperformat_euro}\" />${9:",
-            "    <field name=\"help\">${8:Something about ${1}}</field>}",
-            "</record>${0}",
-            ""
-        ],
-        "description": "Common record definition for ir.actions.report.xml",
-        "prefix": "ir.actions.report.xml"
-    },
-    "ir.actions.server": {
-        "body": [
-            "",
-            "<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_server\" model=\"ir.actions.server\">",
-            "    <field name=\"type\">ir.actions.server</field>",
-            "    <field name=\"name\">${1:Human readable name}</field>",
-            "    <field name=\"model_id\" ref=\"${2:ir.model}\" />",
-            "    <field name=\"condition\" eval=\"${3:True}\" />",
-            "    <field name=\"sequence\" eval=\"${4:5}\" />",
-            "    <field name=\"context\" eval=\"${5:\\{\\}}\" />",
-            "    <field name=\"action_id\" ref=\"${6:ir.actions.actions}\" />",
-            "</record>${0}",
-            ""
-        ],
-        "description": "Common record definition for ir.actions.server, invoking a client action",
-        "prefix": "ir.actions.server"
-    },
-    "ir.actions.server1": {
-        "body": [
-            "",
-            "<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_server\" model=\"ir.actions.server\">",
-            "    <field name=\"type\">ir.actions.server</field>",
-            "    <field name=\"name\">${1:Human readable name}</field>",
-            "    <field name=\"model_id\" ref=\"${2:ir.model}\" />",
-            "    <field name=\"condition\" eval=\"${3:True}\" />",
-            "    <field name=\"sequence\" eval=\"${4:5}\" />",
-            "    <field name=\"context\" eval=\"${5:\\{\\}}\" />",
-            "    <field name=\"code\">${6:action = self.browse(cr, uid, 1, context=context)}</field>",
-            "</record>${0}",
-            ""
-        ],
-        "description": "Common record definition for ir.actions.server, running Python code",
-        "prefix": "ir.actions.server"
-    },
-    "ir.actions.server2": {
-        "body": [
-            "",
-            "<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_server\" model=\"ir.actions.server\">",
-            "    <field name=\"type\">ir.actions.server</field>",
-            "    <field name=\"name\">${1:Human readable name}</field>",
-            "    <field name=\"model_id\" ref=\"${2:ir.model}\" />",
-            "    <field name=\"condition\" eval=\"${3:True}\" />",
-            "    <field name=\"sequence\" eval=\"${4:5}\" />",
-            "    <field name=\"context\" eval=\"${5:\\{\\}}\" />",
-            "    <field name=\"child_ids\" eval=\"[(6, ref('${6:ir.actions.server}'))]\" />",
-            "</record>${0}",
-            ""
-        ],
-        "description": "Common record definition for ir.actions.server, executing multiple actions",
-        "prefix": "ir.actions.server"
-    },
-    "ir.actions.server3": {
-        "body": [
-            "",
-            "<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_server\" model=\"ir.actions.server\">",
-            "    <field name=\"type\">ir.actions.server</field>",
-            "    <field name=\"name\">${1:Human readable name}</field>",
-            "    <field name=\"model_id\" ref=\"${2:ir.model}\" />",
-            "    <field name=\"condition\" eval=\"${3:True}\" />",
-            "    <field name=\"sequence\" eval=\"${4:5}\" />",
-            "    <field name=\"context\" eval=\"${5:\\{\\}}\" />",
-            "    <field name=\"use_create\">${6:new}</field>${8:",
-            "    <field name=\"crud_model_id\" ref=\"${7:ir.model}\" />}${10:",
-            "    <field name=\"ref_object\">${9:reference}</field>}${12:",
-            "    <field name=\"fields_lines\" eval=\"[(4, ref('${11:ir.server.object.lines}'))]\" />}${14:",
-            "    <field name=\"link_new_record\" eval=\"${13:False}\" />}${16:",
-            "    <field name=\"link_field_id\" ref=\"${15:ir.model.fields}\" />}",
-            "</record>${0}",
-            ""
-        ],
-        "description": "Common record definition for ir.actions.server, creating objects",
-        "prefix": "ir.actions.server"
-    },
-    "ir.actions.server4": {
-        "body": [
-            "",
-            "<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_server\" model=\"ir.actions.server\">",
-            "    <field name=\"type\">ir.actions.server</field>",
-            "    <field name=\"name\">${1:Human readable name}</field>",
-            "    <field name=\"model_id\" ref=\"${2:ir.model}\" />",
-            "    <field name=\"condition\" eval=\"${3:True}\" />",
-            "    <field name=\"sequence\" eval=\"${4:5}\" />",
-            "    <field name=\"context\" eval=\"${5:\\{\\}}\" />",
-            "    <field name=\"use_write\">${6:current}</field>${8:",
-            "    <field name=\"crud_model_id\" ref=\"${7:ir.model}\" />}${10:",
-            "    <field name=\"ref_object\">${9:reference}</field>}${12:",
-            "    <field name=\"fields_lines\" eval=\"[(4, ref('${11:ir.server.object.lines}'))]\" />}${14:",
-            "    <field name=\"write_expression\">${13:char}</field>}",
-            "</record>${0}",
-            ""
-        ],
-        "description": "Common record definition for ir.actions.server, updating objects",
-        "prefix": "ir.actions.server"
-    },
-    "ir.actions.server5": {
-        "body": [
-            "",
-            "<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_server\" model=\"ir.actions.server\">",
-            "    <field name=\"type\">ir.actions.server</field>",
-            "    <field name=\"name\">${1:Human readable name}</field>",
-            "    <field name=\"model_id\" ref=\"${2:ir.model}\" />",
-            "    <field name=\"condition\" eval=\"${3:True}\" />",
-            "    <field name=\"sequence\" eval=\"${4:5}\" />",
-            "    <field name=\"context\" eval=\"${5:\\{\\}}\" />",
-            "    <field name=\"wkf_transition_id\" ref=\"${6:workflow.transition}\" />",
-            "    <field name=\"use_relational_model\">${7:base}</field>${9:",
-            "    <field name=\"wkf_model_id\" ref=\"${8:ir.model}\" />}${11:",
-            "    <field name=\"wkf_field_id\" ref=\"${10:ir.model.fields}\" />}",
-            "</record>${0}",
-            ""
-        ],
-        "description": "Common record definition for ir.actions.server, triggering",
-        "prefix": "ir.actions.server"
-    },
-    "ir.actions.todo": {
-        "body": [
-            "",
-            "<record id=\"action_todo_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.actions.todo\">",
-            "    <field name=\"name\">${1:Human readable name}</field>",
-            "    <field name=\"type\">${2:manual}</field>",
-            "    <field name=\"state\">${3:open}</field>",
-            "    <field name=\"sequence\" eval=\"${4:10}\" />",
-            "    <field name=\"action_id\" ref=\"${5:ir.actions.actions}\" />${7:",
-            "    <field name=\"note\">${6:Something about ${1}}</field>}",
-            "</record>${0}",
-            ""
-        ],
-        "description": "",
-        "prefix": "ir.actions.todo"
-    },
-    "ir.config_parameter": {
-        "body": [
-            "",
-            "<record id=\"${1/[^A-Za-z]/\\_/g}\" model=\"ir.config_parameter\">",
-            "    <field name=\"key\">${1:char}</field>",
-            "    <field name=\"value\">${2:text}</field>${4:",
-            "    <field name=\"group_ids\" eval=\"[(4, ref('${3:res.groups}'))]\" />}",
-            "</record>${0}",
-            ""
-        ],
-        "description": "Common ir.config_parameter record definition",
-        "prefix": "ir.config_parameter"
-    },
-    "ir.model": {
-        "body": [
-            "",
-            "<record id=\"${1/(\\.+)/_/g}_${2/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.model\">",
-            "    <field name=\"model\">${1:model_name}</field>",
-            "    <field name=\"name\">${2:Human readable name}</field>",
-            "    <field name=\"state\">${3:Base | Manual}</field>",
-            "    <field name=\"info\">${4:Description}</field>",
-            "</record>${0}",
-            ""
-        ],
-        "description": "Common record definition for ir.model",
-        "prefix": "ir.model"
-    },
-    "ir.model.access": {
-        "body": [
-            "",
-            "<record id=\"access_${1/^.*model_(.*)$/\\1/g}_${2/((^.*group_$)|(\\.))/(?2:group_)(?3:\\_)/g}\" model=\"ir.model.access\">",
-            "    <field name=\"name\">${1/^.*model_(.*)$/\\1/g} ${2/((^.*group_$)|(\\.))/(?2:group_)(?3:\\_)/g}</field>",
-            "    <field name=\"model_id\" ref=\"${1:ir.model}\"/>",
-            "    <field name=\"group_id\" ref=\"${2:res.groups}\"/>",
-            "    <field name=\"perm_read\" eval=\"${3:True}\" />",
-            "    <field name=\"perm_create\" eval=\"${4:True}\" />",
-            "    <field name=\"perm_write\" eval=\"${5:True}\" />",
-            "    <field name=\"perm_unlink\" eval=\"${6:True}\" />",
-            "    <field name=\"active\" eval=\"${7:True}\" />",
-            "</record>${0}",
-            ""
-        ],
-        "description": "XML ir.model.access record",
-        "prefix": "ir.model.access"
-    },
-    "ir.model.data": {
-        "body": [
-            "",
-            "<record id=\"${3/(\\.+)/_/g}_${1/(\\.+)/_/g}\" model=\"ir.model.data\">",
-            "    <field name=\"name\">${1:resource_external_id}</field>",
-            "    <field name=\"model\">${2:model.name}</field>",
-            "    <field name=\"module\">${3:module_name}</field>",
-            "    <field name=\"date_init\" eval=\"${4:time.strftime('%Y-%m-%d %H:%M:%S')}\" />",
-            "    <field name=\"date_update\" eval=\"${5:time.strftime('%Y-%m-%d %H:%M:%S')}\" />",
-            "    <field name=\"res_id\" eval=\"${6:1}\" />",
-            "    <field name=\"noupdate\" eval=\"${7:True}\" />",
-            "</record>${0}",
-            ""
-        ],
-        "description": "Common record definition for ir.model.data",
-        "prefix": "ir.model.data"
-    },
-    "ir.module.category": {
-        "body": [
-            "",
-            "<record id=\"module_category_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.module.category\">",
-            "    <field name=\"name\">${1:Human readable name}</field>",
-            "    <field name=\"sequence\" eval=\"${2:10}\" />",
-            "    <field name=\"visible\" eval=\"${3:True}\" />",
-            "    <field name=\"description\">${4:${1} category}</field>${6:",
-            "    <field name=\"parent_id\" ref=\"${5:ir.module.category}\" />}",
-            "</record>${0}",
-            ""
-        ],
-        "description": "XML ir.model.category record",
-        "prefix": "ir.module.category"
-    },
-    "ir.rule": {
-        "body": [
-            "",
-            "<record id=\"${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_rule\" model=\"ir.rule\">",
-            "    <field name=\"name\">${1:Human readable name}</field>",
-            "    <field name=\"model_id\" ref=\"${3:model_xml_id}\"/>",
-            "    <field name=\"global\" eval=\"${4:True}\" />",
-            "    <field name=\"perm_read\" eval=\"${5:True}\" />",
-            "    <field name=\"perm_create\" eval=\"${6:True}\" />",
-            "    <field name=\"perm_write\" eval=\"${7:True}\" />",
-            "    <field name=\"perm_unlink\" eval=\"${8:True}\" />",
-            "    <field name=\"domain_force\">${9:['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]}</field>",
-            "    <field name=\"active\" eval=\"${10:True}\" />",
-            "</record>${0}",
-            ""
-        ],
-        "description": "XML ir.rule record",
-        "prefix": "ir.rule"
-    },
-    "ir.values": {
-        "body": [
-            "",
-            "<record id=\"${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_values\" model=\"ir.values\">",
-            "    <field name=\"name\">${1:Human readable name}</field>",
-            "    <field name=\"model_id\" ref=\"${2:module.model_external_id}\" />",
-            "    <field name=\"model\">${2/((^[^.]*.?model_)|([_]+))/(?2:)(?3:\\.)/g}</field>",
-            "    <field name=\"value\" eval=\"${4:'ir.actions.act_window,' +str(ref('${3:action_external_id}'))}\" />",
-            "    <field name=\"key\">${5:action}</field>",
-            "    <field name=\"key2\">${6:tree_but_open}</field>${8:",
-            "    <field name=\"action_id\" ref=\"${7:ir.actions.actions}\" />}${10:",
-            "    <field name=\"res_id\" eval=\"${9:1}\" />}${12:",
-            "    <field name=\"company_id\" ref=\"${11:res.company}\" />}${14:",
-            "    <field name=\"user_id\" ref=\"${13:res.users}\" />}",
-            "</record>${0}",
-            ""
-        ],
-        "description": "Common record definition for ir.values",
-        "prefix": "ir.values"
-    },
-    "label": {
-        "body": [
-            "",
-            "<label for='${1:field_name}'>${2:Label}</label>",
-            ""
-        ],
-        "description": "Field Label",
-        "prefix": "label"
-    },
-    "layout": {
+    "report_layout": {
         "body": [
             "",
             "<t t-call=\"report.external_layout\">",
@@ -773,9 +1531,9 @@
             ""
         ],
         "description": "Report external_layout",
-        "prefix": "layout"
+        "prefix": "report_layout"
     },
-    "layout1": {
+    "report_layout1": {
         "body": [
             "",
             "<t t-call=\"report.external_layout_footer\">",
@@ -784,9 +1542,9 @@
             ""
         ],
         "description": "Report external_layout_footer",
-        "prefix": "layout"
+        "prefix": "report_layout"
     },
-    "layout2": {
+    "report_layout2": {
         "body": [
             "",
             "<t t-call=\"report.external_layout_header\">",
@@ -795,9 +1553,9 @@
             ""
         ],
         "description": "Report external_layout_header",
-        "prefix": "layout"
+        "prefix": "report_layout"
     },
-    "layout3": {
+    "report_layout3": {
         "body": [
             "",
             "<t t-call=\"report.html_container\">",
@@ -806,9 +1564,9 @@
             ""
         ],
         "description": "Report html_container",
-        "prefix": "layout"
+        "prefix": "report_layout"
     },
-    "layout4": {
+    "report_layout4": {
         "body": [
             "",
             "<t t-call=\"report.internal_layout\">",
@@ -817,9 +1575,9 @@
             ""
         ],
         "description": "Report internal_layout",
-        "prefix": "layout"
+        "prefix": "report_layout"
     },
-    "layout5": {
+    "report_layout5": {
         "body": [
             "",
             "<t t-call=\"report.layout\">",
@@ -828,9 +1586,9 @@
             ""
         ],
         "description": "Report layout",
-        "prefix": "layout"
+        "prefix": "report_layout"
     },
-    "layout6": {
+    "report_layout6": {
         "body": [
             "",
             "<t t-call=\"report.minimal_layout\">",
@@ -839,9 +1597,9 @@
             ""
         ],
         "description": "Report minimal_layout",
-        "prefix": "layout"
+        "prefix": "report_layout"
     },
-    "layout7": {
+    "report_layout7": {
         "body": [
             "",
             "<t t-call=\"report.style\">",
@@ -850,317 +1608,9 @@
             ""
         ],
         "description": "Report style",
-        "prefix": "layout"
+        "prefix": "report_layout"
     },
-    "link": {
-        "body": [
-            "",
-            "<link rel=\"stylesheet\" href=\"/${1:module_name}/static/src/css/${2:styles}.css\" />${0}",
-            ""
-        ],
-        "description": "Link tag to inglude an stylesheet",
-        "prefix": "link"
-    },
-    "notebook": {
-        "body": [
-            "",
-            "<notebook>",
-            "    ${0}",
-            "</notebook>",
-            ""
-        ],
-        "description": "",
-        "prefix": "notebook"
-    },
-    "options": {
-        "body": [
-            "",
-            "options=\"{'no_create': True, 'no_open': True, 'no_create_edit': True}\"",
-            ""
-        ],
-        "description": "field attr options no_create",
-        "prefix": "options"
-    },
-    "page": {
-        "body": [
-            "",
-            "<page string=\"${1:Title}\" class=\"${2:oe_page_${1/(([a-zA-Z])|([^A-Za-z]))/(?2:\\l$2)(?3:\\_)/g}}\" accesskey=\"${3:${1/(^.)(.*)/\\U\\1/g}}\">",
-            "    ${0}",
-            "</page>",
-            ""
-        ],
-        "description": "",
-        "prefix": "page"
-    },
-    "product.product": {
-        "body": [
-            "",
-            "<record id=\"${18:${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_product_product}\" model=\"product.product\">",
-            "    <field name=\"name\">${1:Human readable name}</field>",
-            "    <field name=\"description\">${2:Description}</field>",
-            "    <field name=\"description_purchase\">${3:${2:Description}}</field>",
-            "    <field name=\"description_sale\">${4:${2:Description}}</field>",
-            "    <field name=\"categ_id\" ref=\"${5:product.category}\"/>",
-            "    <field name=\"standard_price\">${6:0.0}</field>",
-            "    <field name=\"list_price\">${7:0.0}</field>",
-            "    <field name=\"type\">${8:consu|service}</field>",
-            "    <field name=\"uom_id\" ref=\"${9:product.uom}\"/>",
-            "    <field name=\"uom_po_id\" ref=\"${10:product.uom}\"/>",
-            "    <field name=\"taxes_id\" eval=\"[(4, ref('${11:account.tax}'))]\" />",
-            "${13:    <field name=\"image\" type=\"base64\" file=\"${12:module_name/static/img/file_name.png}\"/>",
-            "}${15:    <field name=\"default_code\">${14:PRODUCT-CODE}</field>",
-            "}${17:    <field name=\"ean13\">${16:0000000000000}</field>",
-            "}</record>${0}",
-            ""
-        ],
-        "description": "XML product.product record",
-        "prefix": "product.product"
-    },
-    "product.template": {
-        "body": [
-            "",
-            "<record id=\"${18:${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_product_template}\" model=\"product.template\">",
-            "    <field name=\"name\">${1:Human readable name}</field>",
-            "    <field name=\"description\">${2:Description}</field>",
-            "    <field name=\"description_purchase\">${3:${2:Description}}</field>",
-            "    <field name=\"description_sale\">${4:${2:Description}}</field>",
-            "    <field name=\"categ_id\" ref=\"${5:product.category}\"/>",
-            "    <field name=\"standard_price\">${6:0.0}</field>",
-            "    <field name=\"list_price\">${7:0.0}</field>",
-            "    <field name=\"type\">${8:consu|service}</field>",
-            "    <field name=\"uom_id\" ref=\"${9:product.uom}\"/>",
-            "    <field name=\"uom_po_id\" ref=\"${10:product.uom}\"/>",
-            "    <field name=\"taxes_id\" eval=\"[(4, ref('${11:account.tax}'))]\" />",
-            "${13:    <field name=\"image\" type=\"base64\" file=\"${12:module_name/static/img/file_name.png}\"/>",
-            "}${15:    <field name=\"default_code\">${14:PRODUCT-CODE}</field>",
-            "}${17:    <field name=\"ean13\">${16:0000000000000}</field>",
-            "}</record>${0}",
-            ""
-        ],
-        "description": "XML product.template record",
-        "prefix": "product.template"
-    },
-    "readonly": {
-        "body": [
-            "",
-            "readonly=\"${1:true}\"",
-            ""
-        ],
-        "description": "field attr readonly",
-        "prefix": "readonly"
-    },
-    "record": {
-        "body": [
-            "",
-            "<record id=\"${2:${1/(\\.+)/\\_/g}}\" model=\"${1:model.name}\">",
-            "    ${0}",
-            "</record>",
-            ""
-        ],
-        "description": "",
-        "prefix": "record"
-    },
-    "record ir.actions.act_window": {
-        "body": [
-            "",
-            "<!-- VIEWS: \"${1:Human readable name}\"",
-            "",
-            "    - Model\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7: ${2:model}",
-            "    - _rec_name\u00b7\u00b7\u00b7\u00b7\u00b7: ${3:name}",
-            "    - Domain\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7: ${4:[]}",
-            "    - Context\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7: ${5:\\{\\}}",
-            "    - Parent menu \u00b7\u00b7: ${6:base.menu_custom}",
-            "    - View priority\u00b7: ${7:16}    ",
-            "    - Sequence\u00b7\u00b7\u00b7\u00b7..: ${8:10}",
-            "    - Action help\u00b7\u00b7\u00b7: ${9:Something about ${2/(.)/$1/g}}",
-            "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->",
-            "",
-            "<!-- Main window action for \"${2/(.)/\\1/g}\" -->",
-            "<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_act_window\" model=\"ir.actions.act_window\">",
-            "    <field name=\"type\">ir.actions.act_window</field>",
-            "    <field name=\"name\">${1/(.)/\\1/g}</field>",
-            "    <field name=\"res_model\">${2/\\.+/\\./g}</field>",
-            "    <field name=\"view_mode\">tree,form</field>",
-            "    <field name=\"view_type\">form</field>",
-            "    <field name=\"target\">current</field>",
-            "    <field name=\"domain\">${4/(.)/\\1/g}</field>",
-            "    <field name=\"context\">${5/(.)/\\1/g}</field>",
-            "    <field name=\"search_view_id\" ref=\"view_${2/\\./\\_/g}_search\" />",
-            "    <field name=\"help\" type=\"html\">",
-            "        <p class=\"oe_view_nocontent_create\">",
-            "            Click to add new ${1/(.)/\\1/g}",
-            "        </p><p>",
-            "            ${9/(.)/\\1/g}",
-            "        </p>",
-            "    </field>",
-            "</record>",
-            "",
-            ""
-        ],
-        "description": "Common ir.actions.act_window record definition",
-        "prefix": "record ir.actions.act_window"
-    },
-    "record ir.filters": {
-        "body": [
-            "",
-            "<record id=\"${7:filter_${2/(\\.)/\\_/g}_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}}\" model=\"ir.filters\">",
-            "    <field name=\"name\">${1:Human readable name}</field>",
-            "    <field name=\"model_id\">${2:model_name_whithout_module}</field>",
-            "    <field name=\"user_id\" eval=\"${3:False}\"/>",
-            "    <field name=\"domain\">${4:[]}</field>",
-            "    <field name=\"context\">${5:{}}</field>",
-            "    <field name=\"is_default\" eval=\"${6:False}\" />",
-            "    <!-- <field name=\"action_id\" ref=\"\" /> -->",
-            "</record>${8}",
-            ""
-        ],
-        "description": "Common ir.filters record definition",
-        "prefix": "record ir.filters"
-    },
-    "record ir.ui.menu": {
-        "body": [
-            "",
-            "<record id=\"menu_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.ui.menu\" >",
-            "    <field name=\"name\">${1:Human readable name}</field>",
-            "    <field name=\"sequence\" eval=\"${2:10}\" />${4:",
-            "    <field name=\"action\" ref=\"${3:action_name}\" />}${6:",
-            "    <field name=\"parent_id\" ref=\"${5:base.menu_custom}\" />}",
-            "</record>${0}",
-            ""
-        ],
-        "description": "Common ir.ui.menu record definition",
-        "prefix": "record ir.ui.menu"
-    },
-    "record ir.ui.view": {
-        "body": [
-            "",
-            "<record id=\"view_${2/[^a-z]+/\\_/g}_${3}\" model=\"ir.ui.view\">",
-            "    <field name=\"name\">${1:Human readable name}</field>",
-            "    <field name=\"model\">${2:model.name}</field>",
-            "    <field name=\"type\">${3:tree}</field>",
-            "    <field name=\"mode\">${4:primary}</field>",
-            "    <field name=\"priority\" eval=\"${5:16}\" />",
-            "    <field name=\"active\" eval=\"${6:True}\" />${8:",
-            "    <field name=\"inherit_id\" ref=\"${7:xml_id}\" />}",
-            "    <field name=\"arch\" type=\"xml\">",
-            "        ${0}",
-            "    </field>",
-            "</record>",
-            ""
-        ],
-        "description": "Common ir.ui.view record definition",
-        "prefix": "record ir.ui.view"
-    },
-    "record ir.ui.view1": {
-        "body": [
-            "",
-            "<record id=\"view_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_assets\" model=\"ir.ui.view\">",
-            "    <field name=\"name\">${1:module} assets</field>",
-            "    <field name=\"model\"></field>",
-            "    <field name=\"type\">qweb</field>",
-            "    <field name=\"mode\">extension</field>",
-            "    <field name=\"priority\" eval=\"${2:16}\" />",
-            "    <field name=\"active\" eval=\"${3:True}\" />",
-            "    <field name=\"inherit_id\" ref=\"web.assets_backend\" />",
-            "    <field name=\"arch\" type=\"xml\">",
-            "        <xpath expr=\".\" position=\"inside\">${5:",
-            "            <link rel=\"stylesheet\" href=\"/${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}/static/src/css/${4:styles}.css\" />}${7:",
-            "            <script type=\"text/javascript\" src=\"/${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}/static/src/js/${6:scripts}.js\" />}${0}",
-            "        </xpath>",
-            "    </field>",
-            "</record>",
-            ""
-        ],
-        "description": "Include module assets in backend views",
-        "prefix": "record ir.ui.view"
-    },
-    "relativetime": {
-        "body": [
-            "",
-            "(DateTime.now() - relativedelta(${1:months=2})).strftime('${2:%Y-%m-%d}${3: }${4:%H:%M:%S}')${0}",
-            ""
-        ],
-        "description": "Fully formated time relative to now",
-        "prefix": "relativetime"
-    },
-    "report.paperformat": {
-        "body": [
-            "",
-            "<record id=\"paperformat_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"report.paperformat\" >",
-            "    <field name=\"name\">${1:Human readable name}</field>",
-            "    <field name=\"format\">${2:A4}</field>",
-            "    <field name=\"orientation\">${3:Portrait}</field>",
-            "    <field name=\"default\" eval=\"${4:False}\" />",
-            "    <field name=\"dpi\" eval=\"${5:90}\" />",
-            "    <field name=\"margin_top\" eval=\"${6:40}\" />",
-            "    <field name=\"margin_right\" eval=\"${7:7}\" />",
-            "    <field name=\"margin_bottom\" eval=\"${8:20}\" />",
-            "    <field name=\"margin_left\" eval=\"${9:7}\" />",
-            "    <field name=\"header_line\" eval=\"${10:False}\" />",
-            "    <field name=\"header_spacing\" eval=\"${11:35}\" />${13:",
-            "    <field name=\"page_width\" eval=\"${12:210}\" />}${15:",
-            "    <field name=\"page_height\" eval=\"${14:297}\" />}${17:",
-            "    <field name=\"report_ids\" eval=\"[(4, ref('${16:ir.actions.report.xml}'))]\" />}${0}",
-            "</record>",
-            ""
-        ],
-        "description": "Common record definition for report.paperformat",
-        "prefix": "report.paperformat"
-    },
-    "required": {
-        "body": [
-            "",
-            "required=\"${1:true}\"",
-            ""
-        ],
-        "description": "field attr required",
-        "prefix": "required"
-    },
-    "res.groups": {
-        "body": [
-            "",
-            "<record id=\"group_${8:${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}}\" model=\"res.groups\">",
-            "    <field name=\"name\">${1:Name}</field>",
-            "    <field name=\"comment\">${2:Comment}</field>",
-            "    <field name=\"category_id\" ref=\"${3:base.module_category_administration}\"/>",
-            "    <field name=\"implied_ids\" eval=\"[(4, ref('${5:base.group_user}'))]\"/>",
-            "    <field name=\"users\" eval=\"[(5, ref('${6:base.user_root}'))]\" />",
-            "</record>${0}",
-            ""
-        ],
-        "description": "XML res.groups record",
-        "prefix": "res.groups"
-    },
-    "script": {
-        "body": [
-            "",
-            "<script type=\"text/javascript\" src=\"/${1:module_name}/static/src/js/${2:scripts}.js\" />${0}",
-            ""
-        ],
-        "description": "Script tag to inglude an javascript",
-        "prefix": "script"
-    },
-    "search1": {
-        "body": [
-            "",
-            "<search string=\"${1:Name}\">",
-            "    ${0}",
-            "</search>",
-            ""
-        ],
-        "description": "Common search tag to be added inside a ir.ui.view",
-        "prefix": "search"
-    },
-    "strftime": {
-        "body": [
-            "",
-            "strftime('${1:%Y-%m-%d}${2: }${3:%H:%M:%S}')${0}",
-            ""
-        ],
-        "description": "Fully formated strftime",
-        "prefix": "strftime"
-    },
-    "t": {
+    "report_t": {
         "body": [
             "",
             "<t t-name=\"${1:module.model.name}\">",
@@ -1177,302 +1627,220 @@
             "</t>",
             ""
         ],
-        "description": "",
-        "prefix": "t"
+        "description": "Report qweb container",
+        "prefix": "report_t"
     },
-    "t-att": {
-        "body": [
-            "",
-            "t-att-${1:name}=\"${2:value}\"",
-            ""
-        ],
-        "description": "Qweb named attribute",
-        "prefix": "t-att"
-    },
-    "t-att1": {
-        "body": [
-            "",
-            "t-att=\"${1:dict_of_pair}\"",
-            ""
-        ],
-        "description": "Qweb attribute",
-        "prefix": "t-att"
-    },
-    "t-attf": {
-        "body": [
-            "",
-            "t-attf-${1:name}=\"${2:format_string}\"",
-            ""
-        ],
-        "description": "Qweb format string attribute",
-        "prefix": "t-attf"
-    },
-    "t-call": {
-        "body": [
-            "",
-            "<t t-call=\"${1:template}\" />${0}",
-            ""
-        ],
-        "description": "Qweb inline call template",
-        "prefix": "t-call"
-    },
-    "t-call1": {
-        "body": [
-            "",
-            "<t t-call=\"${1:template}\">",
-            "    ${0}",
-            "</t>",
-            ""
-        ],
-        "description": "Qweb call template",
-        "prefix": "t-call"
-    },
-    "t-esc": {
-        "body": [
-            "",
-            "<t t-esc=\"${1:value}\" />",
-            ""
-        ],
-        "description": "Qweb data output",
-        "prefix": "t-esc"
-    },
-    "t-extend": {
-        "body": [
-            "",
-            "<t t-extend=\"${1:base.template}\">",
-            "    <t t-jquery=\"${2:ul}\" t-operation=\"${3:append}\">",
-            "        ${4:code}",
-            "    </t>${0}",
-            "</t>",
-            ""
-        ],
-        "description": "Qweb template inheritance",
-        "prefix": "t-extend"
-    },
-    "t-field": {
-        "body": [
-            "",
-            "<${1:span} t-field=\"${2:o}.${3:name}\" />${0}",
-            ""
-        ],
-        "description": "Qweb field access",
-        "prefix": "t-field"
-    },
-    "t-foreach": {
-        "body": [
-            "",
-            "<t t-foreach=\"${1:set}\" t-as=\"${2:name}\">",
-            "    ${0}",
-            "</t>",
-            ""
-        ],
-        "description": "Qweb loop",
-        "prefix": "t-foreach"
-    },
-    "t-if": {
-        "body": [
-            "",
-            "<${1:tag} t-if=\"${2:condition}\">${3:value}</${1}>${0}",
-            ""
-        ],
-        "description": "Qweb inline conditional",
-        "prefix": "t-if"
-    },
-    "t-if1": {
-        "body": [
-            "",
-            "<t t-if=\"${1:codition}\">",
-            "    ${0}",
-            "</t>",
-            ""
-        ],
-        "description": "Qweb conditional",
-        "prefix": "t-if"
-    },
-    "t-js": {
-        "body": [
-            "",
-            "<t t-js=\"${1:name}\">",
-            "    ${0:console.log(\"Foo is\", ctx.foo);}",
-            "</t>",
-            ""
-        ],
-        "description": "Qweb javascript",
-        "prefix": "t-js"
-    },
-    "t-log": {
-        "body": [
-            "",
-            "<t t-log=\"${1:value}\"/>${0}",
-            ""
-        ],
-        "description": "Qweb logging",
-        "prefix": "t-log"
-    },
-    "t-name": {
-        "body": [
-            "",
-            "<t t-name=\"${1:template-name}\">",
-            "    ${0:<!-- template code -->}",
-            "</t>",
-            ""
-        ],
-        "description": "Qweb top level named template",
-        "prefix": "t-name"
-    },
-    "t-raw": {
-        "body": [
-            "",
-            "<t t-raw=\"0\" />",
-            ""
-        ],
-        "description": "Qweb template from context",
-        "prefix": "t-raw"
-    },
-    "t-raw1": {
+    "report_t-raw": {
         "body": [
             "",
             "<t t-raw=\"translate_doc(${1:doc_id}, ${2:doc_model}, '${3:lang}', ${4:module.template'})\" />",
             ""
         ],
         "description": "Qweb translate document",
-        "prefix": "t-raw"
+        "prefix": "report_t-raw"
     },
-    "t-set": {
+    "required1": {
         "body": [
             "",
-            "<t t-set=\"${1:name}\" t-value=\"${2:value}\" />${0}",
+            "required=\"${1:1}\"${0}",
             ""
         ],
-        "description": "Qweb inline variable",
-        "prefix": "t-set"
+        "description": "field attr required",
+        "prefix": "required"
     },
-    "t-set1": {
+    "script": {
         "body": [
             "",
-            "<t t-set=\"${1:name}\">",
+            "<script type=\"text/javascript\" src=\"/${1:module_name}/static/src/js/${2:scripts}.js\" />${0}",
+            ""
+        ],
+        "description": "Script tag to inglude an javascript",
+        "prefix": "script"
+    },
+    "search/filter": {
+        "body": [
+            "",
+            "<filter string=\"${1:Name}\"",
+            "    name=\"${2:${1/(([A-Za-z0-9])|( )|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)(?4:\\_)/g}}\"",
+            "    domain=\"${3:[]}\"",
+            "    context=\"${4:{}}\"",
+            "    help=\"${5}\" />${0}",
+            ""
+        ],
+        "description": "Common filter tag to be added inside a search view",
+        "prefix": "search/filter"
+    },
+    "search/group_by": {
+        "body": [
+            "",
+            "<group expand=\"0\" string=\"Group By\">",
+            "    <filter name=\"group_by_${1:user_id} \"string=\"${2:User}\" context=\"{'group_by':'${1}'}\" help=\"${3}\"/>",
             "    ${0}",
-            "</t>",
+            "</group>",
+            "",
             ""
         ],
-        "description": "Qweb variable",
-        "prefix": "t-set"
+        "description": "",
+        "prefix": "search/group_by"
     },
-    "tree": {
+    "separator": {
         "body": [
             "",
-            "<tree string=\"${1:Caption}\" create=\"${2:1}\" delete=\"${3:1}\" edit=\"${4:1}\"${6: editable=\"${5:top}\"}>",
+            "<separator string=\"Some Text\" colspan=\"4\" />",
             "    ${0}",
-            "</tree>",
             ""
         ],
-        "description": "Common tree tag to be added inside a ir.ui.view",
-        "prefix": "tree"
+        "description": "Common separator tag to be added inside a ir.ui.view",
+        "prefix": "separator"
     },
-    "view full": {
+    "states1": {
         "body": [
             "",
-            "<!-- VIEWS: \"${1:Human readable name}\"",
+            "<button name=\"action_confirm\" string=\"\u786e\u8ba4\" type=\"object\" states=\"draft\" />",
+            "<button name=\"action_draft\" string=\"\u8bbe\u8349\u7a3f\" type=\"object\" states=\"cancel\" />",
+            "<button name=\"action_close\" string=\"\u5173\u95ed\" type=\"object\" states=\"confirmed\" />",
+            "<button name=\"action_cancel\" string=\"\u53d6\u6d88\" type=\"object\" states=\"draft,close\" />",
+            "<field name=\"state\" widget=\"statusbar\" />",
+            ""
+        ],
+        "description": "Adds state support",
+        "prefix": "states"
+    },
+    "statusbar": {
+        "body": [
             "",
-            "    - Model\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7: ${2:model}",
-            "    - _rec_name\u00b7\u00b7\u00b7\u00b7\u00b7: ${3:name}",
-            "    - Domain\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7: ${4:[]}",
-            "    - Context\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7: ${5:\\{\\}}",
-            "    - Parent menu \u00b7\u00b7: ${6:base.menu_custom}",
-            "    - View priority\u00b7: ${7:16}    ",
-            "    - Sequence\u00b7\u00b7\u00b7\u00b7..: ${8:10}",
-            "    - Action help\u00b7\u00b7\u00b7: ${9:Something about ${2/(.)/$1/g}}",
-            "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->",
+            " <field name=\"state\" widget=\"statusbar\" statusbar_visible=\"draft${0}\"/>",
+            ""
+        ],
+        "description": "Include module assets in backend views",
+        "prefix": "statusbar"
+    },
+    "time/relativetime": {
+        "body": [
             "",
-            "<!-- Tree view for \"${2/(.)/\\1/g}\" -->",
-            "<record id=\"view_${2/\\./\\_/g}_tree\" model=\"ir.ui.view\">",
-            "    <field name=\"name\">view.${2/\\.+/\\./g}.tree</field>",
-            "    <field name=\"model\">${2/\\.+/\\./g}</field>",
-            "    <field name=\"type\">tree</field>",
-            "    <field name=\"mode\">primary</field>",
-            "    <field name=\"priority\" eval=\"${7/(.)/\\1/g}\" />",
-            "    <field name=\"active\" eval=\"True\" />",
-            "    <field name=\"arch\" type=\"xml\">",
-            "        <tree string=\"${2/\\./\\_/g}_tree\" create=\"1\" delete=\"1\" edit=\"1\">",
-            "            <field name=\"${3/(.)/\\1/g}\" />",
-            "            ${0:<!-- \u00b7\u00b7\u00b7 -->}",
-            "        </tree>",
-            "    </field>",
-            "</record>",
+            "(DateTime.now() - relativedelta(${1:months=2})).strftime('${2:%Y-%m-%d}${3: }${4:%H:%M:%S}')${0}",
+            ""
+        ],
+        "description": "Fully formated time relative to now",
+        "prefix": "time/relativetime"
+    },
+    "time/strftime": {
+        "body": [
             "",
-            "<!-- Form view for \"${2/(.)/\\1/g}\" -->",
-            "<record id=\"view_${2/\\./\\_/g}_form\" model=\"ir.ui.view\">",
-            "    <field name=\"name\">view.${2/\\.+/\\./g}.form</field>",
-            "    <field name=\"model\">${2/\\.+/\\./g}</field>",
-            "    <field name=\"type\">form</field>",
-            "    <field name=\"mode\">primary</field>",
-            "    <field name=\"priority\" eval=\"${7/(.)/\\1/g}\" />",
-            "    <field name=\"active\" eval=\"True\" />",
-            "    <field name=\"arch\" type=\"xml\">",
-            "        <form string=\"${2/\\./\\_/g}_form\" create=\"1\" delete=\"1\" edit=\"1\">",
-            "            <sheet>",
-            "                <div class=\"oe_title\">",
-            "                    <label for=\"${3/(.)/\\1/g}\" class=\"oe_edit_only\" />",
-            "                    <h1>",
-            "                        <field name=\"${3/(.)/\\1/g}\" class=\"oe_field_${3/(.)/\\1/g}\"",
-            "                            placeholder=\"${3/((^.)|(_+))/(?2:\\u$2)(?3:\\ )/g}\" />",
-            "                    </h1>",
-            "                </div>",
-            "                <!-- \u00b7\u00b7\u00b7 -->",
-            "            </sheet>",
-            "        </form>",
-            "    </field>",
-            "</record>",
-            "",
-            "<!-- Search view for \"${2/(.)/\\1/g}\" -->",
-            "<record id=\"view_${2/\\./\\_/g}_search\" model=\"ir.ui.view\">",
-            "    <field name=\"name\">view.${2/\\.+/\\./g}.search</field>",
-            "    <field name=\"model\">${2/\\.+/\\./g}</field>",
-            "    <field name=\"type\">search</field>",
-            "    <field name=\"mode\">primary</field>",
-            "    <field name=\"priority\" eval=\"${7/(.)/\\1/g}\" />",
-            "    <field name=\"active\" eval=\"True\" />",
-            "    <field name=\"arch\" type=\"xml\">",
-            "        <search string=\"${2/\\./\\_/g}_search\">",
-            "            <field name=\"${3/(.)/\\1/g}\" />",
-            "            <!-- \u00b7\u00b7\u00b7 -->",
-            "        </search>",
-            "    </field>",
-            "</record>",
-            "",
-            "<!-- Main window action for \"${2/(.)/\\1/g}\" -->",
-            "<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_act_window\" model=\"ir.actions.act_window\">",
-            "    <field name=\"type\">ir.actions.act_window</field>",
-            "    <field name=\"name\">${1/(.)/\\1/g}</field>",
-            "    <field name=\"res_model\">${2/\\.+/\\./g}</field>",
-            "    <field name=\"view_mode\">tree,form</field>",
-            "    <field name=\"view_type\">form</field>",
-            "    <field name=\"target\">current</field>",
-            "    <field name=\"domain\">${4/(.)/\\1/g}</field>",
-            "    <field name=\"context\">${5/(.)/\\1/g}</field>",
-            "    <field name=\"search_view_id\" ref=\"view_${2/\\./\\_/g}_search\" />",
-            "    <field name=\"help\" type=\"html\">",
-            "        <p class=\"oe_view_nocontent_create\">",
-            "            Click to add new ${1/(.)/\\1/g}",
-            "        </p><p>",
-            "            ${9/(.)/\\1/g}",
-            "        </p>",
-            "    </field>",
-            "</record>",
-            "",
-            "<!-- Main menu for \"${2/(.)/\\1/g}\" -->",
-            "<record id=\"menu_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.ui.menu\" >",
-            "    <field name=\"name\">${1/(.)/\\1/g}</field>",
-            "    <field name=\"sequence\" eval=\"${8/(.)/\\1/g}\" />",
-            "    <field name=\"action\" ref=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_act_window\" />",
-            "    <field name=\"parent_id\" ref=\"${6/(.)/\\1/g}\" />",
-            "</record>",
+            "strftime('${1:%Y-%m-%d}${2: }${3:%H:%M:%S}')${0}",
+            ""
+        ],
+        "description": "Fully formated strftime",
+        "prefix": "time/strftime"
+    },
+    "view/full": {
+        "body": [
+            "\r",
+            "<!-- VIEWS: \"${1:Human readable name}\"\r",
+            "\r",
+            "    - Model\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7: ${2:model}\r",
+            "    - _rec_name\u00b7\u00b7\u00b7\u00b7\u00b7: ${3:name}\r",
+            "    - Domain\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7: ${4:[]}\r",
+            "    - Context\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7: ${5:\\{\\}}\r",
+            "    - Parent menu \u00b7\u00b7: ${6:base.menu_custom}\r",
+            "    - View priority\u00b7: ${7:16}    \r",
+            "    - Sequence\u00b7\u00b7\u00b7\u00b7..: ${8:10}\r",
+            "    - Action help\u00b7\u00b7\u00b7: ${9:Something about ${2/(.)/$1/g}}\r",
+            "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->\r",
+            "\r",
+            "<!-- Tree view for \"${2/(.)/\\1/g}\" -->\r",
+            "<record id=\"view_${2/\\./\\_/g}_tree\" model=\"ir.ui.view\">\r",
+            "    <field name=\"name\">view.${2/\\.+/\\./g}.tree</field>\r",
+            "    <field name=\"model\">${2/\\.+/\\./g}</field>\r",
+            "    <field name=\"type\">tree</field>\r",
+            "    <field name=\"mode\">primary</field>\r",
+            "    <field name=\"priority\" eval=\"${7/(.)/\\1/g}\" />\r",
+            "    <field name=\"active\" eval=\"True\" />\r",
+            "    <field name=\"arch\" type=\"xml\">\r",
+            "        <tree string=\"${2/\\./\\_/g}_tree\" create=\"true\" delete=\"true\" edit=\"true\">\r",
+            "            <field name=\"${3/(.)/\\1/g}\" />\r",
+            "\r",
+            "        </tree>\r",
+            "    </field>\r",
+            "</record>\r",
+            "\r",
+            "<!-- Form view for \"${2/(.)/\\1/g}\" -->\r",
+            "<record id=\"view_${2/\\./\\_/g}_form\" model=\"ir.ui.view\">\r",
+            "    <field name=\"name\">view.${2/\\.+/\\./g}.form</field>\r",
+            "    <field name=\"model\">${2/\\.+/\\./g}</field>\r",
+            "    <field name=\"type\">form</field>\r",
+            "    <field name=\"mode\">primary</field>\r",
+            "    <field name=\"priority\" eval=\"${7/(.)/\\1/g}\" />\r",
+            "    <field name=\"active\" eval=\"True\" />\r",
+            "    <field name=\"arch\" type=\"xml\">\r",
+            "        <form string=\"${2/\\./\\_/g}_form\" create=\"true\" delete=\"true\" edit=\"true\">\r",
+            "            <header>\r",
+            "            </header>\r",
+            "            <sheet>\r",
+            "                <div class=\"oe_title\">\r",
+            "                    <label for=\"${3/(.)/\\1/g}\" class=\"oe_edit_only\" />\r",
+            "                    <h1>\r",
+            "                        <field name=\"${3/(.)/\\1/g}\" class=\"oe_inline\"\r",
+            "                            placeholder=\"${3/((^.)|(_+))/(?2:\\u$2)(?3:\\ )/g}\" />\r",
+            "                    </h1>\r",
+            "                </div>\r",
+            "                <group>\r",
+            "\r",
+            "                </group>\r",
+            "            </sheet>\r",
+            "        </form>\r",
+            "    </field>\r",
+            "</record>\r",
+            "\r",
+            "<!-- Search view for \"${2/(.)/\\1/g}\" -->\r",
+            "<record id=\"view_${2/\\./\\_/g}_search\" model=\"ir.ui.view\">\r",
+            "    <field name=\"name\">view.${2/\\.+/\\./g}.search</field>\r",
+            "    <field name=\"model\">${2/\\.+/\\./g}</field>\r",
+            "    <field name=\"type\">search</field>\r",
+            "    <field name=\"mode\">primary</field>\r",
+            "    <field name=\"priority\" eval=\"${7/(.)/\\1/g}\" />\r",
+            "    <field name=\"active\" eval=\"True\" />\r",
+            "    <field name=\"arch\" type=\"xml\">\r",
+            "        <search string=\"${2/\\./\\_/g}_search\">\r",
+            "            <field name=\"${3/(.)/\\1/g}\" />\r",
+            "            \r",
+            "        </search>\r",
+            "    </field>\r",
+            "</record>\r",
+            "\r",
+            "<!-- Main window action for \"${2/(.)/\\1/g}\" -->\r",
+            "<record id=\"action_${2/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_act_window\" model=\"ir.actions.act_window\">\r",
+            "    <field name=\"type\">ir.actions.act_window</field>\r",
+            "    <field name=\"name\">${1/(.)/\\1/g}</field>\r",
+            "    <field name=\"res_model\">${2/\\.+/\\./g}</field>\r",
+            "    <field name=\"view_mode\">tree,form</field>\r",
+            "    <field name=\"view_type\">form</field>\r",
+            "    <field name=\"target\">current</field>\r",
+            "    <field name=\"domain\">${4/(.)/\\1/g}</field>\r",
+            "    <field name=\"context\">${5/(.)/\\1/g}</field>\r",
+            "    <field name=\"search_view_id\" ref=\"view_${2/\\./\\_/g}_search\" />\r",
+            "    <field name=\"help\" type=\"html\">\r",
+            "        <p class=\"oe_view_nocontent_create\">\r",
+            "            Click to add new ${1/(.)/\\1/g}\r",
+            "        </p><p>\r",
+            "            ${9/(.)/\\1/g}\r",
+            "        </p>\r",
+            "    </field>\r",
+            "</record>\r",
+            "\r",
+            "<!-- Main menu for \"${2/(.)/\\1/g}\" -->\r",
+            "<record id=\"menu_${2/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.ui.menu\" >\r",
+            "    <field name=\"name\">${1/(.)/\\1/g}</field>\r",
+            "    <field name=\"sequence\" eval=\"${8/(.)/\\1/g}\" />\r",
+            "    <field name=\"action\" ref=\"action_${2/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_act_window\" />\r",
+            "    <field name=\"parent_id\" ref=\"${6/(.)/\\1/g}\" />\r",
+            "</record>\r",
             ""
         ],
         "description": "Views: tree, form, search; act_window and menu",
-        "prefix": "view full"
+        "prefix": "view/full"
     },
-    "view inherit": {
+    "view/inherit": {
         "body": [
             "",
             "<!--",
@@ -1548,9 +1916,9 @@
             ""
         ],
         "description": "Inherited Views: tree, form, search",
-        "prefix": "view inherit"
+        "prefix": "view/inherit"
     },
-    "view inherit1": {
+    "view/inherit1": {
         "body": [
             "",
             "<!-- VIEWS: \"${1:Human readable name}\"",
@@ -1581,17 +1949,152 @@
             "",
             ""
         ],
-        "description": "Views: tree, form",
-        "prefix": "view inherit"
+        "description": "Inherited Views: tree, form",
+        "prefix": "view/inherit"
     },
-    "widget": {
+    "widget/ace": {
         "body": [
             "",
-            "widget=\"${1:widget}\"",
+            "widget=\"${1:ace}\"",
             ""
         ],
-        "description": "field attr widget",
-        "prefix": "widget"
+        "description": "widget ace editor",
+        "prefix": "widget/ace"
+    },
+    "widget/boolean_button": {
+        "body": [
+            "",
+            "widget=\"${1:boolean_button}\"",
+            ""
+        ],
+        "description": "widget boolean_button",
+        "prefix": "widget/boolean_button"
+    },
+    "widget/image": {
+        "body": [
+            "",
+            "widget=\"${1:image}\"",
+            ""
+        ],
+        "description": "widget image",
+        "prefix": "widget/image"
+    },
+    "widget/image1": {
+        "body": [
+            "",
+            "widget=\"${1:image}\"",
+            ""
+        ],
+        "description": "widget image",
+        "prefix": "widget/image"
+    },
+    "widget/many2many": {
+        "body": [
+            "",
+            "widget=\"${1:many2many}\"",
+            ""
+        ],
+        "description": "widget many2many",
+        "prefix": "widget/many2many"
+    },
+    "widget/many2many_binary": {
+        "body": [
+            "",
+            "widget=\"${1:many2many_binary}\"",
+            ""
+        ],
+        "description": "widget many2many_binary",
+        "prefix": "widget/many2many_binary"
+    },
+    "widget/many2many_checkboxes": {
+        "body": [
+            "",
+            "widget=\"${1:many2many_checkboxes}\"",
+            ""
+        ],
+        "description": "widget many2many_checkboxes",
+        "prefix": "widget/many2many_checkboxes"
+    },
+    "widget/many2many_kanban": {
+        "body": [
+            "",
+            "widget=\"${1:many2many_kanban}\"",
+            ""
+        ],
+        "description": "widget many2many_kanban",
+        "prefix": "widget/many2many_kanban"
+    },
+    "widget/many2many_tags": {
+        "body": [
+            "",
+            "widget=\"${1:many2many_tags}\"",
+            ""
+        ],
+        "description": "widget many2many_tags",
+        "prefix": "widget/many2many_tags"
+    },
+    "widget/percentpie": {
+        "body": [
+            "",
+            "widget=\"${1:percentpie}\"",
+            ""
+        ],
+        "description": "widget percentpie",
+        "prefix": "widget/percentpie"
+    },
+    "widget/progressbar": {
+        "body": [
+            "",
+            "widget=\"${1:progressbar}\"",
+            ""
+        ],
+        "description": "widget progressbar",
+        "prefix": "widget/progressbar"
+    },
+    "widget/radio": {
+        "body": [
+            "",
+            "widget=\"${1:radio}\"",
+            ""
+        ],
+        "description": "widget radio",
+        "prefix": "widget/radio"
+    },
+    "widget/selection": {
+        "body": [
+            "",
+            "widget=\"${1:selection}\"",
+            ""
+        ],
+        "description": "widget selection",
+        "prefix": "widget/selection"
+    },
+    "widget/statinfo": {
+        "body": [
+            "",
+            "widget=\"${1:statinfo}\"",
+            ""
+        ],
+        "description": "widget statinfo",
+        "prefix": "widget/statinfo"
+    },
+    "widget/statusbar": {
+        "body": [
+            "",
+            "widget=\"${1:statusbar}\"",
+            ""
+        ],
+        "description": "widget statusbar",
+        "prefix": "widget/statusbar"
+    },
+    "widget/toggle_button": {
+        "body": [
+            "",
+            "widget=\"${1:toggle_button}\"",
+            ""
+        ],
+        "description": "widget toggle_button",
+        "prefix": "widget/toggle_button"
     },
     "xpath": {
         "body": [

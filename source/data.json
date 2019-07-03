@@ -1,0 +1,1922 @@
+{
+	"controller/controller": {
+		"prefix": "controller/controller",
+		"body": "\nclass ${1:ControllerName}(Controller):\n    \"\"\" ${2:The summary line for a class docstring should fit on one line.}\n\n        Routes:\n          /${3:some_url}: ${4:url description}\n    \"\"\"\n\n    @route('/${3}', type='${5:http}', auth='${6:none}')\n    def ${3/((^[A-Z])|([^a-zA-Z]))/(?2:\\l$2)(?3:\\_)/g}(self${7:, **kw}):\n\n        pass${0}\n",
+		"description": "Odoo web controller class",
+		"scope": "source.python"
+	},
+	"file/controller": {
+		"prefix": "file/controller",
+		"body": "\n# -*- coding: utf-8 -*-\n###############################################################################\n#    License, author and contributors information in:                         #\n#    __manifest__.py file at the root folder of this module.                  #\n###############################################################################\n\nfrom odoo.http import route, request, Controller, _\nfrom odoo.exceptions import UserError, ValidationError\n${0}\n",
+		"description": "Odoo web controller file",
+		"scope": "source.python"
+	},
+	"controller/route": {
+		"prefix": "controller/route",
+		"body": "\n\"\"\" \n    Routes:\n      /${1:some_url}: ${2:url description}\n\"\"\"\n\n@route('/${1}', type='${3:http}', auth='${4:none}')\ndef ${1/((^[A-Z])|([^a-zA-Z]))/(?2:\\l$2)(?3:\\_)/g}(self${5:, **kw}):\n\n    pass${0}\n",
+		"description": "Odoo web controller route",
+		"scope": "source.python"
+	},
+	"copyright": {
+		"prefix": "copyright",
+		"body": "\n# -*- coding: utf-8 -*-\n###############################################################################\n#\n#    jeffery CHEN fan<jeffery9@gmail.com>\n#\n#    Copyright (c) All rights reserved:\n#        (c) 2017  $TM_FULLNAME\n#\n#    This program is free software: you can redistribute it and/or modify\n#    it under the terms of the GNU Affero General Public License as\n#    published by the Free Software Foundation, either version 3 of the\n#    License, or (at your option) any later version.\n#\n#    This program is distributed in the hope that it will be useful,\n#    but WITHOUT ANY WARRANTY; without even the implied warranty of\n#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the\n#    GNU Affero General Public License for more details.\n#\n#    You should have received a copy of the GNU Affero General Public License\n#    along with this program.  If not, see http://www.gnu.org/licenses\n#    \n#    Odoo and OpenERP is trademark of Odoo S.A.\n#\n###############################################################################\n${0}\n",
+		"description": "Copyright statement Full",
+		"scope": "source.python"
+	},
+	"record/base.action.rule": {
+		"prefix": "record/base.action.rule",
+		"body": "\n<record id=\"${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"base.action.rule\">\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"active\" eval=\"${2:True}\" />\n    <field name=\"sequence\" eval=\"${3:0}\" />\n    <field name=\"server_action_ids\" eval=\"[(4, ref('${4:ir.actions.server}'))]\" />\n    <field name=\"model_id\" ref=\"${5:ir.model}\" />\n    <field name=\"kind\">${6:on_create_or_write}</field>\n    <field name=\"trg_date_id\" ref=\"${7:ir.model.fields}\" />\n    <field name=\"trg_date_range\" eval=\"${8:0}\" />\n    <field name=\"trg_date_range_type\">${9:day}</field>${11:\n    <field name=\"trg_date_calendar_id\" ref=\"${10:resource.calendar}\" />}${13:\n    <field name=\"filter_id\" ref=\"${12:ir.filters}\" />}${15:\n    <field name=\"filter_pre_id\" ref=\"${14:ir.filters}\" />}${17:\n    <field name=\"act_user_id\" ref=\"${16:base.user_root}\" />}${19:\n    <field name=\"act_followers\" eval=\"[(4, ref('${18:res.partner}'))]\" />}\n</record>${0}\n",
+		"description": "Common record definition for base.action.rule",
+		"scope": "text.xml"
+	},
+	"record/ir.actions.act_window": {
+		"prefix": "record/ir.actions.act_window",
+		"body": "\n<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_act_window\" model=\"ir.actions.act_window\">\n    <field name=\"type\">ir.actions.act_window</field>\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"res_model\">${2:model.name}</field>\n    <field name=\"view_mode\">${3:tree,form}</field>\n    <field name=\"view_type\">${4:form}</field>\n    <field name=\"target\">${5:current}</field>${7:\n    <field name=\"domain\">[${6:}]</field>}${9:\n    <field name=\"context\">${8:\\{\\}}</field>}${11:\n    <field name=\"search_view_id\" ref=\"${10:ir.ui.view}\" />}\n</record>${0}\n",
+		"description": "Common record definition for ir.actions.act_window",
+		"scope": "text.xml"
+	},
+	"record/ir.actions.act_window.view": {
+		"prefix": "record/ir.actions.act_window.view",
+		"body": "\n<record id=\"action_${1/[^a-zA-Z]+/\\_/g}_${2/[^a-zA-Z]+/\\_/g}\" model=\"ir.actions.act_window.view\">\n    <field name=\"act_window_id\" ref=\"${1:ir.actions.act_window}\" />\n    <field name=\"view_id\" ref=\"${2:ir.ui.view}\" />\n    <field name=\"view_mode\">${3:tree}</field>\n    <field name=\"sequence\" eval=\"${4:1}\" />\n    <field name=\"multi\" eval=\"${5:False}\" />\n</record>\n",
+		"description": "Common record definition for ir.actions.act_window.view",
+		"scope": "text.xml"
+	},
+	"record/ir.actions.report.xml": {
+		"prefix": "record/ir.actions.report.xml",
+		"body": "\n<record id=\"action_report_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.actions.report.xml\">\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"model\">${2:model.name}</field>\n    <field name=\"report_type\">${3:qweb-pdf}</field>\n    <field name=\"report_name\">${4:out_filename}</field>\n    <field name=\"attachment_use\" eval=\"${5:True}\" />\n    <field name=\"attachment\">${6:(object.name+'.pdf')}</field>\n    <field name=\"paperformat_id\" ref=\"${7:report.paperformat_euro}\" />${9:\n    <field name=\"help\">${8:Something about ${1}}</field>}\n</record>${0}\n",
+		"description": "Common record definition for ir.actions.report.xml",
+		"scope": "text.xml"
+	},
+	"record/ir.actions.server": {
+		"prefix": "record/ir.actions.server",
+		"body": "\n<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_server\" model=\"ir.actions.server\">\n    <field name=\"type\">ir.actions.server</field>\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"model_id\" ref=\"${2:ir.model}\" />\n    <field name=\"condition\" eval=\"${3:True}\" />\n    <field name=\"sequence\" eval=\"${4:5}\" />\n    <field name=\"context\" eval=\"${5:\\{\\}}\" />\n    <field name=\"action_id\" ref=\"${6:ir.actions.actions}\" />\n</record>${0}\n",
+		"description": "Common record definition for ir.actions.server, invoking a client action",
+		"scope": "text.xml"
+	},
+	"record/ir.actions.server1": {
+		"prefix": "record/ir.actions.server",
+		"body": "\n<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_server\" model=\"ir.actions.server\">\n    <field name=\"type\">ir.actions.server</field>\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"model_id\" ref=\"${2:ir.model}\" />\n    <field name=\"condition\" eval=\"${3:True}\" />\n    <field name=\"sequence\" eval=\"${4:5}\" />\n    <field name=\"context\" eval=\"${5:\\{\\}}\" />\n    <field name=\"code\">${6:action = self.browse(cr, uid, 1, context=context)}</field>\n</record>${0}\n",
+		"description": "Common record definition for ir.actions.server, running Python code",
+		"scope": "text.xml"
+	},
+	"record/ir.actions.server2": {
+		"prefix": "record/ir.actions.server",
+		"body": "\n<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_server\" model=\"ir.actions.server\">\n    <field name=\"type\">ir.actions.server</field>\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"model_id\" ref=\"${2:ir.model}\" />\n    <field name=\"condition\" eval=\"${3:True}\" />\n    <field name=\"sequence\" eval=\"${4:5}\" />\n    <field name=\"context\" eval=\"${5:\\{\\}}\" />\n    <field name=\"child_ids\" eval=\"[(6, ref('${6:ir.actions.server}'))]\" />\n</record>${0}\n",
+		"description": "Common record definition for ir.actions.server, executing multiple actions",
+		"scope": "text.xml"
+	},
+	"record/ir.actions.server3": {
+		"prefix": "record/ir.actions.server",
+		"body": "\n<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_server\" model=\"ir.actions.server\">\n    <field name=\"type\">ir.actions.server</field>\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"model_id\" ref=\"${2:ir.model}\" />\n    <field name=\"condition\" eval=\"${3:True}\" />\n    <field name=\"sequence\" eval=\"${4:5}\" />\n    <field name=\"context\" eval=\"${5:\\{\\}}\" />\n    <field name=\"use_create\">${6:new}</field>${8:\n    <field name=\"crud_model_id\" ref=\"${7:ir.model}\" />}${10:\n    <field name=\"ref_object\">${9:reference}</field>}${12:\n    <field name=\"fields_lines\" eval=\"[(4, ref('${11:ir.server.object.lines}'))]\" />}${14:\n    <field name=\"link_new_record\" eval=\"${13:False}\" />}${16:\n    <field name=\"link_field_id\" ref=\"${15:ir.model.fields}\" />}\n</record>${0}\n",
+		"description": "Common record definition for ir.actions.server, creating objects",
+		"scope": "text.xml"
+	},
+	"record/ir.actions.server4": {
+		"prefix": "record/ir.actions.server",
+		"body": "\n<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_server\" model=\"ir.actions.server\">\n    <field name=\"type\">ir.actions.server</field>\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"model_id\" ref=\"${2:ir.model}\" />\n    <field name=\"condition\" eval=\"${3:True}\" />\n    <field name=\"sequence\" eval=\"${4:5}\" />\n    <field name=\"context\" eval=\"${5:\\{\\}}\" />\n    <field name=\"use_write\">${6:current}</field>${8:\n    <field name=\"crud_model_id\" ref=\"${7:ir.model}\" />}${10:\n    <field name=\"ref_object\">${9:reference}</field>}${12:\n    <field name=\"fields_lines\" eval=\"[(4, ref('${11:ir.server.object.lines}'))]\" />}${14:\n    <field name=\"write_expression\">${13:char}</field>}\n</record>${0}\n",
+		"description": "Common record definition for ir.actions.server, updating objects",
+		"scope": "text.xml"
+	},
+	"record/ir.actions.server5": {
+		"prefix": "record/ir.actions.server",
+		"body": "\n<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_server\" model=\"ir.actions.server\">\n    <field name=\"type\">ir.actions.server</field>\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"model_id\" ref=\"${2:ir.model}\" />\n    <field name=\"condition\" eval=\"${3:True}\" />\n    <field name=\"sequence\" eval=\"${4:5}\" />\n    <field name=\"context\" eval=\"${5:\\{\\}}\" />\n    <field name=\"wkf_transition_id\" ref=\"${6:workflow.transition}\" />\n    <field name=\"use_relational_model\">${7:base}</field>${9:\n    <field name=\"wkf_model_id\" ref=\"${8:ir.model}\" />}${11:\n    <field name=\"wkf_field_id\" ref=\"${10:ir.model.fields}\" />}\n</record>${0}\n",
+		"description": "Common record definition for ir.actions.server, triggering",
+		"scope": "text.xml"
+	},
+	"record/ir.actions.todo": {
+		"prefix": "record/ir.actions.todo",
+		"body": "\n<record id=\"action_todo_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.actions.todo\">\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"type\">${2:manual}</field>\n    <field name=\"state\">${3:open}</field>\n    <field name=\"sequence\" eval=\"${4:10}\" />\n    <field name=\"action_id\" ref=\"${5:ir.actions.actions}\" />${7:\n    <field name=\"note\">${6:Something about ${1}}</field>}\n</record>${0}\n",
+		"description": "",
+		"scope": "text.xml"
+	},
+	"record/ir.config_parameter": {
+		"prefix": "record/ir.config_parameter",
+		"body": "\n<record id=\"${1/[^A-Za-z]/\\_/g}\" model=\"ir.config_parameter\">\n    <field name=\"key\">${1:char}</field>\n    <field name=\"value\">${2:text}</field>${4:\n    <field name=\"group_ids\" eval=\"[(4, ref('${3:res.groups}'))]\" />}\n</record>${0}\n",
+		"description": "Common ir.config_parameter record definition",
+		"scope": "text.xml"
+	},
+	"record/ir.model.data": {
+		"prefix": "record/ir.model.data",
+		"body": "\n<record id=\"${3/(\\.+)/_/g}_${1/(\\.+)/_/g}\" model=\"ir.model.data\">\n    <field name=\"name\">${1:resource_external_id}</field>\n    <field name=\"model\">${2:model.name}</field>\n    <field name=\"module\">${3:module_name}</field>\n    <field name=\"date_init\" eval=\"${4:time.strftime('%Y-%m-%d %H:%M:%S')}\" />\n    <field name=\"date_update\" eval=\"${5:time.strftime('%Y-%m-%d %H:%M:%S')}\" />\n    <field name=\"res_id\" eval=\"${6:1}\" />\n    <field name=\"noupdate\" eval=\"${7:True}\" />\n</record>${0}\n",
+		"description": "Common record definition for ir.model.data",
+		"scope": "text.xml"
+	},
+	"record/ir.model": {
+		"prefix": "record/ir.model",
+		"body": "\n<record id=\"${1/(\\.+)/_/g}_${2/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.model\">\n    <field name=\"model\">${1:model_name}</field>\n    <field name=\"name\">${2:Human readable name}</field>\n    <field name=\"state\">${3:Base | Manual}</field>\n    <field name=\"info\">${4:Description}</field>\n</record>${0}\n",
+		"description": "Common record definition for ir.model",
+		"scope": "text.xml"
+	},
+	"record/ir.module.category": {
+		"prefix": "record/ir.module.category",
+		"body": "\n<record id=\"module_category_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.module.category\">\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"sequence\" eval=\"${2:10}\" />\n    <field name=\"visible\" eval=\"${3:True}\" />\n    <field name=\"description\">${4:${1} category}</field>${6:\n    <field name=\"parent_id\" ref=\"${5:ir.module.category}\" />}\n</record>${0}\n",
+		"description": "XML ir.model.category record",
+		"scope": "text.xml"
+	},
+	"record/ir.values": {
+		"prefix": "record/ir.values",
+		"body": "\n<record id=\"${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_values\" model=\"ir.values\">\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"model_id\" ref=\"${2:module.model_external_id}\" />\n    <field name=\"model\">${2/((^[^.]*.?model_)|([_]+))/(?2:)(?3:\\.)/g}</field>\n    <field name=\"value\" eval=\"${4:'ir.actions.act_window,' +str(ref('${3:action_external_id}'))}\" />\n    <field name=\"key\">${5:action}</field>\n    <field name=\"key2\">${6:tree_but_open}</field>${8:\n    <field name=\"action_id\" ref=\"${7:ir.actions.actions}\" />}${10:\n    <field name=\"res_id\" eval=\"${9:1}\" />}${12:\n    <field name=\"company_id\" ref=\"${11:res.company}\" />}${14:\n    <field name=\"user_id\" ref=\"${13:res.users}\" />}\n</record>${0}\n",
+		"description": "Common record definition for ir.values",
+		"scope": "text.xml"
+	},
+	"record/email.template": {
+		"prefix": "record/email.template",
+		"body": "\n<record id=\"email_template_${12:${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}}\" model=\"email.template\">\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"subject\">${2:$1}</field>\n    <field name=\"email_from\">${3:$\\{object.company_id.name\\} <$\\{(object.company_id.email or user.email)|safe\\}>}</field>\n    <field name=\"email_to\">${4:$\\{object.name|safe\\} <$\\{object.email|safe\\}>}</field>\n    <field name=\"email_cc\">${5}</field>\n    <field name=\"reply_to\">${6}</field>\n    <field name=\"user_signature\" eval=\"${7:False}\" />\n    <field name=\"lang\">${8:$\\{object.lang\\}}</field>\n    <field name=\"auto_delete\" eval=\"${9:True}\" />\n    <field name=\"model_id\" ref=\"${10:ir.model}\" />\n    <field name=\"attachment_ids\" eval=\"[(4, ref('${11:ir.attachment}'))]\" />\n    <field name=\"body_html\"><![CDATA[\n        ${12:<p>To whom it may concern:</p>}\n]]${-1}></field>\n</record>${0}\n",
+		"description": "Common record definition for email.template",
+		"scope": "text.xml"
+	},
+	"function": {
+		"prefix": "function",
+		"body": "\n<function eval=\"[(${3:field}, '=', ${4:value})]\" model=\"${1:model.name}\"  name=\"${2:mothod}\">\n    <function eval=\"[(${3:field}, '=', ${4:value})]\" model=\"${1:model.name}\"  name=\"search\">\n    <value eval=\"{'${3:field}': ${4:value}}\"/>\n</function>\n",
+		"description": "",
+		"scope": "text.xml"
+	},
+	"file/xml": {
+		"prefix": "file/xml",
+		"body": "\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<odoo>\n    <data noupdate=\"${1:0}\">\n\n        ${0}\n\n    </data>\n</odoo>\n",
+		"description": "Common base XML structure to be used in Odoo module data files",
+		"scope": "text.xml"
+	},
+	"record/product.product": {
+		"prefix": "record/product.product",
+		"body": "\n<record id=\"${18:${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_product_product}\" model=\"product.product\">\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"description\">${2:Description}</field>\n    <field name=\"description_purchase\">${3:${2:Description}}</field>\n    <field name=\"description_sale\">${4:${2:Description}}</field>\n    <field name=\"categ_id\" ref=\"${5:product.category}\"/>\n    <field name=\"standard_price\">${6:0.0}</field>\n    <field name=\"list_price\">${7:0.0}</field>\n    <field name=\"type\">${8:consu|service}</field>\n    <field name=\"uom_id\" ref=\"${9:product.uom}\"/>\n    <field name=\"uom_po_id\" ref=\"${10:product.uom}\"/>\n    <field name=\"taxes_id\" eval=\"[(4, ref('${11:account.tax}'))]\" />\n${13:    <field name=\"image\" type=\"base64\" file=\"${12:module_name/static/img/file_name.png}\"/>\n}${15:    <field name=\"default_code\">${14:PRODUCT-CODE}</field>\n}${17:    <field name=\"ean13\">${16:0000000000000}</field>\n}</record>${0}\n",
+		"description": "XML product.product record",
+		"scope": "text.xml"
+	},
+	"record/product.template": {
+		"prefix": "record/product.template",
+		"body": "\n<record id=\"${18:${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_product_template}\" model=\"product.template\">\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"description\">${2:Description}</field>\n    <field name=\"description_purchase\">${3:${2:Description}}</field>\n    <field name=\"description_sale\">${4:${2:Description}}</field>\n    <field name=\"categ_id\" ref=\"${5:product.category}\"/>\n    <field name=\"standard_price\">${6:0.0}</field>\n    <field name=\"list_price\">${7:0.0}</field>\n    <field name=\"type\">${8:consu|service}</field>\n    <field name=\"uom_id\" ref=\"${9:product.uom}\"/>\n    <field name=\"uom_po_id\" ref=\"${10:product.uom}\"/>\n    <field name=\"taxes_id\" eval=\"[(4, ref('${11:account.tax}'))]\" />\n${13:    <field name=\"image\" type=\"base64\" file=\"${12:module_name/static/img/file_name.png}\"/>\n}${15:    <field name=\"default_code\">${14:PRODUCT-CODE}</field>\n}${17:    <field name=\"ean13\">${16:0000000000000}</field>\n}</record>${0}\n",
+		"description": "XML product.template record",
+		"scope": "text.xml"
+	},
+	"record": {
+		"prefix": "record",
+		"body": "\n<record id=\"${2:${1/(\\.+)/\\_/g}}\" model=\"${1:model.name}\">\n    ${0}\n</record>\n",
+		"description": "",
+		"scope": "text.xml"
+	},
+	"copyright1": {
+		"prefix": "copyright",
+		"body": "\n# -*- coding: utf-8 -*-\n###############################################################################\n#    License, author and contributors information in:                         #\n#    __manifest__.py file at the root folder of this module.                   #\n###############################################################################\n${0}\n",
+		"description": "Copyright statement Simple",
+		"scope": "source.python"
+	},
+	"copyright2": {
+		"prefix": "copyright",
+		"body": "\n# -*- coding: utf-8 -*-\n###############################################################################\n#\n#    jeffery CHEN fan<jeffery9@gmail.com>\n#\n#    Copyright (c) All rights reserved:\n#        (c) 2017  $TM_FULLNAME\n#\n#    This program is free software: you can redistribute it and/or modify\n#    it under the terms of the GNU Affero General Public License as\n#    published by the Free Software Foundation, either version 3 of the\n#    License, or (at your option) any later version.\n#\n#    This program is distributed in the hope that it will be useful,\n#    but WITHOUT ANY WARRANTY; without even the implied warranty of\n#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the\n#    GNU Affero General Public License for more details.\n#\n#    You should have received a copy of the GNU Affero General Public License\n#    along with this program.  If not, see http://www.gnu.org/licenses\n#    \n#    Odoo and OpenERP is trademark of Odoo S.A.\n#\n###############################################################################\n${0}\n",
+		"description": "Copyright statement Full",
+		"scope": "source.python"
+	},
+	"constraints": {
+		"prefix": "constraints",
+		"body": "\n@api.constrains('${1}')\ndef _check_${1}(self):\n    for record in self:\n        ${0}\n",
+		"description": "Model Python contraints",
+		"scope": "source.python"
+	},
+	"auto_join": {
+		"prefix": "auto_join",
+		"body": "\nauto_join=${1:False}${0}\n",
+		"description": "Field attribute: auto_join",
+		"scope": "source.python meta.function-call.arguments.python"
+	},
+	"comodel_name": {
+		"prefix": "comodel_name",
+		"body": "\ncomodel_name='${1:model_name}'${0}\n",
+		"description": "Field attribute: comodel_name",
+		"scope": "source.python meta.function-call.arguments.python"
+	},
+	"company_dependent": {
+		"prefix": "company_dependent",
+		"body": "\ncompany_dependent=${1:True}${0}\n",
+		"description": "Field attribute: company_dependent",
+		"scope": "source.python meta.function-call.arguments.python"
+	},
+	"compute": {
+		"prefix": "compute",
+		"body": "\n    compute='_compute_${1:field}' )\n\n@api.depends('${2:depends}')\ndef _compute_${1:field}(self):\n    for record in self:\n        ${4:record.${1:field} = ${3:something}}\n\n${0}\n",
+		"description": "Field attribute: compute",
+		"scope": "source.python meta.function-call.arguments.python"
+	},
+	"compute_sudo": {
+		"prefix": "compute_sudo",
+		"body": "\ncompute_sudo=${1:True}${0}\n\n",
+		"description": "Field attribute: compute_sudo",
+		"scope": "source.python meta.function-call.arguments.python"
+	},
+	"context": {
+		"prefix": "context",
+		"body": "\ncontext=\\{${13}\\}${0}\n",
+		"description": "Field attribute: context",
+		"scope": "source.python meta.function-call.arguments.python"
+	},
+	"copy": {
+		"prefix": "copy",
+		"body": "\ncopy=${1:False}${0}\n",
+		"description": "Field attribute: copy",
+		"scope": "source.python meta.function-call.arguments.python"
+	},
+	"default": {
+		"prefix": "default",
+		"body": "\ndefault='_default_${1:field}'${0}\n",
+		"description": "Field attribute: search, lambda function",
+		"scope": "source.python meta.function-call.arguments.python"
+	},
+	"default company": {
+		"prefix": "default company",
+		"body": "\ndefault=lambda self: self.env.user.company_id${0}\n",
+		"description": "Field attribute: default company",
+		"scope": "source.python meta.function-call.arguments.python"
+	},
+	"default_model": {
+		"prefix": "default_model",
+		"body": "\ndefault_model='${1:model.name}'${0}\n",
+		"description": "Field attribute: default_model ",
+		"scope": "source.python meta.function-call.arguments.python"
+	},
+	"default user": {
+		"prefix": "default user",
+		"body": "\ndefault=lambda self: self.env.user${0}\n",
+		"description": "Field attribute: default user",
+		"scope": "source.python meta.function-call.arguments.python"
+	},
+	"digits": {
+		"prefix": "digits",
+		"body": "\ndigits=(${1:16}, ${2:2})\n",
+		"description": "Field attribute: digits",
+		"scope": "source.python meta.function-call.arguments.python"
+	},
+	"digits/get_precision": {
+		"prefix": "digits/get_precision",
+		"body": "\ndigits=dp.get_precision('Product Price')\n",
+		"description": "Field attribute: digits",
+		"scope": "source.python meta.function-call.arguments.python"
+	},
+	"domain": {
+		"prefix": "domain",
+		"body": "\ndomain=[('${1}','${2}',${3})]${0}\n",
+		"description": "Field attribute: domain",
+		"scope": "source.python meta.function-call.arguments.python"
+	},
+	"domain1": {
+		"prefix": "domain",
+		"body": "\ndomain=lambda self: self._get_${1:field}_domain}()\n",
+		"description": "Field attribute: domain lambda",
+		"scope": "source.python meta.function-call.arguments.python"
+	},
+	"help": {
+		"prefix": "help",
+		"body": "\nhelp='${1:Technical Field }'${0}\n",
+		"description": "Field attribute: help",
+		"scope": "source.python meta.function-call.arguments.python"
+	},
+	"index": {
+		"prefix": "index",
+		"body": "\nindex=${1:True}${0}\n",
+		"description": "Field attribute: index",
+		"scope": "source.python meta.function-call.arguments.python"
+	},
+	"inverse": {
+		"prefix": "inverse",
+		"body": "\ninverse='_inverse_${1:field}'${0}\n",
+		"description": "Field attribute: inverse, lambda function",
+		"scope": "source.python meta.function-call.arguments.python"
+	},
+	"limit": {
+		"prefix": "limit",
+		"body": "\nlimit=${1:80}${0}\n",
+		"description": "Field attribute: limit",
+		"scope": "source.python meta.function-call.arguments.python"
+	},
+	"ondelete": {
+		"prefix": "ondelete",
+		"body": "\nondelete='${1:set null}'${0}\n",
+		"description": "Field attribute: ondelete",
+		"scope": "source.python meta.function-call.arguments.python"
+	},
+	"readonly": {
+		"prefix": "readonly",
+		"body": "\nreadonly=True${0} \n",
+		"description": "Field attribute: readonly",
+		"scope": "source.python meta.function-call.arguments.python"
+	},
+	"readonly/states": {
+		"prefix": "readonly/states",
+		"body": "\nreadonly=True, states={'draft': [('readonly', False)]}${0} \n",
+		"description": "Field attribute: readonly states",
+		"scope": "source.python meta.function-call.arguments.python"
+	},
+	"related": {
+		"prefix": "related",
+		"body": "\nrelated='${1:field_name}',\nreadonly=True,\nstore=True${0}\n",
+		"description": "Field attribute: related",
+		"scope": "source.python meta.function-call.arguments.python"
+	},
+	"related_sudo": {
+		"prefix": "related_sudo",
+		"body": "\nrelated_sudo=${1:False}${0}\n",
+		"description": "Field attribute: related_sudo",
+		"scope": "source.python meta.function-call.arguments.python"
+	},
+	"required": {
+		"prefix": "required",
+		"body": "\nrequired=${1:True}${0}\n",
+		"description": "Field attribute: required",
+		"scope": "source.python meta.function-call.arguments.python"
+	},
+	"selection_add": {
+		"prefix": "selection_add",
+		"body": "\nselection_add=[('${1:draft}', ${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g})${0}]\n",
+		"description": "Field attribute: selection_add ",
+		"scope": "source.python meta.function-call.arguments.python"
+	},
+	"selection_element": {
+		"prefix": "selection_element",
+		"body": "\n('${1:draft}', ${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g})${0}\n",
+		"description": "Field attribute: selection add new element ",
+		"scope": "source.python meta.function-call.python meta.function-call.arguments.python meta.structure.list.python"
+	},
+	"size": {
+		"prefix": "size",
+		"body": "\nsize=${1:32}${0}\n",
+		"description": "Field attribute: size",
+		"scope": "source.python meta.function-call.arguments.python"
+	},
+	"states": {
+		"prefix": "states",
+		"body": "\nstates={'${1:state}': [${0}]}\n",
+		"description": "Field attribute: states",
+		"scope": "source.python meta.function-call.arguments.python"
+	},
+	"states/state": {
+		"prefix": "states/state",
+		"body": "\n${1:state}': [${0}]\n",
+		"description": "Field attribute: states state",
+		"scope": "source.python meta.function-call.arguments.python"
+	},
+	"states/invisible": {
+		"prefix": "states/invisible",
+		"body": "\n(invisible, True)${0}\n",
+		"description": "Field attribute: states state invisible",
+		"scope": "source.python meta.function-call.arguments.python"
+	},
+	"states/readonly": {
+		"prefix": "states/readonly",
+		"body": "\n(readonly, True)${0}\n",
+		"description": "Field attribute: states state readonly",
+		"scope": "source.python meta.function-call.arguments.python"
+	},
+	"states/required": {
+		"prefix": "states/required",
+		"body": "\n(required, True)${0}\n",
+		"description": "Field attribute: states state required",
+		"scope": "source.python meta.function-call.arguments.python"
+	},
+	"store": {
+		"prefix": "store",
+		"body": "\nstore=${1:True}${0}\n",
+		"description": "Field attribute: store",
+		"scope": "source.python meta.function-call.arguments.python"
+	},
+	"string": {
+		"prefix": "string",
+		"body": "\nstring='${1}'${0}\n",
+		"description": "Field attribute: string",
+		"scope": "source.python meta.function-call.arguments.python"
+	},
+	"track_visibility": {
+		"prefix": "track_visibility",
+		"body": "\ntrack_visibility='${1:onchange}'${0}\n",
+		"description": "Field attribute: track_visibility",
+		"scope": "source.python meta.function-call.arguments.python"
+	},
+	"translate": {
+		"prefix": "translate",
+		"body": "\ntranslate=${1:False}${0}\n",
+		"description": "Field attribute: translate",
+		"scope": "source.python meta.function-call.arguments.python"
+	},
+	"model/abstract": {
+		"prefix": "model/abstract",
+		"body": "\nclass ${1:ModelName}(models.AbstractModel):\n    _name = '${3:${1/((^[A-Z])|([A-Z]))/(?2:\\l$2)(?3:\\.\\l$3)/g}}'\n\n    ${0}\n",
+		"description": "Odoo abstract model class",
+		"scope": "source.python"
+	},
+	"model/inherit": {
+		"prefix": "model/inherit",
+		"body": "\nclass ${1:ModelName}(models.Model):\n    _inherit = '${3:${1/((^[A-Z])|([A-Z]))/(?2:\\l$2)(?3:\\.\\l$3)/g}}'\n\n    ${0}\n",
+		"description": "Odoo inherit model class",
+		"scope": "source.python"
+	},
+	"model/transient": {
+		"prefix": "model/transient",
+		"body": "\nclass ${1:ModelName}(models.TransientModel):\n    _name = '${3:${1/((^[A-Z])|([A-Z]))/(?2:\\l$2)(?3:\\.\\l$3)/g}}'\n    _description = u'${4:${1/((^[A-Z])|([A-Z]))/(?2:\\u$2)(?3:\\ \\u$3)/g}}'\n\n    ${0}\n",
+		"description": "Odoo transient model class",
+		"scope": "source.python"
+	},
+	"model/model": {
+		"prefix": "model/model",
+		"body": "\nclass ${1:ModelName}(models.Model):\n    _name = '${3:${1/((^[A-Z])|([A-Z]))/(?2:\\l$2)(?3:\\.\\l$3)/g}}'\n    _description = u'${4:${1/((^[A-Z])|([A-Z]))/(?2:\\u$2)(?3:\\ \\u$3)/g}}'\n\n    _rec_name = 'name'\n    _order = 'name ASC'\n\n    name = fields.Char(\n        string=u'Name',\n        required=True,\n        default=lambda self: _('New'),\n        copy=False\n    )\n\n    ${0}\n",
+		"description": "Odoo generic model class",
+		"scope": "source.python"
+	},
+	"field.company_id": {
+		"prefix": "field.company_id",
+		"body": "\ncompany_id = fields.Many2one(\n    string=u'Company', \n    comodel_name='res.company', \n    required=True, \n    default=lambda self: self.env.user.company_id\n)\n",
+		"description": "",
+		"scope": "source.python"
+	},
+	"fields.Attachment": {
+		"prefix": "fields.Attachment",
+		"body": "\n${1:attachment} = fields.Binary(string=u'${3:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}', attachment=True)\n",
+		"description": "",
+		"scope": "source.python"
+	},
+	"fields.Binary": {
+		"prefix": "fields.Binary",
+		"body": "\n${1:field_name} = fields.Binary(\n    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n)${0}\n",
+		"description": "",
+		"scope": "source.python"
+	},
+	"fields.Boolean": {
+		"prefix": "fields.Boolean",
+		"body": "\n${1:field_name} = fields.Boolean(\n    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n)${0}\n",
+		"description": "",
+		"scope": "source.python"
+	},
+	"fields.Char": {
+		"prefix": "fields.Char",
+		"body": "\n${1:field_name} = fields.Char(\n    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n)${0}\n",
+		"description": "",
+		"scope": "source.python"
+	},
+	"fields.Date": {
+		"prefix": "fields.Date",
+		"body": "\n${1:field_name} = fields.Date(\n    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n    default=${6:fields.Date.context_today},\n)${0}\n",
+		"description": "",
+		"scope": "source.python"
+	},
+	"fields.Datetime": {
+		"prefix": "fields.Datetime",
+		"body": "\n${1:field_name} = fields.Datetime(\n    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n    default=${6:fields.Datetime.now},\n)${0}\n",
+		"description": "",
+		"scope": "source.python"
+	},
+	"fields.Float": {
+		"prefix": "fields.Float",
+		"body": "\n${1:field_name} = fields.Float(\n    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n)${0}\n",
+		"description": "",
+		"scope": "source.python"
+	},
+	"fields.Html": {
+		"prefix": "fields.Html",
+		"body": "\n${1:field_name} = fields.Html(\n    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n)${0}\n",
+		"description": "",
+		"scope": "source.python"
+	},
+	"fields.Integer": {
+		"prefix": "fields.Integer",
+		"body": "\n${1:field_name} = fields.Integer(\n    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n)${0}\n",
+		"description": "",
+		"scope": "source.python"
+	},
+	"fields.Many2many": {
+		"prefix": "fields.Many2many",
+		"body": "\n${1:field_name}_ids = fields.Many2many(\n    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n    comodel_name='${8:model.name}',\n    relation='${10:${8/\\./_/g}_${9:this_model}_rel}',\n    column1='${11:${8/\\./_/g}_id}',\n    column2='${12:${9}_id}',\n)${0}\n",
+		"description": "",
+		"scope": "source.python"
+	},
+	"fields.Many2one": {
+		"prefix": "fields.Many2one",
+		"body": "\n${1:field_name}_id = fields.Many2one(\n    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n    comodel_name='${8:model.name}',\n    ondelete='${11:set null}',\n)${0}\n",
+		"description": "",
+		"scope": "source.python"
+	},
+	"fields.One2many": {
+		"prefix": "fields.One2many",
+		"body": "\n${1:field_name}_ids = fields.One2many(\n    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n    comodel_name='${8:model.name}',\n    inverse_name='${9:inverse_field}',\n)${0}\n",
+		"description": "",
+		"scope": "source.python"
+	},
+	"fields.Reference": {
+		"prefix": "fields.Reference",
+		"body": "\n${1:field_name}_ref = fields.Reference(\n    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n    selection=[('${8:model.name}', '${9:String}'),('${10:model.name}', '${11:String}')]\n)${0}\n",
+		"description": "",
+		"scope": "source.python"
+	},
+	"fields.Selection": {
+		"prefix": "fields.Selection",
+		"body": "\n${1:field_name} = fields.Selection(\n    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n    selection=[('${8:valor1}', '${9:${8/(.)(.+)/\\u$1$2/g}}'), ('${10:valor2}', '${11:${10/(.)(.+)/\\u$1$2/g}}')]\n)${0}\n",
+		"description": "",
+		"scope": "source.python"
+	},
+	"fields.Text": {
+		"prefix": "fields.Text",
+		"body": "\n${1:field_name} = fields.Text(\n    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n)${0}\n",
+		"description": "",
+		"scope": "source.python"
+	},
+	"method/action_confirm": {
+		"prefix": "method/action_confirm",
+		"body": "\n@api.multi\ndef action_confirm(self):\n    for record in self:\n        record.write( { '${1:field}': '${2:value}'})\n    return True\n${0}\n",
+		"description": "action_confirm method signature",
+		"scope": "source.python"
+	},
+	"method/compute": {
+		"prefix": "method/compute",
+		"body": "\n@api.depends('${2:depends}')\ndef _compute_${1:field}(self):\n    for record in self:\n        ${4:record.${1:field} = ${3:something}}\n${0}\n",
+		"description": "_compute method signature",
+		"scope": "source.python"
+	},
+	"method/copy": {
+		"prefix": "method/copy",
+		"body": "\n@api.multi\ndef copy(self, default=None):\n    \"\"\"\n        Create a new record in ${1:ModelName} model from existing one\n        @param default: dict which contains the values to be override during\n        copy of object\n\n        @return: returns a id of newly created record\n    \"\"\"\n\n    result = super(${1:ModelName}, self).copy(default)\n    ${0}\n\n    return result\n",
+		"description": "copy method signature",
+		"scope": "source.python"
+	},
+	"method/create": {
+		"prefix": "method/create",
+		"body": "\n@api.model\ndef create(self, values):\n    \"\"\"\n        Create a new record for a model ${1:ModelName}\n        @param values: provides a data for new record\n\n        @return: returns a id of new record\n    \"\"\"\n\n    result = super(${1:Model_Name}, self).create(values)${0}\n\n    return result\n",
+		"description": "create method signature",
+		"scope": "source.python"
+	},
+	"method/default_get": {
+		"prefix": "method/default_get",
+		"body": "\n@api.model\ndef default_get(self, fields):\n    res = super(${1:ModelClass}, self).default_get(fields)\n    ${0}\n\n    return res\n    \n",
+		"description": "default_get method signature",
+		"scope": "source.python"
+	},
+	"method/fields_get": {
+		"prefix": "method/fields_get",
+		"body": "\n@api.model\ndef fields_get(self, allfields=None, attributes=None):\n    fields_to_hide = []\n    for fname, field in self._fields.items():\n        if fname.startswith('${2:prefix}'):\n            fields_to_hide.append(fname)\n\n    res = super(${1:Model}, self).fields_get(allfields, attributes)\n\n    for field in fields_to_hide:\n\n        res[field]['searchable'] = False\n        res[field]['sortable'] = False\n\n    return res\n${0}\n",
+		"description": "fields_get remove fields from search and groubby",
+		"scope": "source.python"
+	},
+	"method/get_empty_list_help": {
+		"prefix": "method/get_empty_list_help",
+		"body": "\n@api.model\ndef get_empty_list_help(self, help):\n    \"\"\" Generic method giving the help message displayed when having\n        no result to display in a list or kanban view.\n    \"\"\"\n\n    ${0:return help}\n",
+		"description": "get_empty_list_help method signature",
+		"scope": "source.python"
+	},
+	"method/get_formview_id": {
+		"prefix": "method/get_formview_id",
+		"body": "\n@api.one\n@api.returns('ir.ui.view')\ndef get_formview_id(self):\n    \"\"\" Return an view id to open the document with.\n\n        :param int id: id of the document to open\n    \"\"\"\n\n    ${0:return False}\n",
+		"description": "get_formview_id method signature",
+		"scope": "source.python"
+	},
+	"method/init": {
+		"prefix": "method/init",
+		"body": "\ndef init(self):\n    \"\"\" Build database view which will be used as module origin\n\n    \"\"\"\n    self._sql_query = \"\"\"\n        SELECT\n            ROW_NUMBER() OVER() AS \"id\"\n    \"\"\"\n\n    tools.drop_view_if_exists(self._cr, ${1:self._table})\n    self._cr.execute(\n        'create or replace view {} as ({})'.format(\n            ${1},\n            self._sql_query\n        )\n    )${0}\n",
+		"description": "init method signature",
+		"scope": "source.python"
+	},
+	"method/name_get": {
+		"prefix": "method/name_get",
+		"body": "\n@api.multi\n@api.depends('name', '${1:ref}')\ndef name_get(self):\n    result = []\n    for record in self:\n        if record.${1:ref}:\n            name = '[' + record.${1:ref} + '] ' + record.name\n        else:\n            name = record.name\n        result.append((record.id, name))\n    return result\n${0}\n",
+		"description": "name_get method signature",
+		"scope": "source.python"
+	},
+	"method/name_search": {
+		"prefix": "method/name_search",
+		"body": "\n@api.model\ndef name_search(self, name, args=None, operator='ilike', limit=100):\n    args = args or []\n    domain = []\n    if name:\n        domain = [\n            '|', ('${1:field_name}', '=ilike', name), ('${2:field_name}', operator, name)\n        ]\n        if operator in expression.NEGATIVE_TERM_OPERATORS:\n            domain = ['&', '!'] + domain[1:]\n    records = self.search(domain + args, limit=limit)\n    return records.name_get()\n\n${0}\n",
+		"description": "name_search method signature",
+		"scope": "source.python"
+	},
+	"method/_onchange": {
+		"prefix": "method/_onchange",
+		"body": "\n@api.onchange('${1:field}')\ndef _onchange_${1}(self):\n    ${3:self.${2:field} = self.${1}}\n${0}\n",
+		"description": "_onchange method signature, code",
+		"scope": "source.python"
+	},
+	"method/_onchange1": {
+		"prefix": "method/_onchange",
+		"body": "\n@api.onchange('${1:field_name}')\ndef _onchange_${1}(self):\n    return {\n        'domain': {\n            '${2:field_name}': ${6:[('${3:field_name}', '${4:=}', ${5:self.${1}})]}\n        }\n    }${0}\n",
+		"description": "_onchange method signature, domain",
+		"scope": "source.python"
+	},
+	"method/_onchange2": {
+		"prefix": "method/_onchange",
+		"body": "\n@api.onchange('${1:field}')\ndef _onchange_${1}(self):\n    return {\n        'warning': {\n            'title': '${2:Text of the title}',\n            'message': '${3:Text of the message}'\n        }\n    }${0}\n",
+		"description": "_onchange method signature, warning",
+		"scope": "source.python"
+	},
+	"method/_search": {
+		"prefix": "method/_search",
+		"body": "\ndef _search_${1: field}(self, operator, value):\n    return [('${2:related}', operator, value)]${0}\n",
+		"description": "_search method signature",
+		"scope": "source.python"
+	},
+	"method/toggle_active": {
+		"prefix": "method/toggle_active",
+		"body": "\n@api.multi\ndef toggle_active(self):\n    return {'warning': {\n                    'title': _(\"Warning\"),\n                    'message': _(u\"不允许对此模型的记录进行“归档”操作！\") ,\n    }}\n${0}\n",
+		"description": "toggle_active method signature",
+		"scope": "source.python"
+	},
+	"method/unlink": {
+		"prefix": "method/unlink",
+		"body": "\n@api.multi\ndef unlink(self):\n    \"\"\"\n        Delete all record(s) from recordset\n        return True on success, False otherwise\n\n        @return: True on success, False otherwise\n\n        #TODO: process before delete resource\n    \"\"\"\n\n    result = super(${1:ModelName}, self).unlink()${0}\n\n    return result\n",
+		"description": "unlink method signature",
+		"scope": "source.python"
+	},
+	"method/unlink_restrict": {
+		"prefix": "method/unlink_restrict",
+		"body": "\n@api.multi\ndef unlink(self):\n    for record in self:\n        if record.state not in ('draft'):\n            raise UserError(\n                u'不可以删除非草稿状态的单据!'\n            )\n    return super(ModelClass, self).unlink()\n",
+		"description": "restrict unlink",
+		"scope": "source.python"
+	},
+	"method/view_header_get": {
+		"prefix": "method/view_header_get",
+		"body": "\n@api.model\ndef view_header_get(self, view_id=None, view_type='form'):\n    \"\"\" Returns the window title which depends on the context \"\"\"\n\n    ${0:return False}\n",
+		"description": "view_header_get method signature",
+		"scope": "source.python"
+	},
+	"method/view_init": {
+		"prefix": "method/view_init",
+		"body": "\n@api.model\ndef view_init(self, fields_list):\n    \"\"\" Does specific things when a view on the object is opened \"\"\"\n\n    ${0:pass}\n",
+		"description": "view_init method signature",
+		"scope": "source.python"
+	},
+	"method/write": {
+		"prefix": "method/write",
+		"body": "\n@api.multi\ndef write(self, values):\n    \"\"\"\n        Update all record(s) in recordset, with new value comes as {values}\n        return True on success, False otherwise\n\n        @param values: dict of new values to be set\n\n        @return: True on success, False otherwise\n    \"\"\"\n\n    result = super(${1:Model_Name}, self).write(values)${0}\n\n    return result\n",
+		"description": "write method signature",
+		"scope": "source.python"
+	},
+	"method/_browse": {
+		"prefix": "method/_browse",
+		"body": "\n@classmethod\ndef _browse(cls, env, ids):\n    \"\"\" Returns a recordset for the ids provided as parameter in the current\n        environment.\n\n        Can take no ids, a single id or a sequence of ids.\n\n        :param cls: model class\n        :param env: environment\n        :param ids: none, a single id or a sequence of ids\n\n        :return: a recordset\n    \"\"\"\n\n    result = ${1:class_name}._browse(env, ids)\n    ${0}\n    return result\n",
+		"description": "_browse method signature",
+		"scope": "source.python"
+	},
+	"return/act_window": {
+		"prefix": "return/act_window",
+		"body": "\nreturn {\n    'name': _('${1: Human Readable String}'),\n    'type': 'ir.actions.act_window',\n    'view_type': 'form',\n    'view_mode': 'tree,form',\n    'res_model': '${2:model}',\n    'domain': [('id', 'in', ${3:ids})],\n}${0}\n",
+		"description": "pop window",
+		"scope": "source.python"
+	},
+	"return/act_window_close": {
+		"prefix": "return/act_window_close",
+		"body": "\nreturn {'type': 'ir.actions.act_window_close'${0}\n",
+		"description": "close window",
+		"scope": "source.python"
+	},
+	"attr/_auto": {
+		"prefix": "attr/_auto",
+		"body": "\n_auto = ${1:False}${0}\n",
+		"description": "Adds the _auto attribute",
+		"scope": "source.python"
+	},
+	"feature/company_plant": {
+		"prefix": "feature/company_plant",
+		"body": "\nfactory_id = fields.Many2one(\n    string=u'工厂',\n    comodel_name='res.company',\n    required=True,\n    default=lambda self: self.env.user.company_id,\n    domain=lambda self: [('is_factory','=',True), ('id','in',self.env.user.company_ids.ids)],\n)\n\ncompany_id = fields.Many2one(\n    string=u'Company',\n    comodel_name='res.company',\n    ondelete='set null',\n    related='factory_id.parent_id',\n)\n\n",
+		"description": "Adds the company/plant support",
+		"scope": "source.python"
+	},
+	"feature/mail_thread": {
+		"prefix": "feature/mail_thread",
+		"body": "\n_inherit = ['mail.thread', 'mail.activity.mixin'${0}]\n\n",
+		"description": "Adds Mail Thread support",
+		"scope": "source.python"
+	},
+	"feature/multi_company": {
+		"prefix": "feature/multi_company",
+		"body": "\ncompany_ids = fields.Many2many(\n    comodel_name='res.company', \n    string=\"Companies\"        \n)\n\ncompany_id = fields.Many2one(\n    comodel_name='res.company', \n    compute=\"_compute_company_id\", \n    store=True,\n)\n\n@api.multi\n@api.depends('company_ids')\ndef _compute_company_id(self):\n    for record in self:\n        record.company_id = record.company_ids[:1]\n\n",
+		"description": "Adds the multi company support",
+		"scope": "source.python"
+	},
+	"feature/needaction": {
+		"prefix": "feature/needaction",
+		"body": "\n'ir.needaction_mixin'${0}\n",
+		"description": "Adds NeedAction support",
+		"scope": "source.python meta.structure.list.python"
+	},
+	"feature/parent_child": {
+		"prefix": "feature/parent_child",
+		"body": "\n_parent_store = ${1:True}\n${0}\n\nparent_left = fields.Integer('Left Parent', index=1)\nparent_right = fields.Integer('Right Parent', index=1)\n\n",
+		"description": "Adds the _parent_store attribute and parent_left and parent_right",
+		"scope": "source.python"
+	},
+	"feature/state": {
+		"prefix": "feature/state",
+		"body": "\nstate = fields.Selection(\n    string=u'State',\n    selection=[('draft', 'Draft'), ('confirmed', 'Confirmed'),  ('close', 'Close'),  ('cancel', 'Cancel')],\n    default='draft',\n    readonly=True,\n)\n\n@api.multi\ndef action_confirm(self):\n    self.write({'state': 'confirmed'})\n\n@api.multi\ndef action_draft(self):\n    self.write({'state': 'draft'})\n\n@api.multi\ndef action_cancel(self):\n    self.write({'state': 'cancel'})\n\n@api.multi\ndef action_close(self):\n    self.write({'state': 'close'})\n\n${0}\n",
+		"description": "Adds state support",
+		"scope": "source.python"
+	},
+	"feature/utm": {
+		"prefix": "feature/utm",
+		"body": "\n'utm.mixin'${0}\n",
+		"description": "Adds utm support",
+		"scope": "source.python meta.structure.list.python"
+	},
+	"file/model": {
+		"prefix": "file/model",
+		"body": "\n# -*- coding: utf-8 -*-\n###############################################################################\n#    License, author and contributors information in:                         #\n#    __manifest__.py file at the root folder of this module.                  #\n###############################################################################\n\nfrom odoo import models, fields, api, _\nfrom odoo.exceptions import UserError, ValidationError\n${0}\n",
+		"description": "Odoo model file",
+		"scope": "source.python"
+	},
+	"attr/_inherit": {
+		"prefix": "attr/_inherit",
+		"body": "\n_inherit = ['${1:ir.model}'${2}]${0}\n",
+		"description": "Model attribute _inherit with a module list",
+		"scope": "source.python"
+	},
+	"attr/_inherits": {
+		"prefix": "attr/_inherits",
+		"body": "\n_inherits = {'${1:model_name}': '${2:related_id}'}${0}\n",
+		"description": "Model attribute _inherits and single parent field",
+		"scope": "source.python"
+	},
+	"api/depends": {
+		"prefix": "api/depends",
+		"body": "\n@api.depends('${1:field}')\n",
+		"description": "decorator depends",
+		"scope": "source.python"
+	},
+	"x2m/create": {
+		"prefix": "x2m/create",
+		"body": "\n(0, False, ${1:{values}})\n",
+		"description": "x2m create",
+		"scope": "source.python meta.structure.dictionary-or-set.python"
+	},
+	"x2m/delete": {
+		"prefix": "x2m/delete",
+		"body": "\n(2, ${1:id}, False)\n",
+		"description": "x2m delete, don't use in create()",
+		"scope": "source.python meta.structure.dictionary-or-set.python"
+	},
+	"x2m/link": {
+		"prefix": "x2m/link",
+		"body": "\n(4, ${1:id}, False)\n",
+		"description": "x2m link, don't use in One2many",
+		"scope": "source.python meta.structure.dictionary-or-set.python"
+	},
+	"x2m/replace": {
+		"prefix": "x2m/replace",
+		"body": "\n(6, False, ${1:ids)\n",
+		"description": "x2m replace, don't use in create() and One2many",
+		"scope": "source.python meta.structure.dictionary-or-set.python"
+	},
+	"x2m/unlink": {
+		"prefix": "x2m/unlink",
+		"body": "\n(3, ${1:id}, False)\n",
+		"description": "x2m unlink, don't use in create()",
+		"scope": "source.python meta.structure.dictionary-or-set.python"
+	},
+	"x2m/unlink_all": {
+		"prefix": "x2m/unlink_all",
+		"body": "\n(5, False, False)\n",
+		"description": "x2m unlink all, don't use in create()",
+		"scope": "source.python meta.structure.dictionary-or-set.python"
+	},
+	"x2m/update": {
+		"prefix": "x2m/update",
+		"body": "\n(1, ${1:id}, ${2:{values}})\n",
+		"description": "x2m update, don't use in create()",
+		"scope": "source.python meta.structure.dictionary-or-set.python "
+	},
+	"sequence/next_by_code": {
+		"prefix": "sequence/next_by_code",
+		"body": "\nif values.get('name', _('New')) == _('New'):\n    if 'company_id' in values:\n        values['name'] = self.env['ir.sequence'].with_context(\n            force_company=values['company_id']\n        ).next_by_code('${1:model}') or _('New')\n    else:\n        values['name'] = self.env['ir.sequence'].next_by_code(\n            '${1:model}'\n        ) or _('New')\n\n",
+		"description": "next_by_code, used in create()",
+		"scope": "source.python"
+	},
+	"sequence/line_number": {
+		"prefix": "sequence/line_number",
+		"body": "\nline_number = fields.Integer(string=u'行号', default=10)\n\n@api.model\ndef default_get(self, fields):\n    default_values = super(${1:ModelClass}, self).default_get(fields)\n\n    line_ids = self.env.context.get('${2:line_ids}', False)\n    if line_ids:\n        lines = self.env['${3:model}'].resolve_2many_commands(\n            '${2:line_ids}', line_ids\n        )\n        lines.sort(key=lambda x:x.get('line_number'))\n\n        if lines:\n            sequence = lines[-1]['line_number'] + 10\n        else:\n            sequence = 10\n\n        default_values.update({'line_number': sequence})\n\n    return default_values\n\n",
+		"description": "Line Number Add 10 automaticlly",
+		"scope": "source.python"
+	},
+	"constraints1": {
+		"prefix": "constraints",
+		"body": "\n_sql_constraints = [\n    (\n        '${1:name}',\n        '${2:constraint}',\n        _(u'${3:message}')\n    )${4}\n]${0}\n",
+		"description": "Model SQL contraints",
+		"scope": "source.python"
+	},
+	"groups/multi_company": {
+		"prefix": "groups/multi_company",
+		"body": "\n groups=\"base.group_multi_company\"${0}\n",
+		"description": "",
+		"scope": "text.xml"
+	},
+	"groups/no_one": {
+		"prefix": "groups/no_one",
+		"body": "\n groups=\"base.group_no_one\"${0}\n",
+		"description": "",
+		"scope": "text.xml"
+	},
+	"groups/system": {
+		"prefix": "groups/system",
+		"body": "\n groups=\"base.group_system\"${0}\n",
+		"description": "",
+		"scope": "text.xml"
+	},
+	"import/translate": {
+		"prefix": "import/translate",
+		"body": "\nfrom odoo.tools.translate import _${0}\n",
+		"description": "import odoo translate",
+		"scope": "source.python"
+	},
+	"import/datetime": {
+		"prefix": "import/datetime",
+		"body": "\nfrom datetime import date, datetime\nfrom dateutil.relativedelta import relativedelta\nfrom odoo.tools import DEFAULT_SERVER_DATE_FORMAT as DATE_FORMAT\nfrom odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT as DATETIME_FORMAT\n${0}\n",
+		"description": "import date and time tools",
+		"scope": "source.python"
+	},
+	"import/dp": {
+		"prefix": "import/dp",
+		"body": "\nimport odoo.addons.decimal_precision as dp\n${0}\n",
+		"description": "",
+		"scope": "source.python"
+	},
+	"import/exceptions": {
+		"prefix": "import/exceptions",
+		"body": "\nfrom odoo.exceptions import UserError, ValidationError\n${0}\n",
+		"description": "",
+		"scope": "source.python"
+	},
+	"file/coding": {
+		"prefix": "file/coding",
+		"body": "\n# -*- coding: utf-8 -*-\n${0}\n",
+		"description": "utf-8 coding",
+		"scope": "source.python"
+	},
+	"super": {
+		"prefix": "super",
+		"body": "\nsuper(${1:Extension}, self).${2:handler}(${3})\n",
+		"description": "Call Python parent class",
+		"scope": "source.python"
+	},
+	"def/log": {
+		"prefix": "def/log",
+		"body": "\ndef _log(self, level, msg_format, *args, **kwargs):\n    \"\"\" Outputs an formated string in log\n\n        :param level (int): 1=> debug, 2=> info, 3=> warning, 4=> error\n        :param message (basestring): name of the message\n    \"\"\"\n\n    methods = ['debug', 'info', 'warning', 'error']\n    log = getattr(_logger, methods[level])\n\n    msg = msg_format.format(*args, **kwargs)\n    log(msg)\n",
+		"description": "Common logging log method",
+		"scope": "source.python"
+	},
+	"import/logging": {
+		"prefix": "import/logging",
+		"body": "\nimport logging\n_logger = logging.getLogger(__name__)\n${0}\n",
+		"description": "logging instance",
+		"scope": "source.python"
+	},
+	"qweb_t-att": {
+		"prefix": "qweb_t-att",
+		"body": "\nt-att-${1:name}=\"${2:value}\"\n",
+		"description": "Qweb named attribute",
+		"scope": "text.xml"
+	},
+	"qweb_t-att1": {
+		"prefix": "qweb_t-att",
+		"body": "\nt-att=\"${1:dict_of_pair}\"\n",
+		"description": "Qweb attribute",
+		"scope": "text.xml"
+	},
+	"qweb_t-attf": {
+		"prefix": "qweb_t-attf",
+		"body": "\nt-attf-${1:name}=\"${2:format_string}\"\n",
+		"description": "Qweb format string attribute",
+		"scope": "text.xml"
+	},
+	"qweb_t-call": {
+		"prefix": "qweb_t-call",
+		"body": "\n<t t-call=\"${1:template}\" />${0}\n",
+		"description": "Qweb inline call template",
+		"scope": "text.xml"
+	},
+	"qweb_t-call1": {
+		"prefix": "qweb_t-call",
+		"body": "\n<t t-call=\"${1:template}\">\n    ${0}\n</t>\n",
+		"description": "Qweb call template",
+		"scope": "text.xml"
+	},
+	"qweb_t-esc": {
+		"prefix": "qweb_t-esc",
+		"body": "\n<t t-esc=\"${1:value}\" />\n",
+		"description": "Qweb data output",
+		"scope": "text.xml"
+	},
+	"qweb_t-extend": {
+		"prefix": "qweb_t-extend",
+		"body": "\n<t t-extend=\"${1:base.template}\">\n    <t t-jquery=\"${2:ul}\" t-operation=\"${3:append}\">\n        ${4:code}\n    </t>${0}\n</t>\n",
+		"description": "Qweb template inheritance",
+		"scope": "text.xml"
+	},
+	"qweb_t-field": {
+		"prefix": "qweb_t-field",
+		"body": "\n<${1:span} t-field=\"${2:o}.${3:name}\" />${0}\n",
+		"description": "Qweb field access",
+		"scope": "text.xml"
+	},
+	"qweb_t-foreach": {
+		"prefix": "qweb_t-foreach",
+		"body": "\n<t t-foreach=\"${1:set}\" t-as=\"${2:name}\">\n    ${0}\n</t>\n",
+		"description": "Qweb loop",
+		"scope": "text.xml"
+	},
+	"qweb_t-if": {
+		"prefix": "qweb_t-if",
+		"body": "\n<${1:tag} t-if=\"${2:condition}\">${3:value}</${1}>${0}\n",
+		"description": "Qweb inline conditional",
+		"scope": "text.xml"
+	},
+	"qweb_t-if1": {
+		"prefix": "qweb_t-if",
+		"body": "\n<t t-if=\"${1:codition}\">\n    ${0}\n</t>\n",
+		"description": "Qweb conditional",
+		"scope": "text.xml"
+	},
+	"qweb_t-js": {
+		"prefix": "qweb_t-js",
+		"body": "\n<t t-js=\"${1:name}\">\n    ${0:console.log(\"Foo is\", ctx.foo);}\n</t>\n",
+		"description": "Qweb javascript",
+		"scope": "text.xml"
+	},
+	"qweb_t-log": {
+		"prefix": "qweb_t-log",
+		"body": "\n<t t-log=\"${1:value}\"/>${0}\n",
+		"description": "Qweb logging",
+		"scope": "text.xml"
+	},
+	"qweb_t-name": {
+		"prefix": "qweb_t-name",
+		"body": "\n<t t-name=\"${1:template-name}\">\n    ${0:<!-- template code -->}\n</t>\n",
+		"description": "Qweb top level named template",
+		"scope": "text.xml"
+	},
+	"qweb_t-raw": {
+		"prefix": "qweb_t-raw",
+		"body": "\n<t t-raw=\"0\" />\n",
+		"description": "Qweb template from context",
+		"scope": "text.xml"
+	},
+	"qweb_t-set": {
+		"prefix": "qweb_t-set",
+		"body": "\n<t t-set=\"${1:name}\" t-value=\"${2:value}\" />${0}\n",
+		"description": "Qweb inline variable",
+		"scope": "text.xml"
+	},
+	"qweb_t-set1": {
+		"prefix": "qweb_t-set",
+		"body": "\n<t t-set=\"${1:name}\">\n    ${0}\n</t>\n",
+		"description": "Qweb variable",
+		"scope": "text.xml"
+	},
+	"report_layout": {
+		"prefix": "report_layout",
+		"body": "\n<t t-call=\"report.external_layout\">\n    ${0}\n</t>\n",
+		"description": "Report external_layout",
+		"scope": "text.xml"
+	},
+	"report_layout1": {
+		"prefix": "report_layout",
+		"body": "\n<t t-call=\"report.external_layout_footer\">\n    ${0}\n</t>\n",
+		"description": "Report external_layout_footer",
+		"scope": "text.xml"
+	},
+	"report_layout2": {
+		"prefix": "report_layout",
+		"body": "\n<t t-call=\"report.external_layout_header\">\n    ${0}\n</t>\n",
+		"description": "Report external_layout_header",
+		"scope": "text.xml"
+	},
+	"report_layout3": {
+		"prefix": "report_layout",
+		"body": "\n<t t-call=\"report.html_container\">\n    ${0}\n</t>\n",
+		"description": "Report html_container",
+		"scope": "text.xml"
+	},
+	"report_layout4": {
+		"prefix": "report_layout",
+		"body": "\n<t t-call=\"report.internal_layout\">\n    ${0}\n</t>\n",
+		"description": "Report internal_layout",
+		"scope": "text.xml"
+	},
+	"report_layout5": {
+		"prefix": "report_layout",
+		"body": "\n<t t-call=\"report.layout\">\n    ${0}\n</t>\n",
+		"description": "Report layout",
+		"scope": "text.xml"
+	},
+	"report_layout6": {
+		"prefix": "report_layout",
+		"body": "\n<t t-call=\"report.minimal_layout\">\n    ${0}\n</t>\n",
+		"description": "Report minimal_layout",
+		"scope": "text.xml"
+	},
+	"report_layout7": {
+		"prefix": "report_layout",
+		"body": "\n<t t-call=\"report.style\">\n    ${0}\n</t>\n",
+		"description": "Report style",
+		"scope": "text.xml"
+	},
+	"report_t": {
+		"prefix": "report_t",
+		"body": "\n<t t-name=\"${1:module.model.name}\">\n    <t t-call=\"report.html_container\">\n        <t t-foreach=\"docs\" t-as=\"o\">\n            <t t-call=\"report.external_layout\">\n                <div class=\"page\">\n                    <h2>${2:Report title}</h2>\n                    ${0:<p>This object's name is <span t-field=\"o.name\"/></p>}\n                </div>\n            </t>\n        </t>\n    </t>\n</t>\n",
+		"description": "Report qweb container",
+		"scope": "text.xml"
+	},
+	"report_t-raw": {
+		"prefix": "report_t-raw",
+		"body": "\n<t t-raw=\"translate_doc(${1:doc_id}, ${2:doc_model}, '${3:lang}', ${4:module.template'})\" />\n",
+		"description": "Qweb translate document",
+		"scope": "text.xml"
+	},
+	"report.paperformat": {
+		"prefix": "report.paperformat",
+		"body": "\n<record id=\"paperformat_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"report.paperformat\" >\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"format\">${2:A4}</field>\n    <field name=\"orientation\">${3:Portrait}</field>\n    <field name=\"default\" eval=\"${4:False}\" />\n    <field name=\"dpi\" eval=\"${5:90}\" />\n    <field name=\"margin_top\" eval=\"${6:40}\" />\n    <field name=\"margin_right\" eval=\"${7:7}\" />\n    <field name=\"margin_bottom\" eval=\"${8:20}\" />\n    <field name=\"margin_left\" eval=\"${9:7}\" />\n    <field name=\"header_line\" eval=\"${10:False}\" />\n    <field name=\"header_spacing\" eval=\"${11:35}\" />${13:\n    <field name=\"page_width\" eval=\"${12:210}\" />}${15:\n    <field name=\"page_height\" eval=\"${14:297}\" />}${17:\n    <field name=\"report_ids\" eval=\"[(4, ref('${16:ir.actions.report.xml}'))]\" />}${0}\n</record>\n",
+		"description": "Common record definition for report.paperformat",
+		"scope": "text.xml"
+	},
+	"report_fullreport": {
+		"prefix": "report_fullreport",
+		"body": "\n<!-- REPORT: \"${1:Human readable name}\"\n\n    - Module: ${2:module}    Model: ${3:model}\n    - Language field used to translate it: ${4:lang}\n    - Report uses attachment: ${5:True}\n    - Report paperformat: ${6:report.paperformat_euro}\n    - View priority: ${7:16}    Active: ${8:True}\n    - Action help: ${9:Something about ${1/(.)/\\1/g}}\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->\n\n<!-- Report \"${1/(.)/\\1/g}\" document template -->\n<record id=\"view_${3/\\./\\_/g}_document_qweb\" model=\"ir.ui.view\">\n    <field name=\"name\">${1/(.)/\\1/g}</field>\n    <field name=\"model\">${3/(.)/\\1/g}</field>\n    <field name=\"type\">qweb</field>\n    <field name=\"mode\">primary</field>\n    <field name=\"priority\" eval=\"${7/(.)/\\1/g}\" />\n    <field name=\"active\" eval=\"${8/(.)/\\1/g}\" />\n    <field name=\"arch\" type=\"xml\">\n        <t t-name=\"${2/(.)/\\1/g}.view_${3/\\./\\_/g}_document_qweb\">\n            <t t-call=\"report.external_layout\">\n                <div class=\"page\">\n                    ${0:<h2>Report title</h2>\n                    <p>This object's name is <span t-field=\"o.name\"/></p>}\n                </div>\n            </t>\n        </t>\n    </field>\n</record>\n\n<!-- Report \"${1/(.)/\\1/g}\" translate_doc template -->\n<record id=\"view_${3/\\./\\_/g}_qweb\" model=\"ir.ui.view\">\n    <field name=\"name\">${1/(.)/\\1/g}</field>\n    <field name=\"model\">${3/(.)/\\1/g}</field>\n    <field name=\"type\">qweb</field>\n    <field name=\"mode\">primary</field>\n    <field name=\"priority\" eval=\"${7/(.)/\\1/g}\" />\n    <field name=\"active\" eval=\"${8/(.)/\\1/g}\" />\n    <field name=\"arch\" type=\"xml\">\n        <t t-name=\"${2/(.)/\\1/g}.view_${3/\\./\\_/g}_qweb\">\n            <t t-call=\"report.html_container\">\n                <t t-foreach=\"doc_ids\" t-as=\"doc_id\">\n                    <t t-raw=\"translate_doc(doc_id, doc_model, '${4/(.)/\\1/g}', '${2/(.)/\\1/g}.view_${3/\\./\\_/g}_document_qweb')\"/>\n                </t>\n            </t>\n        </t>\n    </field>\n</record>\n\n<!-- Report action to show: \"${1/(.)/\\1/g}\" -->\n<record id=\"action_report_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.actions.report.xml\">\n    <field name=\"name\">${1/(.)/\\1/g}</field>\n    <field name=\"model\">${3/(.)/\\1/g}</field>\n    <field name=\"report_type\">qweb-pdf</field>\n    <field name=\"report_name\">${2/(.)/\\1/g}.view_${3/\\./\\_/g}_qweb</field>\n    <field name=\"attachment_use\" eval=\"${5/(.)/\\1/g}\" />\n    <field name=\"attachment\">(object.name+'.pdf')</field>\n    <field name=\"paperformat_id\" ref=\"${6/(.)/\\1/g}\" />\n    <field name=\"help\">${9/(.)/\\1/g}</field>\n</record>\n\n<!-- Button to print the report: \"${1/(.)/\\1/g}\" -->\n<record id=\"${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_values\" model=\"ir.values\">\n    <field name=\"name\">${1/(.)/\\1/g}</field>\n    <field name=\"model_id\" ref=\"${2/(.)/\\1/g}.model_${3/\\./\\_/g}\" />\n    <field name=\"model\">${3/(.)/\\1/g}</field>\n    <field name=\"value\" eval=\"'ir.actions.report.xml,' +str(ref('action_report_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}'))\" />\n    <field name=\"key\">action</field>\n    <field name=\"key2\">client_print_multi</field>\n</record>\n",
+		"description": "Report: document and translation; action.report.xml and ir.values",
+		"scope": "text.xml"
+	},
+	"acl/header": {
+		"prefix": "acl/header",
+		"body": "\nid,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink\n",
+		"description": "ir.model.access.csv file",
+		"scope": "text.plain"
+	},
+	"acl/ace": {
+		"prefix": "acl/ace",
+		"body": "\naccess_${3:module}_${1:model_name}_${2:group_name},${1}.${2},${3}.model_${1},${3}.group_${2},1,0,0,0\n",
+		"description": "ir.model.access record",
+		"scope": "text.plain"
+	},
+	"record/ir.model.access": {
+		"prefix": "record/ir.model.access",
+		"body": "\n<record id=\"access_${1/^.*model_(.*)$/\\1/g}_${2/((^.*group_$)|(\\.))/(?2:group_)(?3:\\_)/g}\" model=\"ir.model.access\">\n    <field name=\"name\">${1/^.*model_(.*)$/\\1/g} ${2/((^.*group_$)|(\\.))/(?2:group_)(?3:\\_)/g}</field>\n    <field name=\"model_id\" ref=\"${1:ir.model}\"/>\n    <field name=\"group_id\" ref=\"${2:res.groups}\"/>\n    <field name=\"perm_read\" eval=\"${3:True}\" />\n    <field name=\"perm_create\" eval=\"${4:True}\" />\n    <field name=\"perm_write\" eval=\"${5:True}\" />\n    <field name=\"perm_unlink\" eval=\"${6:True}\" />\n    <field name=\"active\" eval=\"${7:True}\" />\n</record>${0}\n",
+		"description": "XML ir.model.access record",
+		"scope": "text.xml"
+	},
+	"record/ir.rule": {
+		"prefix": "record/ir.rule",
+		"body": "\n<record id=\"${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_rule\" model=\"ir.rule\">\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"model_id\" ref=\"${3:model_xml_id}\"/>\n    <field name=\"global\" eval=\"${4:True}\" />\n    <field name=\"perm_read\" eval=\"${5:True}\" />\n    <field name=\"perm_create\" eval=\"${6:True}\" />\n    <field name=\"perm_write\" eval=\"${7:True}\" />\n    <field name=\"perm_unlink\" eval=\"${8:True}\" />\n    <field name=\"domain_force\">${9:['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]}</field>\n    <field name=\"active\" eval=\"${10:True}\" />\n</record>${0}\n",
+		"description": "XML ir.rule record",
+		"scope": "text.xml"
+	},
+	"record/res.groups": {
+		"prefix": "record/res.groups",
+		"body": "\n<record id=\"group_${8:${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}}\" model=\"res.groups\">\n    <field name=\"name\">${1:Name}</field>\n    <field name=\"comment\">${2:Comment}</field>\n    <field name=\"category_id\" ref=\"${3:base.module_category_administration}\"/>\n    <field name=\"implied_ids\" eval=\"[(4, ref('${5:base.group_user}'))]\"/>\n    <field name=\"users\" eval=\"[(5, ref('${6:base.user_root}'))]\" />\n</record>${0}\n",
+		"description": "XML res.groups record",
+		"scope": "text.xml"
+	},
+	"addTypeEqualityFunc": {
+		"prefix": "addTypeEqualityFunc",
+		"body": "\naddTypeEqualityFunc(${1:typeobj}, ${2:function})\n",
+		"description": "addTypeEqualityFunc",
+		"scope": "source.python"
+	},
+	"assertAlmostEqual": {
+		"prefix": "assertAlmostEqual",
+		"body": "\nassertAlmostEqual(${1:first}, ${2:second}${4:, ${3:places=7}}${6:, ${5:msg=None}}${8:, ${7:delta=None}})\n",
+		"description": "assertAlmostEqual",
+		"scope": "source.python"
+	},
+	"assertDictContainsSubset": {
+		"prefix": "assertDictContainsSubset",
+		"body": "\nassertDictContainsSubset(${1:expected}, ${2:actual}${4:, ${3:msg=None}})\n",
+		"description": "assertDictContainsSubset",
+		"scope": "source.python"
+	},
+	"assertDictEqual": {
+		"prefix": "assertDictEqual",
+		"body": "\nassertDictEqual(${1:expected}, ${2:actual}${4:, ${3:msg=None}})\n",
+		"description": "assertDictEqual",
+		"scope": "source.python"
+	},
+	"assertEqual": {
+		"prefix": "assertEqual",
+		"body": "\nassertEqual(${1:first}, ${2:second}${4:, ${3:msg=None}})\n",
+		"description": "assertEqual",
+		"scope": "source.python"
+	},
+	"assertFalse": {
+		"prefix": "assertFalse",
+		"body": "\nassertFalse(${1:expr}${3:, ${2:msg=None}})\n",
+		"description": "assertFalse",
+		"scope": "source.python"
+	},
+	"assertGreater": {
+		"prefix": "assertGreater",
+		"body": "\nassertGreater(${1:first}, ${2:second}${4:, ${3:msg=None}})\n",
+		"description": "assertGreater",
+		"scope": "source.python"
+	},
+	"assertGreaterEqual": {
+		"prefix": "assertGreaterEqual",
+		"body": "\nassertGreaterEqual(${1:first}, ${2:second}${4:, ${3:msg=None}})\n",
+		"description": "assertGreaterEqual",
+		"scope": "source.python"
+	},
+	"assertIn": {
+		"prefix": "assertIn",
+		"body": "\nassertIn(${1:first}, ${2:second}${4:, ${3:msg=None}})\n",
+		"description": "assertIn",
+		"scope": "source.python"
+	},
+	"assertIs": {
+		"prefix": "assertIs",
+		"body": "\nassertIs(${1:first}, ${2:second}${4:, ${3:msg=None}})\n",
+		"description": "assertIs",
+		"scope": "source.python"
+	},
+	"assertIsInstance": {
+		"prefix": "assertIsInstance",
+		"body": "\nassertIsInstance(${1:obj}, ${2:cls}${4:, ${3:msg=None}})\n",
+		"description": "assertIsInstance",
+		"scope": "source.python"
+	},
+	"assertIsNone": {
+		"prefix": "assertIsNone",
+		"body": "\nassertIsNone(${1:expr}${3:, ${2:msg=None}})\n",
+		"description": "assertIsNone",
+		"scope": "source.python"
+	},
+	"assertIsNot": {
+		"prefix": "assertIsNot",
+		"body": "\nassertIsNot(${1:first}, ${2:second}${4:, ${3:msg=None}})\n",
+		"description": "assertIsNot",
+		"scope": "source.python"
+	},
+	"assertIsNotNone": {
+		"prefix": "assertIsNotNone",
+		"body": "\nassertIsNotNone(${1:expr}${3:, ${2:msg=None}})\n",
+		"description": "assertIsNotNone",
+		"scope": "source.python"
+	},
+	"assertItemsEqual": {
+		"prefix": "assertItemsEqual",
+		"body": "\nassertItemsEqual(${1:actual}, ${2:expected}${4:, ${3:msg=None}})\n",
+		"description": "assertItemsEqual",
+		"scope": "source.python"
+	},
+	"assertLess": {
+		"prefix": "assertLess",
+		"body": "\nassertLess(${1:first}, ${2:second}${4:, ${3:msg=None}})\n",
+		"description": "assertLess",
+		"scope": "source.python"
+	},
+	"assertLessEqual": {
+		"prefix": "assertLessEqual",
+		"body": "\nassertLessEqual(${1:first}, ${2:second}${4:, ${3:msg=None}})\n",
+		"description": "assertLessEqual",
+		"scope": "source.python"
+	},
+	"assertListEqual": {
+		"prefix": "assertListEqual",
+		"body": "\nassertListEqual(${1:list1}, ${2:list2}${4:, ${3:msg=None}})\n",
+		"description": "assertListEqual",
+		"scope": "source.python"
+	},
+	"assertMultiLineEqual": {
+		"prefix": "assertMultiLineEqual",
+		"body": "\nassertMultiLineEqual(${1:first}, ${2:second}${4:, ${3:msg=None}})\n",
+		"description": "assertMultiLineEqual",
+		"scope": "source.python"
+	},
+	"assertNotAlmostEqual": {
+		"prefix": "assertNotAlmostEqual",
+		"body": "\nassertNotAlmostEqual(${1:first}, ${2:second}${4:, ${3:places=7}}${6:, ${5:msg=None}}${9:, ${8:delta=None}})\n",
+		"description": "assertNotAlmostEqual",
+		"scope": "source.python"
+	},
+	"assertNotEqual": {
+		"prefix": "assertNotEqual",
+		"body": "\nassertNotEqual(${1:first}, ${2:second}${4:, ${3:msg=None}})\n",
+		"description": "assertNotEqual",
+		"scope": "source.python"
+	},
+	"assertNotIn": {
+		"prefix": "assertNotIn",
+		"body": "\nassertNotIn(${1:first}, ${2:second}${4:, ${3:msg=None}})\n",
+		"description": "assertNotIn",
+		"scope": "source.python"
+	},
+	"assertNotIsInstance": {
+		"prefix": "assertNotIsInstance",
+		"body": "\nassertNotIsInstance(${1:obj}, ${2:cls}${4:, ${3:msg=None}})\n",
+		"description": "assertNotIsInstance",
+		"scope": "source.python"
+	},
+	"assertNotRegexpMatches": {
+		"prefix": "assertNotRegexpMatches",
+		"body": "\nassertNotRegexpMatches(${1:text}, ${2:regexp}${4:, ${3:msg=None}})\n",
+		"description": "assertNotRegexpMatches",
+		"scope": "source.python"
+	},
+	"assertRaises": {
+		"prefix": "assertRaises",
+		"body": "\nassertRaises(${1:exception}, ${2:callable}, ${3:*args}, ${4:**kwds})\n",
+		"description": "assertRaises (extended)",
+		"scope": "source.python"
+	},
+	"assertRaises1": {
+		"prefix": "assertRaises",
+		"body": "\nassertRaises(${1:exception})\n",
+		"description": "assertRaises",
+		"scope": "source.python"
+	},
+	"assertRaisesRegexp": {
+		"prefix": "assertRaisesRegexp",
+		"body": "\nassertRaisesRegexp(${1:exception}, ${2:regexp}, ${3:callable}, ${4:*args}, ${5:**kwds})\n",
+		"description": "assertRaisesRegexp (extended)",
+		"scope": "source.python"
+	},
+	"assertRaisesRegexp1": {
+		"prefix": "assertRaisesRegexp",
+		"body": "\nassertRaisesRegexp(${1:exception}, ${2:regexp})\n",
+		"description": "assertRaisesRegexp",
+		"scope": "source.python"
+	},
+	"assertRegexpMatches": {
+		"prefix": "assertRegexpMatches",
+		"body": "\nassertRegexpMatches(${1:text}, ${2:regexp}${4:, ${3:msg=None}})\n",
+		"description": "assertRegexpMatches",
+		"scope": "source.python"
+	},
+	"assertSequenceEqual": {
+		"prefix": "assertSequenceEqual",
+		"body": "\nassertSequenceEqual(${1:seq1}, ${2:seq2}${4:, ${3:msg=None}}${6:, ${5:seq_type=None}})\n",
+		"description": "assertSequenceEqual",
+		"scope": "source.python"
+	},
+	"assertSetEqual": {
+		"prefix": "assertSetEqual",
+		"body": "\nassertSetEqual(${1:set1}, ${2:set2}${4:, ${3:msg=None}})\n",
+		"description": "assertSetEqual",
+		"scope": "source.python"
+	},
+	"assertTrue": {
+		"prefix": "assertTrue",
+		"body": "\nassertTrue(${1:expr}${3:, ${2:msg=None}})\n",
+		"description": "assertTrue",
+		"scope": "source.python"
+	},
+	"assertTupleEqual": {
+		"prefix": "assertTupleEqual",
+		"body": "\nassertTupleEqual(${1:tuple1}, ${2:tuple2}${4:, ${3:msg=None}})\n",
+		"description": "assertTupleEqual",
+		"scope": "source.python"
+	},
+	"fail": {
+		"prefix": "fail",
+		"body": "\nfail(${1:msg=None})\n",
+		"description": "fail",
+		"scope": "source.python"
+	},
+	"test": {
+		"prefix": "test",
+		"body": "\ndef test_${1:item_name}(self):\n    \"\"\" Checks if the ${1} works properly\n    \"\"\"\n\n    ${0:pass}\n",
+		"description": "Test case method",
+		"scope": "source.python"
+	},
+	"TransactionCase": {
+		"prefix": "TransactionCase",
+		"body": "\nfrom openerp.tests.common import TransactionCase\n\n\nclass ${1:ModelName}(TransactionCase):\n    \"\"\" ${2:This class contains the unit tests for '${1/((^[A-Z])|([A-Z]))/(?2:\\l$2)(?3:\\.\\l$3)/g}'.}\n\n        Tests:\n          - ${3}: Checks if the ${3} works properly\n    \"\"\"\n\n    def setUp(self):\n        super(${1}, self).setUp()\n\n    def test_${3:item_name}(self):\n        \"\"\" Checks if the ${3} works properly \"\"\"\n\n        ${0:pass}\n",
+		"description": "",
+		"scope": "source.python"
+	},
+	"attrs": {
+		"prefix": "attrs",
+		"body": "\nattrs=\"{ ${0} }\"\n",
+		"description": "field attr attrs",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"attrs/invisible": {
+		"prefix": "attrs/invisible",
+		"body": "\n'column_invisible': [('state','not in',('draft'))] ${0}\n",
+		"description": "field attr attrs column_invisible",
+		"scope": "text.xml meta.tag.xml string.quoted.double.xml"
+	},
+	"attrs/invisible1": {
+		"prefix": "attrs/invisible",
+		"body": "\n'invisible': [('state','not in',('draft'))] ${0}\n",
+		"description": "field attr attrs invisible",
+		"scope": "text.xml meta.tag.xml string.quoted.double.xml"
+	},
+	"attrs/readonly": {
+		"prefix": "attrs/readonly",
+		"body": "\n'readonly': [('state','not in',('draft'))] ${0}\n",
+		"description": "field attr attrs readonly",
+		"scope": "text.xml meta.tag.xml string.quoted.double.xml"
+	},
+	"attrs/required": {
+		"prefix": "attrs/required",
+		"body": "\n'required': [('state','not in',('draft'))] ${0}\n",
+		"description": "field attr attrs required",
+		"scope": "text.xml meta.tag.xml string.quoted.double.xml"
+	},
+	"class/oe_edit_only": {
+		"prefix": "class/oe_edit_only",
+		"body": "\nclass=\"oe_edit_only\"${0}\n",
+		"description": "field attr class oe_edit_only",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"class/oe_inline": {
+		"prefix": "class/oe_inline",
+		"body": "\nclass=\"oe_inline\"${0}\n",
+		"description": "field attr class oe_inline",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"class/oe_left": {
+		"prefix": "class/oe_left",
+		"body": "\nclass=\"oe_left\"${0}\n",
+		"description": "field attr class oe_left",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"class/oe_no_avatar": {
+		"prefix": "class/oe_no_avatar",
+		"body": "\nclass=\"oe_no_avatar\"${0}\n",
+		"description": "field attr class oe_no_avatar",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"class/oe_no_button": {
+		"prefix": "class/oe_no_button",
+		"body": "\nclass=\"oe_no_button\"${0}\n",
+		"description": "field attr class oe_no_button",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"class/oe_read_only": {
+		"prefix": "class/oe_read_only",
+		"body": "\nclass=\"oe_read_only\"${0}\n",
+		"description": "field attr class oe_read_only",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"class/oe_right": {
+		"prefix": "class/oe_right",
+		"body": "\nclass=\"oe_right\"${0}\n",
+		"description": "field attr class oe_right",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"decoration": {
+		"prefix": "decoration",
+		"body": "\ndecoration-${1:info}=\"${2:field} == ${3:value}\"${0}\n",
+		"description": "field attr decoration",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"default_order": {
+		"prefix": "default_order",
+		"body": "\ndefault_order=\"${1:field},${0}\"\n",
+		"description": "field attr default_order",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"domain2": {
+		"prefix": "domain",
+		"body": "\ndomain=\"[('${1:name}', '=', ${1})]\"\n",
+		"description": "field attr domain",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"filter_domain": {
+		"prefix": "filter_domain",
+		"body": "\nfilter_domain=\"[('${1:name}', '=', ${1})]\"\n",
+		"description": "field attr filter_domain",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"groups": {
+		"prefix": "groups",
+		"body": "\ngroups=\"${1:module}.group_${2:groupNmae}\"${0}\n",
+		"description": "field attr groups",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"invisible": {
+		"prefix": "invisible",
+		"body": "\ninvisible=\"${1:1}\"${0}\n",
+		"description": "field attr invisible",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"options/no_quick_create": {
+		"prefix": "options/no_quick_create",
+		"body": "\noptions=\"{'no_create': True, 'no_open': True, 'no_create_edit': True}\"${0}\n",
+		"description": "field attr options no_create/no_open/no_create_edit",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"options/no_create": {
+		"prefix": "options/no_create",
+		"body": "\noptions=\"{'no_create': True}\"${0}\n",
+		"description": "field attr options no_create",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"options/no_create_edit": {
+		"prefix": "options/no_create_edit",
+		"body": "\noptions=\"{'no_create_edit': True}\"${0}\n",
+		"description": "field attr options no_create_edit",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"options/no_open": {
+		"prefix": "options/no_open",
+		"body": "\noptions=\"{ 'no_open': True}\"${0}\n",
+		"description": "field attr options no_open",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"options/reload_whole_on_button": {
+		"prefix": "options/reload_whole_on_button",
+		"body": "\noptions=\"{'reload_whole_on_button': true}\"${0}\n",
+		"description": "field attr options reload_whole_on_button",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"options/always_reload": {
+		"prefix": "options/always_reload",
+		"body": "\noptions=\"{'always_reload': True}\"${0}\n",
+		"description": "field attr options always_reload",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"readonly1": {
+		"prefix": "readonly",
+		"body": "\nreadonly=\"${1:1}\"${0}\n",
+		"description": "field attr readonly",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"ref": {
+		"prefix": "ref",
+		"body": "\nref=\"${1:module.external_id}\"${0}\n",
+		"description": "field attr ref",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"required1": {
+		"prefix": "required",
+		"body": "\nrequired=\"${1:1}\"${0}\n",
+		"description": "field attr required",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"context1": {
+		"prefix": "context",
+		"body": "\ncontext=\"{'${1:key}': ${2:value}, ${0}}\"\n",
+		"description": "tag attr context",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"create": {
+		"prefix": "create",
+		"body": "\ncreate=\"${1:false}\"${0}\n",
+		"description": "tag attr create",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"delete": {
+		"prefix": "delete",
+		"body": "\ndelete=\"${1:false}\"${0}\n",
+		"description": "tag attr delete",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"duplicate": {
+		"prefix": "duplicate",
+		"body": "\nduplicate=\"${1:false}\"${0}\n",
+		"description": "tag attr duplicate",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"edit": {
+		"prefix": "edit",
+		"body": "\nedit=\"${1:false}\"${0}\n",
+		"description": "tag attr edit",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"field/compound": {
+		"prefix": "field/compound",
+		"body": "\n<label for=\"${1:product_qty}\"/>\n<div class=\"o_row\">\n    <field name=\"${1:product_qty}\"/>\n    <field name=\"${2:product_uom_id}\"/>\n</div> ${0}\n",
+		"description": "Compound field",
+		"scope": "text.xml"
+	},
+	"field/full": {
+		"prefix": "field/full",
+		"body": "\n<field\n    name=\"${1:name}\"\n    string=\"${2:${1/((^.)|(_+))/(?2:\\u$2)(?3:\\ )/g}}\"\n    nolabel=\"${3:0}\"\n    required=\"${4:True}\"\n    readonly=\"${5:True}\"\n    invisible=\"${6:True}\"\n    widget=\"${7:char}\"\n    class=\"${8:oe_field_${1/([^a-zA-Z\\-\\_0-9]+)/\\_/g}}\"\n    placeholder=\"${9:${1/((^.)|(_+))/(?2:\\u$2)(?3:\\ )/g}}\"\n    help=\"${10:Enter new value for ${1/((^.)|(_+))/(?2:\\u$2)(?3:\\ )/g}}\"\n    mode=\"${11:tree}\"\n    filename=\"${12:${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}}\"\n    password=\"${13:0}\"\n    domain=\"${14:[]}\"\n    context=\"${15:\\{\\}}\" />${0}\n",
+		"description": "Full field tag",
+		"scope": "text.xml"
+	},
+	"field/inline": {
+		"prefix": "field/inline",
+		"body": "\n<field name=\"${1:name}\" class=\"${2:oe_inline}\"${4:\n    placeholder=\"${3:Enter new value for ${1/((^.)|(_+))/(?2:\\u$2)(?3:\\ )/g}}\"} />${0}\n",
+		"description": "Inline field tag",
+		"scope": "text.xml"
+	},
+	"field/simple": {
+		"prefix": "field/simple",
+		"body": "\n<field name=\"${1:name}\" />${0}\n",
+		"description": "Simple field tag",
+		"scope": "text.xml"
+	},
+	"fields.Boolean1": {
+		"prefix": "fields.Boolean",
+		"body": "\n<field name=\"${1:name}\" eval=\"${2:True}\" />${0}\n",
+		"description": "Common XML tag for field type Boolean",
+		"scope": "text.xml"
+	},
+	"fields.Char1": {
+		"prefix": "fields.Char",
+		"body": "\n<field name=\"${1:name}\">${2:value}</field>${0}\n",
+		"description": "Common XML tag for field type Char",
+		"scope": "text.xml"
+	},
+	"fields.Date1": {
+		"prefix": "fields.Date",
+		"body": "\n<field name=\"${1:name}\" eval=\"${3:time.strftime('${2:%Y-%m-%d}')}\" />${0}\n",
+		"description": "Common XML tag for field type Date",
+		"scope": "text.xml"
+	},
+	"fields.Datetime1": {
+		"prefix": "fields.Datetime",
+		"body": "\n<field name=\"${1:name}\" eval=\"${3:time.strftime('${2:%Y-%m-%d %H:%M:%S}')}\" />${0}\n",
+		"description": "Common XML tag for field type Datetime",
+		"scope": "text.xml"
+	},
+	"fields.Float1": {
+		"prefix": "fields.Float",
+		"body": "\n<field name=\"${1:name}\" eval=\"${2:0.0}\" />${0}\n",
+		"description": "Common XML tag for field type Float",
+		"scope": "text.xml"
+	},
+	"fields.Html1": {
+		"prefix": "fields.Html",
+		"body": "\n<field name=\"${1:name}\"><![CDATA[\n    ${2:content}\n]]${-1}></field>${0}\n",
+		"description": "Common XML tag for field type Html",
+		"scope": "text.xml"
+	},
+	"fields.Integer1": {
+		"prefix": "fields.Integer",
+		"body": "\n<field name=\"${1:name}\" eval=\"${2:0}\" />${0}\n",
+		"description": "Common XML tag for field type Integer",
+		"scope": "text.xml"
+	},
+	"fields.Many2many1": {
+		"prefix": "fields.Many2many",
+		"body": "\n<field name=\"${1:name}\" eval=\"${3:[(4, ref('${2:ir.model}'))]}\" />${0}\n",
+		"description": "Common XML tag for field type Many2many",
+		"scope": "text.xml"
+	},
+	"fields.Many2one1": {
+		"prefix": "fields.Many2one",
+		"body": "\n<field name=\"${1:name}\" ref=\"${2:ir.model}\" />${0}\n",
+		"description": "Common XML tag for field type Many2one",
+		"scope": "text.xml"
+	},
+	"fields.One2many1": {
+		"prefix": "fields.One2many",
+		"body": "\n<field name=\"${1:name}\" eval=\"${3:[(4, ref('${2:ir.model}'))]}\" />${0}\n",
+		"description": "Common XML tag for field type One2many",
+		"scope": "text.xml"
+	},
+	"fields.Selection1": {
+		"prefix": "fields.Selection",
+		"body": "\n<field name=\"${1:name}\">${2:value}</field>${0}\n",
+		"description": "Common XML tag for field type Selection",
+		"scope": "text.xml"
+	},
+	"fields.Text1": {
+		"prefix": "fields.Text",
+		"body": "\n<field name=\"${1:name}\"><![CDATA[\n    ${2:content}\n]]${-1}></field>${0}\n",
+		"description": "Common XML tag for field type Text",
+		"scope": "text.xml"
+	},
+	"attribute": {
+		"prefix": "attribute",
+		"body": "\n<attribute name=\"${1:field_name}\">${2:value}</attribute>${0}\n",
+		"description": "",
+		"scope": "text.xml"
+	},
+	"button/cancel": {
+		"prefix": "button/cancel",
+		"body": "\n<button string=\"Cancel\" special=\"cancel\" class=\"oe_link\"/>\n",
+		"description": "Cancel button tag definition",
+		"scope": "text.xml"
+	},
+	"button/inline": {
+		"prefix": "button/inline",
+		"body": "\n<button name=\"${1:function_name}\" string=\"${2:string}\" ${4:type=\"${3:object}\"} class=\"oe_highlight\"/>\n",
+		"description": "Inline button tag definition",
+		"scope": "text.xml"
+	},
+	"button/full": {
+		"prefix": "button/full",
+		"body": "\n<button name=\"${1:function_name}\"\n        string=\"${2:string}\"${4:\n        type=\"${3:object}\"}${5:\n        special=\"cancel\"}${7:\n        default_focus=\"${6:0}\"}${9:\n        icon=\"${8:gtk-apply}\"}${11:\n        confirm=\"${10:message}\"}${13:\n        help=\"${12:message}\"} />\n",
+		"description": "Common button tag definition",
+		"scope": "text.xml"
+	},
+	"arch/form": {
+		"prefix": "arch/form",
+		"body": "\r\n<form string=\"${1:Caption}\" create=\"${2:true}\" delete=\"${3:true}\" edit=\"${4:true}\">\r\n    <sheet>\r\n        <div class=\"oe_title\">\r\n            <label for=\"${5:name}\" class=\"oe_edit_only\" />\r\n            <h1><field name=\"${5}\" placeholder=\"${7:Describe the item...}\" /></h1>\r\n        </div>\r\n        ${0}\r\n    </sheet>\r\n</form>\r\n",
+		"description": "Common form tag to be added inside a ir.ui.view",
+		"scope": "text.xml"
+	},
+	"arch/graph": {
+		"prefix": "arch/graph",
+		"body": "\n<graph string=\"${1:Graph title}\" type=\"${2:one # bar # pie # line # pivot}\">\n    <field type=\"row\" name=\"${3:row_field}\" />\n    <field type=\"col\" name=\"${4:col_field}\" interval=\"month\" />\n    <field type=\"measure\" name=\"${5:measure_field}\" />\n</graph>${0}\n",
+		"description": "Common graph tag to be added inside a ir.ui.view",
+		"scope": "text.xml"
+	},
+	"group": {
+		"prefix": "group",
+		"body": "\n<group>\n        ${0}\n    \n\n</group>\n\n",
+		"description": "",
+		"scope": "text.xml"
+	},
+	"search/group_by": {
+		"prefix": "search/group_by",
+		"body": "\n<group expand=\"0\" string=\"Group By\">\n    <filter name=\"group_by_${1:user_id} \"string=\"${2:User}\" context=\"{'group_by':'${1}'}\" help=\"${3}\"/>\n    ${0}\n</group>\n\n",
+		"description": "",
+		"scope": "text.xml"
+	},
+	"label": {
+		"prefix": "label",
+		"body": "\n<label for='${1:field_name}'>${2:Label}</label>\n",
+		"description": "Field Label",
+		"scope": "text.xml"
+	},
+	"link": {
+		"prefix": "link",
+		"body": "\n<link rel=\"stylesheet\" href=\"/${1:module_name}/static/src/css/${2:styles}.css\" />${0}\n",
+		"description": "Link tag to inglude an stylesheet",
+		"scope": "text.xml"
+	},
+	"notebook": {
+		"prefix": "notebook",
+		"body": "\n<notebook>\n    ${0}\n</notebook>\n",
+		"description": "",
+		"scope": "text.xml"
+	},
+	"arch/pivot": {
+		"prefix": "arch/pivot",
+		"body": "\n<pivot string=\"${1:Graph title}\" type=\"${2:one # bar # pie # line # pivot}\">\n    <field type=\"row\" name=\"${3:row_field}\" />\n    <field type=\"col\" name=\"${4:col_field}\" interval=\"month\" />\n    <field type=\"measure\" name=\"${5:measure_field}\" />\n</pivot>${0}\n",
+		"description": "Common graph tag to be added inside a ir.ui.view",
+		"scope": "text.xml"
+	},
+	"script": {
+		"prefix": "script",
+		"body": "\n<script type=\"text/javascript\" src=\"/${1:module_name}/static/src/js/${2:scripts}.js\" />${0}\n",
+		"description": "Script tag to inglude an javascript",
+		"scope": "text.xml"
+	},
+	"search/filter": {
+		"prefix": "search/filter",
+		"body": "\n<filter string=\"${1:Name}\"\n    name=\"${2:${1/(([A-Za-z0-9])|( )|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)(?4:\\_)/g}}\"\n    domain=\"${3:[]}\"\n    context=\"${4:{}}\"\n    help=\"${5}\" />${0}\n",
+		"description": "Common filter tag to be added inside a search view",
+		"scope": "text.xml"
+	},
+	"arch/search": {
+		"prefix": "arch/search",
+		"body": "\n<search string=\"${1:Name}\">\n    ${0}\n</search>\n",
+		"description": "Common search tag to be added inside a ir.ui.view",
+		"scope": "text.xml"
+	},
+	"separator": {
+		"prefix": "separator",
+		"body": "\n<separator string=\"Some Text\" colspan=\"4\" />\n    ${0}\n",
+		"description": "Common separator tag to be added inside a ir.ui.view",
+		"scope": "text.xml"
+	},
+	"button/smart": {
+		"prefix": "button/smart",
+		"body": "\n<div class=\"oe_button_box\" name=\"button_box\">\n    <button class=\"oe_stat_button\" name=\"${1:action_name}\" type=\"object\" icon=\"fa-${4:search}\">\n        <field string=\"${2:string}\" name=\"${3:count_name}\" widget=\"statinfo\" />\n    </button>\n${0}\n</div>\n",
+		"description": "smart button definition",
+		"scope": "text.xml"
+	},
+	"page": {
+		"prefix": "page",
+		"body": "\n<page string=\"${1:Title}\" >\n    ${0}\n</page>\n",
+		"description": "",
+		"scope": "text.xml"
+	},
+	"arch/tree": {
+		"prefix": "arch/tree",
+		"body": "\n<tree string=\"${1:Caption}\" create=\"${2:true}\" delete=\"${3:true}\" edit=\"${4:true}\"${6: editable=\"${5:bottom}\"}>\n    ${0}\n</tree>\n",
+		"description": "Common tree tag to be added inside a ir.ui.view",
+		"scope": "text.xml"
+	},
+	"xpath": {
+		"prefix": "xpath",
+		"body": "\n<xpath expr=\"${1://field[@name='name']}\" position=\"${2:after}\">\n    ${0}\n</xpath>\n",
+		"description": "Common xpath tag to be added inside a ir.ui.view",
+		"scope": "text.xml"
+	},
+	"position/after": {
+		"prefix": "position/after",
+		"body": "\nposition=\"${1:after}\"${0}\n",
+		"description": "xpath position/after",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"position/attributes": {
+		"prefix": "position/attributes",
+		"body": "\nposition=\"${1:attributes}\"${0}\n",
+		"description": "xpath position/attributes",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"position/before": {
+		"prefix": "position/before",
+		"body": "\nposition=\"${1:before}\"${0}\n",
+		"description": "xpath position/before",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"position/inside": {
+		"prefix": "position/inside",
+		"body": "\nposition=\"${1:inside}\"${0}\n",
+		"description": "xpath position/inside",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"action_binding": {
+		"prefix": "action_binding",
+		"body": "\n<field name=\"binding_model_id\" ref=\"${1:module.model_model_name}\" />\n",
+		"description": "Fully formated time relative to now",
+		"scope": "text.xml"
+	},
+	"filter/archive": {
+		"prefix": "filter/archive",
+		"body": "\n<filter string=\"归档\" name=\"inactive\" domain=\"[('active','=',False)]\"/>\n${0}\n",
+		"description": "Filter archived",
+		"scope": "text.xml"
+	},
+	"filter/latest_by_day": {
+		"prefix": "filter/latest_by_day",
+		"body": "\n<filter string=\"本日单据\" name=\"create_date\" domain=\"[('create_date','&gt;=',context_today().strftime('%Y-%m-%d')),('create_date','&lt;',(context_today()+datetime.timedelta(days=1)).strftime('%Y-%m-%d'))]\"/>\n<filter string=\"本周单据\" name=\"create_date\" domain=\"[('create_date','&gt;=',(context_today() - datetime.timedelta(days=context_today().weekday())).strftime('%Y-%m-%d'))]\"/>\n<filter string=\"本月单据\" name=\"create_date\" domain=\"[('create_date','&gt;=',datetime.date(context_today().year,context_today().month,1).strftime('%Y-%m-%d'))]\"/>\n",
+		"description": "Filter list latest order by days",
+		"scope": "text.xml"
+	},
+	"record/assets": {
+		"prefix": "record/assets",
+		"body": "\n<record id=\"view_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_assets\" model=\"ir.ui.view\">\n    <field name=\"name\">${1:module} assets</field>\n    <field name=\"model\"></field>\n    <field name=\"type\">qweb</field>\n    <field name=\"mode\">extension</field>\n    <field name=\"priority\" eval=\"${2:16}\" />\n    <field name=\"active\" eval=\"${3:True}\" />\n    <field name=\"inherit_id\" ref=\"web.assets_backend\" />\n    <field name=\"arch\" type=\"xml\">\n        <xpath expr=\".\" position=\"inside\">${5:\n            <link rel=\"stylesheet\" href=\"/${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}/static/src/css/${4:styles}.css\" />}${7:\n            <script type=\"text/javascript\" src=\"/${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}/static/src/js/${6:scripts}.js\" />}${0}\n        </xpath>\n    </field>\n</record>\n",
+		"description": "Include module assets in backend views",
+		"scope": "text.xml"
+	},
+	"view/full": {
+		"prefix": "view/full",
+		"body": "\r\n<!-- VIEWS: \"${1:Human readable name}\"\r\n\r\n    - Model·········: ${2:model}\r\n    - _rec_name·····: ${3:name}\r\n    - Domain········: ${4:[]}\r\n    - Context·······: ${5:\\{\\}}\r\n    - Parent menu ··: ${6:base.menu_custom}\r\n    - View priority·: ${7:16}    \r\n    - Sequence····..: ${8:10}\r\n    - Action help···: ${9:Something about ${2/(.)/$1/g}}\r\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->\r\n\r\n<!-- Tree view for \"${2/(.)/\\1/g}\" -->\r\n<record id=\"view_${2/\\./\\_/g}_tree\" model=\"ir.ui.view\">\r\n    <field name=\"name\">view.${2/\\.+/\\./g}.tree</field>\r\n    <field name=\"model\">${2/\\.+/\\./g}</field>\r\n    <field name=\"type\">tree</field>\r\n    <field name=\"mode\">primary</field>\r\n    <field name=\"priority\" eval=\"${7/(.)/\\1/g}\" />\r\n    <field name=\"active\" eval=\"True\" />\r\n    <field name=\"arch\" type=\"xml\">\r\n        <tree string=\"${2/\\./\\_/g}_tree\" create=\"true\" delete=\"true\" edit=\"true\">\r\n            <field name=\"${3/(.)/\\1/g}\" />\r\n\r\n        </tree>\r\n    </field>\r\n</record>\r\n\r\n<!-- Form view for \"${2/(.)/\\1/g}\" -->\r\n<record id=\"view_${2/\\./\\_/g}_form\" model=\"ir.ui.view\">\r\n    <field name=\"name\">view.${2/\\.+/\\./g}.form</field>\r\n    <field name=\"model\">${2/\\.+/\\./g}</field>\r\n    <field name=\"type\">form</field>\r\n    <field name=\"mode\">primary</field>\r\n    <field name=\"priority\" eval=\"${7/(.)/\\1/g}\" />\r\n    <field name=\"active\" eval=\"True\" />\r\n    <field name=\"arch\" type=\"xml\">\r\n        <form string=\"${2/\\./\\_/g}_form\" create=\"true\" delete=\"true\" edit=\"true\">\r\n            <header>\r\n            </header>\r\n            <sheet>\r\n                <div class=\"oe_title\">\r\n                    <label for=\"${3/(.)/\\1/g}\" class=\"oe_edit_only\" />\r\n                    <h1>\r\n                        <field name=\"${3/(.)/\\1/g}\" class=\"oe_inline\"\r\n                            placeholder=\"${3/((^.)|(_+))/(?2:\\u$2)(?3:\\ )/g}\" />\r\n                    </h1>\r\n                </div>\r\n                <group>\r\n\r\n                </group>\r\n            </sheet>\r\n        </form>\r\n    </field>\r\n</record>\r\n\r\n<!-- Search view for \"${2/(.)/\\1/g}\" -->\r\n<record id=\"view_${2/\\./\\_/g}_search\" model=\"ir.ui.view\">\r\n    <field name=\"name\">view.${2/\\.+/\\./g}.search</field>\r\n    <field name=\"model\">${2/\\.+/\\./g}</field>\r\n    <field name=\"type\">search</field>\r\n    <field name=\"mode\">primary</field>\r\n    <field name=\"priority\" eval=\"${7/(.)/\\1/g}\" />\r\n    <field name=\"active\" eval=\"True\" />\r\n    <field name=\"arch\" type=\"xml\">\r\n        <search string=\"${2/\\./\\_/g}_search\">\r\n            <field name=\"${3/(.)/\\1/g}\" />\r\n            \r\n        </search>\r\n    </field>\r\n</record>\r\n\r\n<!-- Main window action for \"${2/(.)/\\1/g}\" -->\r\n<record id=\"action_${2/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_act_window\" model=\"ir.actions.act_window\">\r\n    <field name=\"type\">ir.actions.act_window</field>\r\n    <field name=\"name\">${1/(.)/\\1/g}</field>\r\n    <field name=\"res_model\">${2/\\.+/\\./g}</field>\r\n    <field name=\"view_mode\">tree,form</field>\r\n    <field name=\"view_type\">form</field>\r\n    <field name=\"target\">current</field>\r\n    <field name=\"domain\">${4/(.)/\\1/g}</field>\r\n    <field name=\"context\">${5/(.)/\\1/g}</field>\r\n    <field name=\"search_view_id\" ref=\"view_${2/\\./\\_/g}_search\" />\r\n    <field name=\"help\" type=\"html\">\r\n        <p class=\"oe_view_nocontent_create\">\r\n            Click to add new ${1/(.)/\\1/g}\r\n        </p><p>\r\n            ${9/(.)/\\1/g}\r\n        </p>\r\n    </field>\r\n</record>\r\n\r\n<!-- Main menu for \"${2/(.)/\\1/g}\" -->\r\n<record id=\"menu_${2/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.ui.menu\" >\r\n    <field name=\"name\">${1/(.)/\\1/g}</field>\r\n    <field name=\"sequence\" eval=\"${8/(.)/\\1/g}\" />\r\n    <field name=\"action\" ref=\"action_${2/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_act_window\" />\r\n    <field name=\"parent_id\" ref=\"${6/(.)/\\1/g}\" />\r\n</record>\r\n",
+		"description": "Views: tree, form, search; act_window and menu",
+		"scope": "text.xml"
+	},
+	"view/inherit": {
+		"prefix": "view/inherit",
+		"body": "\n<!--\n\n${1:Human readable name}\n${1/./=/g}\n\nInherited Views\n\n- - - - - - - - - ${2/((..)|(.))/(?2:-\\ )(?3:-)/g}\n- Model·········: ${2:model}\n- Base Module···: ${3:module_name}\n- Mode··········: ${4:primary|extension}\n- View priority·: ${5:16}\n- - - - - - - - - ${2/((..)|(.))/(?2:-\\ )(?3:-)/g}\n\n-->\n\n<!-- ${4/(^.)/(?1:\\u$1)/g} Inherited .:Tree:. view for \"${2/(.)/\\1/g}\" -->\n<record id=\"view_${2/\\./\\_/g}_tree_inherited\" model=\"ir.ui.view\">\n    <field name=\"name\">view.${2/\\.+/\\./g}.tree inherited</field>\n    <field name=\"model\">${2/\\.+/\\./g}</field>\n    <!-- Please veryfiy, that the following inherited view really sticks to the naming convention. -->\n    <field name=\"inherit_id\" ref=\"${3:module_name}.view_${2/\\./\\_/g}_tree\" />\n    <field name=\"type\">tree</field>\n    <field name=\"mode\">${4:primary}</field>\n    <field name=\"priority\" eval=\"${5/(.)/\\1/g}\" />\n    <field name=\"active\" eval=\"True\" />\n    <field name=\"arch\" type=\"xml\">\n        <xpath expr=\"//field[@name='${0:name}']\" position=\"after\">\n            \n        </xpath>\n    </field>\n</record>\n\n<!-- ${4/(^.)/(?1:\\u$1)/g} Inherited .:Form:. view for \"${2/(.)/\\1/g}\" -->\n<record id=\"view_${2/\\./\\_/g}_form_inherited\" model=\"ir.ui.view\">\n    <field name=\"name\">view.${2/\\.+/\\./g}.form inherited</field>\n    <field name=\"model\">${2/\\.+/\\./g}</field>\n    <!-- Please veryfiy, that the following inherited view really sticks to the naming convention. -->\n    <field name=\"inherit_id\" ref=\"${3:module_name}.view_${2/\\./\\_/g}_form\" />\n    <field name=\"type\">form</field>\n    <field name=\"mode\">${4:primary}</field>\n    <field name=\"priority\" eval=\"${5/(.)/\\1/g}\" />\n    <field name=\"active\" eval=\"True\" />\n    <field name=\"arch\" type=\"xml\">\n        <!-- \n        <xpath expr=\"//field[@name='${0:name}']\" position=\"after\">\n            \n        </xpath>\n         -->\n    </field>\n</record>\n\n<!-- ${4/(^.)/(?1:\\u$1)/g} Inherited .:Search:. view for \"${2/(.)/\\1/g}\" -->\n<record id=\"view_${2/\\./\\_/g}_search_inherited\" model=\"ir.ui.view\">\n    <field name=\"name\">view.${2/\\.+/\\./g}.search inherited</field>\n    <field name=\"model\">${2/\\.+/\\./g}</field>\n    <!-- Please veryfiy, that the following inherited view really sticks to the naming convention. -->\n    <field name=\"inherit_id\" ref=\"${3:module_name}.view_${2/\\./\\_/g}_search\" />\n    <field name=\"type\">search</field>\n    <field name=\"mode\">${4:primary}</field>\n    <field name=\"priority\" eval=\"${5/(.)/\\1/g}\" />\n    <field name=\"active\" eval=\"True\" />\n    <field name=\"arch\" type=\"xml\">\n        <!-- \n        <xpath expr=\"//field[@name='${0:name}']\" position=\"after\">\n            \n        </xpath>\n        -->\n    </field>\n</record>\n",
+		"description": "Inherited Views: tree, form, search",
+		"scope": "text.xml"
+	},
+	"view/inherit1": {
+		"prefix": "view/inherit",
+		"body": "\n<!-- VIEWS: \"${1:Human readable name}\"\n\n    - Model·········: ${2:model}\n    - Base Addons···: ${3:base}    \n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->\n\n<!-- Tree view for \"${2/(.)/\\1/g}\" -->\n<record id=\"view_${2/\\./\\_/g}_tree\" model=\"ir.ui.view\">\n    <field name=\"name\">view.${2/\\.+/\\./g}.tree</field>\n    <field name=\"model\">${2/\\.+/\\./g}</field>\n    <field name=\"inherit_id\" ref=\"${3}.view_${2/\\./\\_/g}_tree\" />\n    <field name=\"arch\" type=\"xml\">\n        ${0}\n    </field>\n</record>\n\n<!-- Form view for \"${2/(.)/\\1/g}\" -->\n<record id=\"view_${2/\\./\\_/g}_form\" model=\"ir.ui.view\">\n    <field name=\"name\">view.${2/\\.+/\\./g}.form</field>\n    <field name=\"model\">${2/\\.+/\\./g}</field>\n     <field name=\"inherit_id\" ref=\"${3}.view_${2/\\./\\_/g}_form\" />\n    <field name=\"arch\" type=\"xml\">\n        ${0}\n    </field>\n</record>\n\n",
+		"description": "Inherited Views: tree, form",
+		"scope": "text.xml"
+	},
+	"chatter": {
+		"prefix": "chatter",
+		"body": "\n<div class=\"oe_chatter\">\n    <field name=\"message_follower_ids\" widget=\"mail_followers\" />\n    <field name=\"activity_ids\" widget=\"mail_activity\"/>\n    <field name=\"message_ids\" widget=\"mail_thread\" />\n</div>${0}\n",
+		"description": "Common XML to add a tracking area inside a form view",
+		"scope": "text.xml"
+	},
+	"statusbar": {
+		"prefix": "statusbar",
+		"body": "\n <field name=\"state\" widget=\"statusbar\" statusbar_visible=\"draft${0}\"/>\n",
+		"description": "Include module assets in backend views",
+		"scope": "text.xml"
+	},
+	"states1": {
+		"prefix": "states",
+		"body": "\n<button name=\"action_confirm\" string=\"确认\" type=\"object\" states=\"draft\" />\n<button name=\"action_draft\" string=\"设草稿\" type=\"object\" states=\"cancel\" />\n<button name=\"action_close\" string=\"关闭\" type=\"object\" states=\"confirmed\" />\n<button name=\"action_cancel\" string=\"取消\" type=\"object\" states=\"draft,close\" />\n<field name=\"state\" widget=\"statusbar\" />\n",
+		"description": "Adds state support",
+		"scope": "text.xml"
+	},
+	"time/relativetime": {
+		"prefix": "time/relativetime",
+		"body": "\n(DateTime.now() - relativedelta(${1:months=2})).strftime('${2:%Y-%m-%d}${3: }${4:%H:%M:%S}')${0}\n",
+		"description": "Fully formated time relative to now",
+		"scope": "text.xml"
+	},
+	"time/strftime": {
+		"prefix": "time/strftime",
+		"body": "\nstrftime('${1:%Y-%m-%d}${2: }${3:%H:%M:%S}')${0}\n",
+		"description": "Fully formated strftime",
+		"scope": "text.xml"
+	},
+	"record/filter": {
+		"prefix": "record/filter",
+		"body": "\n<!-- filter \"${1:Human readable name}\" for Model \"${2/(.)/\\1/g}\" -->\n<record id=\"filter_${2/(\\.)/\\_/g}_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.filters\">\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"model_id\">${2:model_name_whithout_module}</field>\n    <field name=\"user_id\" eval=\"${3:False}\"/>\n    <field name=\"domain\">${4:[]}</field>\n    <field name=\"context\">${5:{}}</field>\n    <field name=\"is_default\" eval=\"${6:False}\" />\n    <!-- <field name=\"action_id\" ref=\"\" /> -->\n</record>${0}\n",
+		"description": "Common ir.filters record definition",
+		"scope": "text.xml"
+	},
+	"record/menu": {
+		"prefix": "record/menu",
+		"body": "\n<record id=\"menu_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.ui.menu\" >\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"sequence\" eval=\"${2:10}\" />${4:\n    <field name=\"action\" ref=\"${3:action_name}\" />}${6:\n    <field name=\"parent_id\" ref=\"${5:base.menu_custom}\" />}\n</record>${0}\n",
+		"description": "Common ir.ui.menu record definition",
+		"scope": "text.xml"
+	},
+	"record/view": {
+		"prefix": "record/view",
+		"body": "\n<record id=\"view_${2/[^a-z]+/\\_/g}_${3}\" model=\"ir.ui.view\">\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"model\">${2:model.name}</field>\n    <field name=\"type\">${3:tree}</field>\n    <field name=\"mode\">${4:primary}</field>\n    <field name=\"priority\" eval=\"${5:16}\" />\n    <field name=\"active\" eval=\"${6:True}\" />${8:\n    <field name=\"inherit_id\" ref=\"${7:xml_id}\" />}\n    <field name=\"arch\" type=\"xml\">\n        ${0}\n    </field>\n</record>\n",
+		"description": "Common ir.ui.view record definition",
+		"scope": "text.xml"
+	},
+	"widget/ace": {
+		"prefix": "widget/ace",
+		"body": "\nwidget=\"${1:ace}\"\n",
+		"description": "widget ace editor",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"widget/boolean_button": {
+		"prefix": "widget/boolean_button",
+		"body": "\nwidget=\"${1:boolean_button}\"\n",
+		"description": "widget boolean_button",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"widget/image": {
+		"prefix": "widget/image",
+		"body": "\nwidget=\"${1:image}\"\n",
+		"description": "widget image",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"widget/many2many": {
+		"prefix": "widget/many2many",
+		"body": "\nwidget=\"${1:many2many}\"\n",
+		"description": "widget many2many",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"widget/many2many_binary": {
+		"prefix": "widget/many2many_binary",
+		"body": "\nwidget=\"${1:many2many_binary}\"\n",
+		"description": "widget many2many_binary",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"widget/many2many_checkboxes": {
+		"prefix": "widget/many2many_checkboxes",
+		"body": "\nwidget=\"${1:many2many_checkboxes}\"\n",
+		"description": "widget many2many_checkboxes",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"widget/many2many_kanban": {
+		"prefix": "widget/many2many_kanban",
+		"body": "\nwidget=\"${1:many2many_kanban}\"\n",
+		"description": "widget many2many_kanban",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"widget/many2many_tags": {
+		"prefix": "widget/many2many_tags",
+		"body": "\nwidget=\"${1:many2many_tags}\"\n",
+		"description": "widget many2many_tags",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"widget/percentpie": {
+		"prefix": "widget/percentpie",
+		"body": "\nwidget=\"${1:percentpie}\"\n",
+		"description": "widget percentpie",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"widget/image1": {
+		"prefix": "widget/image",
+		"body": "\nwidget=\"${1:image}\"\n",
+		"description": "widget image",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"widget/progressbar": {
+		"prefix": "widget/progressbar",
+		"body": "\nwidget=\"${1:progressbar}\"\n",
+		"description": "widget progressbar",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"widget/radio": {
+		"prefix": "widget/radio",
+		"body": "\nwidget=\"${1:radio}\"\n",
+		"description": "widget radio",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"widget/selection": {
+		"prefix": "widget/selection",
+		"body": "\nwidget=\"${1:selection}\"\n",
+		"description": "widget selection",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"widget/statinfo": {
+		"prefix": "widget/statinfo",
+		"body": "\nwidget=\"${1:statinfo}\"\n",
+		"description": "widget statinfo",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"widget/statusbar": {
+		"prefix": "widget/statusbar",
+		"body": "\nwidget=\"${1:statusbar}\"\n",
+		"description": "widget statusbar",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"widget/toggle_button": {
+		"prefix": "widget/toggle_button",
+		"body": "\nwidget=\"${1:toggle_button}\"\n",
+		"description": "widget toggle_button",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"file/__init__": {
+		"prefix": "file/__init__",
+		"body": "\n# -*- coding: utf-8 -*-\n###############################################################################\n#    License, author and contributors information in:                         #\n#    __manifest__.py file at the root folder of this module.                   #\n###############################################################################\n\nfrom . import ${1:models}${0}\n",
+		"description": "__init__ file",
+		"scope": "source.python"
+	},
+	"file/__manifest__": {
+		"prefix": "file/__manifest__",
+		"body": "\n# -*- coding: utf-8 -*-\n###############################################################################\n#\n#    jeffery CHEN fan<jeffery9@gmail.com>\n#\n#    Copyright (c) All rights reserved:\n#        (c) 2017  $TM_FULLNAME\n#\n#    This program is free software: you can redistribute it and/or modify\n#    it under the terms of the GNU Affero General Public License as\n#    published by the Free Software Foundation, either version 3 of the\n#    License, or (at your option) any later version.\n#\n#    This program is distributed in the hope that it will be useful,\n#    but WITHOUT ANY WARRANTY; without even the implied warranty of\n#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the\n#    GNU Affero General Public License for more details.\n#\n#    You should have received a copy of the GNU Affero General Public License\n#    along with this program.  If not, see http://www.gnu.org/licenses\n#    \n#    Odoo and OpenERP is trademark of Odoo S.A.\n#\n###############################################################################\n{\n    'name': '${1:Human readable name}',\n    'summary': '${2:${1}} Module Project',\n    'version': '1.0',\n\n    'description': \"\"\"\n${3:${1}} Module Project.\n==============================================\n\n${4}\n    \"\"\",\n\n    'author': '${5:$TM_FULLNAME}',\n    'maintainer': '${5}',\n    'contributors': ['${6:${5} <${5}@gmail.com>}'],\n\n    'website': 'http://www.gitlab.com/${7:${5}}',\n\n    'license': 'AGPL-3',\n    'category': 'Uncategorized',\n\n    'depends': [\n        'base'\n    ],\n    'external_dependencies': {\n        'python': [\n        ],\n    },\n    'data': [\n    ],\n    'demo': [\n    ],\n    'js': [\n    ],\n    'css': [\n    ],\n    'qweb': [\n    ],\n    'images': [\n    ],\n    'test': [\n    ],\n\n    'installable': True\n}${0}\n",
+		"description": "Odoo manifest file common structure",
+		"scope": "source.python"
+	},
+	"file/__manifest__1": {
+		"prefix": "file/__manifest__",
+		"body": "\n# -*- coding: utf-8 -*-\n###############################################################################\n#\n#    jeffery CHEN fan<jeffery9@gmail.com>\n#\n#    Copyright (c) All rights reserved:\n#        (c) 2017  $TM_FULLNAME\n#\n#    This program is free software: you can redistribute it and/or modify\n#    it under the terms of the GNU Affero General Public License as\n#    published by the Free Software Foundation, either version 3 of the\n#    License, or (at your option) any later version.\n#\n#    This program is distributed in the hope that it will be useful,\n#    but WITHOUT ANY WARRANTY; without even the implied warranty of\n#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the\n#    GNU Affero General Public License for more details.\n#\n#    You should have received a copy of the GNU Affero General Public License\n#    along with this program.  If not, see http://www.gnu.org/licenses\n#    \n#    Odoo and OpenERP is trademark of Odoo S.A.\n#\n###############################################################################\n{\n    'name': '${1:Human readable name}',\n    'summary': '${2:${1}} Module Project',\n    'version': '1.0',\n\n    'description': \"\"\"\n${3:${1}} Module Project.\n==============================================\n\n${4}\n    \"\"\",\n\n    'author': '${5:$TM_FULLNAME}',\n    'maintainer': '${5}',\n    'contributors': ['${6:${5} <${5}@gmail.com>}'],\n\n    'website': 'http://www.gitlab.com/${7:${5}}',\n\n    'license': 'AGPL-3',\n    'category': 'Uncategorized',\n\n    'depends': [\n        'base'\n    ],\n    'external_dependencies': {\n        'python': [\n        ],\n    },\n    'data': [\n    ],\n    'demo': [\n    ],\n    'js': [\n    ],\n    'css': [\n    ],\n    'qweb': [\n    ],\n    'images': [\n    ],\n    'test': [\n    ],\n\n    'installable': True\n}${0}\n",
+		"description": "Odoo manifest file common structure",
+		"scope": "source.python"
+	},
+	"file/__openerp__": {
+		"prefix": "file/__openerp__",
+		"body": "\n# -*- coding: utf-8 -*-\n###############################################################################\n#\n#    Odoo, Open Source Management Solution\n#\n#    Copyright (c) All rights reserved:\n#        (c) 2017  $TM_FULLNAME\n#\n#    This program is free software: you can redistribute it and/or modify\n#    it under the terms of the GNU Affero General Public License as\n#    published by the Free Software Foundation, either version 3 of the\n#    License, or (at your option) any later version.\n#\n#    This program is distributed in the hope that it will be useful,\n#    but WITHOUT ANY WARRANTY; without even the implied warranty of\n#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the\n#    GNU Affero General Public License for more details.\n#\n#    You should have received a copy of the GNU Affero General Public License\n#    along with this program.  If not, see http://www.gnu.org/licenses\n#    \n#    Odoo and OpenERP is trademark of Odoo S.A.\n#\n###############################################################################\n{\n    'name': '${1:Human readable name}',\n    'summary': '${2:${1}} Module Project',\n    'version': '1.0',\n\n    'description': \"\"\"\n${3:${1}} Module Project.\n==============================================\n\n${4}\n    \"\"\",\n\n    'author': '${5:$TM_FULLNAME}',\n    'maintainer': '${5}',\n    'contributors': ['${6:${5} <${5}@gmail.com>}'],\n\n    'website': 'http://www.gitlab.com/${7:${5}}',\n\n    'license': 'AGPL-3',\n    'category': 'Uncategorized',\n\n    'depends': [\n        'base'\n    ],\n    'external_dependencies': {\n        'python': [\n        ],\n    },\n    'data': [\n    ],\n    'demo': [\n    ],\n    'js': [\n    ],\n    'css': [\n    ],\n    'qweb': [\n    ],\n    'images': [\n    ],\n    'test': [\n    ],\n\n    'installable': True\n}${0}\n",
+		"description": "Odoo manifest file common structure",
+		"scope": "source.python"
+	}
+}
