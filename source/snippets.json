@@ -1,4 +1,3 @@
-{
 	"file/__init__": {
 		"prefix": "file/__init__",
 		"body": "\n# -*- coding: utf-8 -*-\n###############################################################################\n#    License, author and contributors information in:                         #\n#    __manifest__.py file at the root folder of this module.                   #\n###############################################################################\n\nfrom . import ${1:models}${0}\n",
@@ -463,85 +462,85 @@
 	},
 	"fields.Binary": {
 		"prefix": "fields.Binary",
-		"body": "\n${1:field_name} = fields.Binary(\n    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n)${0}\n",
+		"body": "\n${1:field_name} = fields.Binary(\n    string=u'${2:${1/((^.)|(_(.)))/${1:/capitaliz} ${2:/capitaliz}/g}}',\n)${0}\n",
 		"description": "",
 		"scope": "source.python"
 	},
 	"fields.Boolean": {
 		"prefix": "fields.Boolean",
-		"body": "\n${1:field_name} = fields.Boolean(\n    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n)${0}\n",
+		"body": "\n${1:field_name} = fields.Boolean(\n    string=u'${2:${1/((^.)|(_(.)))/${1:/capitaliz} ${2:/capitaliz}/g}}',\n)${0}\n",
 		"description": "",
 		"scope": "source.python"
 	},
 	"fields.Char": {
 		"prefix": "fields.Char",
-		"body": "\n${1:field_name} = fields.Char(\n    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n)${0}\n",
+		"body": "\n${1:field_name} = fields.Char(\n    string=u'${2:${1/((^.)|(_(.)))/${1:/capitaliz} ${2:/capitaliz}/g}}',\n)${0}\n",
 		"description": "",
 		"scope": "source.python"
 	},
 	"fields.Date": {
 		"prefix": "fields.Date",
-		"body": "\n${1:field_name} = fields.Date(\n    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n    default=${6:fields.Date.context_today},\n)${0}\n",
+		"body": "\n${1:field_name} = fields.Date(\n    string=u'${2:${1/((^.)|(_(.)))/${1:/capitaliz} ${2:/capitaliz}/g}}',\n    default=${6:fields.Date.context_today},\n)${0}\n",
 		"description": "",
 		"scope": "source.python"
 	},
 	"fields.Datetime": {
 		"prefix": "fields.Datetime",
-		"body": "\n${1:field_name} = fields.Datetime(\n    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n    default=${6:fields.Datetime.now},\n)${0}\n",
+		"body": "\n${1:field_name} = fields.Datetime(\n    string=u'${2:${1/((^.)|(_(.)))/${1:/capitaliz} ${2:/capitaliz}/g}}',\n    default=${6:fields.Datetime.now},\n)${0}\n",
 		"description": "",
 		"scope": "source.python"
 	},
 	"fields.Float": {
 		"prefix": "fields.Float",
-		"body": "\n${1:field_name} = fields.Float(\n    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n)${0}\n",
+		"body": "\n${1:field_name} = fields.Float(\n    string=u'${2:${1/((^.)|(_(.)))/${1:/capitaliz} ${2:/capitaliz}/g}}',\n)${0}\n",
 		"description": "",
 		"scope": "source.python"
 	},
 	"fields.Html": {
 		"prefix": "fields.Html",
-		"body": "\n${1:field_name} = fields.Html(\n    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n)${0}\n",
+		"body": "\n${1:field_name} = fields.Html(\n    string=u'${2:${1/((^.)|(_(.)))/${1:/capitaliz} ${2:/capitaliz}/g}}',\n)${0}\n",
 		"description": "",
 		"scope": "source.python"
 	},
 	"fields.Integer": {
 		"prefix": "fields.Integer",
-		"body": "\n${1:field_name} = fields.Integer(\n    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n)${0}\n",
+		"body": "\n${1:field_name} = fields.Integer(\n    string=u'${2:${1/((^.)|(_(.)))/${1:/capitaliz} ${2:/capitaliz}/g}}',\n)${0}\n",
 		"description": "",
 		"scope": "source.python"
 	},
 	"fields.Many2many": {
 		"prefix": "fields.Many2many",
-		"body": "\n${1:field_name}_ids = fields.Many2many(\n    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n    comodel_name='${8:model.name}',\n    relation='${10:${8/\\./_/g}_${9:this_model}_rel}',\n    column1='${11:${8/\\./_/g}_id}',\n    column2='${12:${9}_id}',\n)${0}\n",
+		"body": "\n${1:field_name}_ids = fields.Many2many(\n    string=u'${2:${1/((^.)|(_(.)))/${1:/capitaliz} ${2:/capitaliz}/g}}',\n    comodel_name='${8:model.name}',\n    relation='${10:${8/\\./_/g}_${9:this_model}_rel}',\n    column1='${11:${8/\\./_/g}_id}',\n    column2='${12:${9}_id}',\n)${0}\n",
 		"description": "",
 		"scope": "source.python"
 	},
 	"fields.Many2one": {
 		"prefix": "fields.Many2one",
-		"body": "\n${1:field_name}_id = fields.Many2one(\n    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n    comodel_name='${8:model.name}',\n    ondelete='${11:set null}',\n)${0}\n",
+		"body": "\n${1:field_name}_id = fields.Many2one(\n    string=u'${2:${1/((^.)|(_(.)))/${1:/capitaliz} ${2:/capitaliz}/g}}',\n    comodel_name='${8:model.name}',\n    ondelete='${11:set null}',\n)${0}\n",
 		"description": "",
 		"scope": "source.python"
 	},
 	"fields.One2many": {
 		"prefix": "fields.One2many",
-		"body": "\n${1:field_name}_ids = fields.One2many(\n    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n    comodel_name='${8:model.name}',\n    inverse_name='${9:inverse_field}',\n)${0}\n",
+		"body": "\n${1:field_name}_ids = fields.One2many(\n    string=u'${2:${1/((^.)|(_(.)))/${1:/capitaliz} ${2:/capitaliz}/g}}',\n    comodel_name='${8:model.name}',\n    inverse_name='${9:inverse_field}',\n)${0}\n",
 		"description": "",
 		"scope": "source.python"
 	},
 	"fields.Reference": {
 		"prefix": "fields.Reference",
-		"body": "\n${1:field_name}_ref = fields.Reference(\n    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n    selection=[('${8:model.name}', '${9:String}'),('${10:model.name}', '${11:String}')]\n)${0}\n",
+		"body": "\n${1:field_name}_ref = fields.Reference(\n    string=u'${2:${1/((^.)|(_(.)))/${1:/capitaliz} ${2:/capitaliz}/g}}',\n    selection=[('${8:model.name}', '${9:String}'),('${10:model.name}', '${11:String}')]\n)${0}\n",
 		"description": "",
 		"scope": "source.python"
 	},
 	"fields.Selection": {
 		"prefix": "fields.Selection",
-		"body": "\n${1:field_name} = fields.Selection(\n    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n    selection=[('${8:valor1}', '${9:${8/(.)(.+)/\\u$1$2/g}}'), ('${10:valor2}', '${11:${10/(.)(.+)/\\u$1$2/g}}')]\n)${0}\n",
+		"body": "\n${1:field_name} = fields.Selection(\n    string=u'${2:${1/((^.)|(_(.)))/${1:/capitaliz} ${2:/capitaliz}/g}}',\n    selection=[('${8:valor1}', '${9:${8/(.)(.+)/\\u$1$2/g}}'), ('${10:valor2}', '${11:${10/(.)(.+)/\\u$1$2/g}}')]\n)${0}\n",
 		"description": "",
 		"scope": "source.python"
 	},
 	"fields.Text": {
 		"prefix": "fields.Text",
-		"body": "\n${1:field_name} = fields.Text(\n    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n)${0}\n",
+		"body": "\n${1:field_name} = fields.Text(\n    string=u'${2:${1/((^.)|(_(.)))/${1:/capitaliz} ${2:/capitaliz}/g}}',\n)${0}\n",
 		"description": "",
 		"scope": "source.python"
 	},

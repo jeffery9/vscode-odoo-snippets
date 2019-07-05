@@ -6,7 +6,7 @@
             "",
             "",
             "class ${1:ModelName}(TransactionCase):",
-            "    \"\"\" ${2:This class contains the unit tests for '${1/((^[A-Z])|([A-Z]))/(?2:\\l$2)(?3:\\.\\l$3)/g}'.}",
+            "    \"\"\" ${2:This class contains the unit tests for '${1/((^[A-Z])|([A-Z]))/${2:/capitalize}${3:/downcase}/g}'.}",
             "",
             "        Tests:",
             "          - ${3}: Checks if the ${3} works properly",
@@ -413,18 +413,6 @@
     "constraints": {
         "body": [
             "",
-            "@api.constrains('${1}')",
-            "def _check_${1}(self):",
-            "    for record in self:",
-            "        ${0}",
-            ""
-        ],
-        "description": "Model Python contraints",
-        "prefix": "constraints"
-    },
-    "constraints1": {
-        "body": [
-            "",
             "_sql_constraints = [",
             "    (",
             "        '${1:name}',",
@@ -435,6 +423,18 @@
             ""
         ],
         "description": "Model SQL contraints",
+        "prefix": "constraints"
+    },
+    "constraints1": {
+        "body": [
+            "",
+            "@api.constrains('${1}')",
+            "def _check_${1}(self):",
+            "    for record in self:",
+            "        ${0}",
+            ""
+        ],
+        "description": "Model Python contraints",
         "prefix": "constraints"
     },
     "context": {
@@ -457,7 +457,7 @@
             "    \"\"\"",
             "",
             "    @route('/${3}', type='${5:http}', auth='${6:none}')",
-            "    def ${3/((^[A-Z])|([^a-zA-Z]))/(?2:\\l$2)(?3:\\_)/g}(self${7:, **kw}):",
+            "    def ${3/((^[A-Z])|([^a-zA-Z]))/${2:/capitalize}${3:_}/g}(self${7:, **kw}):",
             "",
             "        pass${0}",
             ""
@@ -474,7 +474,7 @@
             "\"\"\"",
             "",
             "@route('/${1}', type='${3:http}', auth='${4:none}')",
-            "def ${1/((^[A-Z])|([^a-zA-Z]))/(?2:\\l$2)(?3:\\_)/g}(self${5:, **kw}):",
+            "def ${1/((^[A-Z])|([^a-zA-Z]))/${2:/capitalize}${3:_}/g}(self${5:, **kw}):",
             "",
             "    pass${0}",
             ""
@@ -811,7 +811,7 @@
     "fields.Attachment": {
         "body": [
             "",
-            "${1:attachment} = fields.Binary(string=u'${3:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}', attachment=True)",
+            "${1:attachment} = fields.Binary(string=u'${3:${1/([a-z]+)([_])/${1:/capitalize} /g}}', attachment=True)",
             ""
         ],
         "description": "",
@@ -821,7 +821,7 @@
         "body": [
             "",
             "${1:field_name} = fields.Binary(",
-            "    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',",
+            "    string=u'${2:${1/([a-z]+)([_])/${1:/capitalize} /g}}',",
             ")${0}",
             ""
         ],
@@ -832,7 +832,7 @@
         "body": [
             "",
             "${1:field_name} = fields.Boolean(",
-            "    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',",
+            "    string=u'${2:${1/([a-z]+)([_])/${1:/capitalize} /g}}',",
             ")${0}",
             ""
         ],
@@ -843,7 +843,7 @@
         "body": [
             "",
             "${1:field_name} = fields.Char(",
-            "    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',",
+            "    string=u'${2:${1/([a-z]+)([_])/${1:/capitalize} /g}}',",
             ")${0}",
             ""
         ],
@@ -854,7 +854,7 @@
         "body": [
             "",
             "${1:field_name} = fields.Date(",
-            "    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',",
+            "    string=u'${2:${1/([a-z]+)([_])/${1:/capitalize} /g}}',",
             "    default=${6:fields.Date.context_today},",
             ")${0}",
             ""
@@ -866,7 +866,7 @@
         "body": [
             "",
             "${1:field_name} = fields.Datetime(",
-            "    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',",
+            "    string=u'${2:${1/([a-z]+)([_])/${1:/capitalize} /g}}',",
             "    default=${6:fields.Datetime.now},",
             ")${0}",
             ""
@@ -878,7 +878,7 @@
         "body": [
             "",
             "${1:field_name} = fields.Float(",
-            "    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',",
+            "    string=u'${2:${1/([a-z]+)([_])/${1:/capitalize} /g}}',",
             ")${0}",
             ""
         ],
@@ -889,7 +889,7 @@
         "body": [
             "",
             "${1:field_name} = fields.Html(",
-            "    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',",
+            "    string=u'${2:${1/([a-z]+)([_])/${1:/capitalize} /g}}',",
             ")${0}",
             ""
         ],
@@ -900,7 +900,7 @@
         "body": [
             "",
             "${1:field_name} = fields.Integer(",
-            "    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',",
+            "    string=u'${2:${1/([a-z]+)([_])/${1:/capitalize} /g}}',",
             ")${0}",
             ""
         ],
@@ -911,7 +911,7 @@
         "body": [
             "",
             "${1:field_name}_ids = fields.Many2many(",
-            "    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',",
+            "    string=u'${2:${1/([a-z]+)([_])/${1:/capitalize} /g}}',",
             "    comodel_name='${8:model.name}',",
             "    relation='${10:${8/\\./_/g}_${9:this_model}_rel}',",
             "    column1='${11:${8/\\./_/g}_id}',",
@@ -926,7 +926,7 @@
         "body": [
             "",
             "${1:field_name}_id = fields.Many2one(",
-            "    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',",
+            "    string=u'${2:${1/([a-z]+)([_])/${1:/capitalize} /g}}',",
             "    comodel_name='${8:model.name}',",
             "    ondelete='${11:set null}',",
             ")${0}",
@@ -939,7 +939,7 @@
         "body": [
             "",
             "${1:field_name}_ids = fields.One2many(",
-            "    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',",
+            "    string=u'${2:${1/([a-z]+)([_])/${1:/capitalize} /g}}',",
             "    comodel_name='${8:model.name}',",
             "    inverse_name='${9:inverse_field}',",
             ")${0}",
@@ -952,7 +952,7 @@
         "body": [
             "",
             "${1:field_name}_ref = fields.Reference(",
-            "    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',",
+            "    string=u'${2:${1/([a-z]+)([_])/${1:/capitalize} /g}}',",
             "    selection=[('${8:model.name}', '${9:String}'),('${10:model.name}', '${11:String}')]",
             ")${0}",
             ""
@@ -964,8 +964,8 @@
         "body": [
             "",
             "${1:field_name} = fields.Selection(",
-            "    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',",
-            "    selection=[('${8:valor1}', '${9:${8/(.)(.+)/\\u$1$2/g}}'), ('${10:valor2}', '${11:${10/(.)(.+)/\\u$1$2/g}}')]",
+            "    string=u'${2:${1/([a-z]+)([_])/${1:/capitalize} /g}}',",
+            "    selection=[('${8:valor1}', '${9:${8/(.)(.+)/${1:/capitalize}${2:/capitalize}/g}}'), ('${10:valor2}', '${11:${10/(.)(.+)/${1:/capitalize}${2:/capitalize}/g}}')]",
             ")${0}",
             ""
         ],
@@ -976,7 +976,7 @@
         "body": [
             "",
             "${1:field_name} = fields.Text(",
-            "    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',",
+            "    string=u'${2:${1/([a-z]+)([_])/${1:/capitalize} /g}}',",
             ")${0}",
             ""
         ],
@@ -1751,7 +1751,7 @@
         "body": [
             "",
             "class ${1:ModelName}(models.AbstractModel):",
-            "    _name = '${3:${1/((^[A-Z])|([A-Z]))/(?2:\\l$2)(?3:\\.\\l$3)/g}}'",
+            "    _name = '${3:${1/((^[A-Z])|([A-Z]))/${2:/capitalize}${3:/downcase}/g}}'",
             "",
             "    ${0}",
             ""
@@ -1763,7 +1763,7 @@
         "body": [
             "",
             "class ${1:ModelName}(models.Model):",
-            "    _inherit = '${3:${1/((^[A-Z])|([A-Z]))/(?2:\\l$2)(?3:\\.\\l$3)/g}}'",
+            "    _inherit = '${3:${1/((^[A-Z])|([A-Z]))/${2:/capitalize}${3:/downcase}/g}}'",
             "",
             "    ${0}",
             ""
@@ -1775,8 +1775,8 @@
         "body": [
             "",
             "class ${1:ModelName}(models.Model):",
-            "    _name = '${3:${1/((^[A-Z])|([A-Z]))/(?2:\\l$2)(?3:\\.\\l$3)/g}}'",
-            "    _description = u'${4:${1/((^[A-Z])|([A-Z]))/(?2:\\u$2)(?3:\\ \\u$3)/g}}'",
+            "    _name = '${3:${1/((^[A-Z])|([A-Z]))/${2:/capitalize}${3:/downcase}/g}}'",
+            "    _description = u'${4:${1/((^[A-Z])|([A-Z]))/${2:/capitalize}${3:/downcase}/g}}'",
             "",
             "    _rec_name = 'name'",
             "    _order = 'name ASC'",
@@ -1798,8 +1798,8 @@
         "body": [
             "",
             "class ${1:ModelName}(models.TransientModel):",
-            "    _name = '${3:${1/((^[A-Z])|([A-Z]))/(?2:\\l$2)(?3:\\.\\l$3)/g}}'",
-            "    _description = u'${4:${1/((^[A-Z])|([A-Z]))/(?2:\\u$2)(?3:\\ \\u$3)/g}}'",
+            "    _name = '${3:${1/((^[A-Z])|([A-Z]))/${2:/capitalize}${3:/downcase}/g}}'",
+            "    _description = u'${4:${1/((^[A-Z])|([A-Z]))/${2:/capitalize}${3:/downcase}/g}}'",
             "",
             "    ${0}",
             ""
@@ -1891,7 +1891,7 @@
     "selection_add": {
         "body": [
             "",
-            "selection_add=[('${1:draft}', ${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g})${0}]",
+            "selection_add=[('${1:draft}', ${1/([a-z]+)([_])/${1:/capitalize} /g})${0}]",
             ""
         ],
         "description": "Field attribute: selection_add ",
@@ -1900,7 +1900,7 @@
     "selection_element": {
         "body": [
             "",
-            "('${1:draft}', ${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g})${0}",
+            "('${1:draft}', ${1/([a-z]+)([_])/${1:/capitalize} /g})${0}",
             ""
         ],
         "description": "Field attribute: selection add new element ",
