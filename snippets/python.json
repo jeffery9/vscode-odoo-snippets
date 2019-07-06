@@ -6,7 +6,7 @@
             "",
             "",
             "class ${1:ModelName}(TransactionCase):",
-            "    \"\"\" ${2:This class contains the unit tests for '${1/((^[A-Z])|([A-Z]))/${2:/capitalize}${3:/downcase}/g}'.}",
+            "    \"\"\" ${2:This class contains the unit tests for '${1/(.+?)([A-Z])/${1:/downcase}.${2:/downcase}/g}'.}",
             "",
             "        Tests:",
             "          - ${3}: Checks if the ${3} works properly",
@@ -1751,7 +1751,7 @@
         "body": [
             "",
             "class ${1:ModelName}(models.AbstractModel):",
-            "    _name = '${3:${1/((^[A-Z])|([A-Z]))/${2:/capitalize}${3:/downcase}/g}}'",
+            "    _name = '${3:${1/(.+?)([A-Z])/${1:/downcase}.${2:/downcase}/g}}'",
             "",
             "    ${0}",
             ""
@@ -1763,7 +1763,7 @@
         "body": [
             "",
             "class ${1:ModelName}(models.Model):",
-            "    _inherit = '${3:${1/((^[A-Z])|([A-Z]))/${2:/capitalize}${3:/downcase}/g}}'",
+            "    _inherit = '${3:${1/(.+?)([A-Z])/${1:/downcase}.${2:/downcase}/g}}'",
             "",
             "    ${0}",
             ""
@@ -1775,8 +1775,8 @@
         "body": [
             "",
             "class ${1:ModelName}(models.Model):",
-            "    _name = '${3:${1/((^[A-Z])|([A-Z]))/${2:/capitalize}${3:/downcase}/g}}'",
-            "    _description = u'${4:${1/((^[A-Z])|([A-Z]))/${2:/capitalize}${3:/downcase}/g}}'",
+            "    _name = '${3:${1/(.+?)([A-Z])/${1:/downcase}.${2:/downcase}/g}}'",
+            "    _description = u'${4:${1/(.+?)([A-Z])/${1:/downcase} ${2:/downcase}/g}}'",
             "",
             "    _rec_name = 'name'",
             "    _order = 'name ASC'",
@@ -1798,8 +1798,8 @@
         "body": [
             "",
             "class ${1:ModelName}(models.TransientModel):",
-            "    _name = '${3:${1/((^[A-Z])|([A-Z]))/${2:/capitalize}${3:/downcase}/g}}'",
-            "    _description = u'${4:${1/((^[A-Z])|([A-Z]))/${2:/capitalize}${3:/downcase}/g}}'",
+            "    _name = '${3:${1/(.+?)([A-Z])/${1:/downcase}.${2:/downcase}/g}}'",
+            "    _description = u'${4:${1/(.+?)([A-Z])/${1:/downcase} ${2:/downcase}/g}}'",
             "",
             "    ${0}",
             ""
