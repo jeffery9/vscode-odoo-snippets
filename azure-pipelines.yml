@@ -17,5 +17,6 @@ steps:
 
 - script: |
     npm install -g vsce
+    vsce login jeffery9
     vsce publish
   displayName: 'publish to vscode market'
