@@ -6,7 +6,7 @@
             "",
             "",
             "class ${1:ModelName}(TransactionCase):",
-            "    \"\"\" ${2:This class contains the unit tests for '${1/(.+?)([A-Z])/${1:/downcase}.${2:/downcase}/g}'.}",
+            "    \"\"\" ${2:This class contains the unit tests for '${1/((^[A-Z])|([A-Z]))/(?2:\\l$2)(?3:\\.\\l$3)/g}'.}",
             "",
             "        Tests:",
             "          - ${3}: Checks if the ${3} works properly",
@@ -417,7 +417,7 @@
             "    (",
             "        '${1:name}',",
             "        '${2:constraint}',",
-            "        _(u'${3:message}')",
+            "        _('${3:message}')",
             "    )${4}",
             "]${0}",
             ""
@@ -457,7 +457,7 @@
             "    \"\"\"",
             "",
             "    @route('/${3}', type='${5:http}', auth='${6:none}')",
-            "    def ${3/((^[A-Z])|([^a-zA-Z]))/${2:/capitalize}${3:_}/g}(self${7:, **kw}):",
+            "    def ${3/((^[A-Z])|([^a-zA-Z]))/(?2:\\l$2)(?3:\\_)/g}(self${7:, **kw}):",
             "",
             "        pass${0}",
             ""
@@ -474,7 +474,7 @@
             "\"\"\"",
             "",
             "@route('/${1}', type='${3:http}', auth='${4:none}')",
-            "def ${1/((^[A-Z])|([^a-zA-Z]))/${2:/capitalize}${3:_}/g}(self${5:, **kw}):",
+            "def ${1/((^[A-Z])|([^a-zA-Z]))/(?2:\\l$2)(?3:\\_)/g}(self${5:, **kw}):",
             "",
             "    pass${0}",
             ""
@@ -675,16 +675,16 @@
     "feature/company_plant": {
         "body": [
             "",
-            "factory_id = fields.Many2one(",
-            "    string=u'\u5de5\u5382',",
+            "plant_id = fields.Many2one(",
+            "    string='Plant',",
             "    comodel_name='res.company',",
             "    required=True,",
             "    default=lambda self: self.env.user.company_id,",
-            "    domain=lambda self: [('is_factory','=',True), ('id','in',self.env.user.company_ids.ids)],",
+            "    domain=lambda self: [('is_plant','=',True), ('id','in',self.env.user.company_ids.ids)],",
             ")",
             "",
             "company_id = fields.Many2one(",
-            "    string=u'Company',",
+            "    string='Company',",
             "    comodel_name='res.company',",
             "    ondelete='set null',",
             "    related='factory_id.parent_id',",
@@ -753,11 +753,11 @@
         "description": "Adds the _parent_store attribute and parent_left and parent_right",
         "prefix": "feature/parent_child"
     },
-    "feature/state": {
+    "feature/status": {
         "body": [
             "",
             "state = fields.Selection(",
-            "    string=u'State',",
+            "    string='State',",
             "    selection=[('draft', 'Draft'), ('confirmed', 'Confirmed'),  ('close', 'Close'),  ('cancel', 'Cancel')],",
             "    default='draft',",
             "    readonly=True,",
@@ -783,7 +783,7 @@
             ""
         ],
         "description": "Adds state support",
-        "prefix": "feature/state"
+        "prefix": "feature/status"
     },
     "feature/utm": {
         "body": [
@@ -798,7 +798,7 @@
         "body": [
             "",
             "company_id = fields.Many2one(",
-            "    string=u'Company', ",
+            "    string='Company', ",
             "    comodel_name='res.company', ",
             "    required=True, ",
             "    default=lambda self: self.env.user.company_id",
@@ -811,7 +811,7 @@
     "fields.Attachment": {
         "body": [
             "",
-            "${1:attachment} = fields.Binary(string=u'${3:${1/([a-z]+)([_])/${1:/capitalize} /g}}', attachment=True)",
+            "${1:attachment} = fields.Binary(string='${3:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}', attachment=True)",
             ""
         ],
         "description": "",
@@ -821,7 +821,7 @@
         "body": [
             "",
             "${1:field_name} = fields.Binary(",
-            "    string=u'${2:${1/([a-z]+)([_])/${1:/capitalize} /g}}',",
+            "    string='${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',",
             ")${0}",
             ""
         ],
@@ -832,7 +832,7 @@
         "body": [
             "",
             "${1:field_name} = fields.Boolean(",
-            "    string=u'${2:${1/([a-z]+)([_])/${1:/capitalize} /g}}',",
+            "    string='${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',",
             ")${0}",
             ""
         ],
@@ -843,7 +843,7 @@
         "body": [
             "",
             "${1:field_name} = fields.Char(",
-            "    string=u'${2:${1/([a-z]+)([_])/${1:/capitalize} /g}}',",
+            "    string='${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',",
             ")${0}",
             ""
         ],
@@ -854,7 +854,7 @@
         "body": [
             "",
             "${1:field_name} = fields.Date(",
-            "    string=u'${2:${1/([a-z]+)([_])/${1:/capitalize} /g}}',",
+            "    string='${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',",
             "    default=${6:fields.Date.context_today},",
             ")${0}",
             ""
@@ -866,7 +866,7 @@
         "body": [
             "",
             "${1:field_name} = fields.Datetime(",
-            "    string=u'${2:${1/([a-z]+)([_])/${1:/capitalize} /g}}',",
+            "    string='${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',",
             "    default=${6:fields.Datetime.now},",
             ")${0}",
             ""
@@ -878,7 +878,7 @@
         "body": [
             "",
             "${1:field_name} = fields.Float(",
-            "    string=u'${2:${1/([a-z]+)([_])/${1:/capitalize} /g}}',",
+            "    string='${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',",
             ")${0}",
             ""
         ],
@@ -889,7 +889,7 @@
         "body": [
             "",
             "${1:field_name} = fields.Html(",
-            "    string=u'${2:${1/([a-z]+)([_])/${1:/capitalize} /g}}',",
+            "    string='${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',",
             ")${0}",
             ""
         ],
@@ -900,7 +900,7 @@
         "body": [
             "",
             "${1:field_name} = fields.Integer(",
-            "    string=u'${2:${1/([a-z]+)([_])/${1:/capitalize} /g}}',",
+            "    string='${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',",
             ")${0}",
             ""
         ],
@@ -911,7 +911,7 @@
         "body": [
             "",
             "${1:field_name}_ids = fields.Many2many(",
-            "    string=u'${2:${1/([a-z]+)([_])/${1:/capitalize} /g}}',",
+            "    string='${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',",
             "    comodel_name='${8:model.name}',",
             "    relation='${10:${8/\\./_/g}_${9:this_model}_rel}',",
             "    column1='${11:${8/\\./_/g}_id}',",
@@ -926,9 +926,9 @@
         "body": [
             "",
             "${1:field_name}_id = fields.Many2one(",
-            "    string=u'${2:${1/([a-z]+)([_])/${1:/capitalize} /g}}',",
+            "    string='${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',",
             "    comodel_name='${8:model.name}',",
-            "    ondelete='${11:set null}',",
+            "    ondelete='${11:restrict}',",
             ")${0}",
             ""
         ],
@@ -939,7 +939,7 @@
         "body": [
             "",
             "${1:field_name}_ids = fields.One2many(",
-            "    string=u'${2:${1/([a-z]+)([_])/${1:/capitalize} /g}}',",
+            "    string='${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',",
             "    comodel_name='${8:model.name}',",
             "    inverse_name='${9:inverse_field}',",
             ")${0}",
@@ -952,7 +952,7 @@
         "body": [
             "",
             "${1:field_name}_ref = fields.Reference(",
-            "    string=u'${2:${1/([a-z]+)([_])/${1:/capitalize} /g}}',",
+            "    string='${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',",
             "    selection=[('${8:model.name}', '${9:String}'),('${10:model.name}', '${11:String}')]",
             ")${0}",
             ""
@@ -964,8 +964,8 @@
         "body": [
             "",
             "${1:field_name} = fields.Selection(",
-            "    string=u'${2:${1/([a-z]+)([_])/${1:/capitalize} /g}}',",
-            "    selection=[('${8:valor1}', '${9:${8/(.)(.+)/${1:/capitalize}${2:/capitalize}/g}}'), ('${10:valor2}', '${11:${10/(.)(.+)/${1:/capitalize}${2:/capitalize}/g}}')]",
+            "    string='${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',",
+            "    selection=[('${8:valor1}', '${9:${8/(.)(.+)/\\u$1$2/g}}'), ('${10:valor2}', '${11:${10/(.)(.+)/\\u$1$2/g}}')]",
             ")${0}",
             ""
         ],
@@ -976,7 +976,7 @@
         "body": [
             "",
             "${1:field_name} = fields.Text(",
-            "    string=u'${2:${1/([a-z]+)([_])/${1:/capitalize} /g}}',",
+            "    string='${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',",
             ")${0}",
             ""
         ],
@@ -1653,7 +1653,7 @@
             "def toggle_active(self):",
             "    return {'warning': {",
             "                    'title': _(\"Warning\"),",
-            "                    'message': _(u\"\u4e0d\u5141\u8bb8\u5bf9\u6b64\u6a21\u578b\u7684\u8bb0\u5f55\u8fdb\u884c\u201c\u5f52\u6863\u201d\u64cd\u4f5c\uff01\") ,",
+            "                    'message': _(u\"It is not allowed to \"archive\" records of this model!\") ,",
             "    }}",
             "${0}",
             ""
@@ -1691,7 +1691,7 @@
             "    for record in self:",
             "        if record.state not in ('draft'):",
             "            raise UserError(",
-            "                u'\u4e0d\u53ef\u4ee5\u5220\u9664\u975e\u8349\u7a3f\u72b6\u6001\u7684\u5355\u636e!'",
+            "                'You cannot delete a document which is not draft or cancelled!'",
             "            )",
             "    return super(ModelClass, self).unlink()",
             ""
@@ -1751,7 +1751,7 @@
         "body": [
             "",
             "class ${1:ModelName}(models.AbstractModel):",
-            "    _name = '${3:${1/(.+?)([A-Z])/${1:/downcase}.${2:/downcase}/g}}'",
+            "    _name = '${3:${1/((^[A-Z])|([A-Z]))/(?2:\\l$2)(?3:\\.\\l$3)/g}}'",
             "",
             "    ${0}",
             ""
@@ -1763,7 +1763,7 @@
         "body": [
             "",
             "class ${1:ModelName}(models.Model):",
-            "    _inherit = '${3:${1/(.+?)([A-Z])/${1:/downcase}.${2:/downcase}/g}}'",
+            "    _inherit = '${3:${1/((^[A-Z])|([A-Z]))/(?2:\\l$2)(?3:\\.\\l$3)/g}}'",
             "",
             "    ${0}",
             ""
@@ -1775,14 +1775,14 @@
         "body": [
             "",
             "class ${1:ModelName}(models.Model):",
-            "    _name = '${3:${1/(.+?)([A-Z])/${1:/downcase}.${2:/downcase}/g}}'",
-            "    _description = u'${4:${1/(.+?)([A-Z])/${1:/downcase} ${2:/downcase}/g}}'",
+            "    _name = '${3:${1/((^[A-Z])|([A-Z]))/(?2:\\l$2)(?3:\\.\\l$3)/g}}'",
+            "    _description = '${4:${1/((^[A-Z])|([A-Z]))/(?2:\\u$2)(?3:\\ \\u$3)/g}}'",
             "",
             "    _rec_name = 'name'",
             "    _order = 'name ASC'",
             "",
             "    name = fields.Char(",
-            "        string=u'Name',",
+            "        string='Name',",
             "        required=True,",
             "        default=lambda self: _('New'),",
             "        copy=False",
@@ -1798,8 +1798,8 @@
         "body": [
             "",
             "class ${1:ModelName}(models.TransientModel):",
-            "    _name = '${3:${1/(.+?)([A-Z])/${1:/downcase}.${2:/downcase}/g}}'",
-            "    _description = u'${4:${1/(.+?)([A-Z])/${1:/downcase} ${2:/downcase}/g}}'",
+            "    _name = '${3:${1/((^[A-Z])|([A-Z]))/(?2:\\l$2)(?3:\\.\\l$3)/g}}'",
+            "    _description = '${4:${1/((^[A-Z])|([A-Z]))/(?2:\\u$2)(?3:\\ \\u$3)/g}}'",
             "",
             "    ${0}",
             ""
@@ -1815,6 +1815,36 @@
         ],
         "description": "Field attribute: ondelete",
         "prefix": "ondelete"
+    },
+    "oodict/stock_move/~12": {
+        "body": [
+            "",
+            "{",
+            "    'name': self.name,",
+            "    'product_id': self.product_id.id,",
+            "    'product_uom': self.product_uom.id or",
+            "    self.product_id.uom_id.id,",
+            "    'product_uom_qty': self.product_qty,",
+            "    'partner_id': self.partner_id and",
+            "    self.partner_id.id or False,",
+            "    'location_id': self.location_dest_id.id,",
+            "    'location_dest_id': self.location_dest_id.id,",
+            "    'move_line_ids': [(0, 0, {",
+            "        'product_id': self.product_id.id,",
+            "        'lot_id': self.lot_id.id,",
+            "        'product_uom_qty': self.product_qty,",
+            "        'product_uom_id': self.product_uom.id or",
+            "        self.product_id.uom_id.id,",
+            "        'qty_done': self.product_qty,",
+            "        'package_id': False,",
+            "        'result_package_id': False,",
+            "        'location_id': self.location_dest_id.id,",
+            "        'location_dest_id': self.location_dest_id.id})]}",
+            "${0}",
+            ""
+        ],
+        "description": "",
+        "prefix": "oodict/stock_move/~12"
     },
     "readonly": {
         "body": [
@@ -1891,7 +1921,7 @@
     "selection_add": {
         "body": [
             "",
-            "selection_add=[('${1:draft}', ${1/([a-z]+)([_])/${1:/capitalize} /g})${0}]",
+            "selection_add=[('${1:draft}', ${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g})${0}]",
             ""
         ],
         "description": "Field attribute: selection_add ",
@@ -1900,7 +1930,7 @@
     "selection_element": {
         "body": [
             "",
-            "('${1:draft}', ${1/([a-z]+)([_])/${1:/capitalize} /g})${0}",
+            "('${1:draft}', ${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g})${0}",
             ""
         ],
         "description": "Field attribute: selection add new element ",
@@ -1909,7 +1939,7 @@
     "sequence/line_number": {
         "body": [
             "",
-            "line_number = fields.Integer(string=u'\u884c\u53f7', default=10)",
+            "line_number = fields.Integer(string='Line Number', default=10)",
             "",
             "@api.model",
             "def default_get(self, fields):",
@@ -2029,7 +2059,7 @@
     "super": {
         "body": [
             "",
-            "super(${1:Extension}, self).${2:handler}(${3})",
+            "super(${1:ModelClass}, self).${2:handler}(${3})",
             ""
         ],
         "description": "Call Python parent class",

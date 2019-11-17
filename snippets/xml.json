@@ -1,25 +1,25 @@
 {
-    "action_binding": {
+    "action/binding": {
         "body": [
             "",
             "<field name=\"binding_model_id\" ref=\"${1:module.model_model_name}\" />",
             ""
         ],
         "description": "Fully formated time relative to now",
-        "prefix": "action_binding"
+        "prefix": "action/binding"
     },
     "arch/form": {
         "body": [
-            "\r",
-            "<form string=\"${1:Caption}\" create=\"${2:true}\" delete=\"${3:true}\" edit=\"${4:true}\">\r",
-            "    <sheet>\r",
-            "        <div class=\"oe_title\">\r",
-            "            <label for=\"${5:name}\" class=\"oe_edit_only\" />\r",
-            "            <h1><field name=\"${5}\" placeholder=\"${7:Describe the item...}\" /></h1>\r",
-            "        </div>\r",
-            "        ${0}\r",
-            "    </sheet>\r",
-            "</form>\r",
+            "",
+            "<form string=\"${1:Caption}\" create=\"${2:true}\" delete=\"${3:true}\" edit=\"${4:true}\">",
+            "    <sheet>",
+            "        <div class=\"oe_title\">",
+            "            <label for=\"${5:name}\" class=\"oe_edit_only\" />",
+            "            <h1><field name=\"${5}\" placeholder=\"${7:Describe the item...}\" /></h1>",
+            "        </div>",
+            "        ${0}",
+            "    </sheet>",
+            "</form>",
             ""
         ],
         "description": "Common form tag to be added inside a ir.ui.view",
@@ -76,7 +76,106 @@
     "attribute": {
         "body": [
             "",
-            "<attribute name=\"${1:field_name}\">${2:value}</attribute>${0}",
+            "<attribute name=\"${1:ATTRIBUTE_NAME}\">${2:ATTRIBUTE_VALUE}</attribute>${0}",
+            ""
+        ],
+        "description": "",
+        "prefix": "attribute"
+    },
+    "attribute/domain": {
+        "body": [
+            "",
+            "<attribute name=\"domain\">[(${1:FIELD},${2:OP},${3:VALUE})]</attribute>${0}",
+            ""
+        ],
+        "description": "",
+        "prefix": "attribute/domain"
+    },
+    "attribute/domain1": {
+        "body": [
+            "",
+            "<attribute name=\"domain\">[(${1:FIELD},${2:OP},${3:VALUE})]</attribute>${0}",
+            ""
+        ],
+        "description": "",
+        "prefix": "attribute/domain"
+    },
+    "attribute/invisible": {
+        "body": [
+            "",
+            "<attribute name=\"invisible\">${1:True}</attribute>${0}",
+            ""
+        ],
+        "description": "",
+        "prefix": "attribute/invisible"
+    },
+    "attribute/invisible1": {
+        "body": [
+            "",
+            "<attribute name=\"invisible\">${1:True}</attribute>${0}",
+            ""
+        ],
+        "description": "",
+        "prefix": "attribute/invisible"
+    },
+    "attribute/options": {
+        "body": [
+            "",
+            "<attribute name=\"options\">{${1:KEY}:${2:VALUE}}</attribute>${0}",
+            ""
+        ],
+        "description": "",
+        "prefix": "attribute/options"
+    },
+    "attribute/options1": {
+        "body": [
+            "",
+            "<attribute name=\"options\">{${1:KEY}:${2:VALUE}}</attribute>${0}",
+            ""
+        ],
+        "description": "",
+        "prefix": "attribute/options"
+    },
+    "attribute/readonly": {
+        "body": [
+            "",
+            "<attribute name=\"readonly\">${1:True}</attribute>${0}",
+            ""
+        ],
+        "description": "",
+        "prefix": "attribute/readonly"
+    },
+    "attribute/readonly1": {
+        "body": [
+            "",
+            "<attribute name=\"readonly\">${1:True}</attribute>${0}",
+            ""
+        ],
+        "description": "",
+        "prefix": "attribute/readonly"
+    },
+    "attribute/required": {
+        "body": [
+            "",
+            "<attribute name=\"required\">${1:True}</attribute>${0}",
+            ""
+        ],
+        "description": "",
+        "prefix": "attribute/required"
+    },
+    "attribute/required1": {
+        "body": [
+            "",
+            "<attribute name=\"required\">${1:True}</attribute>${0}",
+            ""
+        ],
+        "description": "",
+        "prefix": "attribute/required"
+    },
+    "attribute1": {
+        "body": [
+            "",
+            "<attribute name=\"${1:ATTRIBUTE_NAME}\">${2:ATTRIBUTE_VALUE}</attribute>${0}",
             ""
         ],
         "description": "",
@@ -160,20 +259,6 @@
         ],
         "description": "Inline button tag definition",
         "prefix": "button/inline"
-    },
-    "button/smart": {
-        "body": [
-            "",
-            "<div class=\"oe_button_box\" name=\"button_box\">",
-            "    <button class=\"oe_stat_button\" name=\"${1:action_name}\" type=\"object\" icon=\"fa-${4:search}\">",
-            "        <field string=\"${2:string}\" name=\"${3:count_name}\" widget=\"statinfo\" />",
-            "    </button>",
-            "${0}",
-            "</div>",
-            ""
-        ],
-        "description": "smart button definition",
-        "prefix": "button/smart"
     },
     "chatter": {
         "body": [
@@ -323,6 +408,42 @@
         "description": "tag attr edit",
         "prefix": "edit"
     },
+    "extid/group_no_one": {
+        "body": [
+            "",
+            "base.group_no_one${0}",
+            ""
+        ],
+        "description": "",
+        "prefix": "extid/group_no_one"
+    },
+    "extid/group_system": {
+        "body": [
+            "",
+            "base.group_system${0}",
+            ""
+        ],
+        "description": "",
+        "prefix": "extid/group_system"
+    },
+    "field/boolean": {
+        "body": [
+            "",
+            "<field name=\"${1:name}\" eval=\"${2:True}\" />${0}",
+            ""
+        ],
+        "description": "Common XML tag for field type Boolean",
+        "prefix": "field/boolean"
+    },
+    "field/char": {
+        "body": [
+            "",
+            "<field name=\"${1:name}\">${2:value}</field>${0}",
+            ""
+        ],
+        "description": "Common XML tag for field type Char",
+        "prefix": "field/char"
+    },
     "field/compound": {
         "body": [
             "",
@@ -336,22 +457,49 @@
         "description": "Compound field",
         "prefix": "field/compound"
     },
+    "field/date": {
+        "body": [
+            "",
+            "<field name=\"${1:name}\" eval=\"${3:time.strftime('${2:%Y-%m-%d}')}\" />${0}",
+            ""
+        ],
+        "description": "Common XML tag for field type Date",
+        "prefix": "field/date"
+    },
+    "field/datetime": {
+        "body": [
+            "",
+            "<field name=\"${1:name}\" eval=\"${3:time.strftime('${2:%Y-%m-%d %H:%M:%S}')}\" />${0}",
+            ""
+        ],
+        "description": "Common XML tag for field type Datetime",
+        "prefix": "field/datetime"
+    },
+    "field/float": {
+        "body": [
+            "",
+            "<field name=\"${1:name}\" eval=\"${2:0.0}\" />${0}",
+            ""
+        ],
+        "description": "Common XML tag for field type Float",
+        "prefix": "field/float"
+    },
     "field/full": {
         "body": [
             "",
             "<field",
             "    name=\"${1:name}\"",
-            "    string=\"${2:${1/([a-z]+)([_])/${1:/capitalize} /g}}\"",
+            "    string=\"${2:${1/((^.)|(_+))/(?2:\\u$2)(?3:\\ )/g}}\"",
             "    nolabel=\"${3:0}\"",
             "    required=\"${4:True}\"",
             "    readonly=\"${5:True}\"",
             "    invisible=\"${6:True}\"",
             "    widget=\"${7:char}\"",
-            "    class=\"${8:oe_field_${1/([^a-zA-Z-_0-9]+)/_/g}}\"",
-            "    placeholder=\"${9:${1/([a-z]+)([_])/${1:/capitalize} /g}}\"",
-            "    help=\"${10:Enter new value for ${1/([a-z]+)([_])/${1:/capitalize} /g}}\"",
+            "    class=\"${8:oe_field_${1/([^a-zA-Z\\-\\_0-9]+)/\\_/g}}\"",
+            "    placeholder=\"${9:${1/((^.)|(_+))/(?2:\\u$2)(?3:\\ )/g}}\"",
+            "    help=\"${10:Enter new value for ${1/((^.)|(_+))/(?2:\\u$2)(?3:\\ )/g}}\"",
             "    mode=\"${11:tree}\"",
-            "    filename=\"${12:${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/${2:/downcase}${3:_})/g}}\"",
+            "    filename=\"${12:${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}}\"",
             "    password=\"${13:0}\"",
             "    domain=\"${14:[]}\"",
             "    context=\"${15:\\{\\}}\" />${0}",
@@ -360,71 +508,7 @@
         "description": "Full field tag",
         "prefix": "field/full"
     },
-    "field/inline": {
-        "body": [
-            "",
-            "<field name=\"${1:name}\" class=\"${2:oe_inline}\"${4:",
-            "    placeholder=\"${3:Enter new value for ${1/([a-z]+)([_])/${1:/capitalize} /g}}\"} />${0}",
-            ""
-        ],
-        "description": "Inline field tag",
-        "prefix": "field/inline"
-    },
-    "field/simple": {
-        "body": [
-            "",
-            "<field name=\"${1:name}\" />${0}",
-            ""
-        ],
-        "description": "Simple field tag",
-        "prefix": "field/simple"
-    },
-    "fields.Boolean1": {
-        "body": [
-            "",
-            "<field name=\"${1:name}\" eval=\"${2:True}\" />${0}",
-            ""
-        ],
-        "description": "Common XML tag for field type Boolean",
-        "prefix": "fields.Boolean"
-    },
-    "fields.Char1": {
-        "body": [
-            "",
-            "<field name=\"${1:name}\">${2:value}</field>${0}",
-            ""
-        ],
-        "description": "Common XML tag for field type Char",
-        "prefix": "fields.Char"
-    },
-    "fields.Date1": {
-        "body": [
-            "",
-            "<field name=\"${1:name}\" eval=\"${3:time.strftime('${2:%Y-%m-%d}')}\" />${0}",
-            ""
-        ],
-        "description": "Common XML tag for field type Date",
-        "prefix": "fields.Date"
-    },
-    "fields.Datetime1": {
-        "body": [
-            "",
-            "<field name=\"${1:name}\" eval=\"${3:time.strftime('${2:%Y-%m-%d %H:%M:%S}')}\" />${0}",
-            ""
-        ],
-        "description": "Common XML tag for field type Datetime",
-        "prefix": "fields.Datetime"
-    },
-    "fields.Float1": {
-        "body": [
-            "",
-            "<field name=\"${1:name}\" eval=\"${2:0.0}\" />${0}",
-            ""
-        ],
-        "description": "Common XML tag for field type Float",
-        "prefix": "fields.Float"
-    },
-    "fields.Html1": {
+    "field/html": {
         "body": [
             "",
             "<field name=\"${1:name}\"><![CDATA[",
@@ -433,54 +517,73 @@
             ""
         ],
         "description": "Common XML tag for field type Html",
-        "prefix": "fields.Html"
+        "prefix": "field/html"
     },
-    "fields.Integer1": {
+    "field/inline": {
+        "body": [
+            "",
+            "<field name=\"${1:name}\" class=\"${2:oe_inline}\"${4:",
+            "    placeholder=\"${3:Enter new value for ${1/((^.)|(_+))/(?2:\\u$2)(?3:\\ )/g}}\"} />${0}",
+            ""
+        ],
+        "description": "Inline field tag",
+        "prefix": "field/inline"
+    },
+    "field/integer": {
         "body": [
             "",
             "<field name=\"${1:name}\" eval=\"${2:0}\" />${0}",
             ""
         ],
         "description": "Common XML tag for field type Integer",
-        "prefix": "fields.Integer"
+        "prefix": "field/integer"
     },
-    "fields.Many2many1": {
+    "field/many2many": {
         "body": [
             "",
             "<field name=\"${1:name}\" eval=\"${3:[(4, ref('${2:ir.model}'))]}\" />${0}",
             ""
         ],
         "description": "Common XML tag for field type Many2many",
-        "prefix": "fields.Many2many"
+        "prefix": "field/many2many"
     },
-    "fields.Many2one1": {
+    "field/many2one": {
         "body": [
             "",
             "<field name=\"${1:name}\" ref=\"${2:ir.model}\" />${0}",
             ""
         ],
         "description": "Common XML tag for field type Many2one",
-        "prefix": "fields.Many2one"
+        "prefix": "field/many2one"
     },
-    "fields.One2many1": {
+    "field/one2many": {
         "body": [
             "",
             "<field name=\"${1:name}\" eval=\"${3:[(4, ref('${2:ir.model}'))]}\" />${0}",
             ""
         ],
         "description": "Common XML tag for field type One2many",
-        "prefix": "fields.One2many"
+        "prefix": "field/one2many"
     },
-    "fields.Selection1": {
+    "field/selection": {
         "body": [
             "",
             "<field name=\"${1:name}\">${2:value}</field>${0}",
             ""
         ],
         "description": "Common XML tag for field type Selection",
-        "prefix": "fields.Selection"
+        "prefix": "field/selection"
     },
-    "fields.Text1": {
+    "field/simple": {
+        "body": [
+            "",
+            "<field name=\"${1:field_name}\" />${0}",
+            ""
+        ],
+        "description": "Simple field tag",
+        "prefix": "field/simple"
+    },
+    "field/text": {
         "body": [
             "",
             "<field name=\"${1:name}\"><![CDATA[",
@@ -489,7 +592,97 @@
             ""
         ],
         "description": "Common XML tag for field type Text",
-        "prefix": "fields.Text"
+        "prefix": "field/text"
+    },
+    "field_group_ids/display_incoterm": {
+        "body": [
+            "",
+            "<field name=\"groups_id\" eval=\"[(4, ref('sale_stock.group_display_incoterm'))]\"/>${0}",
+            ""
+        ],
+        "description": "",
+        "prefix": "field_group_ids/display_incoterm"
+    },
+    "field_group_ids/multi_company": {
+        "body": [
+            "",
+            " <field name=\"groups_id\" eval=\"[(4, ref('base.group_multi_company'))]\"/>${0}",
+            ""
+        ],
+        "description": "",
+        "prefix": "field_group_ids/multi_company"
+    },
+    "field_group_ids/no_one": {
+        "body": [
+            "",
+            "<field name=\"groups_id\" eval=\"[(4, ref('base.group_no_one'))]\"/>${0}",
+            ""
+        ],
+        "description": "",
+        "prefix": "field_group_ids/no_one"
+    },
+    "field_group_ids/production_lot": {
+        "body": [
+            "",
+            "<field name=\"groups_id\" eval=\"[(4, ref('stock.group_production_lot'))]\"/>${0}",
+            ""
+        ],
+        "description": "",
+        "prefix": "field_group_ids/production_lot"
+    },
+    "field_group_ids/stock_multi_locations": {
+        "body": [
+            "",
+            "<field name=\"groups_id\" eval=\"[(4, ref('stock.group_stock_multi_locations'))]\"/>${0}",
+            ""
+        ],
+        "description": "",
+        "prefix": "field_group_ids/stock_multi_locations"
+    },
+    "field_group_ids/system": {
+        "body": [
+            "",
+            "<field name=\"groups_id\" eval=\"[(4, ref('base.group_system'))]\"/>${0}",
+            ""
+        ],
+        "description": "",
+        "prefix": "field_group_ids/system"
+    },
+    "field_group_ids/tracking_lot": {
+        "body": [
+            "",
+            "<field name=\"groups_id\" eval=\"[(4, ref('stock.group_tracking_lot'))]\"/>${0}",
+            ""
+        ],
+        "description": "",
+        "prefix": "field_group_ids/tracking_lot"
+    },
+    "field_group_ids/tracking_owner": {
+        "body": [
+            "",
+            "<field name=\"groups_id\" eval=\"[(4, ref('stock.group_tracking_owner'))]\"/>${0}",
+            ""
+        ],
+        "description": "",
+        "prefix": "field_group_ids/tracking_owner"
+    },
+    "field_group_ids/uom": {
+        "body": [
+            "",
+            "<field name=\"groups_id\" eval=\"[(4, ref('uom.group_uom'))]\"/>${0}",
+            ""
+        ],
+        "description": "",
+        "prefix": "field_group_ids/uom"
+    },
+    "field_groups_id": {
+        "body": [
+            "",
+            "<field name=\"groups_id\" eval=\"[(4, ref('${1}'))]\"/>${0}",
+            ""
+        ],
+        "description": "",
+        "prefix": "field_groups_id"
     },
     "file/xml": {
         "body": [
@@ -549,7 +742,127 @@
         "description": "",
         "prefix": "function"
     },
-    "group": {
+    "group_display_incoterm": {
+        "body": [
+            "",
+            " groups=\"sale_stock.group_display_incoterm\"${0}",
+            ""
+        ],
+        "description": "",
+        "prefix": "group_display_incoterm"
+    },
+    "group_multi_company": {
+        "body": [
+            "",
+            " groups=\"base.group_multi_company\"${0}",
+            ""
+        ],
+        "description": "",
+        "prefix": "group_multi_company"
+    },
+    "group_no_one": {
+        "body": [
+            "",
+            " groups=\"base.group_no_one\"${0}",
+            ""
+        ],
+        "description": "",
+        "prefix": "group_no_one"
+    },
+    "group_production_lot": {
+        "body": [
+            "",
+            " groups=\"stock.group_production_lot\"${0}",
+            ""
+        ],
+        "description": "",
+        "prefix": "group_production_lot"
+    },
+    "group_stock_multi_locations": {
+        "body": [
+            "",
+            " groups=\"stock.group_stock_multi_locations\"${0}",
+            ""
+        ],
+        "description": "",
+        "prefix": "group_stock_multi_locations"
+    },
+    "group_system": {
+        "body": [
+            "",
+            " groups=\"base.group_system\"${0}",
+            ""
+        ],
+        "description": "",
+        "prefix": "group_system"
+    },
+    "group_tracking_lot": {
+        "body": [
+            "",
+            " groups=\"stock.group_tracking_lot\"${0}",
+            ""
+        ],
+        "description": "",
+        "prefix": "group_tracking_lot"
+    },
+    "group_tracking_owner": {
+        "body": [
+            "",
+            " groups=\"stock.group_tracking_owner\"${0}",
+            ""
+        ],
+        "description": "",
+        "prefix": "group_tracking_owner"
+    },
+    "group_uom": {
+        "body": [
+            "",
+            " groups=\"uom.group_uom\"${0}",
+            ""
+        ],
+        "description": "",
+        "prefix": "group_uom"
+    },
+    "groups": {
+        "body": [
+            "",
+            "groups=\"${1}\"${0}",
+            ""
+        ],
+        "description": "",
+        "prefix": "groups"
+    },
+    "groups1": {
+        "body": [
+            "",
+            "groups=\"${1:MODULE}.group_${2:GROUPNMAE}\"${0}",
+            ""
+        ],
+        "description": "field attr groups",
+        "prefix": "groups"
+    },
+    "invisible": {
+        "body": [
+            "",
+            "invisible=\"${1:1}\"${0}",
+            ""
+        ],
+        "description": "field attr invisible",
+        "prefix": "invisible"
+    },
+    "layout/button_box": {
+        "body": [
+            "",
+            "<div class=\"oe_button_box\" name=\"button_box\">",
+            "",
+            "${0}",
+            "</div>",
+            ""
+        ],
+        "description": "layout button_box definition",
+        "prefix": "layout/button_box"
+    },
+    "layout/group": {
         "body": [
             "",
             "<group>",
@@ -561,61 +874,26 @@
             ""
         ],
         "description": "",
-        "prefix": "group"
+        "prefix": "layout/group"
     },
-    "groups": {
-        "body": [
-            "",
-            "groups=\"${1:module}.group_${2:groupNmae}\"${0}",
-            ""
-        ],
-        "description": "field attr groups",
-        "prefix": "groups"
-    },
-    "groups/multi_company": {
-        "body": [
-            "",
-            " groups=\"base.group_multi_company\"${0}",
-            ""
-        ],
-        "description": "",
-        "prefix": "groups/multi_company"
-    },
-    "groups/no_one": {
-        "body": [
-            "",
-            " groups=\"base.group_no_one\"${0}",
-            ""
-        ],
-        "description": "",
-        "prefix": "groups/no_one"
-    },
-    "groups/system": {
-        "body": [
-            "",
-            " groups=\"base.group_system\"${0}",
-            ""
-        ],
-        "description": "",
-        "prefix": "groups/system"
-    },
-    "invisible": {
-        "body": [
-            "",
-            "invisible=\"${1:1}\"${0}",
-            ""
-        ],
-        "description": "field attr invisible",
-        "prefix": "invisible"
-    },
-    "label": {
+    "layout/label": {
         "body": [
             "",
             "<label for='${1:field_name}'>${2:Label}</label>",
             ""
         ],
         "description": "Field Label",
-        "prefix": "label"
+        "prefix": "layout/label"
+    },
+    "layout/separator": {
+        "body": [
+            "",
+            "<separator string=\"Some Text\" colspan=\"4\" />",
+            "    ${0}",
+            ""
+        ],
+        "description": "Common separator tag to be added inside a ir.ui.view",
+        "prefix": "layout/separator"
     },
     "link": {
         "body": [
@@ -636,6 +914,17 @@
         ],
         "description": "",
         "prefix": "notebook"
+    },
+    "notebook/page": {
+        "body": [
+            "",
+            "<page string=\"${1:Title}\" >",
+            "    ${0}",
+            "</page>",
+            ""
+        ],
+        "description": "",
+        "prefix": "notebook/page"
     },
     "options/always_reload": {
         "body": [
@@ -690,17 +979,6 @@
         ],
         "description": "field attr options reload_whole_on_button",
         "prefix": "options/reload_whole_on_button"
-    },
-    "page": {
-        "body": [
-            "",
-            "<page string=\"${1:Title}\" >",
-            "    ${0}",
-            "</page>",
-            ""
-        ],
-        "description": "",
-        "prefix": "page"
     },
     "position/after": {
         "body": [
@@ -919,7 +1197,7 @@
     "record": {
         "body": [
             "",
-            "<record id=\"${2:${1/(\\.+)/_/g}}\" model=\"${1:model.name}\">",
+            "<record id=\"${2:${1/(\\.+)/\\_/g}}\" model=\"${1:model.name}\">",
             "    ${0}",
             "</record>",
             ""
@@ -930,7 +1208,7 @@
     "record/assets": {
         "body": [
             "",
-            "<record id=\"view_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/${2:/downcase}${3:_})/g}_assets\" model=\"ir.ui.view\">",
+            "<record id=\"view_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_assets\" model=\"ir.ui.view\">",
             "    <field name=\"name\">${1:module} assets</field>",
             "    <field name=\"model\"></field>",
             "    <field name=\"type\">qweb</field>",
@@ -940,8 +1218,8 @@
             "    <field name=\"inherit_id\" ref=\"web.assets_backend\" />",
             "    <field name=\"arch\" type=\"xml\">",
             "        <xpath expr=\".\" position=\"inside\">${5:",
-            "            <link rel=\"stylesheet\" href=\"/${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/${2:/downcase}${3:_})/g}/static/src/css/${4:styles}.css\" />}${7:",
-            "            <script type=\"text/javascript\" src=\"/${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/${2:/downcase}${3:_})/g}/static/src/js/${6:scripts}.js\" />}${0}",
+            "            <link rel=\"stylesheet\" href=\"/${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}/static/src/css/${4:styles}.css\" />}${7:",
+            "            <script type=\"text/javascript\" src=\"/${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}/static/src/js/${6:scripts}.js\" />}${0}",
             "        </xpath>",
             "    </field>",
             "</record>",
@@ -953,7 +1231,7 @@
     "record/base.action.rule": {
         "body": [
             "",
-            "<record id=\"${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/${2:/downcase}${3:_})/g}\" model=\"base.action.rule\">",
+            "<record id=\"${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"base.action.rule\">",
             "    <field name=\"name\">${1:Human readable name}</field>",
             "    <field name=\"active\" eval=\"${2:True}\" />",
             "    <field name=\"sequence\" eval=\"${3:0}\" />",
@@ -977,7 +1255,7 @@
     "record/email.template": {
         "body": [
             "",
-            "<record id=\"email_template_${12:${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/${2:/downcase}${3:_})/g}}\" model=\"email.template\">",
+            "<record id=\"email_template_${12:${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}}\" model=\"email.template\">",
             "    <field name=\"name\">${1:Human readable name}</field>",
             "    <field name=\"subject\">${2:$1}</field>",
             "    <field name=\"email_from\">${3:$\\{object.company_id.name\\} <$\\{(object.company_id.email or user.email)|safe\\}>}</field>",
@@ -1002,7 +1280,7 @@
         "body": [
             "",
             "<!-- filter \"${1:Human readable name}\" for Model \"${2/(.)/\\1/g}\" -->",
-            "<record id=\"filter_${2/(\\.)/_/g}_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/${2:/downcase}${3:_})/g}\" model=\"ir.filters\">",
+            "<record id=\"filter_${2/(\\.)/\\_/g}_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.filters\">",
             "    <field name=\"name\">${1:Human readable name}</field>",
             "    <field name=\"model_id\">${2:model_name_whithout_module}</field>",
             "    <field name=\"user_id\" eval=\"${3:False}\"/>",
@@ -1019,7 +1297,7 @@
     "record/ir.actions.act_window": {
         "body": [
             "",
-            "<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/${2:/downcase}${3:_})/g}_act_window\" model=\"ir.actions.act_window\">",
+            "<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_act_window\" model=\"ir.actions.act_window\">",
             "    <field name=\"type\">ir.actions.act_window</field>",
             "    <field name=\"name\">${1:Human readable name}</field>",
             "    <field name=\"res_model\">${2:model.name}</field>",
@@ -1038,7 +1316,7 @@
     "record/ir.actions.act_window.view": {
         "body": [
             "",
-            "<record id=\"action_${1/[^a-zA-Z]+/_/g}_${2/[^a-zA-Z]+/_/g}\" model=\"ir.actions.act_window.view\">",
+            "<record id=\"action_${1/[^a-zA-Z]+/\\_/g}_${2/[^a-zA-Z]+/\\_/g}\" model=\"ir.actions.act_window.view\">",
             "    <field name=\"act_window_id\" ref=\"${1:ir.actions.act_window}\" />",
             "    <field name=\"view_id\" ref=\"${2:ir.ui.view}\" />",
             "    <field name=\"view_mode\">${3:tree}</field>",
@@ -1053,7 +1331,7 @@
     "record/ir.actions.report.xml": {
         "body": [
             "",
-            "<record id=\"action_report_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/${2:/downcase}${3:_})/g}\" model=\"ir.actions.report.xml\">",
+            "<record id=\"action_report_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.actions.report.xml\">",
             "    <field name=\"name\">${1:Human readable name}</field>",
             "    <field name=\"model\">${2:model.name}</field>",
             "    <field name=\"report_type\">${3:qweb-pdf}</field>",
@@ -1071,7 +1349,7 @@
     "record/ir.actions.server": {
         "body": [
             "",
-            "<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/${2:/downcase}${3:_})/g}_server\" model=\"ir.actions.server\">",
+            "<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_server\" model=\"ir.actions.server\">",
             "    <field name=\"type\">ir.actions.server</field>",
             "    <field name=\"name\">${1:Human readable name}</field>",
             "    <field name=\"model_id\" ref=\"${2:ir.model}\" />",
@@ -1088,7 +1366,7 @@
     "record/ir.actions.server1": {
         "body": [
             "",
-            "<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/${2:/downcase}${3:_})/g}_server\" model=\"ir.actions.server\">",
+            "<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_server\" model=\"ir.actions.server\">",
             "    <field name=\"type\">ir.actions.server</field>",
             "    <field name=\"name\">${1:Human readable name}</field>",
             "    <field name=\"model_id\" ref=\"${2:ir.model}\" />",
@@ -1105,7 +1383,7 @@
     "record/ir.actions.server2": {
         "body": [
             "",
-            "<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/${2:/downcase}${3:_})/g}_server\" model=\"ir.actions.server\">",
+            "<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_server\" model=\"ir.actions.server\">",
             "    <field name=\"type\">ir.actions.server</field>",
             "    <field name=\"name\">${1:Human readable name}</field>",
             "    <field name=\"model_id\" ref=\"${2:ir.model}\" />",
@@ -1122,7 +1400,7 @@
     "record/ir.actions.server3": {
         "body": [
             "",
-            "<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/${2:/downcase}${3:_})/g}_server\" model=\"ir.actions.server\">",
+            "<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_server\" model=\"ir.actions.server\">",
             "    <field name=\"type\">ir.actions.server</field>",
             "    <field name=\"name\">${1:Human readable name}</field>",
             "    <field name=\"model_id\" ref=\"${2:ir.model}\" />",
@@ -1144,7 +1422,7 @@
     "record/ir.actions.server4": {
         "body": [
             "",
-            "<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/${2:/downcase}${3:_})/g}_server\" model=\"ir.actions.server\">",
+            "<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_server\" model=\"ir.actions.server\">",
             "    <field name=\"type\">ir.actions.server</field>",
             "    <field name=\"name\">${1:Human readable name}</field>",
             "    <field name=\"model_id\" ref=\"${2:ir.model}\" />",
@@ -1165,7 +1443,7 @@
     "record/ir.actions.server5": {
         "body": [
             "",
-            "<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/${2:/downcase}${3:_})/g}_server\" model=\"ir.actions.server\">",
+            "<record id=\"action_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_server\" model=\"ir.actions.server\">",
             "    <field name=\"type\">ir.actions.server</field>",
             "    <field name=\"name\">${1:Human readable name}</field>",
             "    <field name=\"model_id\" ref=\"${2:ir.model}\" />",
@@ -1185,7 +1463,7 @@
     "record/ir.actions.todo": {
         "body": [
             "",
-            "<record id=\"action_todo_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/${2:/downcase}${3:_})/g}\" model=\"ir.actions.todo\">",
+            "<record id=\"action_todo_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.actions.todo\">",
             "    <field name=\"name\">${1:Human readable name}</field>",
             "    <field name=\"type\">${2:manual}</field>",
             "    <field name=\"state\">${3:open}</field>",
@@ -1201,7 +1479,7 @@
     "record/ir.config_parameter": {
         "body": [
             "",
-            "<record id=\"${1/[^A-Za-z]/_/g}\" model=\"ir.config_parameter\">",
+            "<record id=\"${1/[^A-Za-z]/\\_/g}\" model=\"ir.config_parameter\">",
             "    <field name=\"key\">${1:char}</field>",
             "    <field name=\"value\">${2:text}</field>${4:",
             "    <field name=\"group_ids\" eval=\"[(4, ref('${3:res.groups}'))]\" />}",
@@ -1214,7 +1492,7 @@
     "record/ir.model": {
         "body": [
             "",
-            "<record id=\"${1/(\\.+)/_/g}_${2/(([A-Za-z0-9])|([^A-Za-z0-9]+))/${2:/downcase}${3:_})/g}\" model=\"ir.model\">",
+            "<record id=\"${1/(\\.+)/_/g}_${2/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.model\">",
             "    <field name=\"model\">${1:model_name}</field>",
             "    <field name=\"name\">${2:Human readable name}</field>",
             "    <field name=\"state\">${3:Base | Manual}</field>",
@@ -1228,8 +1506,8 @@
     "record/ir.model.access": {
         "body": [
             "",
-            "<record id=\"access_${1/^.*model_(.*)$/\\1/g}_${2/((^.*group_$)|(\\.))/${2:group_)${3:_})/g}\" model=\"ir.model.access\">",
-            "    <field name=\"name\">${1/^.*model_(.*)$/\\1/g} ${2/((^.*group_$)|(\\.))/${2:group_)${3:_})/g}</field>",
+            "<record id=\"access_${1/^.*model_(.*)$/\\1/g}_${2/((^.*group_$)|(\\.))/(?2:group_)(?3:\\_)/g}\" model=\"ir.model.access\">",
+            "    <field name=\"name\">${1/^.*model_(.*)$/\\1/g} ${2/((^.*group_$)|(\\.))/(?2:group_)(?3:\\_)/g}</field>",
             "    <field name=\"model_id\" ref=\"${1:ir.model}\"/>",
             "    <field name=\"group_id\" ref=\"${2:res.groups}\"/>",
             "    <field name=\"perm_read\" eval=\"${3:True}\" />",
@@ -1263,7 +1541,7 @@
     "record/ir.module.category": {
         "body": [
             "",
-            "<record id=\"module_category_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/${2:/downcase}${3:_})/g}\" model=\"ir.module.category\">",
+            "<record id=\"module_category_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.module.category\">",
             "    <field name=\"name\">${1:Human readable name}</field>",
             "    <field name=\"sequence\" eval=\"${2:10}\" />",
             "    <field name=\"visible\" eval=\"${3:True}\" />",
@@ -1278,7 +1556,7 @@
     "record/ir.rule": {
         "body": [
             "",
-            "<record id=\"${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/${2:/downcase}${3:_})/g}_rule\" model=\"ir.rule\">",
+            "<record id=\"${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_rule\" model=\"ir.rule\">",
             "    <field name=\"name\">${1:Human readable name}</field>",
             "    <field name=\"model_id\" ref=\"${3:model_xml_id}\"/>",
             "    <field name=\"global\" eval=\"${4:True}\" />",
@@ -1297,10 +1575,10 @@
     "record/ir.values": {
         "body": [
             "",
-            "<record id=\"${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/${2:/downcase}${3:_})/g}_values\" model=\"ir.values\">",
+            "<record id=\"${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_values\" model=\"ir.values\">",
             "    <field name=\"name\">${1:Human readable name}</field>",
             "    <field name=\"model_id\" ref=\"${2:module.model_external_id}\" />",
-            "    <field name=\"model\">${2/((^[^.]*.?model_)|([_]+))/${2:)${3:.})/g}</field>",
+            "    <field name=\"model\">${2/((^[^.]*.?model_)|([_]+))/(?2:)(?3:\\.)/g}</field>",
             "    <field name=\"value\" eval=\"${4:'ir.actions.act_window,' +str(ref('${3:action_external_id}'))}\" />",
             "    <field name=\"key\">${5:action}</field>",
             "    <field name=\"key2\">${6:tree_but_open}</field>${8:",
@@ -1317,7 +1595,7 @@
     "record/menu": {
         "body": [
             "",
-            "<record id=\"menu_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/${2:/downcase}${3:_})/g}\" model=\"ir.ui.menu\" >",
+            "<record id=\"menu_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.ui.menu\" >",
             "    <field name=\"name\">${1:Human readable name}</field>",
             "    <field name=\"sequence\" eval=\"${2:10}\" />${4:",
             "    <field name=\"action\" ref=\"${3:action_name}\" />}${6:",
@@ -1331,7 +1609,7 @@
     "record/product.product": {
         "body": [
             "",
-            "<record id=\"${18:${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/${2:/downcase}${3:_})/g}_product_product}\" model=\"product.product\">",
+            "<record id=\"${18:${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_product_product}\" model=\"product.product\">",
             "    <field name=\"name\">${1:Human readable name}</field>",
             "    <field name=\"description\">${2:Description}</field>",
             "    <field name=\"description_purchase\">${3:${2:Description}}</field>",
@@ -1355,7 +1633,7 @@
     "record/product.template": {
         "body": [
             "",
-            "<record id=\"${18:${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/${2:/downcase}${3:_})/g}_product_template}\" model=\"product.template\">",
+            "<record id=\"${18:${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_product_template}\" model=\"product.template\">",
             "    <field name=\"name\">${1:Human readable name}</field>",
             "    <field name=\"description\">${2:Description}</field>",
             "    <field name=\"description_purchase\">${3:${2:Description}}</field>",
@@ -1379,7 +1657,7 @@
     "record/res.groups": {
         "body": [
             "",
-            "<record id=\"group_${8:${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/${2:/downcase}${3:_})/g}}\" model=\"res.groups\">",
+            "<record id=\"group_${8:${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}}\" model=\"res.groups\">",
             "    <field name=\"name\">${1:Name}</field>",
             "    <field name=\"comment\">${2:Comment}</field>",
             "    <field name=\"category_id\" ref=\"${3:base.module_category_administration}\"/>",
@@ -1394,7 +1672,7 @@
     "record/view": {
         "body": [
             "",
-            "<record id=\"view_${2/[^a-z]+/_/g}_${3}\" model=\"ir.ui.view\">",
+            "<record id=\"view_${2/[^a-z]+/\\_/g}_${3}\" model=\"ir.ui.view\">",
             "    <field name=\"name\">${1:Human readable name}</field>",
             "    <field name=\"model\">${2:model.name}</field>",
             "    <field name=\"type\">${3:tree}</field>",
@@ -1423,7 +1701,7 @@
     "report.paperformat": {
         "body": [
             "",
-            "<record id=\"paperformat_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/${2:/downcase}${3:_})/g}\" model=\"report.paperformat\" >",
+            "<record id=\"paperformat_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"report.paperformat\" >",
             "    <field name=\"name\">${1:Human readable name}</field>",
             "    <field name=\"format\">${2:A4}</field>",
             "    <field name=\"orientation\">${3:Portrait}</field>",
@@ -1458,7 +1736,7 @@
             "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->",
             "",
             "<!-- Report \"${1/(.)/\\1/g}\" document template -->",
-            "<record id=\"view_${3/\\./_/g}_document_qweb\" model=\"ir.ui.view\">",
+            "<record id=\"view_${3/\\./\\_/g}_document_qweb\" model=\"ir.ui.view\">",
             "    <field name=\"name\">${1/(.)/\\1/g}</field>",
             "    <field name=\"model\">${3/(.)/\\1/g}</field>",
             "    <field name=\"type\">qweb</field>",
@@ -1466,7 +1744,7 @@
             "    <field name=\"priority\" eval=\"${7/(.)/\\1/g}\" />",
             "    <field name=\"active\" eval=\"${8/(.)/\\1/g}\" />",
             "    <field name=\"arch\" type=\"xml\">",
-            "        <t t-name=\"${2/(.)/\\1/g}.view_${3/\\./_/g}_document_qweb\">",
+            "        <t t-name=\"${2/(.)/\\1/g}.view_${3/\\./\\_/g}_document_qweb\">",
             "            <t t-call=\"report.external_layout\">",
             "                <div class=\"page\">",
             "                    ${0:<h2>Report title</h2>",
@@ -1478,7 +1756,7 @@
             "</record>",
             "",
             "<!-- Report \"${1/(.)/\\1/g}\" translate_doc template -->",
-            "<record id=\"view_${3/\\./_/g}_qweb\" model=\"ir.ui.view\">",
+            "<record id=\"view_${3/\\./\\_/g}_qweb\" model=\"ir.ui.view\">",
             "    <field name=\"name\">${1/(.)/\\1/g}</field>",
             "    <field name=\"model\">${3/(.)/\\1/g}</field>",
             "    <field name=\"type\">qweb</field>",
@@ -1486,10 +1764,10 @@
             "    <field name=\"priority\" eval=\"${7/(.)/\\1/g}\" />",
             "    <field name=\"active\" eval=\"${8/(.)/\\1/g}\" />",
             "    <field name=\"arch\" type=\"xml\">",
-            "        <t t-name=\"${2/(.)/\\1/g}.view_${3/\\./_/g}_qweb\">",
+            "        <t t-name=\"${2/(.)/\\1/g}.view_${3/\\./\\_/g}_qweb\">",
             "            <t t-call=\"report.html_container\">",
             "                <t t-foreach=\"doc_ids\" t-as=\"doc_id\">",
-            "                    <t t-raw=\"translate_doc(doc_id, doc_model, '${4/(.)/\\1/g}', '${2/(.)/\\1/g}.view_${3/\\./_/g}_document_qweb')\"/>",
+            "                    <t t-raw=\"translate_doc(doc_id, doc_model, '${4/(.)/\\1/g}', '${2/(.)/\\1/g}.view_${3/\\./\\_/g}_document_qweb')\"/>",
             "                </t>",
             "            </t>",
             "        </t>",
@@ -1497,11 +1775,11 @@
             "</record>",
             "",
             "<!-- Report action to show: \"${1/(.)/\\1/g}\" -->",
-            "<record id=\"action_report_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/${2:/downcase}${3:_})/g}\" model=\"ir.actions.report.xml\">",
+            "<record id=\"action_report_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.actions.report.xml\">",
             "    <field name=\"name\">${1/(.)/\\1/g}</field>",
             "    <field name=\"model\">${3/(.)/\\1/g}</field>",
             "    <field name=\"report_type\">qweb-pdf</field>",
-            "    <field name=\"report_name\">${2/(.)/\\1/g}.view_${3/\\./_/g}_qweb</field>",
+            "    <field name=\"report_name\">${2/(.)/\\1/g}.view_${3/\\./\\_/g}_qweb</field>",
             "    <field name=\"attachment_use\" eval=\"${5/(.)/\\1/g}\" />",
             "    <field name=\"attachment\">(object.name+'.pdf')</field>",
             "    <field name=\"paperformat_id\" ref=\"${6/(.)/\\1/g}\" />",
@@ -1509,11 +1787,11 @@
             "</record>",
             "",
             "<!-- Button to print the report: \"${1/(.)/\\1/g}\" -->",
-            "<record id=\"${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/${2:/downcase}${3:_})/g}_values\" model=\"ir.values\">",
+            "<record id=\"${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_values\" model=\"ir.values\">",
             "    <field name=\"name\">${1/(.)/\\1/g}</field>",
-            "    <field name=\"model_id\" ref=\"${2/(.)/\\1/g}.model_${3/\\./_/g}\" />",
+            "    <field name=\"model_id\" ref=\"${2/(.)/\\1/g}.model_${3/\\./\\_/g}\" />",
             "    <field name=\"model\">${3/(.)/\\1/g}</field>",
-            "    <field name=\"value\" eval=\"'ir.actions.report.xml,' +str(ref('action_report_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/${2:/downcase}${3:_})/g}'))\" />",
+            "    <field name=\"value\" eval=\"'ir.actions.report.xml,' +str(ref('action_report_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}'))\" />",
             "    <field name=\"key\">action</field>",
             "    <field name=\"key2\">client_print_multi</field>",
             "</record>",
@@ -1661,7 +1939,7 @@
         "body": [
             "",
             "<filter string=\"${1:Name}\"",
-            "    name=\"${2:${1/(([A-Za-z0-9])|( )|([^A-Za-z0-9]+))/${2:/downcase}${3:_})${4:_})/g}}\"",
+            "    name=\"${2:${1/(([A-Za-z0-9])|( )|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)(?4:\\_)/g}}\"",
             "    domain=\"${3:[]}\"",
             "    context=\"${4:{}}\"",
             "    help=\"${5}\" />${0}",
@@ -1683,17 +1961,19 @@
         "description": "",
         "prefix": "search/group_by"
     },
-    "separator": {
+    "smart_button": {
         "body": [
             "",
-            "<separator string=\"Some Text\" colspan=\"4\" />",
-            "    ${0}",
+            "    <button class=\"oe_stat_button\" name=\"${1:action_name}\" type=\"object\" icon=\"fa-${4:search}\">",
+            "        <field string=\"${2:string}\" name=\"${3:count_name}\" widget=\"statinfo\" />",
+            "    </button>",
+            "${0}",
             ""
         ],
-        "description": "Common separator tag to be added inside a ir.ui.view",
-        "prefix": "separator"
+        "description": "smart button definition",
+        "prefix": "smart_button"
     },
-    "states1": {
+    "status": {
         "body": [
             "",
             "<button name=\"action_confirm\" string=\"\u786e\u8ba4\" type=\"object\" states=\"draft\" />",
@@ -1704,7 +1984,7 @@
             ""
         ],
         "description": "Adds state support",
-        "prefix": "states"
+        "prefix": "status"
     },
     "statusbar": {
         "body": [
@@ -1735,106 +2015,106 @@
     },
     "view/full": {
         "body": [
-            "\r",
-            "<!-- VIEWS: \"${1:Human readable name}\"\r",
-            "\r",
-            "    - Model\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7: ${2:model}\r",
-            "    - _rec_name\u00b7\u00b7\u00b7\u00b7\u00b7: ${3:name}\r",
-            "    - Domain\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7: ${4:[]}\r",
-            "    - Context\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7: ${5:\\{\\}}\r",
-            "    - Parent menu \u00b7\u00b7: ${6:base.menu_custom}\r",
-            "    - View priority\u00b7: ${7:16}    \r",
-            "    - Sequence\u00b7\u00b7\u00b7\u00b7..: ${8:10}\r",
-            "    - Action help\u00b7\u00b7\u00b7: ${9:Something about ${2/(.)/$1/g}}\r",
-            "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->\r",
-            "\r",
-            "<!-- Tree view for \"${2/(.)/\\1/g}\" -->\r",
-            "<record id=\"view_${2/\\./_/g}_tree\" model=\"ir.ui.view\">\r",
-            "    <field name=\"name\">view.${2/\\.+/\\./g}.tree</field>\r",
-            "    <field name=\"model\">${2/\\.+/\\./g}</field>\r",
-            "    <field name=\"type\">tree</field>\r",
-            "    <field name=\"mode\">primary</field>\r",
-            "    <field name=\"priority\" eval=\"${7/(.)/\\1/g}\" />\r",
-            "    <field name=\"active\" eval=\"True\" />\r",
-            "    <field name=\"arch\" type=\"xml\">\r",
-            "        <tree string=\"${2/\\./_/g}_tree\" create=\"true\" delete=\"true\" edit=\"true\">\r",
-            "            <field name=\"${3/(.)/\\1/g}\" />\r",
-            "\r",
-            "        </tree>\r",
-            "    </field>\r",
-            "</record>\r",
-            "\r",
-            "<!-- Form view for \"${2/(.)/\\1/g}\" -->\r",
-            "<record id=\"view_${2/\\./_/g}_form\" model=\"ir.ui.view\">\r",
-            "    <field name=\"name\">view.${2/\\.+/\\./g}.form</field>\r",
-            "    <field name=\"model\">${2/\\.+/\\./g}</field>\r",
-            "    <field name=\"type\">form</field>\r",
-            "    <field name=\"mode\">primary</field>\r",
-            "    <field name=\"priority\" eval=\"${7/(.)/\\1/g}\" />\r",
-            "    <field name=\"active\" eval=\"True\" />\r",
-            "    <field name=\"arch\" type=\"xml\">\r",
-            "        <form string=\"${2/\\./_/g}_form\" create=\"true\" delete=\"true\" edit=\"true\">\r",
-            "            <header>\r",
-            "            </header>\r",
-            "            <sheet>\r",
-            "                <div class=\"oe_title\">\r",
-            "                    <label for=\"${3/(.)/\\1/g}\" class=\"oe_edit_only\" />\r",
-            "                    <h1>\r",
-            "                        <field name=\"${3/(.)/\\1/g}\" class=\"oe_inline\"\r",
-            "                            placeholder=\"${3/((^.)|(_+))/${2:/capitalize}${3: }/g}\" />\r",
-            "                    </h1>\r",
-            "                </div>\r",
-            "                <group>\r",
-            "\r",
-            "                </group>\r",
-            "            </sheet>\r",
-            "        </form>\r",
-            "    </field>\r",
-            "</record>\r",
-            "\r",
-            "<!-- Search view for \"${2/(.)/\\1/g}\" -->\r",
-            "<record id=\"view_${2/\\./_/g}_search\" model=\"ir.ui.view\">\r",
-            "    <field name=\"name\">view.${2/\\.+/\\./g}.search</field>\r",
-            "    <field name=\"model\">${2/\\.+/\\./g}</field>\r",
-            "    <field name=\"type\">search</field>\r",
-            "    <field name=\"mode\">primary</field>\r",
-            "    <field name=\"priority\" eval=\"${7/(.)/\\1/g}\" />\r",
-            "    <field name=\"active\" eval=\"True\" />\r",
-            "    <field name=\"arch\" type=\"xml\">\r",
-            "        <search string=\"${2/\\./_/g}_search\">\r",
-            "            <field name=\"${3/(.)/\\1/g}\" />\r",
-            "            \r",
-            "        </search>\r",
-            "    </field>\r",
-            "</record>\r",
-            "\r",
-            "<!-- Main window action for \"${2/(.)/\\1/g}\" -->\r",
-            "<record id=\"action_${2/(([A-Za-z0-9])|([^A-Za-z0-9]+))/${2:/downcase}${3:_})/g}_act_window\" model=\"ir.actions.act_window\">\r",
-            "    <field name=\"type\">ir.actions.act_window</field>\r",
-            "    <field name=\"name\">${1/(.)/\\1/g}</field>\r",
-            "    <field name=\"res_model\">${2/\\.+/\\./g}</field>\r",
-            "    <field name=\"view_mode\">tree,form</field>\r",
-            "    <field name=\"view_type\">form</field>\r",
-            "    <field name=\"target\">current</field>\r",
-            "    <field name=\"domain\">${4/(.)/\\1/g}</field>\r",
-            "    <field name=\"context\">${5/(.)/\\1/g}</field>\r",
-            "    <field name=\"search_view_id\" ref=\"view_${2/\\./_/g}_search\" />\r",
-            "    <field name=\"help\" type=\"html\">\r",
-            "        <p class=\"oe_view_nocontent_create\">\r",
-            "            Click to add new ${1/(.)/\\1/g}\r",
-            "        </p><p>\r",
-            "            ${9/(.)/\\1/g}\r",
-            "        </p>\r",
-            "    </field>\r",
-            "</record>\r",
-            "\r",
-            "<!-- Main menu for \"${2/(.)/\\1/g}\" -->\r",
-            "<record id=\"menu_${2/(([A-Za-z0-9])|([^A-Za-z0-9]+))/${2:/downcase}${3:_})/g}\" model=\"ir.ui.menu\" >\r",
-            "    <field name=\"name\">${1/(.)/\\1/g}</field>\r",
-            "    <field name=\"sequence\" eval=\"${8/(.)/\\1/g}\" />\r",
-            "    <field name=\"action\" ref=\"action_${2/(([A-Za-z0-9])|([^A-Za-z0-9]+))/${2:/downcase}${3:_})/g}_act_window\" />\r",
-            "    <field name=\"parent_id\" ref=\"${6/(.)/\\1/g}\" />\r",
-            "</record>\r",
+            "",
+            "<!-- VIEWS: \"${1:Human readable name}\"",
+            "",
+            "    - Model\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7: ${2:model}",
+            "    - _rec_name\u00b7\u00b7\u00b7\u00b7\u00b7: ${3:name}",
+            "    - Domain\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7: ${4:[]}",
+            "    - Context\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7: ${5:\\{\\}}",
+            "    - Parent menu \u00b7\u00b7: ${6:base.menu_custom}",
+            "    - View priority\u00b7: ${7:16}    ",
+            "    - Sequence\u00b7\u00b7\u00b7\u00b7..: ${8:10}",
+            "    - Action help\u00b7\u00b7\u00b7: ${9:Something about ${2/(.)/$1/g}}",
+            "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->",
+            "",
+            "<!-- Tree view for \"${2/(.)/\\1/g}\" -->",
+            "<record id=\"view_${2/\\./\\_/g}_tree\" model=\"ir.ui.view\">",
+            "    <field name=\"name\">view.${2/\\.+/\\./g}.tree</field>",
+            "    <field name=\"model\">${2/\\.+/\\./g}</field>",
+            "    <field name=\"type\">tree</field>",
+            "    <field name=\"mode\">primary</field>",
+            "    <field name=\"priority\" eval=\"${7/(.)/\\1/g}\" />",
+            "    <field name=\"active\" eval=\"True\" />",
+            "    <field name=\"arch\" type=\"xml\">",
+            "        <tree string=\"${2/\\./\\_/g}_tree\" create=\"true\" delete=\"true\" edit=\"true\">",
+            "            <field name=\"${3/(.)/\\1/g}\" />",
+            "",
+            "        </tree>",
+            "    </field>",
+            "</record>",
+            "",
+            "<!-- Form view for \"${2/(.)/\\1/g}\" -->",
+            "<record id=\"view_${2/\\./\\_/g}_form\" model=\"ir.ui.view\">",
+            "    <field name=\"name\">view.${2/\\.+/\\./g}.form</field>",
+            "    <field name=\"model\">${2/\\.+/\\./g}</field>",
+            "    <field name=\"type\">form</field>",
+            "    <field name=\"mode\">primary</field>",
+            "    <field name=\"priority\" eval=\"${7/(.)/\\1/g}\" />",
+            "    <field name=\"active\" eval=\"True\" />",
+            "    <field name=\"arch\" type=\"xml\">",
+            "        <form string=\"${2/\\./\\_/g}_form\" create=\"true\" delete=\"true\" edit=\"true\">",
+            "            <header>",
+            "            </header>",
+            "            <sheet>",
+            "                <div class=\"oe_title\">",
+            "                    <label for=\"${3/(.)/\\1/g}\" class=\"oe_edit_only\" />",
+            "                    <h1>",
+            "                        <field name=\"${3/(.)/\\1/g}\" class=\"oe_inline\"",
+            "                            placeholder=\"${3/((^.)|(_+))/(?2:\\u$2)(?3:\\ )/g}\" />",
+            "                    </h1>",
+            "                </div>",
+            "                <group>",
+            "",
+            "                </group>",
+            "            </sheet>",
+            "        </form>",
+            "    </field>",
+            "</record>",
+            "",
+            "<!-- Search view for \"${2/(.)/\\1/g}\" -->",
+            "<record id=\"view_${2/\\./\\_/g}_search\" model=\"ir.ui.view\">",
+            "    <field name=\"name\">view.${2/\\.+/\\./g}.search</field>",
+            "    <field name=\"model\">${2/\\.+/\\./g}</field>",
+            "    <field name=\"type\">search</field>",
+            "    <field name=\"mode\">primary</field>",
+            "    <field name=\"priority\" eval=\"${7/(.)/\\1/g}\" />",
+            "    <field name=\"active\" eval=\"True\" />",
+            "    <field name=\"arch\" type=\"xml\">",
+            "        <search string=\"${2/\\./\\_/g}_search\">",
+            "            <field name=\"${3/(.)/\\1/g}\" />",
+            "            ",
+            "        </search>",
+            "    </field>",
+            "</record>",
+            "",
+            "<!-- Main window action for \"${2/(.)/\\1/g}\" -->",
+            "<record id=\"action_${2/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_act_window\" model=\"ir.actions.act_window\">",
+            "    <field name=\"type\">ir.actions.act_window</field>",
+            "    <field name=\"name\">${1/(.)/\\1/g}</field>",
+            "    <field name=\"res_model\">${2/\\.+/\\./g}</field>",
+            "    <field name=\"view_mode\">tree,form</field>",
+            "    <field name=\"view_type\">form</field>",
+            "    <field name=\"target\">current</field>",
+            "    <field name=\"domain\">${4/(.)/\\1/g}</field>",
+            "    <field name=\"context\">${5/(.)/\\1/g}</field>",
+            "    <field name=\"search_view_id\" ref=\"view_${2/\\./\\_/g}_search\" />",
+            "    <field name=\"help\" type=\"html\">",
+            "        <p class=\"oe_view_nocontent_create\">",
+            "            Click to add new ${1/(.)/\\1/g}",
+            "        </p><p>",
+            "            ${9:Something about ${2/(.)/$1/g}}",
+            "        </p>",
+            "    </field>",
+            "</record>",
+            "",
+            "<!-- Main menu for \"${2/(.)/\\1/g}\" -->",
+            "<record id=\"menu_${2/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.ui.menu\" >",
+            "    <field name=\"name\">${1/(.)/\\1/g}</field>",
+            "    <field name=\"sequence\" eval=\"${8/(.)/\\1/g}\" />",
+            "    <field name=\"action\" ref=\"action_${2/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_act_window\" />",
+            "    <field name=\"parent_id\" ref=\"${6/(.)/\\1/g}\" />",
+            "</record>",
             ""
         ],
         "description": "Views: tree, form, search; act_window and menu",
@@ -1850,21 +2130,21 @@
             "",
             "Inherited Views",
             "",
-            "- - - - - - - - - ${2/((..)|(.))/${2:-}\\ )${3:-})/g}",
+            "- - - - - - - - - ${2/((..)|(.))/(?2:-\\ )(?3:-)/g}",
             "- Model\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7: ${2:model}",
             "- Base Module\u00b7\u00b7\u00b7: ${3:module_name}",
             "- Mode\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7\u00b7: ${4:primary|extension}",
             "- View priority\u00b7: ${5:16}",
-            "- - - - - - - - - ${2/((..)|(.))/${2:-}\\ )${3:-})/g}",
+            "- - - - - - - - - ${2/((..)|(.))/(?2:-\\ )(?3:-)/g}",
             "",
             "-->",
             "",
-            "<!-- ${4/(^.)/${1:/capitalize}/g} Inherited .:Tree:. view for \"${2/(.)/\\1/g}\" -->",
-            "<record id=\"view_${2/\\./_/g}_tree_inherited\" model=\"ir.ui.view\">",
+            "<!-- ${4/(^.)/(?1:\\u$1)/g} Inherited .:Tree:. view for \"${2/(.)/\\1/g}\" -->",
+            "<record id=\"view_${2/\\./\\_/g}_tree_inherited\" model=\"ir.ui.view\">",
             "    <field name=\"name\">view.${2/\\.+/\\./g}.tree inherited</field>",
             "    <field name=\"model\">${2/\\.+/\\./g}</field>",
             "    <!-- Please veryfiy, that the following inherited view really sticks to the naming convention. -->",
-            "    <field name=\"inherit_id\" ref=\"${3:module_name}.view_${2/\\./_/g}_tree\" />",
+            "    <field name=\"inherit_id\" ref=\"${3:module_name}.view_${2/\\./\\_/g}_tree\" />",
             "    <field name=\"type\">tree</field>",
             "    <field name=\"mode\">${4:primary}</field>",
             "    <field name=\"priority\" eval=\"${5/(.)/\\1/g}\" />",
@@ -1876,12 +2156,12 @@
             "    </field>",
             "</record>",
             "",
-            "<!-- ${4/(^.)/${1:/capitalize}/g} Inherited .:Form:. view for \"${2/(.)/\\1/g}\" -->",
-            "<record id=\"view_${2/\\./_/g}_form_inherited\" model=\"ir.ui.view\">",
+            "<!-- ${4/(^.)/(?1:\\u$1)/g} Inherited .:Form:. view for \"${2/(.)/\\1/g}\" -->",
+            "<record id=\"view_${2/\\./\\_/g}_form_inherited\" model=\"ir.ui.view\">",
             "    <field name=\"name\">view.${2/\\.+/\\./g}.form inherited</field>",
             "    <field name=\"model\">${2/\\.+/\\./g}</field>",
             "    <!-- Please veryfiy, that the following inherited view really sticks to the naming convention. -->",
-            "    <field name=\"inherit_id\" ref=\"${3:module_name}.view_${2/\\./_/g}_form\" />",
+            "    <field name=\"inherit_id\" ref=\"${3:module_name}.view_${2/\\./\\_/g}_form\" />",
             "    <field name=\"type\">form</field>",
             "    <field name=\"mode\">${4:primary}</field>",
             "    <field name=\"priority\" eval=\"${5/(.)/\\1/g}\" />",
@@ -1895,12 +2175,12 @@
             "    </field>",
             "</record>",
             "",
-            "<!-- ${4/(^.)/${1:/capitalize}/g} Inherited .:Search:. view for \"${2/(.)/\\1/g}\" -->",
-            "<record id=\"view_${2/\\./_/g}_search_inherited\" model=\"ir.ui.view\">",
+            "<!-- ${4/(^.)/(?1:\\u$1)/g} Inherited .:Search:. view for \"${2/(.)/\\1/g}\" -->",
+            "<record id=\"view_${2/\\./\\_/g}_search_inherited\" model=\"ir.ui.view\">",
             "    <field name=\"name\">view.${2/\\.+/\\./g}.search inherited</field>",
             "    <field name=\"model\">${2/\\.+/\\./g}</field>",
             "    <!-- Please veryfiy, that the following inherited view really sticks to the naming convention. -->",
-            "    <field name=\"inherit_id\" ref=\"${3:module_name}.view_${2/\\./_/g}_search\" />",
+            "    <field name=\"inherit_id\" ref=\"${3:module_name}.view_${2/\\./\\_/g}_search\" />",
             "    <field name=\"type\">search</field>",
             "    <field name=\"mode\">${4:primary}</field>",
             "    <field name=\"priority\" eval=\"${5/(.)/\\1/g}\" />",
@@ -1928,20 +2208,20 @@
             "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->",
             "",
             "<!-- Tree view for \"${2/(.)/\\1/g}\" -->",
-            "<record id=\"view_${2/\\./_/g}_tree\" model=\"ir.ui.view\">",
+            "<record id=\"view_${2/\\./\\_/g}_tree\" model=\"ir.ui.view\">",
             "    <field name=\"name\">view.${2/\\.+/\\./g}.tree</field>",
             "    <field name=\"model\">${2/\\.+/\\./g}</field>",
-            "    <field name=\"inherit_id\" ref=\"${3}.view_${2/\\./_/g}_tree\" />",
+            "    <field name=\"inherit_id\" ref=\"${3}.view_${2/\\./\\_/g}_tree\" />",
             "    <field name=\"arch\" type=\"xml\">",
             "        ${0}",
             "    </field>",
             "</record>",
             "",
             "<!-- Form view for \"${2/(.)/\\1/g}\" -->",
-            "<record id=\"view_${2/\\./_/g}_form\" model=\"ir.ui.view\">",
+            "<record id=\"view_${2/\\./\\_/g}_form\" model=\"ir.ui.view\">",
             "    <field name=\"name\">view.${2/\\.+/\\./g}.form</field>",
             "    <field name=\"model\">${2/\\.+/\\./g}</field>",
-            "     <field name=\"inherit_id\" ref=\"${3}.view_${2/\\./_/g}_form\" />",
+            "     <field name=\"inherit_id\" ref=\"${3}.view_${2/\\./\\_/g}_form\" />",
             "    <field name=\"arch\" type=\"xml\">",
             "        ${0}",
             "    </field>",

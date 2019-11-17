@@ -193,7 +193,7 @@
 	},
 	"constraints": {
 		"prefix": "constraints",
-		"body": "\n_sql_constraints = [\n    (\n        '${1:name}',\n        '${2:constraint}',\n        _(u'${3:message}')\n    )${4}\n]${0}\n",
+		"body": "\n_sql_constraints = [\n    (\n        '${1:name}',\n        '${2:constraint}',\n        _('${3:message}')\n    )${4}\n]${0}\n",
 		"description": "Model SQL contraints",
 		"scope": "source.python"
 	},
@@ -439,109 +439,109 @@
 	},
 	"model/transient": {
 		"prefix": "model/transient",
-		"body": "\nclass ${1:ModelName}(models.TransientModel):\n    _name = '${3:${1/((^[A-Z])|([A-Z]))/(?2:\\l$2)(?3:\\.\\l$3)/g}}'\n    _description = u'${4:${1/((^[A-Z])|([A-Z]))/(?2:\\u$2)(?3:\\ \\u$3)/g}}'\n\n    ${0}\n",
+		"body": "\nclass ${1:ModelName}(models.TransientModel):\n    _name = '${3:${1/((^[A-Z])|([A-Z]))/(?2:\\l$2)(?3:\\.\\l$3)/g}}'\n    _description = '${4:${1/((^[A-Z])|([A-Z]))/(?2:\\u$2)(?3:\\ \\u$3)/g}}'\n\n    ${0}\n",
 		"description": "Odoo transient model class",
 		"scope": "source.python"
 	},
 	"model/model": {
 		"prefix": "model/model",
-		"body": "\nclass ${1:ModelName}(models.Model):\n    _name = '${3:${1/((^[A-Z])|([A-Z]))/(?2:\\l$2)(?3:\\.\\l$3)/g}}'\n    _description = u'${4:${1/((^[A-Z])|([A-Z]))/(?2:\\u$2)(?3:\\ \\u$3)/g}}'\n\n    _rec_name = 'name'\n    _order = 'name ASC'\n\n    name = fields.Char(\n        string=u'Name',\n        required=True,\n        default=lambda self: _('New'),\n        copy=False\n    )\n\n    ${0}\n",
+		"body": "\nclass ${1:ModelName}(models.Model):\n    _name = '${3:${1/((^[A-Z])|([A-Z]))/(?2:\\l$2)(?3:\\.\\l$3)/g}}'\n    _description = '${4:${1/((^[A-Z])|([A-Z]))/(?2:\\u$2)(?3:\\ \\u$3)/g}}'\n\n    _rec_name = 'name'\n    _order = 'name ASC'\n\n    name = fields.Char(\n        string='Name',\n        required=True,\n        default=lambda self: _('New'),\n        copy=False\n    )\n\n    ${0}\n",
 		"description": "Odoo generic model class",
 		"scope": "source.python"
 	},
 	"field.company_id": {
 		"prefix": "field.company_id",
-		"body": "\ncompany_id = fields.Many2one(\n    string=u'Company', \n    comodel_name='res.company', \n    required=True, \n    default=lambda self: self.env.user.company_id\n)\n",
+		"body": "\ncompany_id = fields.Many2one(\n    string='Company', \n    comodel_name='res.company', \n    required=True, \n    default=lambda self: self.env.user.company_id\n)\n",
 		"description": "",
 		"scope": "source.python"
 	},
 	"fields.Attachment": {
 		"prefix": "fields.Attachment",
-		"body": "\n${1:attachment} = fields.Binary(string=u'${3:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}', attachment=True)\n",
+		"body": "\n${1:attachment} = fields.Binary(string='${3:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}', attachment=True)\n",
 		"description": "",
 		"scope": "source.python"
 	},
 	"fields.Binary": {
 		"prefix": "fields.Binary",
-		"body": "\n${1:field_name} = fields.Binary(\n    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n)${0}\n",
+		"body": "\n${1:field_name} = fields.Binary(\n    string='${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n)${0}\n",
 		"description": "",
 		"scope": "source.python"
 	},
 	"fields.Boolean": {
 		"prefix": "fields.Boolean",
-		"body": "\n${1:field_name} = fields.Boolean(\n    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n)${0}\n",
+		"body": "\n${1:field_name} = fields.Boolean(\n    string='${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n)${0}\n",
 		"description": "",
 		"scope": "source.python"
 	},
 	"fields.Char": {
 		"prefix": "fields.Char",
-		"body": "\n${1:field_name} = fields.Char(\n    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n)${0}\n",
+		"body": "\n${1:field_name} = fields.Char(\n    string='${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n)${0}\n",
 		"description": "",
 		"scope": "source.python"
 	},
 	"fields.Date": {
 		"prefix": "fields.Date",
-		"body": "\n${1:field_name} = fields.Date(\n    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n    default=${6:fields.Date.context_today},\n)${0}\n",
+		"body": "\n${1:field_name} = fields.Date(\n    string='${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n    default=${6:fields.Date.context_today},\n)${0}\n",
 		"description": "",
 		"scope": "source.python"
 	},
 	"fields.Datetime": {
 		"prefix": "fields.Datetime",
-		"body": "\n${1:field_name} = fields.Datetime(\n    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n    default=${6:fields.Datetime.now},\n)${0}\n",
+		"body": "\n${1:field_name} = fields.Datetime(\n    string='${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n    default=${6:fields.Datetime.now},\n)${0}\n",
 		"description": "",
 		"scope": "source.python"
 	},
 	"fields.Float": {
 		"prefix": "fields.Float",
-		"body": "\n${1:field_name} = fields.Float(\n    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n)${0}\n",
+		"body": "\n${1:field_name} = fields.Float(\n    string='${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n)${0}\n",
 		"description": "",
 		"scope": "source.python"
 	},
 	"fields.Html": {
 		"prefix": "fields.Html",
-		"body": "\n${1:field_name} = fields.Html(\n    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n)${0}\n",
+		"body": "\n${1:field_name} = fields.Html(\n    string='${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n)${0}\n",
 		"description": "",
 		"scope": "source.python"
 	},
 	"fields.Integer": {
 		"prefix": "fields.Integer",
-		"body": "\n${1:field_name} = fields.Integer(\n    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n)${0}\n",
+		"body": "\n${1:field_name} = fields.Integer(\n    string='${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n)${0}\n",
 		"description": "",
 		"scope": "source.python"
 	},
 	"fields.Many2many": {
 		"prefix": "fields.Many2many",
-		"body": "\n${1:field_name}_ids = fields.Many2many(\n    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n    comodel_name='${8:model.name}',\n    relation='${10:${8/\\./_/g}_${9:this_model}_rel}',\n    column1='${11:${8/\\./_/g}_id}',\n    column2='${12:${9}_id}',\n)${0}\n",
+		"body": "\n${1:field_name}_ids = fields.Many2many(\n    string='${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n    comodel_name='${8:model.name}',\n    relation='${10:${8/\\./_/g}_${9:this_model}_rel}',\n    column1='${11:${8/\\./_/g}_id}',\n    column2='${12:${9}_id}',\n)${0}\n",
 		"description": "",
 		"scope": "source.python"
 	},
 	"fields.Many2one": {
 		"prefix": "fields.Many2one",
-		"body": "\n${1:field_name}_id = fields.Many2one(\n    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n    comodel_name='${8:model.name}',\n    ondelete='${11:set null}',\n)${0}\n",
+		"body": "\n${1:field_name}_id = fields.Many2one(\n    string='${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n    comodel_name='${8:model.name}',\n    ondelete='${11:restrict}',\n)${0}\n",
 		"description": "",
 		"scope": "source.python"
 	},
 	"fields.One2many": {
 		"prefix": "fields.One2many",
-		"body": "\n${1:field_name}_ids = fields.One2many(\n    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n    comodel_name='${8:model.name}',\n    inverse_name='${9:inverse_field}',\n)${0}\n",
+		"body": "\n${1:field_name}_ids = fields.One2many(\n    string='${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n    comodel_name='${8:model.name}',\n    inverse_name='${9:inverse_field}',\n)${0}\n",
 		"description": "",
 		"scope": "source.python"
 	},
 	"fields.Reference": {
 		"prefix": "fields.Reference",
-		"body": "\n${1:field_name}_ref = fields.Reference(\n    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n    selection=[('${8:model.name}', '${9:String}'),('${10:model.name}', '${11:String}')]\n)${0}\n",
+		"body": "\n${1:field_name}_ref = fields.Reference(\n    string='${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n    selection=[('${8:model.name}', '${9:String}'),('${10:model.name}', '${11:String}')]\n)${0}\n",
 		"description": "",
 		"scope": "source.python"
 	},
 	"fields.Selection": {
 		"prefix": "fields.Selection",
-		"body": "\n${1:field_name} = fields.Selection(\n    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n    selection=[('${8:valor1}', '${9:${8/(.)(.+)/\\u$1$2/g}}'), ('${10:valor2}', '${11:${10/(.)(.+)/\\u$1$2/g}}')]\n)${0}\n",
+		"body": "\n${1:field_name} = fields.Selection(\n    string='${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n    selection=[('${8:valor1}', '${9:${8/(.)(.+)/\\u$1$2/g}}'), ('${10:valor2}', '${11:${10/(.)(.+)/\\u$1$2/g}}')]\n)${0}\n",
 		"description": "",
 		"scope": "source.python"
 	},
 	"fields.Text": {
 		"prefix": "fields.Text",
-		"body": "\n${1:field_name} = fields.Text(\n    string=u'${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n)${0}\n",
+		"body": "\n${1:field_name} = fields.Text(\n    string='${2:${1/((^.)|(_(.)))/(?2:\\u$2)(?3:\\ \\u$4)/g}}',\n)${0}\n",
 		"description": "",
 		"scope": "source.python"
 	},
@@ -643,7 +643,7 @@
 	},
 	"method/toggle_active": {
 		"prefix": "method/toggle_active",
-		"body": "\n@api.multi\ndef toggle_active(self):\n    return {'warning': {\n                    'title': _(\"Warning\"),\n                    'message': _(u\"不允许对此模型的记录进行“归档”操作！\") ,\n    }}\n${0}\n",
+		"body": "\n@api.multi\ndef toggle_active(self):\n    return {'warning': {\n                    'title': _(\"Warning\"),\n                    'message': _(u\"It is not allowed to \"archive\" records of this model!\") ,\n    }}\n${0}\n",
 		"description": "toggle_active method signature",
 		"scope": "source.python"
 	},
@@ -655,7 +655,7 @@
 	},
 	"method/unlink_restrict": {
 		"prefix": "method/unlink_restrict",
-		"body": "\n@api.multi\ndef unlink(self):\n    for record in self:\n        if record.state not in ('draft'):\n            raise UserError(\n                u'不可以删除非草稿状态的单据!'\n            )\n    return super(ModelClass, self).unlink()\n",
+		"body": "\n@api.multi\ndef unlink(self):\n    for record in self:\n        if record.state not in ('draft'):\n            raise UserError(\n                'You cannot delete a document which is not draft or cancelled!'\n            )\n    return super(ModelClass, self).unlink()\n",
 		"description": "restrict unlink",
 		"scope": "source.python"
 	},
@@ -697,7 +697,7 @@
 	},
 	"feature/company_plant": {
 		"prefix": "feature/company_plant",
-		"body": "\nfactory_id = fields.Many2one(\n    string=u'工厂',\n    comodel_name='res.company',\n    required=True,\n    default=lambda self: self.env.user.company_id,\n    domain=lambda self: [('is_factory','=',True), ('id','in',self.env.user.company_ids.ids)],\n)\n\ncompany_id = fields.Many2one(\n    string=u'Company',\n    comodel_name='res.company',\n    ondelete='set null',\n    related='factory_id.parent_id',\n)\n\n",
+		"body": "\nplant_id = fields.Many2one(\n    string='Plant',\n    comodel_name='res.company',\n    required=True,\n    default=lambda self: self.env.user.company_id,\n    domain=lambda self: [('is_plant','=',True), ('id','in',self.env.user.company_ids.ids)],\n)\n\ncompany_id = fields.Many2one(\n    string='Company',\n    comodel_name='res.company',\n    ondelete='set null',\n    related='factory_id.parent_id',\n)\n\n",
 		"description": "Adds the company/plant support",
 		"scope": "source.python"
 	},
@@ -725,9 +725,9 @@
 		"description": "Adds the _parent_store attribute and parent_left and parent_right",
 		"scope": "source.python"
 	},
-	"feature/state": {
-		"prefix": "feature/state",
-		"body": "\nstate = fields.Selection(\n    string=u'State',\n    selection=[('draft', 'Draft'), ('confirmed', 'Confirmed'),  ('close', 'Close'),  ('cancel', 'Cancel')],\n    default='draft',\n    readonly=True,\n)\n\n@api.multi\ndef action_confirm(self):\n    self.write({'state': 'confirmed'})\n\n@api.multi\ndef action_draft(self):\n    self.write({'state': 'draft'})\n\n@api.multi\ndef action_cancel(self):\n    self.write({'state': 'cancel'})\n\n@api.multi\ndef action_close(self):\n    self.write({'state': 'close'})\n\n${0}\n",
+	"feature/status": {
+		"prefix": "feature/status",
+		"body": "\nstate = fields.Selection(\n    string='State',\n    selection=[('draft', 'Draft'), ('confirmed', 'Confirmed'),  ('close', 'Close'),  ('cancel', 'Cancel')],\n    default='draft',\n    readonly=True,\n)\n\n@api.multi\ndef action_confirm(self):\n    self.write({'state': 'confirmed'})\n\n@api.multi\ndef action_draft(self):\n    self.write({'state': 'draft'})\n\n@api.multi\ndef action_cancel(self):\n    self.write({'state': 'cancel'})\n\n@api.multi\ndef action_close(self):\n    self.write({'state': 'close'})\n\n${0}\n",
 		"description": "Adds state support",
 		"scope": "source.python"
 	},
@@ -811,27 +811,15 @@
 	},
 	"sequence/line_number": {
 		"prefix": "sequence/line_number",
-		"body": "\nline_number = fields.Integer(string=u'行号', default=10)\n\n@api.model\ndef default_get(self, fields):\n    default_values = super(${1:ModelClass}, self).default_get(fields)\n\n    line_ids = self.env.context.get('${2:line_ids}', False)\n    if line_ids:\n        lines = self.env['${3:model}'].resolve_2many_commands(\n            '${2:line_ids}', line_ids\n        )\n        lines.sort(key=lambda x:x.get('line_number'))\n\n        if lines:\n            sequence = lines[-1]['line_number'] + 10\n        else:\n            sequence = 10\n\n        default_values.update({'line_number': sequence})\n\n    return default_values\n\n",
+		"body": "\nline_number = fields.Integer(string='Line Number', default=10)\n\n@api.model\ndef default_get(self, fields):\n    default_values = super(${1:ModelClass}, self).default_get(fields)\n\n    line_ids = self.env.context.get('${2:line_ids}', False)\n    if line_ids:\n        lines = self.env['${3:model}'].resolve_2many_commands(\n            '${2:line_ids}', line_ids\n        )\n        lines.sort(key=lambda x:x.get('line_number'))\n\n        if lines:\n            sequence = lines[-1]['line_number'] + 10\n        else:\n            sequence = 10\n\n        default_values.update({'line_number': sequence})\n\n    return default_values\n\n",
 		"description": "Line Number Add 10 automaticlly",
 		"scope": "source.python"
 	},
-	"groups/multi_company": {
-		"prefix": "groups/multi_company",
-		"body": "\n groups=\"base.group_multi_company\"${0}\n",
+	"oodict/stock_move/~12": {
+		"prefix": "oodict/stock_move/~12",
+		"body": "\n{\n    'name': self.name,\n    'product_id': self.product_id.id,\n    'product_uom': self.product_uom.id or\n    self.product_id.uom_id.id,\n    'product_uom_qty': self.product_qty,\n    'partner_id': self.partner_id and\n    self.partner_id.id or False,\n    'location_id': self.location_dest_id.id,\n    'location_dest_id': self.location_dest_id.id,\n    'move_line_ids': [(0, 0, {\n        'product_id': self.product_id.id,\n        'lot_id': self.lot_id.id,\n        'product_uom_qty': self.product_qty,\n        'product_uom_id': self.product_uom.id or\n        self.product_id.uom_id.id,\n        'qty_done': self.product_qty,\n        'package_id': False,\n        'result_package_id': False,\n        'location_id': self.location_dest_id.id,\n        'location_dest_id': self.location_dest_id.id})]}\n${0}\n",
 		"description": "",
-		"scope": "text.xml"
-	},
-	"groups/no_one": {
-		"prefix": "groups/no_one",
-		"body": "\n groups=\"base.group_no_one\"${0}\n",
-		"description": "",
-		"scope": "text.xml"
-	},
-	"groups/system": {
-		"prefix": "groups/system",
-		"body": "\n groups=\"base.group_system\"${0}\n",
-		"description": "",
-		"scope": "text.xml"
+		"scope": "source.python"
 	},
 	"import/translate": {
 		"prefix": "import/translate",
@@ -877,7 +865,7 @@
 	},
 	"super": {
 		"prefix": "super",
-		"body": "\nsuper(${1:Extension}, self).${2:handler}(${3})\n",
+		"body": "\nsuper(${1:ModelClass}, self).${2:handler}(${3})\n",
 		"description": "Call Python parent class",
 		"scope": "source.python"
 	},
@@ -1054,6 +1042,138 @@
 		"body": "\n<!-- REPORT: \"${1:Human readable name}\"\n\n    - Module: ${2:module}    Model: ${3:model}\n    - Language field used to translate it: ${4:lang}\n    - Report uses attachment: ${5:True}\n    - Report paperformat: ${6:report.paperformat_euro}\n    - View priority: ${7:16}    Active: ${8:True}\n    - Action help: ${9:Something about ${1/(.)/\\1/g}}\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->\n\n<!-- Report \"${1/(.)/\\1/g}\" document template -->\n<record id=\"view_${3/\\./\\_/g}_document_qweb\" model=\"ir.ui.view\">\n    <field name=\"name\">${1/(.)/\\1/g}</field>\n    <field name=\"model\">${3/(.)/\\1/g}</field>\n    <field name=\"type\">qweb</field>\n    <field name=\"mode\">primary</field>\n    <field name=\"priority\" eval=\"${7/(.)/\\1/g}\" />\n    <field name=\"active\" eval=\"${8/(.)/\\1/g}\" />\n    <field name=\"arch\" type=\"xml\">\n        <t t-name=\"${2/(.)/\\1/g}.view_${3/\\./\\_/g}_document_qweb\">\n            <t t-call=\"report.external_layout\">\n                <div class=\"page\">\n                    ${0:<h2>Report title</h2>\n                    <p>This object's name is <span t-field=\"o.name\"/></p>}\n                </div>\n            </t>\n        </t>\n    </field>\n</record>\n\n<!-- Report \"${1/(.)/\\1/g}\" translate_doc template -->\n<record id=\"view_${3/\\./\\_/g}_qweb\" model=\"ir.ui.view\">\n    <field name=\"name\">${1/(.)/\\1/g}</field>\n    <field name=\"model\">${3/(.)/\\1/g}</field>\n    <field name=\"type\">qweb</field>\n    <field name=\"mode\">primary</field>\n    <field name=\"priority\" eval=\"${7/(.)/\\1/g}\" />\n    <field name=\"active\" eval=\"${8/(.)/\\1/g}\" />\n    <field name=\"arch\" type=\"xml\">\n        <t t-name=\"${2/(.)/\\1/g}.view_${3/\\./\\_/g}_qweb\">\n            <t t-call=\"report.html_container\">\n                <t t-foreach=\"doc_ids\" t-as=\"doc_id\">\n                    <t t-raw=\"translate_doc(doc_id, doc_model, '${4/(.)/\\1/g}', '${2/(.)/\\1/g}.view_${3/\\./\\_/g}_document_qweb')\"/>\n                </t>\n            </t>\n        </t>\n    </field>\n</record>\n\n<!-- Report action to show: \"${1/(.)/\\1/g}\" -->\n<record id=\"action_report_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.actions.report.xml\">\n    <field name=\"name\">${1/(.)/\\1/g}</field>\n    <field name=\"model\">${3/(.)/\\1/g}</field>\n    <field name=\"report_type\">qweb-pdf</field>\n    <field name=\"report_name\">${2/(.)/\\1/g}.view_${3/\\./\\_/g}_qweb</field>\n    <field name=\"attachment_use\" eval=\"${5/(.)/\\1/g}\" />\n    <field name=\"attachment\">(object.name+'.pdf')</field>\n    <field name=\"paperformat_id\" ref=\"${6/(.)/\\1/g}\" />\n    <field name=\"help\">${9/(.)/\\1/g}</field>\n</record>\n\n<!-- Button to print the report: \"${1/(.)/\\1/g}\" -->\n<record id=\"${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_values\" model=\"ir.values\">\n    <field name=\"name\">${1/(.)/\\1/g}</field>\n    <field name=\"model_id\" ref=\"${2/(.)/\\1/g}.model_${3/\\./\\_/g}\" />\n    <field name=\"model\">${3/(.)/\\1/g}</field>\n    <field name=\"value\" eval=\"'ir.actions.report.xml,' +str(ref('action_report_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}'))\" />\n    <field name=\"key\">action</field>\n    <field name=\"key2\">client_print_multi</field>\n</record>\n",
 		"description": "Report: document and translation; action.report.xml and ir.values",
 		"scope": "text.xml"
+	},
+	"extid/group_no_one": {
+		"prefix": "extid/group_no_one",
+		"body": "\nbase.group_no_one${0}\n",
+		"description": "",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"extid/group_system": {
+		"prefix": "extid/group_system",
+		"body": "\nbase.group_system${0}\n",
+		"description": "",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"groups": {
+		"prefix": "groups",
+		"body": "\ngroups=\"${1}\"${0}\n",
+		"description": "",
+		"scope": "text.xml"
+	},
+	"field_groups_id": {
+		"prefix": "field_groups_id",
+		"body": "\n<field name=\"groups_id\" eval=\"[(4, ref('${1}'))]\"/>${0}\n",
+		"description": "",
+		"scope": "text.xml"
+	},
+	"field_group_ids/display_incoterm": {
+		"prefix": "field_group_ids/display_incoterm",
+		"body": "\n<field name=\"groups_id\" eval=\"[(4, ref('sale_stock.group_display_incoterm'))]\"/>${0}\n",
+		"description": "",
+		"scope": "text.xml"
+	},
+	"field_group_ids/stock_multi_locations": {
+		"prefix": "field_group_ids/stock_multi_locations",
+		"body": "\n<field name=\"groups_id\" eval=\"[(4, ref('stock.group_stock_multi_locations'))]\"/>${0}\n",
+		"description": "",
+		"scope": "text.xml"
+	},
+	"field_group_ids/multi_company": {
+		"prefix": "field_group_ids/multi_company",
+		"body": "\n <field name=\"groups_id\" eval=\"[(4, ref('base.group_multi_company'))]\"/>${0}\n",
+		"description": "",
+		"scope": "text.xml"
+	},
+	"field_group_ids/no_one": {
+		"prefix": "field_group_ids/no_one",
+		"body": "\n<field name=\"groups_id\" eval=\"[(4, ref('base.group_no_one'))]\"/>${0}\n",
+		"description": "",
+		"scope": "text.xml"
+	},
+	"field_group_ids/tracking_owner": {
+		"prefix": "field_group_ids/tracking_owner",
+		"body": "\n<field name=\"groups_id\" eval=\"[(4, ref('stock.group_tracking_owner'))]\"/>${0}\n",
+		"description": "",
+		"scope": "text.xml"
+	},
+	"field_group_ids/tracking_lot": {
+		"prefix": "field_group_ids/tracking_lot",
+		"body": "\n<field name=\"groups_id\" eval=\"[(4, ref('stock.group_tracking_lot'))]\"/>${0}\n",
+		"description": "",
+		"scope": "text.xml"
+	},
+	"field_group_ids/production_lot": {
+		"prefix": "field_group_ids/production_lot",
+		"body": "\n<field name=\"groups_id\" eval=\"[(4, ref('stock.group_production_lot'))]\"/>${0}\n",
+		"description": "",
+		"scope": "text.xml"
+	},
+	"field_group_ids/system": {
+		"prefix": "field_group_ids/system",
+		"body": "\n<field name=\"groups_id\" eval=\"[(4, ref('base.group_system'))]\"/>${0}\n",
+		"description": "",
+		"scope": "text.xml"
+	},
+	"field_group_ids/uom": {
+		"prefix": "field_group_ids/uom",
+		"body": "\n<field name=\"groups_id\" eval=\"[(4, ref('uom.group_uom'))]\"/>${0}\n",
+		"description": "",
+		"scope": "text.xml"
+	},
+	"group_display_incoterm": {
+		"prefix": "group_display_incoterm",
+		"body": "\n groups=\"sale_stock.group_display_incoterm\"${0}\n",
+		"description": "",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"group_stock_multi_locations": {
+		"prefix": "group_stock_multi_locations",
+		"body": "\n groups=\"stock.group_stock_multi_locations\"${0}\n",
+		"description": "",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"group_multi_company": {
+		"prefix": "group_multi_company",
+		"body": "\n groups=\"base.group_multi_company\"${0}\n",
+		"description": "",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"group_no_one": {
+		"prefix": "group_no_one",
+		"body": "\n groups=\"base.group_no_one\"${0}\n",
+		"description": "",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"group_tracking_owner": {
+		"prefix": "group_tracking_owner",
+		"body": "\n groups=\"stock.group_tracking_owner\"${0}\n",
+		"description": "",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"group_tracking_lot": {
+		"prefix": "group_tracking_lot",
+		"body": "\n groups=\"stock.group_tracking_lot\"${0}\n",
+		"description": "",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"group_production_lot": {
+		"prefix": "group_production_lot",
+		"body": "\n groups=\"stock.group_production_lot\"${0}\n",
+		"description": "",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"group_system": {
+		"prefix": "group_system",
+		"body": "\n groups=\"base.group_system\"${0}\n",
+		"description": "",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"group_uom": {
+		"prefix": "group_uom",
+		"body": "\n groups=\"uom.group_uom\"${0}\n",
+		"description": "",
+		"scope": "text.xml meta.tag.xml"
 	},
 	"acl/header": {
 		"prefix": "acl/header",
@@ -1301,6 +1421,36 @@
 		"description": "Test case method",
 		"scope": "source.python"
 	},
+	"arch/form": {
+		"prefix": "arch/form",
+		"body": "\n<form string=\"${1:Caption}\" create=\"${2:true}\" delete=\"${3:true}\" edit=\"${4:true}\">\n    <sheet>\n        <div class=\"oe_title\">\n            <label for=\"${5:name}\" class=\"oe_edit_only\" />\n            <h1><field name=\"${5}\" placeholder=\"${7:Describe the item...}\" /></h1>\n        </div>\n        ${0}\n    </sheet>\n</form>\n",
+		"description": "Common form tag to be added inside a ir.ui.view",
+		"scope": "text.xml"
+	},
+	"arch/graph": {
+		"prefix": "arch/graph",
+		"body": "\n<graph string=\"${1:Graph title}\" type=\"${2:one # bar # pie # line # pivot}\">\n    <field type=\"row\" name=\"${3:row_field}\" />\n    <field type=\"col\" name=\"${4:col_field}\" interval=\"month\" />\n    <field type=\"measure\" name=\"${5:measure_field}\" />\n</graph>${0}\n",
+		"description": "Common graph tag to be added inside a ir.ui.view",
+		"scope": "text.xml"
+	},
+	"arch/pivot": {
+		"prefix": "arch/pivot",
+		"body": "\n<pivot string=\"${1:Graph title}\" type=\"${2:one # bar # pie # line # pivot}\">\n    <field type=\"row\" name=\"${3:row_field}\" />\n    <field type=\"col\" name=\"${4:col_field}\" interval=\"month\" />\n    <field type=\"measure\" name=\"${5:measure_field}\" />\n</pivot>${0}\n",
+		"description": "Common graph tag to be added inside a ir.ui.view",
+		"scope": "text.xml"
+	},
+	"arch/search": {
+		"prefix": "arch/search",
+		"body": "\n<search string=\"${1:Name}\">\n    ${0}\n</search>\n",
+		"description": "Common search tag to be added inside a ir.ui.view",
+		"scope": "text.xml"
+	},
+	"arch/tree": {
+		"prefix": "arch/tree",
+		"body": "\n<tree string=\"${1:Caption}\" create=\"${2:true}\" delete=\"${3:true}\" edit=\"${4:true}\"${6: editable=\"${5:bottom}\"}>\n    ${0}\n</tree>\n",
+		"description": "Common tree tag to be added inside a ir.ui.view",
+		"scope": "text.xml"
+	},
 	"attrs": {
 		"prefix": "attrs",
 		"body": "\nattrs=\"{ ${0} }\"\n",
@@ -1397,9 +1547,9 @@
 		"description": "field attr filter_domain",
 		"scope": "text.xml meta.tag.xml"
 	},
-	"groups": {
+	"groups1": {
 		"prefix": "groups",
-		"body": "\ngroups=\"${1:module}.group_${2:groupNmae}\"${0}\n",
+		"body": "\ngroups=\"${1:MODULE}.group_${2:GROUPNMAE}\"${0}\n",
 		"description": "field attr groups",
 		"scope": "text.xml meta.tag.xml"
 	},
@@ -1492,336 +1642,6 @@
 		"body": "\nedit=\"${1:false}\"${0}\n",
 		"description": "tag attr edit",
 		"scope": "text.xml meta.tag.xml"
-	},
-	"field/compound": {
-		"prefix": "field/compound",
-		"body": "\n<label for=\"${1:product_qty}\"/>\n<div class=\"o_row\">\n    <field name=\"${1:product_qty}\"/>\n    <field name=\"${2:product_uom_id}\"/>\n</div> ${0}\n",
-		"description": "Compound field",
-		"scope": "text.xml"
-	},
-	"field/full": {
-		"prefix": "field/full",
-		"body": "\n<field\n    name=\"${1:name}\"\n    string=\"${2:${1/((^.)|(_+))/(?2:\\u$2)(?3:\\ )/g}}\"\n    nolabel=\"${3:0}\"\n    required=\"${4:True}\"\n    readonly=\"${5:True}\"\n    invisible=\"${6:True}\"\n    widget=\"${7:char}\"\n    class=\"${8:oe_field_${1/([^a-zA-Z\\-\\_0-9]+)/\\_/g}}\"\n    placeholder=\"${9:${1/((^.)|(_+))/(?2:\\u$2)(?3:\\ )/g}}\"\n    help=\"${10:Enter new value for ${1/((^.)|(_+))/(?2:\\u$2)(?3:\\ )/g}}\"\n    mode=\"${11:tree}\"\n    filename=\"${12:${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}}\"\n    password=\"${13:0}\"\n    domain=\"${14:[]}\"\n    context=\"${15:\\{\\}}\" />${0}\n",
-		"description": "Full field tag",
-		"scope": "text.xml"
-	},
-	"field/inline": {
-		"prefix": "field/inline",
-		"body": "\n<field name=\"${1:name}\" class=\"${2:oe_inline}\"${4:\n    placeholder=\"${3:Enter new value for ${1/((^.)|(_+))/(?2:\\u$2)(?3:\\ )/g}}\"} />${0}\n",
-		"description": "Inline field tag",
-		"scope": "text.xml"
-	},
-	"field/simple": {
-		"prefix": "field/simple",
-		"body": "\n<field name=\"${1:name}\" />${0}\n",
-		"description": "Simple field tag",
-		"scope": "text.xml"
-	},
-	"fields.Boolean1": {
-		"prefix": "fields.Boolean",
-		"body": "\n<field name=\"${1:name}\" eval=\"${2:True}\" />${0}\n",
-		"description": "Common XML tag for field type Boolean",
-		"scope": "text.xml"
-	},
-	"fields.Char1": {
-		"prefix": "fields.Char",
-		"body": "\n<field name=\"${1:name}\">${2:value}</field>${0}\n",
-		"description": "Common XML tag for field type Char",
-		"scope": "text.xml"
-	},
-	"fields.Date1": {
-		"prefix": "fields.Date",
-		"body": "\n<field name=\"${1:name}\" eval=\"${3:time.strftime('${2:%Y-%m-%d}')}\" />${0}\n",
-		"description": "Common XML tag for field type Date",
-		"scope": "text.xml"
-	},
-	"fields.Datetime1": {
-		"prefix": "fields.Datetime",
-		"body": "\n<field name=\"${1:name}\" eval=\"${3:time.strftime('${2:%Y-%m-%d %H:%M:%S}')}\" />${0}\n",
-		"description": "Common XML tag for field type Datetime",
-		"scope": "text.xml"
-	},
-	"fields.Float1": {
-		"prefix": "fields.Float",
-		"body": "\n<field name=\"${1:name}\" eval=\"${2:0.0}\" />${0}\n",
-		"description": "Common XML tag for field type Float",
-		"scope": "text.xml"
-	},
-	"fields.Html1": {
-		"prefix": "fields.Html",
-		"body": "\n<field name=\"${1:name}\"><![CDATA[\n    ${2:content}\n]]${-1}></field>${0}\n",
-		"description": "Common XML tag for field type Html",
-		"scope": "text.xml"
-	},
-	"fields.Integer1": {
-		"prefix": "fields.Integer",
-		"body": "\n<field name=\"${1:name}\" eval=\"${2:0}\" />${0}\n",
-		"description": "Common XML tag for field type Integer",
-		"scope": "text.xml"
-	},
-	"fields.Many2many1": {
-		"prefix": "fields.Many2many",
-		"body": "\n<field name=\"${1:name}\" eval=\"${3:[(4, ref('${2:ir.model}'))]}\" />${0}\n",
-		"description": "Common XML tag for field type Many2many",
-		"scope": "text.xml"
-	},
-	"fields.Many2one1": {
-		"prefix": "fields.Many2one",
-		"body": "\n<field name=\"${1:name}\" ref=\"${2:ir.model}\" />${0}\n",
-		"description": "Common XML tag for field type Many2one",
-		"scope": "text.xml"
-	},
-	"fields.One2many1": {
-		"prefix": "fields.One2many",
-		"body": "\n<field name=\"${1:name}\" eval=\"${3:[(4, ref('${2:ir.model}'))]}\" />${0}\n",
-		"description": "Common XML tag for field type One2many",
-		"scope": "text.xml"
-	},
-	"fields.Selection1": {
-		"prefix": "fields.Selection",
-		"body": "\n<field name=\"${1:name}\">${2:value}</field>${0}\n",
-		"description": "Common XML tag for field type Selection",
-		"scope": "text.xml"
-	},
-	"fields.Text1": {
-		"prefix": "fields.Text",
-		"body": "\n<field name=\"${1:name}\"><![CDATA[\n    ${2:content}\n]]${-1}></field>${0}\n",
-		"description": "Common XML tag for field type Text",
-		"scope": "text.xml"
-	},
-	"attribute": {
-		"prefix": "attribute",
-		"body": "\n<attribute name=\"${1:field_name}\">${2:value}</attribute>${0}\n",
-		"description": "",
-		"scope": "text.xml"
-	},
-	"button/cancel": {
-		"prefix": "button/cancel",
-		"body": "\n<button string=\"Cancel\" special=\"cancel\" class=\"oe_link\"/>\n",
-		"description": "Cancel button tag definition",
-		"scope": "text.xml"
-	},
-	"button/inline": {
-		"prefix": "button/inline",
-		"body": "\n<button name=\"${1:function_name}\" string=\"${2:string}\" ${4:type=\"${3:object}\"} class=\"oe_highlight\"/>\n",
-		"description": "Inline button tag definition",
-		"scope": "text.xml"
-	},
-	"button/full": {
-		"prefix": "button/full",
-		"body": "\n<button name=\"${1:function_name}\"\n        string=\"${2:string}\"${4:\n        type=\"${3:object}\"}${5:\n        special=\"cancel\"}${7:\n        default_focus=\"${6:0}\"}${9:\n        icon=\"${8:gtk-apply}\"}${11:\n        confirm=\"${10:message}\"}${13:\n        help=\"${12:message}\"} />\n",
-		"description": "Common button tag definition",
-		"scope": "text.xml"
-	},
-	"arch/form": {
-		"prefix": "arch/form",
-		"body": "\r\n<form string=\"${1:Caption}\" create=\"${2:true}\" delete=\"${3:true}\" edit=\"${4:true}\">\r\n    <sheet>\r\n        <div class=\"oe_title\">\r\n            <label for=\"${5:name}\" class=\"oe_edit_only\" />\r\n            <h1><field name=\"${5}\" placeholder=\"${7:Describe the item...}\" /></h1>\r\n        </div>\r\n        ${0}\r\n    </sheet>\r\n</form>\r\n",
-		"description": "Common form tag to be added inside a ir.ui.view",
-		"scope": "text.xml"
-	},
-	"arch/graph": {
-		"prefix": "arch/graph",
-		"body": "\n<graph string=\"${1:Graph title}\" type=\"${2:one # bar # pie # line # pivot}\">\n    <field type=\"row\" name=\"${3:row_field}\" />\n    <field type=\"col\" name=\"${4:col_field}\" interval=\"month\" />\n    <field type=\"measure\" name=\"${5:measure_field}\" />\n</graph>${0}\n",
-		"description": "Common graph tag to be added inside a ir.ui.view",
-		"scope": "text.xml"
-	},
-	"group": {
-		"prefix": "group",
-		"body": "\n<group>\n        ${0}\n    \n\n</group>\n\n",
-		"description": "",
-		"scope": "text.xml"
-	},
-	"search/group_by": {
-		"prefix": "search/group_by",
-		"body": "\n<group expand=\"0\" string=\"Group By\">\n    <filter name=\"group_by_${1:user_id} \"string=\"${2:User}\" context=\"{'group_by':'${1}'}\" help=\"${3}\"/>\n    ${0}\n</group>\n\n",
-		"description": "",
-		"scope": "text.xml"
-	},
-	"label": {
-		"prefix": "label",
-		"body": "\n<label for='${1:field_name}'>${2:Label}</label>\n",
-		"description": "Field Label",
-		"scope": "text.xml"
-	},
-	"link": {
-		"prefix": "link",
-		"body": "\n<link rel=\"stylesheet\" href=\"/${1:module_name}/static/src/css/${2:styles}.css\" />${0}\n",
-		"description": "Link tag to inglude an stylesheet",
-		"scope": "text.xml"
-	},
-	"notebook": {
-		"prefix": "notebook",
-		"body": "\n<notebook>\n    ${0}\n</notebook>\n",
-		"description": "",
-		"scope": "text.xml"
-	},
-	"arch/pivot": {
-		"prefix": "arch/pivot",
-		"body": "\n<pivot string=\"${1:Graph title}\" type=\"${2:one # bar # pie # line # pivot}\">\n    <field type=\"row\" name=\"${3:row_field}\" />\n    <field type=\"col\" name=\"${4:col_field}\" interval=\"month\" />\n    <field type=\"measure\" name=\"${5:measure_field}\" />\n</pivot>${0}\n",
-		"description": "Common graph tag to be added inside a ir.ui.view",
-		"scope": "text.xml"
-	},
-	"script": {
-		"prefix": "script",
-		"body": "\n<script type=\"text/javascript\" src=\"/${1:module_name}/static/src/js/${2:scripts}.js\" />${0}\n",
-		"description": "Script tag to inglude an javascript",
-		"scope": "text.xml"
-	},
-	"search/filter": {
-		"prefix": "search/filter",
-		"body": "\n<filter string=\"${1:Name}\"\n    name=\"${2:${1/(([A-Za-z0-9])|( )|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)(?4:\\_)/g}}\"\n    domain=\"${3:[]}\"\n    context=\"${4:{}}\"\n    help=\"${5}\" />${0}\n",
-		"description": "Common filter tag to be added inside a search view",
-		"scope": "text.xml"
-	},
-	"arch/search": {
-		"prefix": "arch/search",
-		"body": "\n<search string=\"${1:Name}\">\n    ${0}\n</search>\n",
-		"description": "Common search tag to be added inside a ir.ui.view",
-		"scope": "text.xml"
-	},
-	"separator": {
-		"prefix": "separator",
-		"body": "\n<separator string=\"Some Text\" colspan=\"4\" />\n    ${0}\n",
-		"description": "Common separator tag to be added inside a ir.ui.view",
-		"scope": "text.xml"
-	},
-	"button/smart": {
-		"prefix": "button/smart",
-		"body": "\n<div class=\"oe_button_box\" name=\"button_box\">\n    <button class=\"oe_stat_button\" name=\"${1:action_name}\" type=\"object\" icon=\"fa-${4:search}\">\n        <field string=\"${2:string}\" name=\"${3:count_name}\" widget=\"statinfo\" />\n    </button>\n${0}\n</div>\n",
-		"description": "smart button definition",
-		"scope": "text.xml"
-	},
-	"page": {
-		"prefix": "page",
-		"body": "\n<page string=\"${1:Title}\" >\n    ${0}\n</page>\n",
-		"description": "",
-		"scope": "text.xml"
-	},
-	"arch/tree": {
-		"prefix": "arch/tree",
-		"body": "\n<tree string=\"${1:Caption}\" create=\"${2:true}\" delete=\"${3:true}\" edit=\"${4:true}\"${6: editable=\"${5:bottom}\"}>\n    ${0}\n</tree>\n",
-		"description": "Common tree tag to be added inside a ir.ui.view",
-		"scope": "text.xml"
-	},
-	"xpath": {
-		"prefix": "xpath",
-		"body": "\n<xpath expr=\"${1://field[@name='name']}\" position=\"${2:after}\">\n    ${0}\n</xpath>\n",
-		"description": "Common xpath tag to be added inside a ir.ui.view",
-		"scope": "text.xml"
-	},
-	"position/after": {
-		"prefix": "position/after",
-		"body": "\nposition=\"${1:after}\"${0}\n",
-		"description": "xpath position/after",
-		"scope": "text.xml meta.tag.xml"
-	},
-	"position/attributes": {
-		"prefix": "position/attributes",
-		"body": "\nposition=\"${1:attributes}\"${0}\n",
-		"description": "xpath position/attributes",
-		"scope": "text.xml meta.tag.xml"
-	},
-	"position/before": {
-		"prefix": "position/before",
-		"body": "\nposition=\"${1:before}\"${0}\n",
-		"description": "xpath position/before",
-		"scope": "text.xml meta.tag.xml"
-	},
-	"position/inside": {
-		"prefix": "position/inside",
-		"body": "\nposition=\"${1:inside}\"${0}\n",
-		"description": "xpath position/inside",
-		"scope": "text.xml meta.tag.xml"
-	},
-	"action_binding": {
-		"prefix": "action_binding",
-		"body": "\n<field name=\"binding_model_id\" ref=\"${1:module.model_model_name}\" />\n",
-		"description": "Fully formated time relative to now",
-		"scope": "text.xml"
-	},
-	"filter/archive": {
-		"prefix": "filter/archive",
-		"body": "\n<filter string=\"归档\" name=\"inactive\" domain=\"[('active','=',False)]\"/>\n${0}\n",
-		"description": "Filter archived",
-		"scope": "text.xml"
-	},
-	"filter/latest_by_day": {
-		"prefix": "filter/latest_by_day",
-		"body": "\n<filter string=\"本日单据\" name=\"create_date\" domain=\"[('create_date','&gt;=',context_today().strftime('%Y-%m-%d')),('create_date','&lt;',(context_today()+datetime.timedelta(days=1)).strftime('%Y-%m-%d'))]\"/>\n<filter string=\"本周单据\" name=\"create_date\" domain=\"[('create_date','&gt;=',(context_today() - datetime.timedelta(days=context_today().weekday())).strftime('%Y-%m-%d'))]\"/>\n<filter string=\"本月单据\" name=\"create_date\" domain=\"[('create_date','&gt;=',datetime.date(context_today().year,context_today().month,1).strftime('%Y-%m-%d'))]\"/>\n",
-		"description": "Filter list latest order by days",
-		"scope": "text.xml"
-	},
-	"record/assets": {
-		"prefix": "record/assets",
-		"body": "\n<record id=\"view_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_assets\" model=\"ir.ui.view\">\n    <field name=\"name\">${1:module} assets</field>\n    <field name=\"model\"></field>\n    <field name=\"type\">qweb</field>\n    <field name=\"mode\">extension</field>\n    <field name=\"priority\" eval=\"${2:16}\" />\n    <field name=\"active\" eval=\"${3:True}\" />\n    <field name=\"inherit_id\" ref=\"web.assets_backend\" />\n    <field name=\"arch\" type=\"xml\">\n        <xpath expr=\".\" position=\"inside\">${5:\n            <link rel=\"stylesheet\" href=\"/${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}/static/src/css/${4:styles}.css\" />}${7:\n            <script type=\"text/javascript\" src=\"/${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}/static/src/js/${6:scripts}.js\" />}${0}\n        </xpath>\n    </field>\n</record>\n",
-		"description": "Include module assets in backend views",
-		"scope": "text.xml"
-	},
-	"view/full": {
-		"prefix": "view/full",
-		"body": "\r\n<!-- VIEWS: \"${1:Human readable name}\"\r\n\r\n    - Model·········: ${2:model}\r\n    - _rec_name·····: ${3:name}\r\n    - Domain········: ${4:[]}\r\n    - Context·······: ${5:\\{\\}}\r\n    - Parent menu ··: ${6:base.menu_custom}\r\n    - View priority·: ${7:16}    \r\n    - Sequence····..: ${8:10}\r\n    - Action help···: ${9:Something about ${2/(.)/$1/g}}\r\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->\r\n\r\n<!-- Tree view for \"${2/(.)/\\1/g}\" -->\r\n<record id=\"view_${2/\\./\\_/g}_tree\" model=\"ir.ui.view\">\r\n    <field name=\"name\">view.${2/\\.+/\\./g}.tree</field>\r\n    <field name=\"model\">${2/\\.+/\\./g}</field>\r\n    <field name=\"type\">tree</field>\r\n    <field name=\"mode\">primary</field>\r\n    <field name=\"priority\" eval=\"${7/(.)/\\1/g}\" />\r\n    <field name=\"active\" eval=\"True\" />\r\n    <field name=\"arch\" type=\"xml\">\r\n        <tree string=\"${2/\\./\\_/g}_tree\" create=\"true\" delete=\"true\" edit=\"true\">\r\n            <field name=\"${3/(.)/\\1/g}\" />\r\n\r\n        </tree>\r\n    </field>\r\n</record>\r\n\r\n<!-- Form view for \"${2/(.)/\\1/g}\" -->\r\n<record id=\"view_${2/\\./\\_/g}_form\" model=\"ir.ui.view\">\r\n    <field name=\"name\">view.${2/\\.+/\\./g}.form</field>\r\n    <field name=\"model\">${2/\\.+/\\./g}</field>\r\n    <field name=\"type\">form</field>\r\n    <field name=\"mode\">primary</field>\r\n    <field name=\"priority\" eval=\"${7/(.)/\\1/g}\" />\r\n    <field name=\"active\" eval=\"True\" />\r\n    <field name=\"arch\" type=\"xml\">\r\n        <form string=\"${2/\\./\\_/g}_form\" create=\"true\" delete=\"true\" edit=\"true\">\r\n            <header>\r\n            </header>\r\n            <sheet>\r\n                <div class=\"oe_title\">\r\n                    <label for=\"${3/(.)/\\1/g}\" class=\"oe_edit_only\" />\r\n                    <h1>\r\n                        <field name=\"${3/(.)/\\1/g}\" class=\"oe_inline\"\r\n                            placeholder=\"${3/((^.)|(_+))/(?2:\\u$2)(?3:\\ )/g}\" />\r\n                    </h1>\r\n                </div>\r\n                <group>\r\n\r\n                </group>\r\n            </sheet>\r\n        </form>\r\n    </field>\r\n</record>\r\n\r\n<!-- Search view for \"${2/(.)/\\1/g}\" -->\r\n<record id=\"view_${2/\\./\\_/g}_search\" model=\"ir.ui.view\">\r\n    <field name=\"name\">view.${2/\\.+/\\./g}.search</field>\r\n    <field name=\"model\">${2/\\.+/\\./g}</field>\r\n    <field name=\"type\">search</field>\r\n    <field name=\"mode\">primary</field>\r\n    <field name=\"priority\" eval=\"${7/(.)/\\1/g}\" />\r\n    <field name=\"active\" eval=\"True\" />\r\n    <field name=\"arch\" type=\"xml\">\r\n        <search string=\"${2/\\./\\_/g}_search\">\r\n            <field name=\"${3/(.)/\\1/g}\" />\r\n            \r\n        </search>\r\n    </field>\r\n</record>\r\n\r\n<!-- Main window action for \"${2/(.)/\\1/g}\" -->\r\n<record id=\"action_${2/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_act_window\" model=\"ir.actions.act_window\">\r\n    <field name=\"type\">ir.actions.act_window</field>\r\n    <field name=\"name\">${1/(.)/\\1/g}</field>\r\n    <field name=\"res_model\">${2/\\.+/\\./g}</field>\r\n    <field name=\"view_mode\">tree,form</field>\r\n    <field name=\"view_type\">form</field>\r\n    <field name=\"target\">current</field>\r\n    <field name=\"domain\">${4/(.)/\\1/g}</field>\r\n    <field name=\"context\">${5/(.)/\\1/g}</field>\r\n    <field name=\"search_view_id\" ref=\"view_${2/\\./\\_/g}_search\" />\r\n    <field name=\"help\" type=\"html\">\r\n        <p class=\"oe_view_nocontent_create\">\r\n            Click to add new ${1/(.)/\\1/g}\r\n        </p><p>\r\n            ${9/(.)/\\1/g}\r\n        </p>\r\n    </field>\r\n</record>\r\n\r\n<!-- Main menu for \"${2/(.)/\\1/g}\" -->\r\n<record id=\"menu_${2/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.ui.menu\" >\r\n    <field name=\"name\">${1/(.)/\\1/g}</field>\r\n    <field name=\"sequence\" eval=\"${8/(.)/\\1/g}\" />\r\n    <field name=\"action\" ref=\"action_${2/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_act_window\" />\r\n    <field name=\"parent_id\" ref=\"${6/(.)/\\1/g}\" />\r\n</record>\r\n",
-		"description": "Views: tree, form, search; act_window and menu",
-		"scope": "text.xml"
-	},
-	"view/inherit": {
-		"prefix": "view/inherit",
-		"body": "\n<!--\n\n${1:Human readable name}\n${1/./=/g}\n\nInherited Views\n\n- - - - - - - - - ${2/((..)|(.))/(?2:-\\ )(?3:-)/g}\n- Model·········: ${2:model}\n- Base Module···: ${3:module_name}\n- Mode··········: ${4:primary|extension}\n- View priority·: ${5:16}\n- - - - - - - - - ${2/((..)|(.))/(?2:-\\ )(?3:-)/g}\n\n-->\n\n<!-- ${4/(^.)/(?1:\\u$1)/g} Inherited .:Tree:. view for \"${2/(.)/\\1/g}\" -->\n<record id=\"view_${2/\\./\\_/g}_tree_inherited\" model=\"ir.ui.view\">\n    <field name=\"name\">view.${2/\\.+/\\./g}.tree inherited</field>\n    <field name=\"model\">${2/\\.+/\\./g}</field>\n    <!-- Please veryfiy, that the following inherited view really sticks to the naming convention. -->\n    <field name=\"inherit_id\" ref=\"${3:module_name}.view_${2/\\./\\_/g}_tree\" />\n    <field name=\"type\">tree</field>\n    <field name=\"mode\">${4:primary}</field>\n    <field name=\"priority\" eval=\"${5/(.)/\\1/g}\" />\n    <field name=\"active\" eval=\"True\" />\n    <field name=\"arch\" type=\"xml\">\n        <xpath expr=\"//field[@name='${0:name}']\" position=\"after\">\n            \n        </xpath>\n    </field>\n</record>\n\n<!-- ${4/(^.)/(?1:\\u$1)/g} Inherited .:Form:. view for \"${2/(.)/\\1/g}\" -->\n<record id=\"view_${2/\\./\\_/g}_form_inherited\" model=\"ir.ui.view\">\n    <field name=\"name\">view.${2/\\.+/\\./g}.form inherited</field>\n    <field name=\"model\">${2/\\.+/\\./g}</field>\n    <!-- Please veryfiy, that the following inherited view really sticks to the naming convention. -->\n    <field name=\"inherit_id\" ref=\"${3:module_name}.view_${2/\\./\\_/g}_form\" />\n    <field name=\"type\">form</field>\n    <field name=\"mode\">${4:primary}</field>\n    <field name=\"priority\" eval=\"${5/(.)/\\1/g}\" />\n    <field name=\"active\" eval=\"True\" />\n    <field name=\"arch\" type=\"xml\">\n        <!-- \n        <xpath expr=\"//field[@name='${0:name}']\" position=\"after\">\n            \n        </xpath>\n         -->\n    </field>\n</record>\n\n<!-- ${4/(^.)/(?1:\\u$1)/g} Inherited .:Search:. view for \"${2/(.)/\\1/g}\" -->\n<record id=\"view_${2/\\./\\_/g}_search_inherited\" model=\"ir.ui.view\">\n    <field name=\"name\">view.${2/\\.+/\\./g}.search inherited</field>\n    <field name=\"model\">${2/\\.+/\\./g}</field>\n    <!-- Please veryfiy, that the following inherited view really sticks to the naming convention. -->\n    <field name=\"inherit_id\" ref=\"${3:module_name}.view_${2/\\./\\_/g}_search\" />\n    <field name=\"type\">search</field>\n    <field name=\"mode\">${4:primary}</field>\n    <field name=\"priority\" eval=\"${5/(.)/\\1/g}\" />\n    <field name=\"active\" eval=\"True\" />\n    <field name=\"arch\" type=\"xml\">\n        <!-- \n        <xpath expr=\"//field[@name='${0:name}']\" position=\"after\">\n            \n        </xpath>\n        -->\n    </field>\n</record>\n",
-		"description": "Inherited Views: tree, form, search",
-		"scope": "text.xml"
-	},
-	"view/inherit1": {
-		"prefix": "view/inherit",
-		"body": "\n<!-- VIEWS: \"${1:Human readable name}\"\n\n    - Model·········: ${2:model}\n    - Base Addons···: ${3:base}    \n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->\n\n<!-- Tree view for \"${2/(.)/\\1/g}\" -->\n<record id=\"view_${2/\\./\\_/g}_tree\" model=\"ir.ui.view\">\n    <field name=\"name\">view.${2/\\.+/\\./g}.tree</field>\n    <field name=\"model\">${2/\\.+/\\./g}</field>\n    <field name=\"inherit_id\" ref=\"${3}.view_${2/\\./\\_/g}_tree\" />\n    <field name=\"arch\" type=\"xml\">\n        ${0}\n    </field>\n</record>\n\n<!-- Form view for \"${2/(.)/\\1/g}\" -->\n<record id=\"view_${2/\\./\\_/g}_form\" model=\"ir.ui.view\">\n    <field name=\"name\">view.${2/\\.+/\\./g}.form</field>\n    <field name=\"model\">${2/\\.+/\\./g}</field>\n     <field name=\"inherit_id\" ref=\"${3}.view_${2/\\./\\_/g}_form\" />\n    <field name=\"arch\" type=\"xml\">\n        ${0}\n    </field>\n</record>\n\n",
-		"description": "Inherited Views: tree, form",
-		"scope": "text.xml"
-	},
-	"chatter": {
-		"prefix": "chatter",
-		"body": "\n<div class=\"oe_chatter\">\n    <field name=\"message_follower_ids\" widget=\"mail_followers\" />\n    <field name=\"activity_ids\" widget=\"mail_activity\"/>\n    <field name=\"message_ids\" widget=\"mail_thread\" />\n</div>${0}\n",
-		"description": "Common XML to add a tracking area inside a form view",
-		"scope": "text.xml"
-	},
-	"statusbar": {
-		"prefix": "statusbar",
-		"body": "\n <field name=\"state\" widget=\"statusbar\" statusbar_visible=\"draft${0}\"/>\n",
-		"description": "Include module assets in backend views",
-		"scope": "text.xml"
-	},
-	"states1": {
-		"prefix": "states",
-		"body": "\n<button name=\"action_confirm\" string=\"确认\" type=\"object\" states=\"draft\" />\n<button name=\"action_draft\" string=\"设草稿\" type=\"object\" states=\"cancel\" />\n<button name=\"action_close\" string=\"关闭\" type=\"object\" states=\"confirmed\" />\n<button name=\"action_cancel\" string=\"取消\" type=\"object\" states=\"draft,close\" />\n<field name=\"state\" widget=\"statusbar\" />\n",
-		"description": "Adds state support",
-		"scope": "text.xml"
-	},
-	"time/relativetime": {
-		"prefix": "time/relativetime",
-		"body": "\n(DateTime.now() - relativedelta(${1:months=2})).strftime('${2:%Y-%m-%d}${3: }${4:%H:%M:%S}')${0}\n",
-		"description": "Fully formated time relative to now",
-		"scope": "text.xml"
-	},
-	"time/strftime": {
-		"prefix": "time/strftime",
-		"body": "\nstrftime('${1:%Y-%m-%d}${2: }${3:%H:%M:%S}')${0}\n",
-		"description": "Fully formated strftime",
-		"scope": "text.xml"
-	},
-	"record/filter": {
-		"prefix": "record/filter",
-		"body": "\n<!-- filter \"${1:Human readable name}\" for Model \"${2/(.)/\\1/g}\" -->\n<record id=\"filter_${2/(\\.)/\\_/g}_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.filters\">\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"model_id\">${2:model_name_whithout_module}</field>\n    <field name=\"user_id\" eval=\"${3:False}\"/>\n    <field name=\"domain\">${4:[]}</field>\n    <field name=\"context\">${5:{}}</field>\n    <field name=\"is_default\" eval=\"${6:False}\" />\n    <!-- <field name=\"action_id\" ref=\"\" /> -->\n</record>${0}\n",
-		"description": "Common ir.filters record definition",
-		"scope": "text.xml"
-	},
-	"record/menu": {
-		"prefix": "record/menu",
-		"body": "\n<record id=\"menu_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.ui.menu\" >\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"sequence\" eval=\"${2:10}\" />${4:\n    <field name=\"action\" ref=\"${3:action_name}\" />}${6:\n    <field name=\"parent_id\" ref=\"${5:base.menu_custom}\" />}\n</record>${0}\n",
-		"description": "Common ir.ui.menu record definition",
-		"scope": "text.xml"
-	},
-	"record/view": {
-		"prefix": "record/view",
-		"body": "\n<record id=\"view_${2/[^a-z]+/\\_/g}_${3}\" model=\"ir.ui.view\">\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"model\">${2:model.name}</field>\n    <field name=\"type\">${3:tree}</field>\n    <field name=\"mode\">${4:primary}</field>\n    <field name=\"priority\" eval=\"${5:16}\" />\n    <field name=\"active\" eval=\"${6:True}\" />${8:\n    <field name=\"inherit_id\" ref=\"${7:xml_id}\" />}\n    <field name=\"arch\" type=\"xml\">\n        ${0}\n    </field>\n</record>\n",
-		"description": "Common ir.ui.view record definition",
-		"scope": "text.xml"
 	},
 	"widget/ace": {
 		"prefix": "widget/ace",
@@ -1917,6 +1737,378 @@
 		"prefix": "widget/toggle_button",
 		"body": "\nwidget=\"${1:toggle_button}\"\n",
 		"description": "widget toggle_button",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"field/compound": {
+		"prefix": "field/compound",
+		"body": "\n<label for=\"${1:product_qty}\"/>\n<div class=\"o_row\">\n    <field name=\"${1:product_qty}\"/>\n    <field name=\"${2:product_uom_id}\"/>\n</div> ${0}\n",
+		"description": "Compound field",
+		"scope": "text.xml"
+	},
+	"field/full": {
+		"prefix": "field/full",
+		"body": "\n<field\n    name=\"${1:name}\"\n    string=\"${2:${1/((^.)|(_+))/(?2:\\u$2)(?3:\\ )/g}}\"\n    nolabel=\"${3:0}\"\n    required=\"${4:True}\"\n    readonly=\"${5:True}\"\n    invisible=\"${6:True}\"\n    widget=\"${7:char}\"\n    class=\"${8:oe_field_${1/([^a-zA-Z\\-\\_0-9]+)/\\_/g}}\"\n    placeholder=\"${9:${1/((^.)|(_+))/(?2:\\u$2)(?3:\\ )/g}}\"\n    help=\"${10:Enter new value for ${1/((^.)|(_+))/(?2:\\u$2)(?3:\\ )/g}}\"\n    mode=\"${11:tree}\"\n    filename=\"${12:${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}}\"\n    password=\"${13:0}\"\n    domain=\"${14:[]}\"\n    context=\"${15:\\{\\}}\" />${0}\n",
+		"description": "Full field tag",
+		"scope": "text.xml"
+	},
+	"field/inline": {
+		"prefix": "field/inline",
+		"body": "\n<field name=\"${1:name}\" class=\"${2:oe_inline}\"${4:\n    placeholder=\"${3:Enter new value for ${1/((^.)|(_+))/(?2:\\u$2)(?3:\\ )/g}}\"} />${0}\n",
+		"description": "Inline field tag",
+		"scope": "text.xml"
+	},
+	"field/simple": {
+		"prefix": "field/simple",
+		"body": "\n<field name=\"${1:field_name}\" />${0}\n",
+		"description": "Simple field tag",
+		"scope": "text.xml"
+	},
+	"field/boolean": {
+		"prefix": "field/boolean",
+		"body": "\n<field name=\"${1:name}\" eval=\"${2:True}\" />${0}\n",
+		"description": "Common XML tag for field type Boolean",
+		"scope": "text.xml"
+	},
+	"field/char": {
+		"prefix": "field/char",
+		"body": "\n<field name=\"${1:name}\">${2:value}</field>${0}\n",
+		"description": "Common XML tag for field type Char",
+		"scope": "text.xml"
+	},
+	"field/date": {
+		"prefix": "field/date",
+		"body": "\n<field name=\"${1:name}\" eval=\"${3:time.strftime('${2:%Y-%m-%d}')}\" />${0}\n",
+		"description": "Common XML tag for field type Date",
+		"scope": "text.xml"
+	},
+	"field/datetime": {
+		"prefix": "field/datetime",
+		"body": "\n<field name=\"${1:name}\" eval=\"${3:time.strftime('${2:%Y-%m-%d %H:%M:%S}')}\" />${0}\n",
+		"description": "Common XML tag for field type Datetime",
+		"scope": "text.xml"
+	},
+	"field/float": {
+		"prefix": "field/float",
+		"body": "\n<field name=\"${1:name}\" eval=\"${2:0.0}\" />${0}\n",
+		"description": "Common XML tag for field type Float",
+		"scope": "text.xml"
+	},
+	"field/html": {
+		"prefix": "field/html",
+		"body": "\n<field name=\"${1:name}\"><![CDATA[\n    ${2:content}\n]]${-1}></field>${0}\n",
+		"description": "Common XML tag for field type Html",
+		"scope": "text.xml"
+	},
+	"field/integer": {
+		"prefix": "field/integer",
+		"body": "\n<field name=\"${1:name}\" eval=\"${2:0}\" />${0}\n",
+		"description": "Common XML tag for field type Integer",
+		"scope": "text.xml"
+	},
+	"field/many2many": {
+		"prefix": "field/many2many",
+		"body": "\n<field name=\"${1:name}\" eval=\"${3:[(4, ref('${2:ir.model}'))]}\" />${0}\n",
+		"description": "Common XML tag for field type Many2many",
+		"scope": "text.xml"
+	},
+	"field/many2one": {
+		"prefix": "field/many2one",
+		"body": "\n<field name=\"${1:name}\" ref=\"${2:ir.model}\" />${0}\n",
+		"description": "Common XML tag for field type Many2one",
+		"scope": "text.xml"
+	},
+	"field/one2many": {
+		"prefix": "field/one2many",
+		"body": "\n<field name=\"${1:name}\" eval=\"${3:[(4, ref('${2:ir.model}'))]}\" />${0}\n",
+		"description": "Common XML tag for field type One2many",
+		"scope": "text.xml"
+	},
+	"field/selection": {
+		"prefix": "field/selection",
+		"body": "\n<field name=\"${1:name}\">${2:value}</field>${0}\n",
+		"description": "Common XML tag for field type Selection",
+		"scope": "text.xml"
+	},
+	"field/text": {
+		"prefix": "field/text",
+		"body": "\n<field name=\"${1:name}\"><![CDATA[\n    ${2:content}\n]]${-1}></field>${0}\n",
+		"description": "Common XML tag for field type Text",
+		"scope": "text.xml"
+	},
+	"attribute/domain": {
+		"prefix": "attribute/domain",
+		"body": "\n<attribute name=\"domain\">[(${1:FIELD},${2:OP},${3:VALUE})]</attribute>${0}\n",
+		"description": "",
+		"scope": "text.xml"
+	},
+	"attribute/invisible": {
+		"prefix": "attribute/invisible",
+		"body": "\n<attribute name=\"invisible\">${1:True}</attribute>${0}\n",
+		"description": "",
+		"scope": "text.xml"
+	},
+	"attribute/options": {
+		"prefix": "attribute/options",
+		"body": "\n<attribute name=\"options\">{${1:KEY}:${2:VALUE}}</attribute>${0}\n",
+		"description": "",
+		"scope": "text.xml"
+	},
+	"attribute/readonly": {
+		"prefix": "attribute/readonly",
+		"body": "\n<attribute name=\"readonly\">${1:True}</attribute>${0}\n",
+		"description": "",
+		"scope": "text.xml"
+	},
+	"attribute/required": {
+		"prefix": "attribute/required",
+		"body": "\n<attribute name=\"required\">${1:True}</attribute>${0}\n",
+		"description": "",
+		"scope": "text.xml"
+	},
+	"attribute": {
+		"prefix": "attribute",
+		"body": "\n<attribute name=\"${1:ATTRIBUTE_NAME}\">${2:ATTRIBUTE_VALUE}</attribute>${0}\n",
+		"description": "",
+		"scope": "text.xml"
+	},
+	"button/cancel": {
+		"prefix": "button/cancel",
+		"body": "\n<button string=\"Cancel\" special=\"cancel\" class=\"oe_link\"/>\n",
+		"description": "Cancel button tag definition",
+		"scope": "text.xml"
+	},
+	"button/inline": {
+		"prefix": "button/inline",
+		"body": "\n<button name=\"${1:function_name}\" string=\"${2:string}\" ${4:type=\"${3:object}\"} class=\"oe_highlight\"/>\n",
+		"description": "Inline button tag definition",
+		"scope": "text.xml"
+	},
+	"button/full": {
+		"prefix": "button/full",
+		"body": "\n<button name=\"${1:function_name}\"\n        string=\"${2:string}\"${4:\n        type=\"${3:object}\"}${5:\n        special=\"cancel\"}${7:\n        default_focus=\"${6:0}\"}${9:\n        icon=\"${8:gtk-apply}\"}${11:\n        confirm=\"${10:message}\"}${13:\n        help=\"${12:message}\"} />\n",
+		"description": "Common button tag definition",
+		"scope": "text.xml"
+	},
+	"layout/button_box": {
+		"prefix": "layout/button_box",
+		"body": "\n<div class=\"oe_button_box\" name=\"button_box\">\n\n${0}\n</div>\n",
+		"description": "layout button_box definition",
+		"scope": "text.xml"
+	},
+	"layout/group": {
+		"prefix": "layout/group",
+		"body": "\n<group>\n        ${0}\n    \n\n</group>\n\n",
+		"description": "",
+		"scope": "text.xml"
+	},
+	"search/group_by": {
+		"prefix": "search/group_by",
+		"body": "\n<group expand=\"0\" string=\"Group By\">\n    <filter name=\"group_by_${1:user_id} \"string=\"${2:User}\" context=\"{'group_by':'${1}'}\" help=\"${3}\"/>\n    ${0}\n</group>\n\n",
+		"description": "",
+		"scope": "text.xml"
+	},
+	"layout/label": {
+		"prefix": "layout/label",
+		"body": "\n<label for='${1:field_name}'>${2:Label}</label>\n",
+		"description": "Field Label",
+		"scope": "text.xml"
+	},
+	"link": {
+		"prefix": "link",
+		"body": "\n<link rel=\"stylesheet\" href=\"/${1:module_name}/static/src/css/${2:styles}.css\" />${0}\n",
+		"description": "Link tag to inglude an stylesheet",
+		"scope": "text.xml"
+	},
+	"notebook": {
+		"prefix": "notebook",
+		"body": "\n<notebook>\n    ${0}\n</notebook>\n",
+		"description": "",
+		"scope": "text.xml"
+	},
+	"script": {
+		"prefix": "script",
+		"body": "\n<script type=\"text/javascript\" src=\"/${1:module_name}/static/src/js/${2:scripts}.js\" />${0}\n",
+		"description": "Script tag to inglude an javascript",
+		"scope": "text.xml"
+	},
+	"search/filter": {
+		"prefix": "search/filter",
+		"body": "\n<filter string=\"${1:Name}\"\n    name=\"${2:${1/(([A-Za-z0-9])|( )|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)(?4:\\_)/g}}\"\n    domain=\"${3:[]}\"\n    context=\"${4:{}}\"\n    help=\"${5}\" />${0}\n",
+		"description": "Common filter tag to be added inside a search view",
+		"scope": "text.xml"
+	},
+	"layout/separator": {
+		"prefix": "layout/separator",
+		"body": "\n<separator string=\"Some Text\" colspan=\"4\" />\n    ${0}\n",
+		"description": "Common separator tag to be added inside a ir.ui.view",
+		"scope": "text.xml"
+	},
+	"smart_button": {
+		"prefix": "smart_button",
+		"body": "\n    <button class=\"oe_stat_button\" name=\"${1:action_name}\" type=\"object\" icon=\"fa-${4:search}\">\n        <field string=\"${2:string}\" name=\"${3:count_name}\" widget=\"statinfo\" />\n    </button>\n${0}\n",
+		"description": "smart button definition",
+		"scope": "text.xml"
+	},
+	"notebook/page": {
+		"prefix": "notebook/page",
+		"body": "\n<page string=\"${1:Title}\" >\n    ${0}\n</page>\n",
+		"description": "",
+		"scope": "text.xml"
+	},
+	"action/binding": {
+		"prefix": "action/binding",
+		"body": "\n<field name=\"binding_model_id\" ref=\"${1:module.model_model_name}\" />\n",
+		"description": "Fully formated time relative to now",
+		"scope": "text.xml"
+	},
+	"filter/archive": {
+		"prefix": "filter/archive",
+		"body": "\n<filter string=\"归档\" name=\"inactive\" domain=\"[('active','=',False)]\"/>\n${0}\n",
+		"description": "Filter archived",
+		"scope": "text.xml"
+	},
+	"filter/latest_by_day": {
+		"prefix": "filter/latest_by_day",
+		"body": "\n<filter string=\"本日单据\" name=\"create_date\" domain=\"[('create_date','&gt;=',context_today().strftime('%Y-%m-%d')),('create_date','&lt;',(context_today()+datetime.timedelta(days=1)).strftime('%Y-%m-%d'))]\"/>\n<filter string=\"本周单据\" name=\"create_date\" domain=\"[('create_date','&gt;=',(context_today() - datetime.timedelta(days=context_today().weekday())).strftime('%Y-%m-%d'))]\"/>\n<filter string=\"本月单据\" name=\"create_date\" domain=\"[('create_date','&gt;=',datetime.date(context_today().year,context_today().month,1).strftime('%Y-%m-%d'))]\"/>\n",
+		"description": "Filter list latest order by days",
+		"scope": "text.xml"
+	},
+	"record/assets": {
+		"prefix": "record/assets",
+		"body": "\n<record id=\"view_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_assets\" model=\"ir.ui.view\">\n    <field name=\"name\">${1:module} assets</field>\n    <field name=\"model\"></field>\n    <field name=\"type\">qweb</field>\n    <field name=\"mode\">extension</field>\n    <field name=\"priority\" eval=\"${2:16}\" />\n    <field name=\"active\" eval=\"${3:True}\" />\n    <field name=\"inherit_id\" ref=\"web.assets_backend\" />\n    <field name=\"arch\" type=\"xml\">\n        <xpath expr=\".\" position=\"inside\">${5:\n            <link rel=\"stylesheet\" href=\"/${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}/static/src/css/${4:styles}.css\" />}${7:\n            <script type=\"text/javascript\" src=\"/${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}/static/src/js/${6:scripts}.js\" />}${0}\n        </xpath>\n    </field>\n</record>\n",
+		"description": "Include module assets in backend views",
+		"scope": "text.xml"
+	},
+	"view/full": {
+		"prefix": "view/full",
+		"body": "\n<!-- VIEWS: \"${1:Human readable name}\"\n\n    - Model·········: ${2:model}\n    - _rec_name·····: ${3:name}\n    - Domain········: ${4:[]}\n    - Context·······: ${5:\\{\\}}\n    - Parent menu ··: ${6:base.menu_custom}\n    - View priority·: ${7:16}    \n    - Sequence····..: ${8:10}\n    - Action help···: ${9:Something about ${2/(.)/$1/g}}\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->\n\n<!-- Tree view for \"${2/(.)/\\1/g}\" -->\n<record id=\"view_${2/\\./\\_/g}_tree\" model=\"ir.ui.view\">\n    <field name=\"name\">view.${2/\\.+/\\./g}.tree</field>\n    <field name=\"model\">${2/\\.+/\\./g}</field>\n    <field name=\"type\">tree</field>\n    <field name=\"mode\">primary</field>\n    <field name=\"priority\" eval=\"${7/(.)/\\1/g}\" />\n    <field name=\"active\" eval=\"True\" />\n    <field name=\"arch\" type=\"xml\">\n        <tree string=\"${2/\\./\\_/g}_tree\" create=\"true\" delete=\"true\" edit=\"true\">\n            <field name=\"${3/(.)/\\1/g}\" />\n\n        </tree>\n    </field>\n</record>\n\n<!-- Form view for \"${2/(.)/\\1/g}\" -->\n<record id=\"view_${2/\\./\\_/g}_form\" model=\"ir.ui.view\">\n    <field name=\"name\">view.${2/\\.+/\\./g}.form</field>\n    <field name=\"model\">${2/\\.+/\\./g}</field>\n    <field name=\"type\">form</field>\n    <field name=\"mode\">primary</field>\n    <field name=\"priority\" eval=\"${7/(.)/\\1/g}\" />\n    <field name=\"active\" eval=\"True\" />\n    <field name=\"arch\" type=\"xml\">\n        <form string=\"${2/\\./\\_/g}_form\" create=\"true\" delete=\"true\" edit=\"true\">\n            <header>\n            </header>\n            <sheet>\n                <div class=\"oe_title\">\n                    <label for=\"${3/(.)/\\1/g}\" class=\"oe_edit_only\" />\n                    <h1>\n                        <field name=\"${3/(.)/\\1/g}\" class=\"oe_inline\"\n                            placeholder=\"${3/((^.)|(_+))/(?2:\\u$2)(?3:\\ )/g}\" />\n                    </h1>\n                </div>\n                <group>\n\n                </group>\n            </sheet>\n        </form>\n    </field>\n</record>\n\n<!-- Search view for \"${2/(.)/\\1/g}\" -->\n<record id=\"view_${2/\\./\\_/g}_search\" model=\"ir.ui.view\">\n    <field name=\"name\">view.${2/\\.+/\\./g}.search</field>\n    <field name=\"model\">${2/\\.+/\\./g}</field>\n    <field name=\"type\">search</field>\n    <field name=\"mode\">primary</field>\n    <field name=\"priority\" eval=\"${7/(.)/\\1/g}\" />\n    <field name=\"active\" eval=\"True\" />\n    <field name=\"arch\" type=\"xml\">\n        <search string=\"${2/\\./\\_/g}_search\">\n            <field name=\"${3/(.)/\\1/g}\" />\n            \n        </search>\n    </field>\n</record>\n\n<!-- Main window action for \"${2/(.)/\\1/g}\" -->\n<record id=\"action_${2/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_act_window\" model=\"ir.actions.act_window\">\n    <field name=\"type\">ir.actions.act_window</field>\n    <field name=\"name\">${1/(.)/\\1/g}</field>\n    <field name=\"res_model\">${2/\\.+/\\./g}</field>\n    <field name=\"view_mode\">tree,form</field>\n    <field name=\"view_type\">form</field>\n    <field name=\"target\">current</field>\n    <field name=\"domain\">${4/(.)/\\1/g}</field>\n    <field name=\"context\">${5/(.)/\\1/g}</field>\n    <field name=\"search_view_id\" ref=\"view_${2/\\./\\_/g}_search\" />\n    <field name=\"help\" type=\"html\">\n        <p class=\"oe_view_nocontent_create\">\n            Click to add new ${1/(.)/\\1/g}\n        </p><p>\n            ${9:Something about ${2/(.)/$1/g}}\n        </p>\n    </field>\n</record>\n\n<!-- Main menu for \"${2/(.)/\\1/g}\" -->\n<record id=\"menu_${2/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.ui.menu\" >\n    <field name=\"name\">${1/(.)/\\1/g}</field>\n    <field name=\"sequence\" eval=\"${8/(.)/\\1/g}\" />\n    <field name=\"action\" ref=\"action_${2/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}_act_window\" />\n    <field name=\"parent_id\" ref=\"${6/(.)/\\1/g}\" />\n</record>\n",
+		"description": "Views: tree, form, search; act_window and menu",
+		"scope": "text.xml"
+	},
+	"view/inherit": {
+		"prefix": "view/inherit",
+		"body": "\n<!--\n\n${1:Human readable name}\n${1/./=/g}\n\nInherited Views\n\n- - - - - - - - - ${2/((..)|(.))/(?2:-\\ )(?3:-)/g}\n- Model·········: ${2:model}\n- Base Module···: ${3:module_name}\n- Mode··········: ${4:primary|extension}\n- View priority·: ${5:16}\n- - - - - - - - - ${2/((..)|(.))/(?2:-\\ )(?3:-)/g}\n\n-->\n\n<!-- ${4/(^.)/(?1:\\u$1)/g} Inherited .:Tree:. view for \"${2/(.)/\\1/g}\" -->\n<record id=\"view_${2/\\./\\_/g}_tree_inherited\" model=\"ir.ui.view\">\n    <field name=\"name\">view.${2/\\.+/\\./g}.tree inherited</field>\n    <field name=\"model\">${2/\\.+/\\./g}</field>\n    <!-- Please veryfiy, that the following inherited view really sticks to the naming convention. -->\n    <field name=\"inherit_id\" ref=\"${3:module_name}.view_${2/\\./\\_/g}_tree\" />\n    <field name=\"type\">tree</field>\n    <field name=\"mode\">${4:primary}</field>\n    <field name=\"priority\" eval=\"${5/(.)/\\1/g}\" />\n    <field name=\"active\" eval=\"True\" />\n    <field name=\"arch\" type=\"xml\">\n        <xpath expr=\"//field[@name='${0:name}']\" position=\"after\">\n            \n        </xpath>\n    </field>\n</record>\n\n<!-- ${4/(^.)/(?1:\\u$1)/g} Inherited .:Form:. view for \"${2/(.)/\\1/g}\" -->\n<record id=\"view_${2/\\./\\_/g}_form_inherited\" model=\"ir.ui.view\">\n    <field name=\"name\">view.${2/\\.+/\\./g}.form inherited</field>\n    <field name=\"model\">${2/\\.+/\\./g}</field>\n    <!-- Please veryfiy, that the following inherited view really sticks to the naming convention. -->\n    <field name=\"inherit_id\" ref=\"${3:module_name}.view_${2/\\./\\_/g}_form\" />\n    <field name=\"type\">form</field>\n    <field name=\"mode\">${4:primary}</field>\n    <field name=\"priority\" eval=\"${5/(.)/\\1/g}\" />\n    <field name=\"active\" eval=\"True\" />\n    <field name=\"arch\" type=\"xml\">\n        <!-- \n        <xpath expr=\"//field[@name='${0:name}']\" position=\"after\">\n            \n        </xpath>\n         -->\n    </field>\n</record>\n\n<!-- ${4/(^.)/(?1:\\u$1)/g} Inherited .:Search:. view for \"${2/(.)/\\1/g}\" -->\n<record id=\"view_${2/\\./\\_/g}_search_inherited\" model=\"ir.ui.view\">\n    <field name=\"name\">view.${2/\\.+/\\./g}.search inherited</field>\n    <field name=\"model\">${2/\\.+/\\./g}</field>\n    <!-- Please veryfiy, that the following inherited view really sticks to the naming convention. -->\n    <field name=\"inherit_id\" ref=\"${3:module_name}.view_${2/\\./\\_/g}_search\" />\n    <field name=\"type\">search</field>\n    <field name=\"mode\">${4:primary}</field>\n    <field name=\"priority\" eval=\"${5/(.)/\\1/g}\" />\n    <field name=\"active\" eval=\"True\" />\n    <field name=\"arch\" type=\"xml\">\n        <!-- \n        <xpath expr=\"//field[@name='${0:name}']\" position=\"after\">\n            \n        </xpath>\n        -->\n    </field>\n</record>\n",
+		"description": "Inherited Views: tree, form, search",
+		"scope": "text.xml"
+	},
+	"view/inherit1": {
+		"prefix": "view/inherit",
+		"body": "\n<!-- VIEWS: \"${1:Human readable name}\"\n\n    - Model·········: ${2:model}\n    - Base Addons···: ${3:base}    \n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->\n\n<!-- Tree view for \"${2/(.)/\\1/g}\" -->\n<record id=\"view_${2/\\./\\_/g}_tree\" model=\"ir.ui.view\">\n    <field name=\"name\">view.${2/\\.+/\\./g}.tree</field>\n    <field name=\"model\">${2/\\.+/\\./g}</field>\n    <field name=\"inherit_id\" ref=\"${3}.view_${2/\\./\\_/g}_tree\" />\n    <field name=\"arch\" type=\"xml\">\n        ${0}\n    </field>\n</record>\n\n<!-- Form view for \"${2/(.)/\\1/g}\" -->\n<record id=\"view_${2/\\./\\_/g}_form\" model=\"ir.ui.view\">\n    <field name=\"name\">view.${2/\\.+/\\./g}.form</field>\n    <field name=\"model\">${2/\\.+/\\./g}</field>\n     <field name=\"inherit_id\" ref=\"${3}.view_${2/\\./\\_/g}_form\" />\n    <field name=\"arch\" type=\"xml\">\n        ${0}\n    </field>\n</record>\n\n",
+		"description": "Inherited Views: tree, form",
+		"scope": "text.xml"
+	},
+	"chatter": {
+		"prefix": "chatter",
+		"body": "\n<div class=\"oe_chatter\">\n    <field name=\"message_follower_ids\" widget=\"mail_followers\" />\n    <field name=\"activity_ids\" widget=\"mail_activity\"/>\n    <field name=\"message_ids\" widget=\"mail_thread\" />\n</div>${0}\n",
+		"description": "Common XML to add a tracking area inside a form view",
+		"scope": "text.xml"
+	},
+	"statusbar": {
+		"prefix": "statusbar",
+		"body": "\n <field name=\"state\" widget=\"statusbar\" statusbar_visible=\"draft${0}\"/>\n",
+		"description": "Include module assets in backend views",
+		"scope": "text.xml"
+	},
+	"status": {
+		"prefix": "status",
+		"body": "\n<button name=\"action_confirm\" string=\"确认\" type=\"object\" states=\"draft\" />\n<button name=\"action_draft\" string=\"设草稿\" type=\"object\" states=\"cancel\" />\n<button name=\"action_close\" string=\"关闭\" type=\"object\" states=\"confirmed\" />\n<button name=\"action_cancel\" string=\"取消\" type=\"object\" states=\"draft,close\" />\n<field name=\"state\" widget=\"statusbar\" />\n",
+		"description": "Adds state support",
+		"scope": "text.xml"
+	},
+	"time/relativetime": {
+		"prefix": "time/relativetime",
+		"body": "\n(DateTime.now() - relativedelta(${1:months=2})).strftime('${2:%Y-%m-%d}${3: }${4:%H:%M:%S}')${0}\n",
+		"description": "Fully formated time relative to now",
+		"scope": "text.xml"
+	},
+	"time/strftime": {
+		"prefix": "time/strftime",
+		"body": "\nstrftime('${1:%Y-%m-%d}${2: }${3:%H:%M:%S}')${0}\n",
+		"description": "Fully formated strftime",
+		"scope": "text.xml"
+	},
+	"record/filter": {
+		"prefix": "record/filter",
+		"body": "\n<!-- filter \"${1:Human readable name}\" for Model \"${2/(.)/\\1/g}\" -->\n<record id=\"filter_${2/(\\.)/\\_/g}_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.filters\">\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"model_id\">${2:model_name_whithout_module}</field>\n    <field name=\"user_id\" eval=\"${3:False}\"/>\n    <field name=\"domain\">${4:[]}</field>\n    <field name=\"context\">${5:{}}</field>\n    <field name=\"is_default\" eval=\"${6:False}\" />\n    <!-- <field name=\"action_id\" ref=\"\" /> -->\n</record>${0}\n",
+		"description": "Common ir.filters record definition",
+		"scope": "text.xml"
+	},
+	"record/menu": {
+		"prefix": "record/menu",
+		"body": "\n<record id=\"menu_${1/(([A-Za-z0-9])|([^A-Za-z0-9]+))/(?2:\\l$2)(?3:\\_)/g}\" model=\"ir.ui.menu\" >\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"sequence\" eval=\"${2:10}\" />${4:\n    <field name=\"action\" ref=\"${3:action_name}\" />}${6:\n    <field name=\"parent_id\" ref=\"${5:base.menu_custom}\" />}\n</record>${0}\n",
+		"description": "Common ir.ui.menu record definition",
+		"scope": "text.xml"
+	},
+	"record/view": {
+		"prefix": "record/view",
+		"body": "\n<record id=\"view_${2/[^a-z]+/\\_/g}_${3}\" model=\"ir.ui.view\">\n    <field name=\"name\">${1:Human readable name}</field>\n    <field name=\"model\">${2:model.name}</field>\n    <field name=\"type\">${3:tree}</field>\n    <field name=\"mode\">${4:primary}</field>\n    <field name=\"priority\" eval=\"${5:16}\" />\n    <field name=\"active\" eval=\"${6:True}\" />${8:\n    <field name=\"inherit_id\" ref=\"${7:xml_id}\" />}\n    <field name=\"arch\" type=\"xml\">\n        ${0}\n    </field>\n</record>\n",
+		"description": "Common ir.ui.view record definition",
+		"scope": "text.xml"
+	},
+	"attribute/domain1": {
+		"prefix": "attribute/domain",
+		"body": "\n<attribute name=\"domain\">[(${1:FIELD},${2:OP},${3:VALUE})]</attribute>${0}\n",
+		"description": "",
+		"scope": "text.xml"
+	},
+	"attribute/invisible1": {
+		"prefix": "attribute/invisible",
+		"body": "\n<attribute name=\"invisible\">${1:True}</attribute>${0}\n",
+		"description": "",
+		"scope": "text.xml"
+	},
+	"attribute/options1": {
+		"prefix": "attribute/options",
+		"body": "\n<attribute name=\"options\">{${1:KEY}:${2:VALUE}}</attribute>${0}\n",
+		"description": "",
+		"scope": "text.xml"
+	},
+	"attribute/readonly1": {
+		"prefix": "attribute/readonly",
+		"body": "\n<attribute name=\"readonly\">${1:True}</attribute>${0}\n",
+		"description": "",
+		"scope": "text.xml"
+	},
+	"attribute/required1": {
+		"prefix": "attribute/required",
+		"body": "\n<attribute name=\"required\">${1:True}</attribute>${0}\n",
+		"description": "",
+		"scope": "text.xml"
+	},
+	"attribute1": {
+		"prefix": "attribute",
+		"body": "\n<attribute name=\"${1:ATTRIBUTE_NAME}\">${2:ATTRIBUTE_VALUE}</attribute>${0}\n",
+		"description": "",
+		"scope": "text.xml"
+	},
+	"xpath": {
+		"prefix": "xpath",
+		"body": "\n<xpath expr=\"${1://field[@name='name']}\" position=\"${2:after}\">\n    ${0}\n</xpath>\n",
+		"description": "Common xpath tag to be added inside a ir.ui.view",
+		"scope": "text.xml"
+	},
+	"position/after": {
+		"prefix": "position/after",
+		"body": "\nposition=\"${1:after}\"${0}\n",
+		"description": "xpath position/after",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"position/attributes": {
+		"prefix": "position/attributes",
+		"body": "\nposition=\"${1:attributes}\"${0}\n",
+		"description": "xpath position/attributes",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"position/before": {
+		"prefix": "position/before",
+		"body": "\nposition=\"${1:before}\"${0}\n",
+		"description": "xpath position/before",
+		"scope": "text.xml meta.tag.xml"
+	},
+	"position/inside": {
+		"prefix": "position/inside",
+		"body": "\nposition=\"${1:inside}\"${0}\n",
+		"description": "xpath position/inside",
 		"scope": "text.xml meta.tag.xml"
 	}
 }
