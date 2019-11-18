@@ -17,5 +17,5 @@ steps:
 
 - script: |
     npm install -g vsce
-    vsce publish -p $(PAT)
+    vsce publish minor -p $(PAT)
   displayName: 'publish to vscode market'
