@@ -2,7 +2,7 @@
     "name": "odoo-snippets",
     "displayName": "Odoo Snippets",
     "description": "Code Snippets for Odoo using new api, support Python, XML.",
-    "version": "0.5.1",
+    "version": "0.6.0",
     "publisher": "jeffery9",
     "engines": {
         "vscode": "^1.0.0"
@@ -11,13 +11,16 @@
         "Snippets"
     ],
     "contributes": {
-        "snippets": [{
-            "language": "python",
-            "path": "./snippets/python.json"
-        }, {
-            "language": "xml",
-            "path": "./snippets/xml.json"
-        }]
+        "snippets": [
+            {
+                "language": "python",
+                "path": "./snippets/python.json"
+            },
+            {
+                "language": "xml",
+                "path": "./snippets/xml.json"
+            }
+        ]
     },
     "icon": "images/odoo_logo.png",
     "repository": "https://github.com/jeffery9/vscode-odoo-snippets"
