@@ -16,8 +16,8 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    npm install vsce
     git config --global user.email "jeffery9@outlook.com"
     git config --global user.name "jeffery CHEN fan"
+    npm install -g vsce
     vsce publish minor -p $(PAT)
   displayName: 'publish to vscode market'
