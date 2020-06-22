@@ -30,367 +30,361 @@
 
 1. 
 
-
 ### Python
-
-
 | prefix | description |
 ---------|--------------|
-| TransactionCase |   |
-| addTypeEqualityFunc | addTypeEqualityFunc  |
-| api/depends | decorator depends  |
-| assertAlmostEqual | assertAlmostEqual  |
-| assertDictContainsSubset | assertDictContainsSubset  |
-| assertDictEqual | assertDictEqual  |
-| assertEqual | assertEqual  |
-| assertFalse | assertFalse  |
-| assertGreater | assertGreater  |
-| assertGreaterEqual | assertGreaterEqual  |
-| assertIn | assertIn  |
-| assertIs | assertIs  |
-| assertIsInstance | assertIsInstance  |
-| assertIsNone | assertIsNone  |
-| assertIsNot | assertIsNot  |
-| assertIsNotNone | assertIsNotNone  |
-| assertItemsEqual | assertItemsEqual  |
-| assertLess | assertLess  |
-| assertLessEqual | assertLessEqual  |
-| assertListEqual | assertListEqual  |
-| assertMultiLineEqual | assertMultiLineEqual  |
-| assertNotAlmostEqual | assertNotAlmostEqual  |
-| assertNotEqual | assertNotEqual  |
-| assertNotIn | assertNotIn  |
-| assertNotIsInstance | assertNotIsInstance  |
-| assertNotRegexpMatches | assertNotRegexpMatches  |
-| assertRaises | assertRaises (extended)  |
-| assertRaises | assertRaises  |
-| assertRaisesRegexp | assertRaisesRegexp (extended)  |
-| assertRaisesRegexp | assertRaisesRegexp  |
-| assertRegexpMatches | assertRegexpMatches  |
-| assertSequenceEqual | assertSequenceEqual  |
-| assertSetEqual | assertSetEqual  |
-| assertTrue | assertTrue  |
-| assertTupleEqual | assertTupleEqual  |
-| attr/_auto | Adds the _auto attribute  |
-| attr/_inherit | Model attribute _inherit with a module list  |
-| attr/_inherits | Model attribute _inherits and single parent field  |
-| auto_join | Field attribute: auto_join  |
-| comodel_name | Field attribute: comodel_name  |
-| company_dependent | Field attribute: company_dependent  |
-| compute | Field attribute: compute  |
-| compute_sudo | Field attribute: compute_sudo  |
-| constraints | Model SQL contraints  |
-| constraints | Model Python contraints  |
-| context | Field attribute: context  |
-| controller/controller | Odoo web controller class  |
-| controller/route | Odoo web controller route  |
-| copy | Field attribute: copy  |
-| copyright | Copyright statement Full  |
-| copyright | Copyright statement Simple  |
-| copyright | Copyright statement Full  |
-| def/log | Common logging log method  |
-| default | Field attribute: search, lambda function  |
-| default company | Field attribute: default company  |
-| default user | Field attribute: default user  |
-| default_model | Field attribute: default_model   |
-| digits | Field attribute: digits  |
-| digits/get_precision | Field attribute: digits  |
-| domain | Field attribute: domain  |
-| domain | Field attribute: domain lambda  |
-| fail | fail  |
-| feature/company_plant | Adds the company/plant support  |
-| feature/mail_thread | Adds Mail Thread support  |
-| feature/multi_company | Adds the multi company support  |
-| feature/needaction | Adds NeedAction support  |
-| feature/parent_child | Adds the _parent_store attribute and parent_left and parent_right  |
-| feature/status | Adds state support  |
-| feature/utm | Adds utm support  |
-| field.company_id |   |
-| fields.Attachment |   |
-| fields.Binary |   |
-| fields.Boolean |   |
-| fields.Char |   |
-| fields.Date |   |
-| fields.Datetime |   |
-| fields.Float |   |
-| fields.Html |   |
-| fields.Integer |   |
-| fields.Many2many |   |
-| fields.Many2one |   |
-| fields.One2many |   |
-| fields.Reference |   |
-| fields.Selection |   |
-| fields.Text |   |
-| file/__init__ | __init__ file  |
-| file/__manifest__ | Odoo manifest file common structure  |
-| file/__manifest__ | Odoo manifest file common structure  |
-| file/__openerp__ | Odoo manifest file common structure  |
-| file/coding | utf-8 coding  |
-| file/controller | Odoo web controller file  |
-| file/model | Odoo model file  |
-| help | Field attribute: help  |
-| import/datetime | import date and time tools  |
-| import/dp |   |
-| import/exceptions |   |
-| import/logging | logging instance  |
-| import/translate | import odoo translate  |
-| index | Field attribute: index  |
-| inverse | Field attribute: inverse, lambda function  |
-| limit | Field attribute: limit  |
-| method/_browse | _browse method signature  |
-| method/_onchange | _onchange method signature, code  |
-| method/_onchange | _onchange method signature, domain  |
-| method/_onchange | _onchange method signature, warning  |
-| method/_search | _search method signature  |
-| method/action_confirm | action_confirm method signature  |
-| method/compute | _compute method signature  |
-| method/copy | copy method signature  |
-| method/create | create method signature  |
-| method/default_get | default_get method signature  |
-| method/fields_get | fields_get remove fields from search and groubby  |
-| method/get_empty_list_help | get_empty_list_help method signature  |
-| method/get_formview_id | get_formview_id method signature  |
-| method/init | init method signature  |
-| method/name_get | name_get method signature  |
-| method/name_search | name_search method signature  |
-| method/toggle_active | toggle_active method signature  |
-| method/unlink | unlink method signature  |
-| method/unlink_restrict | restrict unlink  |
-| method/view_header_get | view_header_get method signature  |
-| method/view_init | view_init method signature  |
-| method/write | write method signature  |
-| model/abstract | Odoo abstract model class  |
-| model/inherit | Odoo inherit model class  |
-| model/model | Odoo generic model class  |
-| model/transient | Odoo transient model class  |
-| ondelete | Field attribute: ondelete  |
-| oodict/stock_move/~12 |   |
-| readonly | Field attribute: readonly  |
-| readonly/states | Field attribute: readonly states  |
-| related | Field attribute: related  |
-| related_sudo | Field attribute: related_sudo  |
-| required | Field attribute: required  |
-| return/act_window | pop window  |
-| return/act_window_close | close window  |
-| selection_add | Field attribute: selection_add   |
-| selection_element | Field attribute: selection add new element   |
-| sequence/line_number | Line Number Add 10 automaticlly  |
-| sequence/next_by_code | next_by_code, used in create()  |
-| size | Field attribute: size  |
-| states | Field attribute: states  |
-| states/invisible | Field attribute: states state invisible  |
-| states/readonly | Field attribute: states state readonly  |
-| states/required | Field attribute: states state required  |
-| states/state | Field attribute: states state  |
-| store | Field attribute: store  |
-| string | Field attribute: string  |
-| super | Call Python parent class  |
-| test | Test case method  |
-| track_visibility | Field attribute: track_visibility  |
-| translate | Field attribute: translate  |
-| x2m/create | x2m create  |
-| x2m/delete | x2m delete, don't use in create()  |
-| x2m/link | x2m link, don't use in One2many  |
-| x2m/replace | x2m replace, don't use in create() and One2many  |
-| x2m/unlink | x2m unlink, don't use in create()  |
-| x2m/unlink_all | x2m unlink all, don't use in create()  |
-| x2m/update | x2m update, don't use in create()  |
-
+| oo_TransactionCase |   |
+| oo_addTypeEqualityFunc | addTypeEqualityFunc  |
+| oo_api/depends | decorator depends  |
+| oo_assertAlmostEqual | assertAlmostEqual  |
+| oo_assertDictContainsSubset | assertDictContainsSubset  |
+| oo_assertDictEqual | assertDictEqual  |
+| oo_assertEqual | assertEqual  |
+| oo_assertFalse | assertFalse  |
+| oo_assertGreater | assertGreater  |
+| oo_assertGreaterEqual | assertGreaterEqual  |
+| oo_assertIn | assertIn  |
+| oo_assertIs | assertIs  |
+| oo_assertIsInstance | assertIsInstance  |
+| oo_assertIsNone | assertIsNone  |
+| oo_assertIsNot | assertIsNot  |
+| oo_assertIsNotNone | assertIsNotNone  |
+| oo_assertItemsEqual | assertItemsEqual  |
+| oo_assertLess | assertLess  |
+| oo_assertLessEqual | assertLessEqual  |
+| oo_assertListEqual | assertListEqual  |
+| oo_assertMultiLineEqual | assertMultiLineEqual  |
+| oo_assertNotAlmostEqual | assertNotAlmostEqual  |
+| oo_assertNotEqual | assertNotEqual  |
+| oo_assertNotIn | assertNotIn  |
+| oo_assertNotIsInstance | assertNotIsInstance  |
+| oo_assertNotRegexpMatches | assertNotRegexpMatches  |
+| oo_assertRaises | assertRaises (extended)  |
+| oo_assertRaises | assertRaises  |
+| oo_assertRaisesRegexp | assertRaisesRegexp (extended)  |
+| oo_assertRaisesRegexp | assertRaisesRegexp  |
+| oo_assertRegexpMatches | assertRegexpMatches  |
+| oo_assertSequenceEqual | assertSequenceEqual  |
+| oo_assertSetEqual | assertSetEqual  |
+| oo_assertTrue | assertTrue  |
+| oo_assertTupleEqual | assertTupleEqual  |
+| oo_attr/_auto | Adds the _auto attribute  |
+| oo_attr/_inherit | Model attribute _inherit with a module list  |
+| oo_attr/_inherits | Model attribute _inherits and single parent field  |
+| oo_auto_join | Field attribute: auto_join  |
+| oo_comodel_name | Field attribute: comodel_name  |
+| oo_company_dependent | Field attribute: company_dependent  |
+| oo_compute | Field attribute: compute  |
+| oo_compute_sudo | Field attribute: compute_sudo  |
+| oo_constraints | Model SQL contraints  |
+| oo_constraints | Model Python contraints  |
+| oo_context | Field attribute: context  |
+| oo_controller/controller | Odoo web controller class  |
+| oo_controller/route | Odoo web controller route  |
+| oo_copy | Field attribute: copy  |
+| oo_copyright | Copyright statement Full  |
+| oo_copyright | Copyright statement Simple  |
+| oo_copyright | Copyright statement Full  |
+| oo_def/log | Common logging log method  |
+| oo_default | Field attribute: search, lambda function  |
+| oo_default company | Field attribute: default company  |
+| oo_default user | Field attribute: default user  |
+| oo_default_model | Field attribute: default_model   |
+| oo_digits | Field attribute: digits  |
+| oo_digits/get_precision | Field attribute: digits  |
+| oo_domain | Field attribute: domain  |
+| oo_domain | Field attribute: domain lambda  |
+| oo_fail | fail  |
+| oo_feature/company_plant | Adds the company/plant support  |
+| oo_feature/mail_thread | Adds Mail Thread support  |
+| oo_feature/multi_company | Adds the multi company support  |
+| oo_feature/needaction | Adds NeedAction support  |
+| oo_feature/parent_child | Adds the _parent_store attribute and parent_left and parent_right  |
+| oo_feature/status | Adds state support  |
+| oo_feature/utm | Adds utm support  |
+| oo_field.company_id |   |
+| oo_fields.Attachment |   |
+| oo_fields.Binary |   |
+| oo_fields.Boolean |   |
+| oo_fields.Char |   |
+| oo_fields.Date |   |
+| oo_fields.Datetime |   |
+| oo_fields.Float |   |
+| oo_fields.Html |   |
+| oo_fields.Integer |   |
+| oo_fields.Many2many |   |
+| oo_fields.Many2one |   |
+| oo_fields.One2many |   |
+| oo_fields.Reference |   |
+| oo_fields.Selection |   |
+| oo_fields.Text |   |
+| oo_file/`__init__` | `__init__` file  |
+| oo_file/`__manifest__` | Odoo manifest file common structure  |
+| oo_file/`__manifest__` | Odoo manifest file common structure  |
+| oo_file/`__openerp__` | Odoo manifest file common structure  |
+| oo_file/coding | utf-8 coding  |
+| oo_file/controller | Odoo web controller file  |
+| oo_file/model | Odoo model file  |
+| oo_help | Field attribute: help  |
+| oo_import/datetime | import date and time tools  |
+| oo_import/dp |   |
+| oo_import/exceptions |   |
+| oo_import/logging | logging instance  |
+| oo_import/translate | import odoo translate  |
+| oo_index | Field attribute: index  |
+| oo_inverse | Field attribute: inverse, lambda function  |
+| oo_limit | Field attribute: limit  |
+| oo_method/_browse | _browse method signature  |
+| oo_method/_onchange | _onchange method signature, code  |
+| oo_method/_onchange | _onchange method signature, domain  |
+| oo_method/_onchange | _onchange method signature, warning  |
+| oo_method/_search | _search method signature  |
+| oo_method/action_confirm | action_confirm method signature  |
+| oo_method/compute | _compute method signature  |
+| oo_method/copy | copy method signature  |
+| oo_method/create | create method signature  |
+| oo_method/default_get | default_get method signature  |
+| oo_method/fields_get | fields_get remove fields from search and groubby  |
+| oo_method/get_empty_list_help | get_empty_list_help method signature  |
+| oo_method/get_formview_id | get_formview_id method signature  |
+| oo_method/init | init method signature  |
+| oo_method/name_get | name_get method signature  |
+| oo_method/name_search | name_search method signature  |
+| oo_method/toggle_active | toggle_active method signature  |
+| oo_method/unlink | unlink method signature  |
+| oo_method/unlink_restrict | restrict unlink  |
+| oo_method/view_header_get | view_header_get method signature  |
+| oo_method/view_init | view_init method signature  |
+| oo_method/write | write method signature  |
+| oo_model/abstract | Odoo abstract model class  |
+| oo_model/inherit | Odoo inherit model class  |
+| oo_model/model | Odoo generic model class  |
+| oo_model/transient | Odoo transient model class  |
+| oo_ondelete | Field attribute: ondelete  |
+| oo_oodict/stock_move/~12 |   |
+| oo_readonly | Field attribute: readonly  |
+| oo_readonly/states | Field attribute: readonly states  |
+| oo_related | Field attribute: related  |
+| oo_related_sudo | Field attribute: related_sudo  |
+| oo_required | Field attribute: required  |
+| oo_return/act_window | pop window  |
+| oo_return/act_window_close | close window  |
+| oo_selection_add | Field attribute: selection_add   |
+| oo_selection_element | Field attribute: selection add new element   |
+| oo_sequence/line_number | Line Number Add 10 automaticlly  |
+| oo_sequence/next_by_code | next_by_code, used in create()  |
+| oo_size | Field attribute: size  |
+| oo_states | Field attribute: states  |
+| oo_states/invisible | Field attribute: states state invisible  |
+| oo_states/readonly | Field attribute: states state readonly  |
+| oo_states/required | Field attribute: states state required  |
+| oo_states/state | Field attribute: states state  |
+| oo_store | Field attribute: store  |
+| oo_string | Field attribute: string  |
+| oo_super | Call Python parent class  |
+| oo_test | Test case method  |
+| oo_track_visibility | Field attribute: track_visibility  |
+| oo_translate | Field attribute: translate  |
+| oo_x2m/create | x2m create  |
+| oo_x2m/delete | x2m delete, don't use in create()  |
+| oo_x2m/link | x2m link, don't use in One2many  |
+| oo_x2m/replace | x2m replace, don't use in create() and One2many  |
+| oo_x2m/unlink | x2m unlink, don't use in create()  |
+| oo_x2m/unlink_all | x2m unlink all, don't use in create()  |
+| oo_x2m/update | x2m update, don't use in create()  |
 
 
 ### XML
 | prefix | description |
 ---------|--------------|
-| action/binding | Fully formated time relative to now  |
-| arch/form | Common form tag to be added inside a ir.ui.view  |
-| arch/graph | Common graph tag to be added inside a ir.ui.view  |
-| arch/pivot | Common graph tag to be added inside a ir.ui.view  |
-| arch/search | Common search tag to be added inside a ir.ui.view  |
-| arch/tree | Common tree tag to be added inside a ir.ui.view  |
-| attribute |   |
-| attribute/domain |   |
-| attribute/domain |   |
-| attribute/invisible |   |
-| attribute/invisible |   |
-| attribute/options |   |
-| attribute/options |   |
-| attribute/readonly |   |
-| attribute/readonly |   |
-| attribute/required |   |
-| attribute/required |   |
-| attribute |   |
-| attrs | field attr attrs  |
-| attrs/invisible | field attr attrs column_invisible  |
-| attrs/invisible | field attr attrs invisible  |
-| attrs/readonly | field attr attrs readonly  |
-| attrs/required | field attr attrs required  |
-| button/cancel | Cancel button tag definition  |
-| button/full | Common button tag definition  |
-| button/inline | Inline button tag definition  |
-| chatter | Common XML to add a tracking area inside a form view  |
-| class/oe_edit_only | field attr class oe_edit_only  |
-| class/oe_inline | field attr class oe_inline  |
-| class/oe_left | field attr class oe_left  |
-| class/oe_no_avatar | field attr class oe_no_avatar  |
-| class/oe_no_button | field attr class oe_no_button  |
-| class/oe_read_only | field attr class oe_read_only  |
-| class/oe_right | field attr class oe_right  |
-| context | tag attr context  |
-| create | tag attr create  |
-| decoration | field attr decoration  |
-| default_order | field attr default_order  |
-| delete | tag attr delete  |
-| domain | field attr domain  |
-| duplicate | tag attr duplicate  |
-| edit | tag attr edit  |
-| extid/group_no_one |   |
-| extid/group_system |   |
-| field/boolean | Common XML tag for field type Boolean  |
-| field/char | Common XML tag for field type Char  |
-| field/compound | Compound field  |
-| field/date | Common XML tag for field type Date  |
-| field/datetime | Common XML tag for field type Datetime  |
-| field/float | Common XML tag for field type Float  |
-| field/full | Full field tag  |
-| field/html | Common XML tag for field type Html  |
-| field/inline | Inline field tag  |
-| field/integer | Common XML tag for field type Integer  |
-| field/many2many | Common XML tag for field type Many2many  |
-| field/many2one | Common XML tag for field type Many2one  |
-| field/one2many | Common XML tag for field type One2many  |
-| field/selection | Common XML tag for field type Selection  |
-| field/simple | Simple field tag  |
-| field/text | Common XML tag for field type Text  |
-| field_group_ids/display_incoterm |   |
-| field_group_ids/multi_company |   |
-| field_group_ids/no_one |   |
-| field_group_ids/production_lot |   |
-| field_group_ids/stock_multi_locations |   |
-| field_group_ids/system |   |
-| field_group_ids/tracking_lot |   |
-| field_group_ids/tracking_owner |   |
-| field_group_ids/uom |   |
-| field_groups_id |   |
-| file/xml | Common base XML structure to be used in Odoo module data files  |
-| filter/archive | Filter archived  |
-| filter/latest_by_day | Filter list latest order by days  |
-| filter_domain | field attr filter_domain  |
-| function |   |
-| group_display_incoterm |   |
-| group_multi_company |   |
-| group_no_one |   |
-| group_production_lot |   |
-| group_stock_multi_locations |   |
-| group_system |   |
-| group_tracking_lot |   |
-| group_tracking_owner |   |
-| group_uom |   |
-| groups |   |
-| groups | field attr groups  |
-| invisible | field attr invisible  |
-| layout/button_box | layout button_box definition  |
-| layout/group |   |
-| layout/label | Field Label  |
-| layout/separator | Common separator tag to be added inside a ir.ui.view  |
-| link | Link tag to inglude an stylesheet  |
-| notebook |   |
-| notebook/page |   |
-| options/always_reload | field attr options always_reload  |
-| options/no_create | field attr options no_create  |
-| options/no_create_edit | field attr options no_create_edit  |
-| options/no_open | field attr options no_open  |
-| options/no_quick_create | field attr options no_create/no_open/no_create_edit  |
-| options/reload_whole_on_button | field attr options reload_whole_on_button  |
-| position/after | xpath position/after  |
-| position/attributes | xpath position/attributes  |
-| position/before | xpath position/before  |
-| position/inside | xpath position/inside  |
-| qweb_t-att | Qweb named attribute  |
-| qweb_t-att | Qweb attribute  |
-| qweb_t-attf | Qweb format string attribute  |
-| qweb_t-call | Qweb inline call template  |
-| qweb_t-call | Qweb call template  |
-| qweb_t-esc | Qweb data output  |
-| qweb_t-extend | Qweb template inheritance  |
-| qweb_t-field | Qweb field access  |
-| qweb_t-foreach | Qweb loop  |
-| qweb_t-if | Qweb inline conditional  |
-| qweb_t-if | Qweb conditional  |
-| qweb_t-js | Qweb javascript  |
-| qweb_t-log | Qweb logging  |
-| qweb_t-name | Qweb top level named template  |
-| qweb_t-raw | Qweb template from context  |
-| qweb_t-set | Qweb inline variable  |
-| qweb_t-set | Qweb variable  |
-| readonly | field attr readonly  |
-| record |   |
-| record/assets | Include module assets in backend views  |
-| record/base.action.rule | Common record definition for base.action.rule  |
-| record/email.template | Common record definition for email.template  |
-| record/filter | Common ir.filters record definition  |
-| record/ir.actions.act_window | Common record definition for ir.actions.act_window  |
-| record/ir.actions.act_window.view | Common record definition for ir.actions.act_window.view  |
-| record/ir.actions.report.xml | Common record definition for ir.actions.report.xml  |
-| record/ir.actions.server | Common record definition for ir.actions.server, invoking a client action  |
-| record/ir.actions.server | Common record definition for ir.actions.server, running Python code  |
-| record/ir.actions.server | Common record definition for ir.actions.server, executing multiple actions  |
-| record/ir.actions.server | Common record definition for ir.actions.server, creating objects  |
-| record/ir.actions.server | Common record definition for ir.actions.server, updating objects  |
-| record/ir.actions.server | Common record definition for ir.actions.server, triggering  |
-| record/ir.actions.todo |   |
-| record/ir.config_parameter | Common ir.config_parameter record definition  |
-| record/ir.model | Common record definition for ir.model  |
-| record/ir.model.access | XML ir.model.access record  |
-| record/ir.model.data | Common record definition for ir.model.data  |
-| record/ir.module.category | XML ir.model.category record  |
-| record/ir.rule | XML ir.rule record  |
-| record/ir.values | Common record definition for ir.values  |
-| record/menu | Common ir.ui.menu record definition  |
-| record/product.product | XML product.product record  |
-| record/product.template | XML product.template record  |
-| record/res.groups | XML res.groups record  |
-| record/view | Common ir.ui.view record definition  |
-| ref | field attr ref  |
-| report.paperformat | Common record definition for report.paperformat  |
-| report_fullreport | Report: document and translation; action.report.xml and ir.values  |
-| report_layout | Report external_layout  |
-| report_layout | Report external_layout_footer  |
-| report_layout | Report external_layout_header  |
-| report_layout | Report html_container  |
-| report_layout | Report internal_layout  |
-| report_layout | Report layout  |
-| report_layout | Report minimal_layout  |
-| report_layout | Report style  |
-| report_t | Report qweb container  |
-| report_t-raw | Qweb translate document  |
-| required | field attr required  |
-| script | Script tag to inglude an javascript  |
-| search/filter | Common filter tag to be added inside a search view  |
-| search/group_by |   |
-| smart_button | smart button definition  |
-| status | Adds state support  |
-| statusbar | Include module assets in backend views  |
-| time/relativetime | Fully formated time relative to now  |
-| time/strftime | Fully formated strftime  |
-| view/full | Views: tree, form, search; act_window and menu  |
-| view/inherit | Inherited Views: tree, form, search  |
-| view/inherit | Inherited Views: tree, form  |
-| widget/ace | widget ace editor  |
-| widget/boolean_button | widget boolean_button  |
-| widget/image | widget image  |
-| widget/image | widget image  |
-| widget/many2many | widget many2many  |
-| widget/many2many_binary | widget many2many_binary  |
-| widget/many2many_checkboxes | widget many2many_checkboxes  |
-| widget/many2many_kanban | widget many2many_kanban  |
-| widget/many2many_tags | widget many2many_tags  |
-| widget/percentpie | widget percentpie  |
-| widget/progressbar | widget progressbar  |
-| widget/radio | widget radio  |
-| widget/selection | widget selection  |
-| widget/statinfo | widget statinfo  |
-| widget/statusbar | widget statusbar  |
-| widget/toggle_button | widget toggle_button  |
-| xpath | Common xpath tag to be added inside a ir.ui.view  |
-
-
+| oo_action/binding | Fully formated time relative to now  |
+| oo_arch/form | Common form tag to be added inside a ir.ui.view  |
+| oo_arch/graph | Common graph tag to be added inside a ir.ui.view  |
+| oo_arch/pivot | Common graph tag to be added inside a ir.ui.view  |
+| oo_arch/search | Common search tag to be added inside a ir.ui.view  |
+| oo_arch/tree | Common tree tag to be added inside a ir.ui.view  |
+| oo_attribute |   |
+| oo_attribute/domain |   |
+| oo_attribute/domain |   |
+| oo_attribute/invisible |   |
+| oo_attribute/invisible |   |
+| oo_attribute/options |   |
+| oo_attribute/options |   |
+| oo_attribute/readonly |   |
+| oo_attribute/readonly |   |
+| oo_attribute/required |   |
+| oo_attribute/required |   |
+| oo_attribute |   |
+| oo_attrs | field attr attrs  |
+| oo_attrs/invisible | field attr attrs column_invisible  |
+| oo_attrs/invisible | field attr attrs invisible  |
+| oo_attrs/readonly | field attr attrs readonly  |
+| oo_attrs/required | field attr attrs required  |
+| oo_button/cancel | Cancel button tag definition  |
+| oo_button/full | Common button tag definition  |
+| oo_button/inline | Inline button tag definition  |
+| oo_chatter | Common XML to add a tracking area inside a form view  |
+| oo_class/oe_edit_only | field attr class oe_edit_only  |
+| oo_class/oe_inline | field attr class oe_inline  |
+| oo_class/oe_left | field attr class oe_left  |
+| oo_class/oe_no_avatar | field attr class oe_no_avatar  |
+| oo_class/oe_no_button | field attr class oe_no_button  |
+| oo_class/oe_read_only | field attr class oe_read_only  |
+| oo_class/oe_right | field attr class oe_right  |
+| oo_context | tag attr context  |
+| oo_create | tag attr create  |
+| oo_decoration | field attr decoration  |
+| oo_default_order | field attr default_order  |
+| oo_delete | tag attr delete  |
+| oo_domain | field attr domain  |
+| oo_duplicate | tag attr duplicate  |
+| oo_edit | tag attr edit  |
+| oo_extid/group_no_one |   |
+| oo_extid/group_system |   |
+| oo_field/boolean | Common XML tag for field type Boolean  |
+| oo_field/char | Common XML tag for field type Char  |
+| oo_field/compound | Compound field  |
+| oo_field/date | Common XML tag for field type Date  |
+| oo_field/datetime | Common XML tag for field type Datetime  |
+| oo_field/float | Common XML tag for field type Float  |
+| oo_field/full | Full field tag  |
+| oo_field/html | Common XML tag for field type Html  |
+| oo_field/inline | Inline field tag  |
+| oo_field/integer | Common XML tag for field type Integer  |
+| oo_field/many2many | Common XML tag for field type Many2many  |
+| oo_field/many2one | Common XML tag for field type Many2one  |
+| oo_field/one2many | Common XML tag for field type One2many  |
+| oo_field/selection | Common XML tag for field type Selection  |
+| oo_field/simple | Simple field tag  |
+| oo_field/text | Common XML tag for field type Text  |
+| oo_field_group_ids/display_incoterm |   |
+| oo_field_group_ids/multi_company |   |
+| oo_field_group_ids/no_one |   |
+| oo_field_group_ids/production_lot |   |
+| oo_field_group_ids/stock_multi_locations |   |
+| oo_field_group_ids/system |   |
+| oo_field_group_ids/tracking_lot |   |
+| oo_field_group_ids/tracking_owner |   |
+| oo_field_group_ids/uom |   |
+| oo_field_groups_id |   |
+| oo_file/xml | Common base XML structure to be used in Odoo module data files  |
+| oo_filter/archive | Filter archived  |
+| oo_filter/latest_by_day | Filter list latest order by days  |
+| oo_filter_domain | field attr filter_domain  |
+| oo_function |   |
+| oo_group_display_incoterm |   |
+| oo_group_multi_company |   |
+| oo_group_no_one |   |
+| oo_group_production_lot |   |
+| oo_group_stock_multi_locations |   |
+| oo_group_system |   |
+| oo_group_tracking_lot |   |
+| oo_group_tracking_owner |   |
+| oo_group_uom |   |
+| oo_groups |   |
+| oo_groups | field attr groups  |
+| oo_invisible | field attr invisible  |
+| oo_layout/button_box | layout button_box definition  |
+| oo_layout/group |   |
+| oo_layout/label | Field Label  |
+| oo_layout/separator | Common separator tag to be added inside a ir.ui.view  |
+| oo_link | Link tag to inglude an stylesheet  |
+| oo_notebook |   |
+| oo_notebook/page |   |
+| oo_options/always_reload | field attr options always_reload  |
+| oo_options/no_create | field attr options no_create  |
+| oo_options/no_create_edit | field attr options no_create_edit  |
+| oo_options/no_open | field attr options no_open  |
+| oo_options/no_quick_create | field attr options no_create/no_open/no_create_edit  |
+| oo_options/reload_whole_on_button | field attr options reload_whole_on_button  |
+| oo_position/after | xpath position/after  |
+| oo_position/attributes | xpath position/attributes  |
+| oo_position/before | xpath position/before  |
+| oo_position/inside | xpath position/inside  |
+| oo_qweb_t-att | Qweb named attribute  |
+| oo_qweb_t-att | Qweb attribute  |
+| oo_qweb_t-attf | Qweb format string attribute  |
+| oo_qweb_t-call | Qweb inline call template  |
+| oo_qweb_t-call | Qweb call template  |
+| oo_qweb_t-esc | Qweb data output  |
+| oo_qweb_t-extend | Qweb template inheritance  |
+| oo_qweb_t-field | Qweb field access  |
+| oo_qweb_t-foreach | Qweb loop  |
+| oo_qweb_t-if | Qweb inline conditional  |
+| oo_qweb_t-if | Qweb conditional  |
+| oo_qweb_t-js | Qweb javascript  |
+| oo_qweb_t-log | Qweb logging  |
+| oo_qweb_t-name | Qweb top level named template  |
+| oo_qweb_t-raw | Qweb template from context  |
+| oo_qweb_t-set | Qweb inline variable  |
+| oo_qweb_t-set | Qweb variable  |
+| oo_readonly | field attr readonly  |
+| oo_record |   |
+| oo_record/assets | Include module assets in backend views  |
+| oo_record/base.action.rule | Common record definition for base.action.rule  |
+| oo_record/email.template | Common record definition for email.template  |
+| oo_record/filter | Common ir.filters record definition  |
+| oo_record/ir.actions.act_window | Common record definition for ir.actions.act_window  |
+| oo_record/ir.actions.act_window.view | Common record definition for ir.actions.act_window.view  |
+| oo_record/ir.actions.report.xml | Common record definition for ir.actions.report.xml  |
+| oo_record/ir.actions.server | Common record definition for ir.actions.server, invoking a client action  |
+| oo_record/ir.actions.server | Common record definition for ir.actions.server, running Python code  |
+| oo_record/ir.actions.server | Common record definition for ir.actions.server, executing multiple actions  |
+| oo_record/ir.actions.server | Common record definition for ir.actions.server, creating objects  |
+| oo_record/ir.actions.server | Common record definition for ir.actions.server, updating objects  |
+| oo_record/ir.actions.server | Common record definition for ir.actions.server, triggering  |
+| oo_record/ir.actions.todo |   |
+| oo_record/ir.config_parameter | Common ir.config_parameter record definition  |
+| oo_record/ir.model | Common record definition for ir.model  |
+| oo_record/ir.model.access | XML ir.model.access record  |
+| oo_record/ir.model.data | Common record definition for ir.model.data  |
+| oo_record/ir.module.category | XML ir.model.category record  |
+| oo_record/ir.rule | XML ir.rule record  |
+| oo_record/ir.values | Common record definition for ir.values  |
+| oo_record/menu | Common ir.ui.menu record definition  |
+| oo_record/product.product | XML product.product record  |
+| oo_record/product.template | XML product.template record  |
+| oo_record/res.groups | XML res.groups record  |
+| oo_record/view | Common ir.ui.view record definition  |
+| oo_ref | field attr ref  |
+| oo_report.paperformat | Common record definition for report.paperformat  |
+| oo_report_fullreport | Report: document and translation; action.report.xml and ir.values  |
+| oo_report_layout | Report external_layout  |
+| oo_report_layout | Report external_layout_footer  |
+| oo_report_layout | Report external_layout_header  |
+| oo_report_layout | Report html_container  |
+| oo_report_layout | Report internal_layout  |
+| oo_report_layout | Report layout  |
+| oo_report_layout | Report minimal_layout  |
+| oo_report_layout | Report style  |
+| oo_report_t | Report qweb container  |
+| oo_report_t-raw | Qweb translate document  |
+| oo_required | field attr required  |
+| oo_script | Script tag to inglude an javascript  |
+| oo_search/filter | Common filter tag to be added inside a search view  |
+| oo_search/group_by |   |
+| oo_smart_button | smart button definition  |
+| oo_status | Adds state support  |
+| oo_statusbar | Include module assets in backend views  |
+| oo_time/relativetime | Fully formated time relative to now  |
+| oo_time/strftime | Fully formated strftime  |
+| oo_view/full | Views: tree, form, search; act_window and menu  |
+| oo_view/inherit | Inherited Views: tree, form, search  |
+| oo_view/inherit | Inherited Views: tree, form  |
+| oo_widget/ace | widget ace editor  |
+| oo_widget/boolean_button | widget boolean_button  |
+| oo_widget/image | widget image  |
+| oo_widget/image | widget image  |
+| oo_widget/many2many | widget many2many  |
+| oo_widget/many2many_binary | widget many2many_binary  |
+| oo_widget/many2many_checkboxes | widget many2many_checkboxes  |
+| oo_widget/many2many_kanban | widget many2many_kanban  |
+| oo_widget/many2many_tags | widget many2many_tags  |
+| oo_widget/percentpie | widget percentpie  |
+| oo_widget/progressbar | widget progressbar  |
+| oo_widget/radio | widget radio  |
+| oo_widget/selection | widget selection  |
+| oo_widget/statinfo | widget statinfo  |
+| oo_widget/statusbar | widget statusbar  |
+| oo_widget/toggle_button | widget toggle_button  |
+| oo_xpath | Common xpath tag to be added inside a ir.ui.view  |
