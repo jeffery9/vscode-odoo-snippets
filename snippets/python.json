@@ -22,7 +22,7 @@
 			""
 		],
 		"description": "",
-		"prefix": "TransactionCase"
+		"prefix": "oo_TransactionCase"
 	},
 	"addTypeEqualityFunc": {
 		"body": [
@@ -31,7 +31,7 @@
 			""
 		],
 		"description": "addTypeEqualityFunc",
-		"prefix": "addTypeEqualityFunc"
+		"prefix": "oo_addTypeEqualityFunc"
 	},
 	"api/depends": {
 		"body": [
@@ -40,7 +40,7 @@
 			""
 		],
 		"description": "decorator depends",
-		"prefix": "api/depends"
+		"prefix": "oo_api/depends"
 	},
 	"assertAlmostEqual": {
 		"body": [
@@ -49,7 +49,7 @@
 			""
 		],
 		"description": "assertAlmostEqual",
-		"prefix": "assertAlmostEqual"
+		"prefix": "oo_assertAlmostEqual"
 	},
 	"assertDictContainsSubset": {
 		"body": [
@@ -58,7 +58,7 @@
 			""
 		],
 		"description": "assertDictContainsSubset",
-		"prefix": "assertDictContainsSubset"
+		"prefix": "oo_assertDictContainsSubset"
 	},
 	"assertDictEqual": {
 		"body": [
@@ -67,7 +67,7 @@
 			""
 		],
 		"description": "assertDictEqual",
-		"prefix": "assertDictEqual"
+		"prefix": "oo_assertDictEqual"
 	},
 	"assertEqual": {
 		"body": [
@@ -76,7 +76,7 @@
 			""
 		],
 		"description": "assertEqual",
-		"prefix": "assertEqual"
+		"prefix": "oo_assertEqual"
 	},
 	"assertFalse": {
 		"body": [
@@ -85,7 +85,7 @@
 			""
 		],
 		"description": "assertFalse",
-		"prefix": "assertFalse"
+		"prefix": "oo_assertFalse"
 	},
 	"assertGreater": {
 		"body": [
@@ -94,7 +94,7 @@
 			""
 		],
 		"description": "assertGreater",
-		"prefix": "assertGreater"
+		"prefix": "oo_assertGreater"
 	},
 	"assertGreaterEqual": {
 		"body": [
@@ -103,7 +103,7 @@
 			""
 		],
 		"description": "assertGreaterEqual",
-		"prefix": "assertGreaterEqual"
+		"prefix": "oo_assertGreaterEqual"
 	},
 	"assertIn": {
 		"body": [
@@ -112,7 +112,7 @@
 			""
 		],
 		"description": "assertIn",
-		"prefix": "assertIn"
+		"prefix": "oo_assertIn"
 	},
 	"assertIs": {
 		"body": [
@@ -121,7 +121,7 @@
 			""
 		],
 		"description": "assertIs",
-		"prefix": "assertIs"
+		"prefix": "oo_assertIs"
 	},
 	"assertIsInstance": {
 		"body": [
@@ -130,7 +130,7 @@
 			""
 		],
 		"description": "assertIsInstance",
-		"prefix": "assertIsInstance"
+		"prefix": "oo_assertIsInstance"
 	},
 	"assertIsNone": {
 		"body": [
@@ -139,7 +139,7 @@
 			""
 		],
 		"description": "assertIsNone",
-		"prefix": "assertIsNone"
+		"prefix": "oo_assertIsNone"
 	},
 	"assertIsNot": {
 		"body": [
@@ -148,7 +148,7 @@
 			""
 		],
 		"description": "assertIsNot",
-		"prefix": "assertIsNot"
+		"prefix": "oo_assertIsNot"
 	},
 	"assertIsNotNone": {
 		"body": [
@@ -157,7 +157,7 @@
 			""
 		],
 		"description": "assertIsNotNone",
-		"prefix": "assertIsNotNone"
+		"prefix": "oo_assertIsNotNone"
 	},
 	"assertItemsEqual": {
 		"body": [
@@ -166,7 +166,7 @@
 			""
 		],
 		"description": "assertItemsEqual",
-		"prefix": "assertItemsEqual"
+		"prefix": "oo_assertItemsEqual"
 	},
 	"assertLess": {
 		"body": [
@@ -175,7 +175,7 @@
 			""
 		],
 		"description": "assertLess",
-		"prefix": "assertLess"
+		"prefix": "oo_assertLess"
 	},
 	"assertLessEqual": {
 		"body": [
@@ -184,7 +184,7 @@
 			""
 		],
 		"description": "assertLessEqual",
-		"prefix": "assertLessEqual"
+		"prefix": "oo_assertLessEqual"
 	},
 	"assertListEqual": {
 		"body": [
@@ -193,7 +193,7 @@
 			""
 		],
 		"description": "assertListEqual",
-		"prefix": "assertListEqual"
+		"prefix": "oo_assertListEqual"
 	},
 	"assertMultiLineEqual": {
 		"body": [
@@ -202,7 +202,7 @@
 			""
 		],
 		"description": "assertMultiLineEqual",
-		"prefix": "assertMultiLineEqual"
+		"prefix": "oo_assertMultiLineEqual"
 	},
 	"assertNotAlmostEqual": {
 		"body": [
@@ -211,7 +211,7 @@
 			""
 		],
 		"description": "assertNotAlmostEqual",
-		"prefix": "assertNotAlmostEqual"
+		"prefix": "oo_assertNotAlmostEqual"
 	},
 	"assertNotEqual": {
 		"body": [
@@ -220,7 +220,7 @@
 			""
 		],
 		"description": "assertNotEqual",
-		"prefix": "assertNotEqual"
+		"prefix": "oo_assertNotEqual"
 	},
 	"assertNotIn": {
 		"body": [
@@ -229,7 +229,7 @@
 			""
 		],
 		"description": "assertNotIn",
-		"prefix": "assertNotIn"
+		"prefix": "oo_assertNotIn"
 	},
 	"assertNotIsInstance": {
 		"body": [
@@ -238,7 +238,7 @@
 			""
 		],
 		"description": "assertNotIsInstance",
-		"prefix": "assertNotIsInstance"
+		"prefix": "oo_assertNotIsInstance"
 	},
 	"assertNotRegexpMatches": {
 		"body": [
@@ -247,7 +247,7 @@
 			""
 		],
 		"description": "assertNotRegexpMatches",
-		"prefix": "assertNotRegexpMatches"
+		"prefix": "oo_assertNotRegexpMatches"
 	},
 	"assertRaises": {
 		"body": [
@@ -256,7 +256,7 @@
 			""
 		],
 		"description": "assertRaises (extended)",
-		"prefix": "assertRaises"
+		"prefix": "oo_assertRaises"
 	},
 	"assertRaises1": {
 		"body": [
@@ -265,7 +265,7 @@
 			""
 		],
 		"description": "assertRaises",
-		"prefix": "assertRaises"
+		"prefix": "oo_assertRaises"
 	},
 	"assertRaisesRegexp": {
 		"body": [
@@ -274,7 +274,7 @@
 			""
 		],
 		"description": "assertRaisesRegexp (extended)",
-		"prefix": "assertRaisesRegexp"
+		"prefix": "oo_assertRaisesRegexp"
 	},
 	"assertRaisesRegexp1": {
 		"body": [
@@ -283,7 +283,7 @@
 			""
 		],
 		"description": "assertRaisesRegexp",
-		"prefix": "assertRaisesRegexp"
+		"prefix": "oo_assertRaisesRegexp"
 	},
 	"assertRegexpMatches": {
 		"body": [
@@ -292,7 +292,7 @@
 			""
 		],
 		"description": "assertRegexpMatches",
-		"prefix": "assertRegexpMatches"
+		"prefix": "oo_assertRegexpMatches"
 	},
 	"assertSequenceEqual": {
 		"body": [
@@ -301,7 +301,7 @@
 			""
 		],
 		"description": "assertSequenceEqual",
-		"prefix": "assertSequenceEqual"
+		"prefix": "oo_assertSequenceEqual"
 	},
 	"assertSetEqual": {
 		"body": [
@@ -310,7 +310,7 @@
 			""
 		],
 		"description": "assertSetEqual",
-		"prefix": "assertSetEqual"
+		"prefix": "oo_assertSetEqual"
 	},
 	"assertTrue": {
 		"body": [
@@ -319,7 +319,7 @@
 			""
 		],
 		"description": "assertTrue",
-		"prefix": "assertTrue"
+		"prefix": "oo_assertTrue"
 	},
 	"assertTupleEqual": {
 		"body": [
@@ -328,7 +328,7 @@
 			""
 		],
 		"description": "assertTupleEqual",
-		"prefix": "assertTupleEqual"
+		"prefix": "oo_assertTupleEqual"
 	},
 	"attr/_auto": {
 		"body": [
@@ -337,7 +337,7 @@
 			""
 		],
 		"description": "Adds the _auto attribute",
-		"prefix": "attr/_auto"
+		"prefix": "oo_attr/_auto"
 	},
 	"attr/_inherit": {
 		"body": [
@@ -346,7 +346,7 @@
 			""
 		],
 		"description": "Model attribute _inherit with a module list",
-		"prefix": "attr/_inherit"
+		"prefix": "oo_attr/_inherit"
 	},
 	"attr/_inherits": {
 		"body": [
@@ -355,7 +355,7 @@
 			""
 		],
 		"description": "Model attribute _inherits and single parent field",
-		"prefix": "attr/_inherits"
+		"prefix": "oo_attr/_inherits"
 	},
 	"auto_join": {
 		"body": [
@@ -364,7 +364,7 @@
 			""
 		],
 		"description": "Field attribute: auto_join",
-		"prefix": "auto_join"
+		"prefix": "oo_auto_join"
 	},
 	"comodel_name": {
 		"body": [
@@ -373,7 +373,7 @@
 			""
 		],
 		"description": "Field attribute: comodel_name",
-		"prefix": "comodel_name"
+		"prefix": "oo_comodel_name"
 	},
 	"company_dependent": {
 		"body": [
@@ -382,7 +382,7 @@
 			""
 		],
 		"description": "Field attribute: company_dependent",
-		"prefix": "company_dependent"
+		"prefix": "oo_company_dependent"
 	},
 	"compute": {
 		"body": [
@@ -398,7 +398,7 @@
 			""
 		],
 		"description": "Field attribute: compute",
-		"prefix": "compute"
+		"prefix": "oo_compute"
 	},
 	"compute_sudo": {
 		"body": [
@@ -408,7 +408,7 @@
 			""
 		],
 		"description": "Field attribute: compute_sudo",
-		"prefix": "compute_sudo"
+		"prefix": "oo_compute_sudo"
 	},
 	"constraints": {
 		"body": [
@@ -423,7 +423,7 @@
 			""
 		],
 		"description": "Model SQL contraints",
-		"prefix": "constraints"
+		"prefix": "oo_constraints"
 	},
 	"constraints1": {
 		"body": [
@@ -435,7 +435,7 @@
 			""
 		],
 		"description": "Model Python contraints",
-		"prefix": "constraints"
+		"prefix": "oo_constraints"
 	},
 	"context": {
 		"body": [
@@ -444,7 +444,7 @@
 			""
 		],
 		"description": "Field attribute: context",
-		"prefix": "context"
+		"prefix": "oo_context"
 	},
 	"controller/controller": {
 		"body": [
@@ -463,7 +463,7 @@
 			""
 		],
 		"description": "Odoo web controller class",
-		"prefix": "controller/controller"
+		"prefix": "oo_controller/controller"
 	},
 	"controller/route": {
 		"body": [
@@ -480,7 +480,7 @@
 			""
 		],
 		"description": "Odoo web controller route",
-		"prefix": "controller/route"
+		"prefix": "oo_controller/route"
 	},
 	"copy": {
 		"body": [
@@ -489,7 +489,7 @@
 			""
 		],
 		"description": "Field attribute: copy",
-		"prefix": "copy"
+		"prefix": "oo_copy"
 	},
 	"copyright": {
 		"body": [
@@ -522,7 +522,7 @@
 			""
 		],
 		"description": "Copyright statement Full",
-		"prefix": "copyright"
+		"prefix": "oo_copyright"
 	},
 	"copyright1": {
 		"body": [
@@ -536,7 +536,7 @@
 			""
 		],
 		"description": "Copyright statement Simple",
-		"prefix": "copyright"
+		"prefix": "oo_copyright"
 	},
 	"copyright2": {
 		"body": [
@@ -569,7 +569,7 @@
 			""
 		],
 		"description": "Copyright statement Full",
-		"prefix": "copyright"
+		"prefix": "oo_copyright"
 	},
 	"def/log": {
 		"body": [
@@ -589,7 +589,7 @@
 			""
 		],
 		"description": "Common logging log method",
-		"prefix": "def/log"
+		"prefix": "oo_def/log"
 	},
 	"default": {
 		"body": [
@@ -598,7 +598,7 @@
 			""
 		],
 		"description": "Field attribute: search, lambda function",
-		"prefix": "default"
+		"prefix": "oo_default"
 	},
 	"default company": {
 		"body": [
@@ -607,7 +607,7 @@
 			""
 		],
 		"description": "Field attribute: default company",
-		"prefix": "default company"
+		"prefix": "oo_default company"
 	},
 	"default user": {
 		"body": [
@@ -616,7 +616,7 @@
 			""
 		],
 		"description": "Field attribute: default user",
-		"prefix": "default user"
+		"prefix": "oo_default user"
 	},
 	"default_model": {
 		"body": [
@@ -625,7 +625,7 @@
 			""
 		],
 		"description": "Field attribute: default_model ",
-		"prefix": "default_model"
+		"prefix": "oo_default_model"
 	},
 	"digits": {
 		"body": [
@@ -634,7 +634,7 @@
 			""
 		],
 		"description": "Field attribute: digits",
-		"prefix": "digits"
+		"prefix": "oo_digits"
 	},
 	"digits/get_precision": {
 		"body": [
@@ -643,7 +643,7 @@
 			""
 		],
 		"description": "Field attribute: digits",
-		"prefix": "digits/get_precision"
+		"prefix": "oo_digits/get_precision"
 	},
 	"domain": {
 		"body": [
@@ -652,7 +652,7 @@
 			""
 		],
 		"description": "Field attribute: domain",
-		"prefix": "domain"
+		"prefix": "oo_domain"
 	},
 	"domain1": {
 		"body": [
@@ -661,7 +661,7 @@
 			""
 		],
 		"description": "Field attribute: domain lambda",
-		"prefix": "domain"
+		"prefix": "oo_domain"
 	},
 	"fail": {
 		"body": [
@@ -670,7 +670,7 @@
 			""
 		],
 		"description": "fail",
-		"prefix": "fail"
+		"prefix": "oo_fail"
 	},
 	"feature/company_plant": {
 		"body": [
@@ -693,7 +693,7 @@
 			""
 		],
 		"description": "Adds the company/plant support",
-		"prefix": "feature/company_plant"
+		"prefix": "oo_feature/company_plant"
 	},
 	"feature/mail_thread": {
 		"body": [
@@ -703,7 +703,7 @@
 			""
 		],
 		"description": "Adds Mail Thread support",
-		"prefix": "feature/mail_thread"
+		"prefix": "oo_feature/mail_thread"
 	},
 	"feature/multi_company": {
 		"body": [
@@ -728,7 +728,7 @@
 			""
 		],
 		"description": "Adds the multi company support",
-		"prefix": "feature/multi_company"
+		"prefix": "oo_feature/multi_company"
 	},
 	"feature/needaction": {
 		"body": [
@@ -737,7 +737,7 @@
 			""
 		],
 		"description": "Adds NeedAction support",
-		"prefix": "feature/needaction"
+		"prefix": "oo_feature/needaction"
 	},
 	"feature/parent_child": {
 		"body": [
@@ -751,7 +751,7 @@
 			""
 		],
 		"description": "Adds the _parent_store attribute and parent_left and parent_right",
-		"prefix": "feature/parent_child"
+		"prefix": "oo_feature/parent_child"
 	},
 	"feature/status": {
 		"body": [
@@ -783,7 +783,7 @@
 			""
 		],
 		"description": "Adds state support",
-		"prefix": "feature/status"
+		"prefix": "oo_feature/status"
 	},
 	"feature/utm": {
 		"body": [
@@ -792,7 +792,7 @@
 			""
 		],
 		"description": "Adds utm support",
-		"prefix": "feature/utm"
+		"prefix": "oo_feature/utm"
 	},
 	"field.company_id": {
 		"body": [
@@ -806,7 +806,7 @@
 			""
 		],
 		"description": "",
-		"prefix": "field.company_id"
+		"prefix": "oo_field.company_id"
 	},
 	"fields.Attachment": {
 		"body": [
@@ -815,7 +815,7 @@
 			""
 		],
 		"description": "",
-		"prefix": "fields.Attachment"
+		"prefix": "oo_fields.Attachment"
 	},
 	"fields.Binary": {
 		"body": [
@@ -826,7 +826,7 @@
 			""
 		],
 		"description": "",
-		"prefix": "fields.Binary"
+		"prefix": "oo_fields.Binary"
 	},
 	"fields.Boolean": {
 		"body": [
@@ -837,7 +837,7 @@
 			""
 		],
 		"description": "",
-		"prefix": "fields.Boolean"
+		"prefix": "oo_fields.Boolean"
 	},
 	"fields.Char": {
 		"body": [
@@ -848,7 +848,7 @@
 			""
 		],
 		"description": "",
-		"prefix": "fields.Char"
+		"prefix": "oo_fields.Char"
 	},
 	"fields.Date": {
 		"body": [
@@ -860,7 +860,7 @@
 			""
 		],
 		"description": "",
-		"prefix": "fields.Date"
+		"prefix": "oo_fields.Date"
 	},
 	"fields.Datetime": {
 		"body": [
@@ -872,7 +872,7 @@
 			""
 		],
 		"description": "",
-		"prefix": "fields.Datetime"
+		"prefix": "oo_fields.Datetime"
 	},
 	"fields.Float": {
 		"body": [
@@ -883,7 +883,7 @@
 			""
 		],
 		"description": "",
-		"prefix": "fields.Float"
+		"prefix": "oo_fields.Float"
 	},
 	"fields.Html": {
 		"body": [
@@ -894,7 +894,7 @@
 			""
 		],
 		"description": "",
-		"prefix": "fields.Html"
+		"prefix": "oo_fields.Html"
 	},
 	"fields.Integer": {
 		"body": [
@@ -905,7 +905,7 @@
 			""
 		],
 		"description": "",
-		"prefix": "fields.Integer"
+		"prefix": "oo_fields.Integer"
 	},
 	"fields.Many2many": {
 		"body": [
@@ -920,7 +920,7 @@
 			""
 		],
 		"description": "",
-		"prefix": "fields.Many2many"
+		"prefix": "oo_fields.Many2many"
 	},
 	"fields.Many2one": {
 		"body": [
@@ -933,7 +933,7 @@
 			""
 		],
 		"description": "",
-		"prefix": "fields.Many2one"
+		"prefix": "oo_fields.Many2one"
 	},
 	"fields.One2many": {
 		"body": [
@@ -946,7 +946,7 @@
 			""
 		],
 		"description": "",
-		"prefix": "fields.One2many"
+		"prefix": "oo_fields.One2many"
 	},
 	"fields.Reference": {
 		"body": [
@@ -958,7 +958,7 @@
 			""
 		],
 		"description": "",
-		"prefix": "fields.Reference"
+		"prefix": "oo_fields.Reference"
 	},
 	"fields.Selection": {
 		"body": [
@@ -970,7 +970,7 @@
 			""
 		],
 		"description": "",
-		"prefix": "fields.Selection"
+		"prefix": "oo_fields.Selection"
 	},
 	"fields.Text": {
 		"body": [
@@ -981,7 +981,7 @@
 			""
 		],
 		"description": "",
-		"prefix": "fields.Text"
+		"prefix": "oo_fields.Text"
 	},
 	"file/__init__": {
 		"body": [
@@ -996,7 +996,7 @@
 			""
 		],
 		"description": "__init__ file",
-		"prefix": "file/__init__"
+		"prefix": "oo_file/__init__"
 	},
 	"file/__manifest__": {
 		"body": [
@@ -1073,7 +1073,7 @@
 			""
 		],
 		"description": "Odoo manifest file common structure",
-		"prefix": "file/__manifest__"
+		"prefix": "oo_file/__manifest__"
 	},
 	"file/__manifest__1": {
 		"body": [
@@ -1150,7 +1150,7 @@
 			""
 		],
 		"description": "Odoo manifest file common structure",
-		"prefix": "file/__manifest__"
+		"prefix": "oo_file/__manifest__"
 	},
 	"file/__openerp__": {
 		"body": [
@@ -1227,7 +1227,7 @@
 			""
 		],
 		"description": "Odoo manifest file common structure",
-		"prefix": "file/__openerp__"
+		"prefix": "oo_file/__openerp__"
 	},
 	"file/coding": {
 		"body": [
@@ -1237,7 +1237,7 @@
 			""
 		],
 		"description": "utf-8 coding",
-		"prefix": "file/coding"
+		"prefix": "oo_file/coding"
 	},
 	"file/controller": {
 		"body": [
@@ -1254,7 +1254,7 @@
 			""
 		],
 		"description": "Odoo web controller file",
-		"prefix": "file/controller"
+		"prefix": "oo_file/controller"
 	},
 	"file/model": {
 		"body": [
@@ -1271,7 +1271,7 @@
 			""
 		],
 		"description": "Odoo model file",
-		"prefix": "file/model"
+		"prefix": "oo_file/model"
 	},
 	"help": {
 		"body": [
@@ -1280,7 +1280,7 @@
 			""
 		],
 		"description": "Field attribute: help",
-		"prefix": "help"
+		"prefix": "oo_help"
 	},
 	"import/datetime": {
 		"body": [
@@ -1293,7 +1293,7 @@
 			""
 		],
 		"description": "import date and time tools",
-		"prefix": "import/datetime"
+		"prefix": "oo_import/datetime"
 	},
 	"import/dp": {
 		"body": [
@@ -1303,7 +1303,7 @@
 			""
 		],
 		"description": "",
-		"prefix": "import/dp"
+		"prefix": "oo_import/dp"
 	},
 	"import/exceptions": {
 		"body": [
@@ -1313,7 +1313,7 @@
 			""
 		],
 		"description": "",
-		"prefix": "import/exceptions"
+		"prefix": "oo_import/exceptions"
 	},
 	"import/logging": {
 		"body": [
@@ -1324,7 +1324,7 @@
 			""
 		],
 		"description": "logging instance",
-		"prefix": "import/logging"
+		"prefix": "oo_import/logging"
 	},
 	"import/translate": {
 		"body": [
@@ -1333,7 +1333,7 @@
 			""
 		],
 		"description": "import odoo translate",
-		"prefix": "import/translate"
+		"prefix": "oo_import/translate"
 	},
 	"index": {
 		"body": [
@@ -1342,7 +1342,7 @@
 			""
 		],
 		"description": "Field attribute: index",
-		"prefix": "index"
+		"prefix": "oo_index"
 	},
 	"inverse": {
 		"body": [
@@ -1351,7 +1351,7 @@
 			""
 		],
 		"description": "Field attribute: inverse, lambda function",
-		"prefix": "inverse"
+		"prefix": "oo_inverse"
 	},
 	"limit": {
 		"body": [
@@ -1360,7 +1360,7 @@
 			""
 		],
 		"description": "Field attribute: limit",
-		"prefix": "limit"
+		"prefix": "oo_limit"
 	},
 	"method/_browse": {
 		"body": [
@@ -1385,7 +1385,7 @@
 			""
 		],
 		"description": "_browse method signature",
-		"prefix": "method/_browse"
+		"prefix": "oo_method/_browse"
 	},
 	"method/_onchange": {
 		"body": [
@@ -1397,7 +1397,7 @@
 			""
 		],
 		"description": "_onchange method signature, code",
-		"prefix": "method/_onchange"
+		"prefix": "oo_method/_onchange"
 	},
 	"method/_onchange1": {
 		"body": [
@@ -1412,7 +1412,7 @@
 			""
 		],
 		"description": "_onchange method signature, domain",
-		"prefix": "method/_onchange"
+		"prefix": "oo_method/_onchange"
 	},
 	"method/_onchange2": {
 		"body": [
@@ -1428,7 +1428,7 @@
 			""
 		],
 		"description": "_onchange method signature, warning",
-		"prefix": "method/_onchange"
+		"prefix": "oo_method/_onchange"
 	},
 	"method/_search": {
 		"body": [
@@ -1438,7 +1438,7 @@
 			""
 		],
 		"description": "_search method signature",
-		"prefix": "method/_search"
+		"prefix": "oo_method/_search"
 	},
 	"method/action_confirm": {
 		"body": [
@@ -1452,7 +1452,7 @@
 			""
 		],
 		"description": "action_confirm method signature",
-		"prefix": "method/action_confirm"
+		"prefix": "oo_method/action_confirm"
 	},
 	"method/compute": {
 		"body": [
@@ -1465,7 +1465,7 @@
 			""
 		],
 		"description": "_compute method signature",
-		"prefix": "method/compute"
+		"prefix": "oo_method/compute"
 	},
 	"method/copy": {
 		"body": [
@@ -1487,7 +1487,7 @@
 			""
 		],
 		"description": "copy method signature",
-		"prefix": "method/copy"
+		"prefix": "oo_method/copy"
 	},
 	"method/create": {
 		"body": [
@@ -1507,7 +1507,7 @@
 			""
 		],
 		"description": "create method signature",
-		"prefix": "method/create"
+		"prefix": "oo_method/create"
 	},
 	"method/default_get": {
 		"body": [
@@ -1522,7 +1522,7 @@
 			""
 		],
 		"description": "default_get method signature",
-		"prefix": "method/default_get"
+		"prefix": "oo_method/default_get"
 	},
 	"method/fields_get": {
 		"body": [
@@ -1546,7 +1546,7 @@
 			""
 		],
 		"description": "fields_get remove fields from search and groubby",
-		"prefix": "method/fields_get"
+		"prefix": "oo_method/fields_get"
 	},
 	"method/get_empty_list_help": {
 		"body": [
@@ -1561,7 +1561,7 @@
 			""
 		],
 		"description": "get_empty_list_help method signature",
-		"prefix": "method/get_empty_list_help"
+		"prefix": "oo_method/get_empty_list_help"
 	},
 	"method/get_formview_id": {
 		"body": [
@@ -1578,7 +1578,7 @@
 			""
 		],
 		"description": "get_formview_id method signature",
-		"prefix": "method/get_formview_id"
+		"prefix": "oo_method/get_formview_id"
 	},
 	"method/init": {
 		"body": [
@@ -1602,7 +1602,7 @@
 			""
 		],
 		"description": "init method signature",
-		"prefix": "method/init"
+		"prefix": "oo_method/init"
 	},
 	"method/name_get": {
 		"body": [
@@ -1622,7 +1622,7 @@
 			""
 		],
 		"description": "name_get method signature",
-		"prefix": "method/name_get"
+		"prefix": "oo_method/name_get"
 	},
 	"method/name_search": {
 		"body": [
@@ -1644,7 +1644,7 @@
 			""
 		],
 		"description": "name_search method signature",
-		"prefix": "method/name_search"
+		"prefix": "oo_method/name_search"
 	},
 	"method/toggle_active": {
 		"body": [
@@ -1659,7 +1659,7 @@
 			""
 		],
 		"description": "toggle_active method signature",
-		"prefix": "method/toggle_active"
+		"prefix": "oo_method/toggle_active"
 	},
 	"method/unlink": {
 		"body": [
@@ -1681,7 +1681,7 @@
 			""
 		],
 		"description": "unlink method signature",
-		"prefix": "method/unlink"
+		"prefix": "oo_method/unlink"
 	},
 	"method/unlink_restrict": {
 		"body": [
@@ -1697,7 +1697,7 @@
 			""
 		],
 		"description": "restrict unlink",
-		"prefix": "method/unlink_restrict"
+		"prefix": "oo_method/unlink_restrict"
 	},
 	"method/view_header_get": {
 		"body": [
@@ -1710,7 +1710,7 @@
 			""
 		],
 		"description": "view_header_get method signature",
-		"prefix": "method/view_header_get"
+		"prefix": "oo_method/view_header_get"
 	},
 	"method/view_init": {
 		"body": [
@@ -1723,7 +1723,7 @@
 			""
 		],
 		"description": "view_init method signature",
-		"prefix": "method/view_init"
+		"prefix": "oo_method/view_init"
 	},
 	"method/write": {
 		"body": [
@@ -1745,7 +1745,7 @@
 			""
 		],
 		"description": "write method signature",
-		"prefix": "method/write"
+		"prefix": "oo_method/write"
 	},
 	"model/abstract": {
 		"body": [
@@ -1757,7 +1757,7 @@
 			""
 		],
 		"description": "Odoo abstract model class",
-		"prefix": "model/abstract"
+		"prefix": "oo_model/abstract"
 	},
 	"model/inherit": {
 		"body": [
@@ -1769,7 +1769,7 @@
 			""
 		],
 		"description": "Odoo inherit model class",
-		"prefix": "model/inherit"
+		"prefix": "oo_model/inherit"
 	},
 	"model/model": {
 		"body": [
@@ -1792,7 +1792,7 @@
 			""
 		],
 		"description": "Odoo generic model class",
-		"prefix": "model/model"
+		"prefix": "oo_model/model"
 	},
 	"model/transient": {
 		"body": [
@@ -1805,7 +1805,7 @@
 			""
 		],
 		"description": "Odoo transient model class",
-		"prefix": "model/transient"
+		"prefix": "oo_model/transient"
 	},
 	"ondelete": {
 		"body": [
@@ -1814,7 +1814,7 @@
 			""
 		],
 		"description": "Field attribute: ondelete",
-		"prefix": "ondelete"
+		"prefix": "oo_ondelete"
 	},
 	"oodict/stock_move/~12": {
 		"body": [
@@ -1844,7 +1844,7 @@
 			""
 		],
 		"description": "",
-		"prefix": "oodict/stock_move/~12"
+		"prefix": "oo_oodict/stock_move/~12"
 	},
 	"readonly": {
 		"body": [
@@ -1853,7 +1853,7 @@
 			""
 		],
 		"description": "Field attribute: readonly",
-		"prefix": "readonly"
+		"prefix": "oo_readonly"
 	},
 	"readonly/states": {
 		"body": [
@@ -1862,7 +1862,7 @@
 			""
 		],
 		"description": "Field attribute: readonly states",
-		"prefix": "readonly/states"
+		"prefix": "oo_readonly/states"
 	},
 	"related": {
 		"body": [
@@ -1873,7 +1873,7 @@
 			""
 		],
 		"description": "Field attribute: related",
-		"prefix": "related"
+		"prefix": "oo_related"
 	},
 	"related_sudo": {
 		"body": [
@@ -1882,7 +1882,7 @@
 			""
 		],
 		"description": "Field attribute: related_sudo",
-		"prefix": "related_sudo"
+		"prefix": "oo_related_sudo"
 	},
 	"required": {
 		"body": [
@@ -1891,7 +1891,7 @@
 			""
 		],
 		"description": "Field attribute: required",
-		"prefix": "required"
+		"prefix": "oo_required"
 	},
 	"return/act_window": {
 		"body": [
@@ -1907,7 +1907,7 @@
 			""
 		],
 		"description": "pop window",
-		"prefix": "return/act_window"
+		"prefix": "oo_return/act_window"
 	},
 	"return/act_window_close": {
 		"body": [
@@ -1916,7 +1916,7 @@
 			""
 		],
 		"description": "close window",
-		"prefix": "return/act_window_close"
+		"prefix": "oo_return/act_window_close"
 	},
 	"selection_add": {
 		"body": [
@@ -1925,7 +1925,7 @@
 			""
 		],
 		"description": "Field attribute: selection_add ",
-		"prefix": "selection_add"
+		"prefix": "oo_selection_add"
 	},
 	"selection_element": {
 		"body": [
@@ -1934,7 +1934,7 @@
 			""
 		],
 		"description": "Field attribute: selection add new element ",
-		"prefix": "selection_element"
+		"prefix": "oo_selection_element"
 	},
 	"sequence/line_number": {
 		"body": [
@@ -1964,7 +1964,7 @@
 			""
 		],
 		"description": "Line Number Add 10 automaticlly",
-		"prefix": "sequence/line_number"
+		"prefix": "oo_sequence/line_number"
 	},
 	"sequence/next_by_code": {
 		"body": [
@@ -1982,7 +1982,7 @@
 			""
 		],
 		"description": "next_by_code, used in create()",
-		"prefix": "sequence/next_by_code"
+		"prefix": "oo_sequence/next_by_code"
 	},
 	"size": {
 		"body": [
@@ -1991,7 +1991,7 @@
 			""
 		],
 		"description": "Field attribute: size",
-		"prefix": "size"
+		"prefix": "oo_size"
 	},
 	"states": {
 		"body": [
@@ -2000,7 +2000,7 @@
 			""
 		],
 		"description": "Field attribute: states",
-		"prefix": "states"
+		"prefix": "oo_states"
 	},
 	"states/invisible": {
 		"body": [
@@ -2009,7 +2009,7 @@
 			""
 		],
 		"description": "Field attribute: states state invisible",
-		"prefix": "states/invisible"
+		"prefix": "oo_states/invisible"
 	},
 	"states/readonly": {
 		"body": [
@@ -2018,7 +2018,7 @@
 			""
 		],
 		"description": "Field attribute: states state readonly",
-		"prefix": "states/readonly"
+		"prefix": "oo_states/readonly"
 	},
 	"states/required": {
 		"body": [
@@ -2027,7 +2027,7 @@
 			""
 		],
 		"description": "Field attribute: states state required",
-		"prefix": "states/required"
+		"prefix": "oo_states/required"
 	},
 	"states/state": {
 		"body": [
@@ -2036,7 +2036,7 @@
 			""
 		],
 		"description": "Field attribute: states state",
-		"prefix": "states/state"
+		"prefix": "oo_states/state"
 	},
 	"store": {
 		"body": [
@@ -2045,7 +2045,7 @@
 			""
 		],
 		"description": "Field attribute: store",
-		"prefix": "store"
+		"prefix": "oo_store"
 	},
 	"string": {
 		"body": [
@@ -2054,7 +2054,7 @@
 			""
 		],
 		"description": "Field attribute: string",
-		"prefix": "string"
+		"prefix": "oo_string"
 	},
 	"super": {
 		"body": [
@@ -2063,7 +2063,7 @@
 			""
 		],
 		"description": "Call Python parent class",
-		"prefix": "super"
+		"prefix": "oo_super"
 	},
 	"test": {
 		"body": [
@@ -2076,7 +2076,7 @@
 			""
 		],
 		"description": "Test case method",
-		"prefix": "test"
+		"prefix": "oo_test"
 	},
 	"track_visibility": {
 		"body": [
@@ -2085,7 +2085,7 @@
 			""
 		],
 		"description": "Field attribute: track_visibility",
-		"prefix": "track_visibility"
+		"prefix": "oo_track_visibility"
 	},
 	"translate": {
 		"body": [
@@ -2094,7 +2094,7 @@
 			""
 		],
 		"description": "Field attribute: translate",
-		"prefix": "translate"
+		"prefix": "oo_translate"
 	},
 	"x2m/create": {
 		"body": [
@@ -2103,7 +2103,7 @@
 			""
 		],
 		"description": "x2m create",
-		"prefix": "x2m/create"
+		"prefix": "oo_x2m/create"
 	},
 	"x2m/delete": {
 		"body": [
@@ -2112,7 +2112,7 @@
 			""
 		],
 		"description": "x2m delete, don't use in create()",
-		"prefix": "x2m/delete"
+		"prefix": "oo_x2m/delete"
 	},
 	"x2m/link": {
 		"body": [
@@ -2121,7 +2121,7 @@
 			""
 		],
 		"description": "x2m link, don't use in One2many",
-		"prefix": "x2m/link"
+		"prefix": "oo_x2m/link"
 	},
 	"x2m/replace": {
 		"body": [
@@ -2130,7 +2130,7 @@
 			""
 		],
 		"description": "x2m replace, don't use in create() and One2many",
-		"prefix": "x2m/replace"
+		"prefix": "oo_x2m/replace"
 	},
 	"x2m/unlink": {
 		"body": [
@@ -2139,7 +2139,7 @@
 			""
 		],
 		"description": "x2m unlink, don't use in create()",
-		"prefix": "x2m/unlink"
+		"prefix": "oo_x2m/unlink"
 	},
 	"x2m/unlink_all": {
 		"body": [
@@ -2148,7 +2148,7 @@
 			""
 		],
 		"description": "x2m unlink all, don't use in create()",
-		"prefix": "x2m/unlink_all"
+		"prefix": "oo_x2m/unlink_all"
 	},
 	"x2m/update": {
 		"body": [
@@ -2157,6 +2157,6 @@
 			""
 		],
 		"description": "x2m update, don't use in create()",
-		"prefix": "x2m/update"
+		"prefix": "oo_x2m/update"
 	}
 }
