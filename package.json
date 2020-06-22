@@ -2,7 +2,7 @@
     "name": "odoo-snippets",
     "displayName": "Odoo Snippets",
     "description": "Code Snippets for Odoo using new api, support Python, XML.",
-    "version": "0.6.1",
+    "version": "0.7.1",
     "publisher": "jeffery9",
     "engines": {
         "vscode": "^1.0.0"
