@@ -648,7 +648,7 @@
 	"domain": {
 		"body": [
 			"",
-			"domain=[('${1}','${2}',${3})]${0}",
+			"domain=[('${1}','${2|=,in,not in|',${3})]${0}",
 			""
 		],
 		"description": "Field attribute: domain",
@@ -794,6 +794,28 @@
 		"description": "Adds utm support",
 		"prefix": "oo_feature/utm"
 	},
+	"fields.simple": {
+		"body": [
+			"",
+			"${1:field_name} = fields.${9|Attachment,Binary,Boolean,Char,Date,Datetime,Float,Html,Image,Integer,Monetary,Text|}(",
+			"    string='${2:${1/(.*?)_([a-zA-Z])/${1:/capitalize} ${2:/capitalize}/g}}',",
+			")${0}",
+			""
+		],
+		"description": "",
+		"prefix": "oo_fields.simple"
+	},
+	"fields.relation": {
+		"body": [
+			"",
+			"${1:field_name} = fields.${9|Many2one,Many2many,One2many,Reference|}(",
+			"    string='${2:${1/(.*?)_([a-zA-Z])/${1:/capitalize} ${2:/capitalize}/g}}',",
+			")${0}",
+			""
+		],
+		"description": "",
+		"prefix": "oo_fields.relation"
+	},
 	"field.company_id": {
 		"body": [
 			"",
@@ -914,8 +936,8 @@
 			"    string='${2:${1/(.*?)_([a-zA-Z])/${1:/capitalize} ${2:/capitalize}/g}}',",
 			"    comodel_name='${8:model.name}',",
 			"    relation='${10:${8/\\./_/g}_${9:this_model}_rel}',",
-			"    column1='${11:${8/\\./_/g}_id}',",
-			"    column2='${12:${9}_id}',",
+			"    column1='${11:${9/\\./_/g}_id}',",
+			"    column2='${12:${8/\\./_/g}_id}',",
 			")${0}",
 			""
 		],
